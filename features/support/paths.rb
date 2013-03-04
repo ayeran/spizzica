@@ -19,6 +19,13 @@ module NavigationHelpers
     when /^the item page$/
       items_path
 
+    when /^the order page$/
+      orders_path
+
+    when /^the user page$/
+      users_path
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

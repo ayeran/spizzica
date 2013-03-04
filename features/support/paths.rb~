@@ -16,8 +16,18 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+#    when /^the (.+) page$/
+#      path_to(orders_path)
+
     when /^the item page$/
-      'items'
+      return "item"+"s_path"
+
+#    when /^the item page$/
+#      items_path
+
+    when /^the order page$/
+      orders_path
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
