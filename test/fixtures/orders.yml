@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: MyString
+  addr: MyText
+  time: 2013-03-04 09:08:38
+  status: MyString
+  info: MyText
+
+two:
+  user_id: MyString
+  addr: MyText
+  time: 2013-03-04 09:08:38
+  status: MyString
+  info: MyText
