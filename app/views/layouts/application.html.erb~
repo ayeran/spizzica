@@ -16,7 +16,7 @@
 <% end %>
 
 <% if admin_signed_in? %>
-  <%= link_to "My Profile", admin_root_path%>
+  <%# link_to "My Profile", admin_root_path%>
   <%= link_to('Logout', destroy_admin_session_path, :method=>'delete') %>  
 <%end%>
 <% if !admin_signed_in? %>

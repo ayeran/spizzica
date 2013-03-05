@@ -7,13 +7,13 @@ Spizzicaluna::Application.routes.draw do
 	
 #	resources :users
 #  devise_for :admins
-#	devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+#	devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "admin"
 
   resources :orders
   resources :items
   resources :users
 
-devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "admin"
 resources :admins
 
 

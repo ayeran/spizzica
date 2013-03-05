@@ -16,17 +16,17 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-#    when /^the (.+) page$/
-#      path_to(orders_path)
-
     when /^the item page$/
-      return "item"+"s_path"
-
-#    when /^the item page$/
-#      items_path
+      items_path
 
     when /^the order page$/
       orders_path
+
+    when /^the user page$/
+      users_path
+
+		when /^the page 'adminlogin'$/
+			admin_session_path
 
 
     # Add more mappings here.

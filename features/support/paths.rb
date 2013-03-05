@@ -25,6 +25,9 @@ module NavigationHelpers
     when /^the user page$/
       users_path
 
+		when /^the page "adminlogin"$/
+			admin_session_path
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
