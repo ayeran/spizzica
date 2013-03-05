@@ -41,6 +41,7 @@ gem 'jquery-rails'
 
 # To use debugger
 gem 'haml'
+gem "haml-rails"
 
     # add to end of Gemfile
 group :test, :development do
