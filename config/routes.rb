@@ -1,14 +1,21 @@
 Spizzicaluna::Application.routes.draw do
+  devise_for :views
+
 	root :to => "home#index"
+#  get "home/index"
 
-  get "home/index"
-
+	
+#	resources :users
+#  devise_for :admins
+#	devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
 
   resources :orders
-
   resources :items
-
   resources :users
+
+devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+resources :admins
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
