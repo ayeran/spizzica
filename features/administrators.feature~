@@ -6,7 +6,7 @@ Feature: administrators can login from the site
 Scenario: presense of the view to login
  Given I am on the page "adminlogin"
  Then I should see "Sign in"
- And I fill in "Email" with "test@test.test"
- And I fill in "Password" with "password"
+ And I fill in "Email" with "some@fake.email"
+ And I fill in "Password" with "some wrong password"
  And I press "Sign in"
  Then I should see "Invalid email or password."

@@ -9,10 +9,6 @@ Background:
 Scenario: presence of "Spizzicaluna" on the home page
  Then I should see "Spizzicaluna"
 
-Scenario: presence of the link to Users
- And I follow "Users"
- Then I should see "Listing users"
-
 Scenario: presence of the link to Orders
  And I follow "Orders"
  Then I should see "Listing orders"
