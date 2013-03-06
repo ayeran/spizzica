@@ -44,7 +44,7 @@ gem 'haml'
 gem "haml-rails"
 gem "devise"
 gem "cancan"
-gem 'railsroady'
+
 
 
 group :development do
