@@ -13,8 +13,12 @@
 
 
 
+
 <%
 =begin %>
+
+<%# this is a commented block %>
+
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 <% flash.each do |name, msg| %>
@@ -27,6 +31,8 @@
 	<% else %>
   <%= link_to('Login', admin_session_path, :method=>'get') %>  
 <%end%>
+
+
 <%
 =end %>
 
