@@ -16,6 +16,12 @@ Spizzicaluna::Application.routes.draw do
 devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "admin"
 resources :admins
 
+namespace :adminspace do
+	match '/' => 'admins#index'
+	resources :admins
+end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
