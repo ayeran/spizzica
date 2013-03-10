@@ -16,4 +16,8 @@ Scenario: presence of the link to Orders
 Scenario: presence of the link to Items
  And I follow "Items"
  Then I should see "Listing items"
+ 
+Scenario: presence of the link to Ingredients
+ And I follow "Ingredients"
+ Then I should see "Listing ingredients"
 

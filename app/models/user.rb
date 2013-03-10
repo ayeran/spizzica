@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   # Default role is "registered"
   def setup_role 
     if self.role_ids.empty?     
-      self.role_ids = [3] #Role.find_by_name("registered").id
+      self.role_ids =  Role.find_by_name("registered").id
     end
   end
 end

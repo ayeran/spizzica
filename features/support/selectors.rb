@@ -3,6 +3,12 @@
 # This file is used by web_steps.rb, which you should also delete
 #
 # You have been warned
+
+
+# Capybara.add_selector(:link) do
+  # xpath {|rel| ".//a[@rel='#{rel}']"}
+# end
+
 module HtmlSelectorsHelpers
   # Maps a name to a selector. Used primarily by the
   #
