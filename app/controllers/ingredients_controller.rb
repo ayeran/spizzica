@@ -1,6 +1,9 @@
 class IngredientsController < ApplicationController
   # GET /ingredients
-  # GET /ingredients.json
+  # GET /ingredients.json  
+  
+  before_filter :verify_admin
+  
   def index
     @ingredients = Ingredient.all
 

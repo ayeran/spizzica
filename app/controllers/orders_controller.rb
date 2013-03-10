@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
+  
+  before_filter :verify_admin
+    
   def index
     @orders = Order.all
 
