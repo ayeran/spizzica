@@ -1,0 +1,9 @@
+digraph models_diagram {
+	graph[overlap=false, splines=true]
+	"Role" [shape=Mrecord, label="{Role|id :integer\lname :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"User" [shape=Mrecord, label="{User|id :integer\lemail :string\lencrypted_password :string\lreset_password_token :string\lreset_password_sent_at :datetime\lremember_created_at :datetime\lsign_in_count :integer\lcurrent_sign_in_at :datetime\llast_sign_in_at :datetime\lcurrent_sign_in_ip :string\llast_sign_in_ip :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Order" [shape=Mrecord, label="{Order|id :integer\luser_id :string\laddr :text\ltime :datetime\lstatus :string\linfo :text\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Item" [shape=Mrecord, label="{Item|id :integer\lname :string\ldescription :text\lstatus :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Ingredient" [shape=Mrecord, label="{Ingredient|id :integer\lname :string\ldescription :text\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Role" -> "User" [arrowtail=crow, arrowhead=crow, dir=both color="#0D935B"]
+}

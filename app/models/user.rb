@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
+  has_and_belongs_to_many :orders
   before_save :setup_role
 
   # Include default devise modules. Others available are:
