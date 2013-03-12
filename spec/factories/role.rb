@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :role do
-    id 1 
+    id 2
   end
 end

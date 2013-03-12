@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
-  before_filter :verify_admin
+  
   
   def index
     @items = Item.all

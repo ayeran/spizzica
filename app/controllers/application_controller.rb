@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :verify_admin, :except =>:index
 
   def verify_admin
     :authenticate_user!

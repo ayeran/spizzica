@@ -19,15 +19,13 @@
   <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 <% end %>
 
-
-
-<%# this is a commented block %>
-
-
 <% if user_signed_in? %>
   <%# link_to "My Profile", user_root_path%>
-  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>  
+  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %> 
+  <p>You are logged in as 
+  <%= current_user.roles.map{|r| r.name}%> </p>
 	<% else %>
+	<p>Welcome, visitor!</p> 
   <%= link_to('Login', user_session_path, :method=>'get') %>  
 <%end%>
 

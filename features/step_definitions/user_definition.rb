@@ -52,7 +52,10 @@ Given /^I should see link to (.+)/ do |link|
 end
 
 Given /^I am not logged in$/ do
-  visit '/users/sign_out'
+  #visit '/users/sign_out'
+  if page.has_content?("Logout") 
+    click_link("Logout") 
+  end
 end
 
 Given /^I am logged in$/ do
