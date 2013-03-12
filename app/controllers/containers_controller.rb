@@ -1,6 +1,7 @@
 class ContainersController < ApplicationController
   # GET /containers
   # GET /containers.json
+  before_filter :verify_admin, :except =>:index
   def index
     @containers = Container.all
 

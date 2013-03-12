@@ -1,6 +1,7 @@
 class BeerStylesController < ApplicationController
   # GET /beer_styles
   # GET /beer_styles.json
+  before_filter :verify_admin, :except =>:index
   def index
     @beer_styles = BeerStyle.all
 
