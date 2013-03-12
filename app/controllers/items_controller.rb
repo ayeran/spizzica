@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   
-  
+  before_filter :verify_admin, :except =>:index
   def index
     @items = Item.all
 

@@ -7,8 +7,8 @@ digraph models_diagram {
 	"Item" [shape=Mrecord, label="{Item|id :integer\lname :string\ldescription :text\lstatus :string\lcreated_at :datetime\lupdated_at :datetime\lingredients_id :integer\l}"]
 	"Ingredient" [shape=Mrecord, label="{Ingredient|id :integer\lname :string\ldescription :text\lcreated_at :datetime\lupdated_at :datetime\l}"]
 	"AdminAbility" [shape=record, label="{AdminAbility|}"]
-	"Role" -> "User" [arrowtail=crow, arrowhead=crow, dir=both color="#F21550"]
-	"User" -> "Order" [arrowtail=crow, arrowhead=crow, dir=both color="#57B524"]
-	"Order" -> "Item" [arrowtail=crow, arrowhead=crow, dir=both color="#787580"]
-	"Item" -> "Ingredient" [arrowtail=crow, arrowhead=crow, dir=both color="#C94528"]
+	"Role" -> "User" [arrowtail=crow, arrowhead=crow, dir=both color="#3CEC91"]
+	"User" -> "Order" [arrowtail=crow, arrowhead=crow, dir=both color="#088A2E"]
+	"Order" -> "Item" [arrowtail=crow, arrowhead=crow, dir=both color="#162022"]
+	"Item" -> "Ingredient" [arrowtail=crow, arrowhead=crow, dir=both color="#DDA72C"]
 }

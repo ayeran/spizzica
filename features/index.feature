@@ -10,17 +10,11 @@ Background:
 Scenario: presence of "Spizzicaluna" on the home page
  Then I should see "Spizzicaluna"
 
-Scenario: presence of the link to Orders
- And I follow "Orders"
- Then I should see "Listing orders"
-
-Scenario: presence of the link to Items
- And I follow "Items"
- Then I should see "Listing items"
- 
-Scenario: presence of the link to Ingredients
- And I follow "Ingredients"
- Then I should see "Listing ingredients"
+Scenario: presence of the links 
+ And I should see link to Orders
+ And I should see link to Items
+ And I should see link to Ingredients
+ And I should see link to Beers
 
 Scenario: homepage reports credentials of non-authenticated user
  Then I should see "Welcome, visitor!"

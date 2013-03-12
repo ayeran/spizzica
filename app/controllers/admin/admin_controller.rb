@@ -1,6 +1,5 @@
 class Admin::AdminController < ApplicationController
   layout "admin"
-  before_filter :verify_admin
 
   def verify_admin
     :authenticate_user!
