@@ -6,7 +6,7 @@
     %th Type
     %th Taste
     %th Strength
-    %th
+    %th Description
     %th
     %th
 
@@ -16,6 +16,7 @@
       %td= beer.type
       %td= beer.taste
       %td= beer.strength
+      %td= beer.description
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)
       %td= link_to 'Destroy', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }
