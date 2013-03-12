@@ -1,4 +1,10 @@
 Spizzicaluna::Application.routes.draw do
+  resources :beers
+
+  resources :containers
+
+  resources :beer_styles
+
   resources :ingredients
 
   devise_for :users

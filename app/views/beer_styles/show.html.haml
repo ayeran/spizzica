@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @beer_style.name
+%p
+  %b Description:
+  = @beer_style.description
+%p
+  %b Added by:
+  - @user = User.find(@beer_style.added_by) 
+  = @user.nil? ? "no info" : @user.email 
+%p
+  %b Updated by:
+  = @beer_style.updated_by
+
+= link_to 'Edit', edit_beer_style_path(@beer_style)
+\|
+= link_to 'Back', beer_styles_path
+\|
+= link_to 'New Beer style', new_beer_style_path

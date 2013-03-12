@@ -1,0 +1,23 @@
+%h1 Listing containers
+
+%table
+  %tr
+    %th Name
+    %th Added by
+    %th Updated by
+    %th
+    %th
+    %th
+
+  - @containers.each do |container|
+    %tr
+      %td= container.name
+      %td= container.added_by
+      %td= container.updated_by
+      %td= link_to 'Show', container
+      %td= link_to 'Edit', edit_container_path(container)
+      %td= link_to 'Destroy', container, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Container', new_container_path

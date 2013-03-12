@@ -18,6 +18,12 @@ module NavigationHelpers
 
     when /^the (.+) page$/
      send("#{$1}s_path")
+     
+     when /^the page "Beer Styles"$/
+       beer_styles_path
+
+     when /^the page "Containers"$/
+       containers_path
 
 
 #    when /^the item page$/

@@ -14,7 +14,8 @@ Scenario: presence of the links
  And I should see link to Orders
  And I should see link to Items
  And I should see link to Ingredients
- And I should see link to Beers
+ And I should see link to Beer Styles
+ And I should see link to Format
 
 Scenario: homepage reports credentials of non-authenticated user
  Then I should see "Welcome, visitor!"
