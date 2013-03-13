@@ -28,7 +28,7 @@ class BeersController < ApplicationController
     @beer = Beer.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html #{render 'with_addit_info.html.haml'}# new.html.erb
       format.json { render json: @beer }
     end
   end
@@ -42,7 +42,8 @@ class BeersController < ApplicationController
   # POST /beers.json
   def create
     @beer = Beer.new(params[:beer])
-
+    @beer.added_by = current_user.id
+    
     respond_to do |format|
       if @beer.save
         format.html { redirect_to @beer, notice: 'Beer was successfully created.' }
@@ -58,6 +59,7 @@ class BeersController < ApplicationController
   # PUT /beers/1.json
   def update
     @beer = Beer.find(params[:id])
+    @beer.updated_by = current_user.id
 
     respond_to do |format|
       if @beer.update_attributes(params[:beer])
