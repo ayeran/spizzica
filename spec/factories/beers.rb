@@ -3,10 +3,9 @@
 FactoryGirl.define do
   factory :beer do
     name "MyString"
-    aroma "MyString"
-    flavor 1
-    foam "MyString"
-    color "MyString"
+    manufacturer_id 1
     strength "9.99"
+    container_id 1
+    lid_id 1
   end
 end

@@ -4,20 +4,17 @@
   %b Name:
   = @beer.name
 %p
-  %b Aroma:
-  = @beer.aroma
-%p
-  %b Flavor:
-  = @beer.flavor
-%p
-  %b Foam:
-  = @beer.foam
-%p
-  %b Color:
-  = @beer.color
+  %b Manufacturer:
+  = @beer.manufacturer_id
 %p
   %b Strength:
   = @beer.strength
+%p
+  %b Container:
+  = @beer.container_id
+%p
+  %b Lid:
+  = @beer.lid_id
 
 = link_to 'Edit', edit_beer_path(@beer)
 \|

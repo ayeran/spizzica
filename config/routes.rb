@@ -1,9 +1,21 @@
 Spizzicaluna::Application.routes.draw do
+  resources :foams
+
+  resources :tastes
+
+  resources :colors
+
+  resources :aromas
+
+  resources :lids
+
+  resources :manufacturers
+
+  resources :beerstyles
+
   resources :beers
 
   resources :containers
-
-  resources :beerstyles
 
   resources :ingredients
 

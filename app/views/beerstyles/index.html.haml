@@ -1,0 +1,19 @@
+%h1 Listing beerstyles
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @beerstyles.each do |beerstyle|
+    %tr
+      %td= beerstyle.name
+      %td= link_to 'Show', beerstyle
+      %td= link_to 'Edit', edit_beerstyle_path(beerstyle)
+      %td= link_to 'Destroy', beerstyle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Beerstyle', new_beerstyle_path

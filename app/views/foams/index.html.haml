@@ -1,0 +1,19 @@
+%h1 Listing foams
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @foams.each do |foam|
+    %tr
+      %td= foam.name
+      %td= link_to 'Show', foam
+      %td= link_to 'Edit', edit_foam_path(foam)
+      %td= link_to 'Destroy', foam, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Foam', new_foam_path

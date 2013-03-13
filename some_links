@@ -4,3 +4,6 @@ http://edapx.com/2012/04/18/authorization-and-user-management-in-rails/
 RailRoady
 RailRoady generates Rails 3 model (AcitveRecord, Mongoid, Datamapper) and controller UML diagrams as cross-platform .svg files, as well as in the DOT language.
 https://github.com/preston/railroady
+
+Nested forms in views
+http://railscasts.com/episodes/196-nested-model-form-part-1

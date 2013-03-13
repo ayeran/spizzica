@@ -1,0 +1,19 @@
+%h1 Listing aromas
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @aromas.each do |aroma|
+    %tr
+      %td= aroma.name
+      %td= link_to 'Show', aroma
+      %td= link_to 'Edit', edit_aroma_path(aroma)
+      %td= link_to 'Destroy', aroma, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Aroma', new_aroma_path

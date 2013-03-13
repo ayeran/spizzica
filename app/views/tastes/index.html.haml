@@ -1,0 +1,19 @@
+%h1 Listing tastes
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @tastes.each do |taste|
+    %tr
+      %td= taste.name
+      %td= link_to 'Show', taste
+      %td= link_to 'Edit', edit_taste_path(taste)
+      %td= link_to 'Destroy', taste, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Taste', new_taste_path

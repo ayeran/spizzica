@@ -11,36 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313173416) do
+ActiveRecord::Schema.define(:version => 20130313220906) do
+
+  create_table "aromas", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "beers", :force => true do |t|
     t.string   "name"
-    t.string   "aroma"
-    t.integer  "flavor"
-    t.string   "foam"
-    t.string   "color"
+    t.integer  "manufacturer_id"
     t.decimal  "strength"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.decimal  "volume"
+    t.integer  "container_id"
+    t.integer  "lid_id"
     t.integer  "added_by"
     t.integer  "updated_by"
-    t.integer  "container_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "beerstyles", :force => true do |t|
     t.string   "name"
-    t.text     "description"
-    t.integer  "added_by"
-    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colors", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "containers", :force => true do |t|
     t.string   "name"
-    t.integer  "added_by"
-    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foams", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +69,18 @@ ActiveRecord::Schema.define(:version => 20130313173416) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ingredients_id"
+  end
+
+  create_table "lids", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manufacturers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "orders", :force => true do |t|
@@ -80,6 +102,12 @@ ActiveRecord::Schema.define(:version => 20130313173416) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "tastes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

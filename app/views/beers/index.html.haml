@@ -3,11 +3,10 @@
 %table
   %tr
     %th Name
-    %th Aroma
-    %th Flavor
-    %th Foam
-    %th Color
+    %th Manufacturer
     %th Strength
+    %th Container
+    %th Lid
     %th
     %th
     %th
@@ -15,11 +14,10 @@
   - @beers.each do |beer|
     %tr
       %td= beer.name
-      %td= beer.aroma
-      %td= beer.flavor
-      %td= beer.foam
-      %td= beer.color
+      %td= beer.manufacturer_id
       %td= beer.strength
+      %td= beer.container_id
+      %td= beer.lid_id
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)
       %td= link_to 'Destroy', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }

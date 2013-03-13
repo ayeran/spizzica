@@ -1,7 +1,6 @@
 class ContainersController < ApplicationController
   # GET /containers
   # GET /containers.json
-  before_filter :verify_admin, :except =>:index
   def index
     @containers = Container.all
 
@@ -42,7 +41,7 @@ class ContainersController < ApplicationController
   # POST /containers.json
   def create
     @container = Container.new(params[:container])
-    @container.added_by = current_user.id
+
     respond_to do |format|
       if @container.save
         format.html { redirect_to @container, notice: 'Container was successfully created.' }
@@ -58,7 +57,7 @@ class ContainersController < ApplicationController
   # PUT /containers/1.json
   def update
     @container = Container.find(params[:id])
-    @container.updated_by = current_user.id
+
     respond_to do |format|
       if @container.update_attributes(params[:container])
         format.html { redirect_to @container, notice: 'Container was successfully updated.' }
