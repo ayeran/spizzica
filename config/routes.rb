@@ -3,7 +3,7 @@ Spizzicaluna::Application.routes.draw do
 
   resources :containers
 
-  resources :beer_styles
+  resources :beerstyles
 
   resources :ingredients
 

@@ -13,7 +13,7 @@
     = f.text_field :name
   .field
     Style
-    = select_tag "beerstyle", options_from_collection_for_select(beerstyles, "id", "name")
+    = select_tag "beer[container_id]", options_from_collection_for_select(beerstyles, "id", "name")
   .field
     = f.label :aroma
     = f.text_field :aroma

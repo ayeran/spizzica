@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313095214) do
-
-  create_table "beer_styles", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "added_by"
-    t.integer  "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20130313173416) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -34,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20130313095214) do
     t.decimal  "volume"
     t.integer  "added_by"
     t.integer  "updated_by"
+    t.integer  "container_id"
+  end
+
+  create_table "beerstyles", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "added_by"
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "containers", :force => true do |t|
