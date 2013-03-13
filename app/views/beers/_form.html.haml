@@ -1,5 +1,5 @@
--# - beerstyle=BeerStyle.find(:all)
--# - container=Container.find(:all)
+- beerstyles=BeerStyle.find(:all,:order=>"name")
+- containertypes=Container.find(:all,:order=>"name")
 = form_for @beer do |f|
   - if @beer.errors.any?
     #error_explanation
@@ -11,11 +11,9 @@
   .field
     = f.label :name
     = f.text_field :name
-    -# .field
-    -# -beerstyle.each{|st| 
-    -# =check_box_tag st.name, st.name
-    -# =st.name 
-    -# -}
+  .field
+    Style
+    = select_tag "beerstyle", options_from_collection_for_select(beerstyles, "id", "name")
   .field
     = f.label :aroma
     = f.text_field :aroma
@@ -31,10 +29,10 @@
   .field
     = f.label :strength
     = f.text_field :strength
-    -# .field
-    -# - container.each{|c|
-    -# =check_box_tag c.name, c.name
-    -# = c.name
-    -# -}
+    .field
+    - containertypes.each{|c|
+    =check_box_tag c.name, c.name
+    = c.name
+    -}
   .actions
     = f.submit 'Save'
