@@ -7,6 +7,11 @@
     %th Strength
     %th Container
     %th Lid
+    %th Aroma
+    %th Taste
+    %th Beer style
+    %th Color
+    %th Foam
     %th
     %th
     %th
@@ -14,10 +19,26 @@
   - @beers.each do |beer|
     %tr
       %td= beer.name
-      %td= beer.manufacturer_id
+      %td= Manufacturer.find(beer.manufacturer_id).name
       %td= beer.strength
-      %td= beer.container_id
-      %td= beer.lid_id
+      %td= Container.find(beer.container_id).name
+      %td= Lid.find(beer.lid_id).name
+      %td
+        - beer.aromas.each do |aroma|
+          = aroma.name
+      %td
+        - beer.tastes.each do |taste|
+          = taste.name
+      %td
+        - beer.beerstyles.each do |bs|
+          = bs.name
+      %td
+        - beer.colors.each do |color|
+          = color.name
+      %td
+        - beer.foams.each do |foam|
+          = foam.name
+
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)
       %td= link_to 'Destroy', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }

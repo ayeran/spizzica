@@ -11,8 +11,9 @@
     %tr
       %td= aroma.name
       %td= link_to 'Show', aroma
-      %td= link_to 'Edit', edit_aroma_path(aroma)
-      %td= link_to 'Destroy', aroma, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -if current_user
+        %td= link_to 'Edit', edit_aroma_path(aroma)
+        %td= link_to 'Destroy', aroma, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

@@ -1,4 +1,5 @@
 class LidsController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /lids
   # GET /lids.json
   def index

@@ -1,4 +1,4 @@
-= form_for @beer do |f|
+=form_for @beer do |f|
   - if @beer.errors.any?
     #error_explanation
       %h2= "#{pluralize(@beer.errors.count, "error")} prohibited this beer from being saved:"
@@ -11,15 +11,53 @@
     = f.text_field :name
   .field
     = f.label :manufacturer_id
-    = f.number_field :manufacturer_id
+    = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.all,:id,:name))
+  .field
+    = f.label :beerstyle
+    - Beerstyle.all.each{|c|
+    = check_box_tag("beerstyle[]", c.name)
+    = c.name
+    -}
+  .field
+    = f.label :aroma
+    - Aroma.all.each{|c|
+    = check_box_tag("aroma[]", c.name)
+    = c.name
+    -}
+  .field
+    = f.label :taste
+    - Taste.all.each{|c|
+    = check_box_tag("taste[]", c.name)
+    = c.name
+    -}
+
+  .field
+    = f.label :color
+    - Color.all.each{|c|
+    = check_box_tag("color[]", c.name)
+    = c.name
+    -}
+    
+  .field
+    = f.label :foam
+    - Foam.all.each{|c|
+    = check_box_tag("foam[]", c.name)
+    = c.name
+    -}
+
   .field
     = f.label :strength
     = f.text_field :strength
   .field
     = f.label :container_id
-    = f.number_field :container_id
+    = select_tag("beer[container_id]", options_from_collection_for_select(Container.all,:id,:name))
   .field
     = f.label :lid_id
-    = f.number_field :lid_id
+    = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.all,:id,:name))
+
+  .field
+    = f.label :volume
+    = f.number_field :volume
+
   .actions
     = f.submit 'Save'

@@ -47,6 +47,16 @@ end
 
 ### GIVEN ###
 
+Then /^I should see links to: (.+)+$/ do |links|
+  linksArr=links.split(",")
+  linksArr.each do |link|
+    find(:link, link.strip)
+    #Given %{I should see link to "#{link}"}
+  end
+end
+
+    
+
 Given /^I should see link to (.+)/ do |link| 
  find(:link, link)
 end

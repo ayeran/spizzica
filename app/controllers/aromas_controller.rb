@@ -1,4 +1,5 @@
 class AromasController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /aromas
   # GET /aromas.json
   def index

@@ -1,4 +1,5 @@
 class ColorsController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /colors
   # GET /colors.json
   def index

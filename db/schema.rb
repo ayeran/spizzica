@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313220906) do
+ActiveRecord::Schema.define(:version => 20130315181331) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "aromas_beers", :id => false, :force => true do |t|
+    t.integer "aroma_id"
+    t.integer "beer_id"
   end
 
   create_table "beers", :force => true do |t|
@@ -29,6 +34,28 @@ ActiveRecord::Schema.define(:version => 20130313220906) do
     t.integer  "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "volume"
+    t.text     "description"
+  end
+
+  create_table "beers_beerstyles", :id => false, :force => true do |t|
+    t.integer "beer_id"
+    t.integer "beerstyle_id"
+  end
+
+  create_table "beers_colors", :id => false, :force => true do |t|
+    t.integer "beer_id"
+    t.integer "color_id"
+  end
+
+  create_table "beers_foams", :id => false, :force => true do |t|
+    t.integer "beer_id"
+    t.integer "foam_id"
+  end
+
+  create_table "beers_tastes", :id => false, :force => true do |t|
+    t.integer "beer_id"
+    t.integer "taste_id"
   end
 
   create_table "beerstyles", :force => true do |t|

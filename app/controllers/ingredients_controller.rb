@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json  
   
-  before_filter :verify_admin, :except =>:index
+   before_filter :verify_admin, :except =>[:index,:show]
   def index
     @ingredients = Ingredient.all
 

@@ -32,3 +32,33 @@ end
 ["bottiglia","lattina","bottiglia ceramica"].each do |b|
   Container.find_or_create_by_name(b)
 end
+
+["Amsterdam Brewing Company","Barley Days Brewery","Brick Brewing Co. Ltd.",
+    "Sleeman Brewing & Malting Co. Ltd."].each do |manufact|
+      Manufacturer.find_or_create_by_name(manufact)
+end
+
+["Lager","Stout","White beer"].each do |style|
+  Beerstyle.find_or_create_by_name(style)
+end
+
+["chiaro","ambrato","dorato"].each do |c|
+  Color.find_or_create_by_name(c)
+end
+
+["esuberante","fine","persistente","fitta","cremosa","compatta","ricca"].each do |foam|
+  Foam.find_or_create_by_name(foam)
+end
+
+["lager","weiss","stout","doppio malto","italiana analcolica","premium"].each do |beerstyle|
+  Beerstyle.find_or_create_by_name(beerstyle)
+end
+
+["frizzante","fresco","tonificante","dissettante","malato amarognolo"].each do |aroma|
+  Aroma.find_or_create_by_name(aroma)
+end
+
+["tonificante","amabile","secco","agrumato","fresco","morbido",
+  "gradevolmente amaro","sopraffino"].each do |taste|
+    Taste.find_or_create_by_name(taste)
+end

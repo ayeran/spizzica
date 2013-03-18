@@ -1,21 +1,44 @@
 %p#notice= notice
-
+=debug params
 %p
   %b Name:
   = @beer.name
 %p
   %b Manufacturer:
-  = @beer.manufacturer_id
+  = Manufacturer.find(@beer.manufacturer_id).name
+%p
+  %b Aroma:
+  - @beer.aromas.each do |aroma|
+    = aroma.name
+%p
+  %b Taste:
+  - @beer.tastes.each do |taste|
+    = taste.name
+%p
+  %b Beer style:
+  - @beer.beerstyles.each do |bs|
+    = bs.name
+%p
+  %b Color:
+  - @beer.colors.each do |color|
+    = color.name
+%p
+  %b Foam:
+  - @beer.foams.each do |foam|
+    = foam.name
+
 %p
   %b Strength:
   = @beer.strength
 %p
   %b Container:
-  = @beer.container_id
+  = Container.find(@beer.container_id).name
 %p
   %b Lid:
-  = @beer.lid_id
+  = Lid.find(@beer.lid_id).name
 
 = link_to 'Edit', edit_beer_path(@beer)
 \|
 = link_to 'Back', beers_path
+
+=debug params

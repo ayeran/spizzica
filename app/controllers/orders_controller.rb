@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /orders
   # GET /orders.json
   
-  before_filter :verify_admin, :except =>:index
     
   def index
     @orders = Order.all

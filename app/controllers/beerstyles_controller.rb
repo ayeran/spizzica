@@ -1,4 +1,5 @@
 class BeerstylesController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /beerstyles
   # GET /beerstyles.json
   def index

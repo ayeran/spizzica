@@ -1,4 +1,5 @@
 class TastesController < ApplicationController
+ before_filter :verify_admin, :except =>[:index,:show]
   # GET /tastes
   # GET /tastes.json
   def index

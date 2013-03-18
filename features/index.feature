@@ -9,13 +9,10 @@ Background:
 
 Scenario: presence of "Spizzicaluna" on the home page
  Then I should see "Spizzicaluna"
-
-Scenario: presence of the links 
- And I should see link to Orders
- And I should see link to Items
- And I should see link to Ingredients
- And I should see link to Beer Styles
- And I should see link to Format
+ 
+Scenario: presence of the set of links
+ Then I should see links to: Orders, Items, Ingredients, Beer Styles
+ Then I should see links to: Colors, Aromas, Tastes, Foams, Manufacturers, Beers, Containers, Lids, Colors
 
 Scenario: homepage reports credentials of non-authenticated user
  Then I should see "Welcome, visitor!"

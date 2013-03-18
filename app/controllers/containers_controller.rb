@@ -1,4 +1,5 @@
 class ContainersController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /containers
   # GET /containers.json
   def index

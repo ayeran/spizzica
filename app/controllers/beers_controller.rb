@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /beers
   # GET /beers.json
   def index
@@ -25,7 +26,6 @@ class BeersController < ApplicationController
   # GET /beers/new.json
   def new
     @beer = Beer.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @beer }
@@ -41,6 +41,27 @@ class BeersController < ApplicationController
   # POST /beers.json
   def create
     @beer = Beer.new(params[:beer])
+    params[:color].each{|col|
+      color = Color.find_by_name(col) 
+      @beer.colors << color
+    }
+    params[:foam].each{|foam|
+      foam = Foam.find_by_name(foam) 
+      @beer.foams << foam
+    }
+    params[:beerstyle].each{|bs|
+      beerstyle = Beerstyle.find_by_name(bs) 
+      @beer.beerstyles << beerstyle
+    }
+    params[:aroma].each{|aroma|
+      aroma = Aroma.find_by_name(aroma) 
+      @beer.aromas << aroma
+    }
+    params[:taste].each{|taste|
+      taste = Taste.find_by_name(taste) 
+      @beer.tastes << taste
+    }
+
 
     respond_to do |format|
       if @beer.save

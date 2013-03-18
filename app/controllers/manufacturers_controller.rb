@@ -1,4 +1,5 @@
 class ManufacturersController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /manufacturers
   # GET /manufacturers.json
   def index

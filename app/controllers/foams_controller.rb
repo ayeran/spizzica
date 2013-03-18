@@ -1,4 +1,5 @@
 class FoamsController < ApplicationController
+   before_filter :verify_admin, :except =>[:index,:show]
   # GET /foams
   # GET /foams.json
   def index
