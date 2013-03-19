@@ -17,6 +17,9 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem "factory_girl_rails", ">= 4.2.0"
+  gem "factory_girl"
+  gem "railroady", "~> 1.1.0"
 end
 group :production do
   gem 'pg'
@@ -61,7 +64,3 @@ end
 group :test do
 	gem 'cucumber-rails'
 end
-
-gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
-gem "factory_girl"
-gem "railroady", "~> 1.1.0"
