@@ -52,6 +52,7 @@ gem 'haml'
 gem "haml-rails"
 gem "devise"
 gem "cancan"
+gem 'rb-inotify', '~> 0.8.8'
 
 group :development do
   gem 'cucumber-rails'

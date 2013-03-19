@@ -1,26 +1,31 @@
-%h1 Welcome to Spizzicaluna!
-
+%h1 Benvenuti nel Mondo Spizzicaluna!
+%p Saremo lieti di vedervi nei nostri accoglienti locali! Venite a trovarci! E fra un po' col servizio "consegna a domicilio" veniamo a trovarvi anche noi!
+= image_tag 'under_construction.png', :class => 'under_construction'
+= image_tag 'spizzicaluna_brewing.jpg', :class=>'card'
+= image_tag 'spizzicaluna_paninoteca.jpg', :class=>'card'
+%br
+%iframe{:width => "425", :height=>"350", :frameborder=>"0", :scrolling=>"no",:marginheight=>"0", :marginwidth=>"0",  :src=>"https://maps.google.com/maps/ms?msid=212263591801850493476.0004d80bef441764f0f53&msa=0&ie=UTF8&t=m&ll=41.80962,12.68002&spn=0.002427,0.004474&output=embed"}
 %br 
 = link_to 'Items', items_path
-%br 
+
 = link_to 'Orders', orders_path
-%br 
+ 
 = link_to 'Ingredients', ingredients_path
-%br
+
 = link_to 'Beers', beers_path
-%br 
+ 
 = link_to 'Beer Styles', beerstyles_path
-%br 
+ 
 = link_to 'Manufacturers', manufacturers_path
-%br
+
 = link_to 'Containers', containers_path
-%br
+
 = link_to 'Lids', lids_path
-%br
+
 = link_to 'Aromas', aromas_path
-%br
+
 = link_to 'Tastes', tastes_path
-%br
+
 = link_to 'Colors', colors_path
-%br
+
 = link_to 'Foams', foams_path
