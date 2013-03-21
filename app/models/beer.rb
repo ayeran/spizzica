@@ -8,4 +8,6 @@ class Beer < ActiveRecord::Base
   has_one :lid
   has_one :manufacturer 
   accepts_nested_attributes_for :beerstyles
+  
+  validates :name, :uniqueness => true
 end
