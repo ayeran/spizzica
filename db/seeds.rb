@@ -62,3 +62,24 @@ end
   "gradevolmente amaro","sopraffino"].each do |taste|
     Taste.find_or_create_by_name(taste)
 end
+
+
+["maionese", "tabasco", "salame piccante", "mozzarella", "prosciutto crudo", "funghi", "insalata", 
+  "salsa tonnata", "prosciutto cotto", "pomodori", "carciofini", "salsa piccante", "peperoni", "speck", 
+  "edamer", "parmigiano", "rucola", "wurstel", "verza con senape dolce", "salsa ai funghi porcini", 
+  "melanzane", "tonno", "salsa messicana", "panatina di pollo", "limone", "crema di formaggio", 
+  "salsa rosa", "melanzane grigliate", "alici", "pachino", "origano", "bresaola", "funghetti", 
+  "carciofini", "salmone", "pepe", "hamburger", "spinaci", "salsiccia", "cipolla", "pancetta", 
+  "caciotta", "panatina di pollo farcita con edamer", "tartufo", "radicchio grigliato", "surimi", 
+  "gamberetti", "polpette di pollo e tacchino", "formaggio piccante", "verza", "formaggio alle erbe", 
+  "cetrioli", "ketchup", "salsa mac", "formaggio fuso", "asparagi", " arrosto di tacchino", 
+  "formaggio bianco", "salsa allo yogurt", "formaggio", "salsa barbeque", "gorgonzola", 
+  "pancetta croccante", "salsa kebab", "fesa di tacchino", "senape", "wurstel gigante", " basilico", 
+  "lardo di colonnata", "miele", "mix di spezie", "pinoli", "ruchetta", "funghi porcini", "radicchio", 
+  "profumo di tartufo", "capperi", "insalata verde", "mais", "fagioli", "scaglie di parmigiano", 
+  "noci", "olio di oliva", "feta", "olive", "polpa di granchio", "arancia", "aceto balsamico", 
+  "radicchio trevigiano", "pere", "cuori di palma", "germogli di soia", 
+  "menta", "sgombro", "carote"].each do |ingr|
+    Ingredient.find_or_create_by_name(ingr)
+end
+
