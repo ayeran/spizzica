@@ -5,7 +5,7 @@ Feature: managing styles of beer
  
  Scenario:  adding a beer style
   Given I am on the page "Beer Styles"
-  And I follow "New Beer style"
+  And I follow "New Beerstyle"
   Then I fill in "Name" with "pilsner"
   And I fill in "Description" with "good beer"
   Then I press "Save"

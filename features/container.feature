@@ -3,6 +3,9 @@ Feature: managing containers of beer
  In order to classify beer containers
  I want to be able to add/delete/edit container
  
+Background:
+  Given I am logged in 
+ 
  Scenario:  adding a beer container
   Given I am on the page "Containers"
   And I follow "New Container"

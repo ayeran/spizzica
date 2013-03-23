@@ -58,9 +58,9 @@ gem "cancan"
 gem 'rb-inotify', '~> 0.8.8'
 
 group :development do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
 end
 
 group :test do
-	gem 'cucumber-rails'
+	gem 'cucumber-rails', :require => false
 end
