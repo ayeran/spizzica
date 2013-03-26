@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @sandwich.name
+%p
+  %b Ingredients:
+  - @sandwich.ingredients.each do |ingr|
+    = ingr.name
+
+= link_to 'Edit', edit_sandwich_path(@sandwich)
+\|
+= link_to 'Back', sandwiches_path

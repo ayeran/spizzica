@@ -1,0 +1,20 @@
+= form_for @sandwich do |f|
+  - if @sandwich.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@sandwich.errors.count, "error")} prohibited this sandwich from being saved:"
+      %ul
+        - @sandwich.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :ingredients
+    - Ingredient.all.each{|c|
+    = check_box_tag("ingredient[]", c.name,@sandwich.ingredients.include?(c))
+    = c.name
+    -}
+
+  .actions
+    = f.submit 'Save'

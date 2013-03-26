@@ -1,0 +1,23 @@
+%h1 Listing sandwiches
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+    %th
+
+  - @sandwiches.each do |sandwich|
+    %tr
+      %td= sandwich.name
+      %td
+        - sandwich.ingredients.each do |ingr|
+          = ingr.name
+      %td= link_to 'Show', sandwich
+      %td= link_to 'Edit', edit_sandwich_path(sandwich)
+      %td= link_to 'Destroy', sandwich, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sandwich', new_sandwich_path

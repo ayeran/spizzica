@@ -1,4 +1,6 @@
 Spizzicaluna::Application.routes.draw do
+  resources :sandwiches
+
   resources :foams
 
   resources :tastes
