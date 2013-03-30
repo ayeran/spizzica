@@ -7,7 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= link_to 'Items', items_path, :class => 'menu_button' %>
+<%= link_to 'Orders', orders_path, :class => 'menu_button' %>
+<%= link_to 'Ingredients', ingredients_path, :class => 'menu_button' %> 
+<%= link_to 'Sandwiches', sandwiches_path, :class => 'menu_button' %>
+<%= link_to 'Beers', beers_path, :class => 'menu_button' %>
+<%= link_to 'Beer Styles', beerstyles_path, :class => 'menu_button' %>
+<%= link_to 'Manufacturers', manufacturers_path, :class => 'menu_button' %>
+<%= link_to 'Containers', containers_path, :class => 'menu_button' %>
+<%= link_to 'Lids', lids_path, :class => 'menu_button' %>
+<%= link_to 'Aromas', aromas_path, :class => 'menu_button' %>
+<%= link_to 'Tastes', tastes_path, :class => 'menu_button' %>
+<%= link_to 'Colors', colors_path, :class => 'menu_button' %>
+<%= link_to 'Foams', foams_path, :class => 'menu_button' %>
 
 <%= yield %>
 

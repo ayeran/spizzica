@@ -1,4 +1,6 @@
 class SandwichesController < ApplicationController
+  
+  before_filter :verify_admin, :except =>[:index,:show]
   # GET /sandwiches
   # GET /sandwiches.json
   def index
