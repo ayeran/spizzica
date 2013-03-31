@@ -1,10 +1,10 @@
 class SandwichesController < ApplicationController
-  
+
   before_filter :verify_admin, :except =>[:index,:show]
   # GET /sandwiches
   # GET /sandwiches.json
   def index
-    @sandwiches = Sandwich.all
+    @sandwiches = Sandwich.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

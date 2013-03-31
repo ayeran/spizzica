@@ -3,7 +3,7 @@ class TastesController < ApplicationController
   # GET /tastes
   # GET /tastes.json
   def index
-    @tastes = Taste.all
+    @tastes = Taste.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,7 +3,7 @@ class LidsController < ApplicationController
   # GET /lids
   # GET /lids.json
   def index
-    @lids = Lid.all
+    @lids = Lid.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

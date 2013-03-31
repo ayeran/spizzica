@@ -1,10 +1,10 @@
 class IngredientsController < ApplicationController
   # GET /ingredients
-  # GET /ingredients.json  
-  
+  # GET /ingredients.json
+
    before_filter :verify_admin, :except =>[:index,:show]
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

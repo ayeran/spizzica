@@ -3,7 +3,7 @@ class BeerstylesController < ApplicationController
   # GET /beerstyles
   # GET /beerstyles.json
   def index
-    @beerstyles = Beerstyle.all
+    @beerstyles = Beerstyle.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

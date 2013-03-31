@@ -3,7 +3,7 @@ class AromasController < ApplicationController
   # GET /aromas
   # GET /aromas.json
   def index
-    @aromas = Aroma.all
+    @aromas = Aroma.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

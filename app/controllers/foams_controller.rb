@@ -3,7 +3,7 @@ class FoamsController < ApplicationController
   # GET /foams
   # GET /foams.json
   def index
-    @foams = Foam.all
+    @foams = Foam.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

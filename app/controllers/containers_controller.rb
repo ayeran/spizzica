@@ -3,7 +3,7 @@ class ContainersController < ApplicationController
   # GET /containers
   # GET /containers.json
   def index
-    @containers = Container.all
+    @containers = Container.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

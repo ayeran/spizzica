@@ -3,7 +3,7 @@ class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
   def index
-    @beers = Beer.all
+    @beers = Beer.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,23 +42,23 @@ class BeersController < ApplicationController
   def create
     @beer = Beer.new(params[:beer])
     params[:color].each{|col|
-      color = Color.find_by_name(col) 
+      color = Color.find_by_name(col)
       @beer.colors << color
     }
     params[:foam].each{|foam|
-      foam = Foam.find_by_name(foam) 
+      foam = Foam.find_by_name(foam)
       @beer.foams << foam
     }
     params[:beerstyle].each{|bs|
-      beerstyle = Beerstyle.find_by_name(bs) 
+      beerstyle = Beerstyle.find_by_name(bs)
       @beer.beerstyles << beerstyle
     }
     params[:aroma].each{|aroma|
-      aroma = Aroma.find_by_name(aroma) 
+      aroma = Aroma.find_by_name(aroma)
       @beer.aromas << aroma
     }
     params[:taste].each{|taste|
-      taste = Taste.find_by_name(taste) 
+      taste = Taste.find_by_name(taste)
       @beer.tastes << taste
     }
 

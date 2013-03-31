@@ -3,7 +3,7 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.json
   def index
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb

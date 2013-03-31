@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
-  
+
   before_filter :verify_admin, :except =>:index
   def index
-    @items = Item.all
+    @items = Item.order("lower(name) ASC").all
 
     respond_to do |format|
       format.html # index.html.erb
