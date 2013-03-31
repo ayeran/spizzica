@@ -14,7 +14,7 @@
     = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.all,:id,:name))
   .field
     = f.label :beerstyle
-    - Beerstyle.all.each{|c|
+    - Beerstyle.order("lower(name) ASC").all.each{|c|
     = check_box_tag("beerstyle[]", c.name)
     = c.name
     -}
@@ -37,7 +37,7 @@
     = check_box_tag("color[]", c.name)
     = c.name
     -}
-    
+
   .field
     = f.label :foam
     - Foam.all.each{|c|

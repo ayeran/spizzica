@@ -6,8 +6,9 @@ class Beer < ActiveRecord::Base
   has_and_belongs_to_many :colors
   has_one :container
   has_one :lid
-  has_one :manufacturer 
+  has_one :manufacturer
   accepts_nested_attributes_for :beerstyles
-  
-  validates :name, :uniqueness => true
+
+  validates :name, :uniqueness => {:case_sensitive => false}
+
 end
