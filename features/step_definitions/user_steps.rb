@@ -47,6 +47,16 @@ end
 
 ### GIVEN ###
 
+Given /^the following users exist:/ do |users_table|
+  users_table.hashes.each do |user_data|
+    role = Role.find_by_name(user_data["role"]) || Role.create!(:name => user_data["role"])
+    user = {:email => user_data["email"], :password => user_data["password"], :role_ids => role.id }
+    User.create!(user)
+   end
+  assert User.all.count == users_table.hashes.size
+  end
+
+
 Then /^I should see links to: (.+)+$/ do |links|
   linksArr=links.split(",")
   linksArr.each do |link|
@@ -55,16 +65,16 @@ Then /^I should see links to: (.+)+$/ do |links|
   end
 end
 
-    
 
-Given /^I should see link to (.+)/ do |link| 
+
+Given /^I should see link to (.+)/ do |link|
  find(:link, link)
 end
 
 Given /^I am not logged in$/ do
   #visit '/users/sign_out'
-  if page.has_content?("Logout") 
-    click_link("Logout") 
+  if page.has_content?("Logout")
+    click_link("Logout")
   end
 end
 
