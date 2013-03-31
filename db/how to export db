@@ -1,0 +1,1 @@
+echo '.dump' | sqlite3 development.sqlite3 | gzip -c > main.dump.gz
