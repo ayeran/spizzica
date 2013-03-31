@@ -9,17 +9,17 @@
 <body>
 <%= link_to 'Items', items_path, :class => 'menu_button' %>
 <%= link_to 'Orders', orders_path, :class => 'menu_button' %>
-<%= link_to 'Ingredients', ingredients_path, :class => 'menu_button' %> 
+<%= link_to 'Ingredients', ingredients_path, :class => 'menu_button' %>
 <%= link_to 'Sandwiches', sandwiches_path, :class => 'menu_button' %>
-<%= link_to 'Beers', beers_path, :class => 'menu_button' %>
-<%= link_to 'Beer Styles', beerstyles_path, :class => 'menu_button' %>
-<%= link_to 'Manufacturers', manufacturers_path, :class => 'menu_button' %>
-<%= link_to 'Containers', containers_path, :class => 'menu_button' %>
-<%= link_to 'Lids', lids_path, :class => 'menu_button' %>
-<%= link_to 'Aromas', aromas_path, :class => 'menu_button' %>
-<%= link_to 'Tastes', tastes_path, :class => 'menu_button' %>
-<%= link_to 'Colors', colors_path, :class => 'menu_button' %>
-<%= link_to 'Foams', foams_path, :class => 'menu_button' %>
+<%= link_to 'Birre', beers_path, :class => 'menu_button' %>
+<%= link_to 'Stile di Birra', beerstyles_path, :class => 'menu_button' %>
+<%= link_to 'Produttore', manufacturers_path, :class => 'menu_button' %>
+<%= link_to 'Contenitore', containers_path, :class => 'menu_button' %>
+<%= link_to 'Tappo', lids_path, :class => 'menu_button' %>
+<%= link_to 'Aroma', aromas_path, :class => 'menu_button' %>
+<%= link_to 'Gusto', tastes_path, :class => 'menu_button' %>
+<%= link_to 'Colore', colors_path, :class => 'menu_button' %>
+<%= link_to 'Schiuma', foams_path, :class => 'menu_button' %>
 
 <%= yield %>
 
@@ -31,12 +31,12 @@
 
 <% if user_signed_in? %>
   <%# link_to "My Profile", user_root_path%>
-  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %> 
-  <p>You are logged in as 
+  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+  <p>You are logged in as
   <%= current_user.roles.map{|r| r.name}%> </p>
 	<% else %>
-	<p>Welcome, visitor!</p> 
-  <%= link_to('Login', user_session_path, :method=>'get') %>  
+	<p>Welcome, visitor!</p>
+  <%= link_to('Login', user_session_path, :method=>'get') %>
 <%end%>
 
 </body>

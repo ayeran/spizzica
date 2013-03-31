@@ -11,7 +11,7 @@
     = f.text_field :name
   .field
     = f.label :manufacturer_id
-    = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.all,:id,:name))
+    = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.order("lower(name) ASC").all,:id,:name))
   .field
     = f.label :beerstyle
     - Beerstyle.order("lower(name) ASC").all.each{|c|
@@ -20,27 +20,27 @@
     -}
   .field
     = f.label :aroma
-    - Aroma.all.each{|c|
+    - Aroma.order("lower(name) ASC").all.each{|c|
     = check_box_tag("aroma[]", c.name)
     = c.name
     -}
   .field
     = f.label :taste
-    - Taste.all.each{|c|
+    - Taste.order("lower(name) ASC").all.each{|c|
     = check_box_tag("taste[]", c.name)
     = c.name
     -}
 
   .field
     = f.label :color
-    - Color.all.each{|c|
+    - Color.order("lower(name) ASC").all.each{|c|
     = check_box_tag("color[]", c.name)
     = c.name
     -}
 
   .field
     = f.label :foam
-    - Foam.all.each{|c|
+    - Foam.order("lower(name) ASC").all.each{|c|
     = check_box_tag("foam[]", c.name)
     = c.name
     -}
@@ -50,10 +50,10 @@
     = f.text_field :strength
   .field
     = f.label :container_id
-    = select_tag("beer[container_id]", options_from_collection_for_select(Container.all,:id,:name))
+    = select_tag("beer[container_id]", options_from_collection_for_select(Container.order("lower(name) ASC").all,:id,:name))
   .field
     = f.label :lid_id
-    = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.all,:id,:name))
+    = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.order("lower(name) ASC").all,:id,:name))
 
   .field
     = f.label :volume
