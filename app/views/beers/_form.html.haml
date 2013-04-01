@@ -15,13 +15,13 @@
   .field
     = f.label :beerstyle
     - Beerstyle.order("lower(name) ASC").all.each{|c|
-    = check_box_tag("beerstyle[]", c.name)
+    = check_box_tag("beerstyle[]", c.name, @beer.beerstyles.collect{|c| c.id}.include?(c.id), :id => "beerstyle[#{c.id}]")
     = c.name
     -}
   .field
     = f.label :aroma
     - Aroma.order("lower(name) ASC").all.each{|c|
-    = check_box_tag("aroma[]", c.name)
+    = check_box_tag("aroma[]", c.name, @beer.aromas.collect{|c| c.id}.include?(c.id), :id => "aromas[#{c.id}]")
     = c.name
     -}
   .field
