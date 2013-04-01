@@ -216,6 +216,11 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should be checked$/ do |label, pa
   end
 end
 
+Then /^I check "(.+)" checkbox with value "(.+)"$/ do |field,cb|
+   find(:css, "[id='#{field}[#{cb}]']").set(true)
+  # puts page.html
+end
+
 Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label, parent|
   with_scope(parent) do
     field_checked = find_field(label)['checked']

@@ -56,6 +56,71 @@ Given /^the following users exist:/ do |users_table|
   assert User.all.count == users_table.hashes.size
   end
 
+Given /^the following Beer Styles exist:/ do |bs_t|
+  bs_t.hashes.each do |bs|
+   Beerstyle.create!(bs)
+  end
+  assert Beerstyle.all.count == bs_t.hashes.size
+end
+
+Given /^the following "(.+)" exist:/ do |models, bs_t|
+  model=models.singularize
+  bs_t.hashes.each do |bs|
+   model.constantize.create!(bs)
+  end
+  assert model.constantize.all.count == bs_t.hashes.size
+end
+
+# Given /^the following Manufacturers exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Manufacturer.create!(bs)
+  # end
+  # assert Manufacturer.all.count == bs_t.hashes.size
+# end
+#
+# Given /^the following Containers exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Container.create!(bs)
+  # end
+  # assert Container.all.count == bs_t.hashes.size
+# end
+#
+# Given /^the following Lids exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Lid.create!(bs)
+  # end
+  # assert Lid.all.count == bs_t.hashes.size
+# end
+#
+# Given /^the following Aromas exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Aroma.create!(bs)
+  # end
+  # assert Aroma.all.count == bs_t.hashes.size
+# end
+#
+# Given /^the following Tastes exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Taste.create!(bs)
+  # end
+  # assert Taste.all.count == bs_t.hashes.size
+# end
+#
+# Given /^the following Colors exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Color.create!(bs)
+  # end
+  # assert Color.all.count == bs_t.hashes.size
+# end
+#
+#
+# Given /^the following Foams exist:/ do |bs_t|
+  # bs_t.hashes.each do |bs|
+   # Foam.create!(bs)
+  # end
+  # assert Foam.all.count == bs_t.hashes.size
+# end
+
 
 Then /^I should see links to: (.+)+$/ do |links|
   linksArr=links.split(",")
@@ -64,6 +129,14 @@ Then /^I should see links to: (.+)+$/ do |links|
     #Given %{I should see link to "#{link}"}
   end
 end
+
+# Then /^I should see the following: (.+)+$/ do |items|
+  # itemsArr=items.split(",")
+  # itemsArr.each do |item|
+    # find(:link, link.strip)
+    # #Given %{I should see link to "#{link}"}
+  # end
+# end
 
 
 
