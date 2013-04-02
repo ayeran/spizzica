@@ -51,7 +51,7 @@ Background: logged in as an admin
   And I press "Sign in"
   Then I should see "admin"
 
- Scenario:  adding a style
+ Scenario: adding a beer
   Given I am on the page "Beer"
   And I follow "New Beer"
   And I fill in "Name" with "Birra"
@@ -60,7 +60,12 @@ Background: logged in as an admin
   And I select "tappo a corona" from "beer_lid_id"
   And I check "aromas" checkbox with value "amarognolo"
   And I check "tastes" checkbox with value "secco"
-  And I check "colors" checkbox with value "chiaro"
-  And I check "foams" checkbox with value "fitta"
+  And I check "colors" checkbox with values "chiaro", "scuro"
+  And I check "foams" checkbox with values "fitta", "compatta"
   And I press "Save"
-  Then I should see the following: "bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta"
+  Then I should see the following: "bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta", "compatta", "scuro"
+  When I am on the page "Beer"
+  And I follow "Edit"
+  And I check "aromas" checkbox with value "dissettante"
+  And I press "Save"
+  Then I should see "dissettante"

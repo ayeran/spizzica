@@ -141,6 +141,12 @@ Then /^I should see the following: (.+)$/ do |arr|
    end
 end
 
+Then /^I check (.+) checkbox with values (.+)$/ do |box,values|
+ values.split(",").each do |value|
+   step "I check #{box} checkbox with value #{value.strip}"
+ end
+end
+
 # Then /^I should see the following: (.+)+$/ do |items|
   # itemsArr=items.split(",")
   # itemsArr.each do |item|
