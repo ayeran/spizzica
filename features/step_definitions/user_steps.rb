@@ -47,6 +47,10 @@ end
 
 ### GIVEN ###
 
+
+
+
+
 Given /^the following users exist:/ do |users_table|
   users_table.hashes.each do |user_data|
     role = Role.find_by_name(user_data["role"]) || Role.create!(:name => user_data["role"])
@@ -128,6 +132,13 @@ Then /^I should see links to: (.+)+$/ do |links|
     find(:link, link.strip)
     #Given %{I should see link to "#{link}"}
   end
+end
+
+Then /^I should see the following: (.+)$/ do |arr|
+   words=arr.split(",")
+   words.each do |word|
+     step "I should see #{word.strip}"
+   end
 end
 
 # Then /^I should see the following: (.+)+$/ do |items|

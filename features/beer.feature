@@ -63,4 +63,4 @@ Background: logged in as an admin
   And I check "colors" checkbox with value "chiaro"
   And I check "foams" checkbox with value "fitta"
   And I press "Save"
-  Then I should see "bottiglia"
+  Then I should see the following: "bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta"
