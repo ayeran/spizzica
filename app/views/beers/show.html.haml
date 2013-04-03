@@ -6,6 +6,10 @@
   %b Manufacturer:
   = Manufacturer.find(@beer.manufacturer_id).name
 %p
+  %b Photo:
+  = image_tag @beer.imagebeer.url(:small)
+
+%p
   %b Aroma:
   - @beer.aromas.each do |aroma|
     = aroma.name
