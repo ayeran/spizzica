@@ -63,6 +63,10 @@ class SandwichesController < ApplicationController
   # PUT /sandwiches/1.json
   def update
     @sandwich = Sandwich.find(params[:id])
+    @sandwich.ingredients.clear
+    params[:ingredient].each{|ingr|
+     @sandwich.ingredients << Ingredient.find_by_name(ingr)
+    }
 
     respond_to do |format|
       if @sandwich.update_attributes(params[:sandwich])
