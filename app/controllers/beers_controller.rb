@@ -78,6 +78,32 @@ class BeersController < ApplicationController
   # PUT /beers/1.json
   def update
     @beer = Beer.find(params[:id])
+    @beer.colors.clear
+    params[:color].each{|col|
+      color = Color.find_by_name(col)
+      @beer.colors << color
+    }
+    @beer.foams.clear
+    params[:foam].each{|foam|
+      foam = Foam.find_by_name(foam)
+      @beer.foams << foam
+    }
+    @beer.beerstyles.clear
+    params[:beerstyle].each{|bs|
+      beerstyle = Beerstyle.find_by_name(bs)
+      @beer.beerstyles << beerstyle
+    }
+    @beer.aromas.clear
+    params[:aroma].each{|aroma|
+      aroma = Aroma.find_by_name(aroma)
+      @beer.aromas << aroma
+    }
+    @beer.tastes.clear
+    params[:taste].each{|taste|
+      taste = Taste.find_by_name(taste)
+      @beer.tastes << taste
+    }
+
 
     respond_to do |format|
       if @beer.update_attributes(params[:beer])
