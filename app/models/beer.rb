@@ -9,7 +9,8 @@ class Beer < ActiveRecord::Base
   has_one :manufacturer
   accepts_nested_attributes_for :beerstyles
 
-  has_attached_file :imagebeer, :styles => {:small=>"150x150>"}
+  has_attached_file :imagebeer, :styles => {:thumb => "50x50>",
+                                            :small => "150x150>"}
 
   validates :name, :uniqueness => {:case_sensitive => false}
 
