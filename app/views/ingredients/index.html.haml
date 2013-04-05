@@ -3,6 +3,7 @@
 %table
   %tr
     %th Name
+    %th
     %th Description
     %th
     %th
@@ -11,6 +12,7 @@
   - @ingredients.each do |ingredient|
     %tr
       %td= ingredient.name
+      %td= image_tag ingredient.ingredientimage.url(:thumb)
       %td= ingredient.description
       %td= link_to 'Show', ingredient
       %td= link_to 'Edit', edit_ingredient_path(ingredient)

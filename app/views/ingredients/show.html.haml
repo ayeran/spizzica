@@ -6,6 +6,9 @@
 %p
   %b Description:
   = @ingredient.description
+%p
+  %b Photo:
+  = image_tag @ingredient.ingredientimage.url(:small)
 
 = link_to 'Edit', edit_ingredient_path(@ingredient)
 \|
