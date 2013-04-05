@@ -7,7 +7,7 @@
   = Manufacturer.find(@beer.manufacturer_id).name
 %p
   %b Photo:
-  = image_tag @beer.imagebeer.url(:thumb)
+  = image_tag @beer.imagebeer.url(:small)
 
 %p
   %b Aroma:

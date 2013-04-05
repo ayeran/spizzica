@@ -20,7 +20,7 @@
   - @beers.each do |beer|
     %tr
       %td= beer.name
-      %td= image_tag beer.imagebeer.url(:small)
+      %td= image_tag beer.imagebeer.url(:thumb)
 
       %td= Manufacturer.find(beer.manufacturer_id).name
       %td= beer.strength
