@@ -10,7 +10,10 @@ class Beer < ActiveRecord::Base
   accepts_nested_attributes_for :beerstyles
 
   has_attached_file :imagebeer, :styles => {:thumb => "50x50>",
-                                            :small => "150x150>"}
+                                            :small => "150x150>"},
+                  :url  => "/assets/images/beers/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/images/beers/:id/:style/:basename.:extension"
+
 
   validates :name, :uniqueness => {:case_sensitive => false}
 
