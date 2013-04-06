@@ -25,6 +25,9 @@ module NavigationHelpers
     when /^the page "Beer"$/
        beers_path
 
+     when /^the page "Order"$/
+       orders_path
+
 
      when /^the page "Containers"$/
        containers_path
