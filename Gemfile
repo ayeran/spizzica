@@ -50,7 +50,7 @@ gem "paperclip", "~> 3.4.1"
 # Deploy with Capistrano
 # gem 'capistrano'
 
-
+gem 'nifty-generators'
 gem 'haml'
 gem "haml-rails"
 gem "devise"
@@ -64,3 +64,4 @@ end
 group :test do
 	gem 'cucumber-rails', :require => false
 end
+gem "mocha", :group => :test

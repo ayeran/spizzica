@@ -112,8 +112,12 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.21)
+    mocha (0.13.3)
+      metaclass (~> 0.0.1)
     multi_json (1.7.1)
+    nifty-generators (0.4.6)
     nokogiri (1.5.7)
     orm_adapter (0.4.0)
     paperclip (3.4.1)
@@ -237,6 +241,8 @@ DEPENDENCIES
   jquery-rails
   launchy
   linecache19!
+  mocha
+  nifty-generators
   paperclip (~> 3.4.1)
   pg
   railroady (~> 1.1.0)

@@ -1,4 +1,6 @@
 Spizzicaluna::Application.routes.draw do
+  resources :authentications
+
   resources :sandwiches
 
   resources :foams
