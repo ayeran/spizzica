@@ -5,7 +5,6 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-# for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -56,6 +55,7 @@ gem "haml-rails"
 gem "devise"
 gem "cancan"
 gem 'rb-inotify', '~> 0.8.8'
+gem 'gherkin', '<= 2.11.6'
 
 group :development do
   gem 'cucumber-rails', :require => false
@@ -64,4 +64,3 @@ end
 group :test do
 	gem 'cucumber-rails', :require => false
 end
-gem "mocha", :group => :test

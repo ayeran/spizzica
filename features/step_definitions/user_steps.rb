@@ -75,56 +75,6 @@ Given /^the following "(.+)" exist:/ do |models, bs_t|
   assert model.constantize.all.count == bs_t.hashes.size
 end
 
-# Given /^the following Manufacturers exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Manufacturer.create!(bs)
-  # end
-  # assert Manufacturer.all.count == bs_t.hashes.size
-# end
-#
-# Given /^the following Containers exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Container.create!(bs)
-  # end
-  # assert Container.all.count == bs_t.hashes.size
-# end
-#
-# Given /^the following Lids exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Lid.create!(bs)
-  # end
-  # assert Lid.all.count == bs_t.hashes.size
-# end
-#
-# Given /^the following Aromas exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Aroma.create!(bs)
-  # end
-  # assert Aroma.all.count == bs_t.hashes.size
-# end
-#
-# Given /^the following Tastes exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Taste.create!(bs)
-  # end
-  # assert Taste.all.count == bs_t.hashes.size
-# end
-#
-# Given /^the following Colors exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Color.create!(bs)
-  # end
-  # assert Color.all.count == bs_t.hashes.size
-# end
-#
-#
-# Given /^the following Foams exist:/ do |bs_t|
-  # bs_t.hashes.each do |bs|
-   # Foam.create!(bs)
-  # end
-  # assert Foam.all.count == bs_t.hashes.size
-# end
-
 
 Then /^I should see links to: (.+)+$/ do |links|
   linksArr=links.split(",")
@@ -147,13 +97,94 @@ Then /^I check (.+) checkbox with values (.+)$/ do |box,values|
  end
 end
 
-# Then /^I should see the following: (.+)+$/ do |items|
-  # itemsArr=items.split(",")
-  # itemsArr.each do |item|
-    # find(:link, link.strip)
-    # #Given %{I should see link to "#{link}"}
-  # end
-# end
+Given /^I am logged in as an administrator$/ do
+ steps %Q{
+   Given the following users exist:
+    | email               | password         | role       |
+    | admin@test.com      | admin_password   | admin      |
+    | visitor@visitor.com | visitor_password | registered |
+   And I am on the "home page"
+   And I follow "Login"
+   And I fill in "Email" with "admin@test.com"
+   And I fill in "Password" with "admin_password"
+   And I press "Sign in"
+   Then I should see "admin"
+}
+end
+
+Given /^beerstyles exist$/ do
+  steps %Q{
+    Given the following "Beerstyles" exist:
+      | name       |
+      | dortmunder |
+      | lager      |
+      | pilsner    |
+}
+end
+
+Given /^manufacturers exist$/ do
+  steps %Q{
+    Given the following "Manufacturers" exist:
+      | name          |
+      | Birra Perroni |
+      | Radeberger    |
+  }
+end
+
+Given /^containers exist$/ do
+  steps %Q{
+    Given the following "Containers" exist:
+      | name                |
+      | bottiglia           |
+      | bottiglia ceramica  |
+  }
+end
+
+Given /^lids exist$/ do
+  steps %Q{
+    Given the following "Lids" exist:
+      | name             |
+      | tappo a corona   |
+      | tappo meccanico  |
+}
+end
+
+Given /^aromas exist$/ do
+  steps %Q{
+    Given the following "Aromas" exist:
+      | name       |
+      | amarognolo |
+      | dissettante|
+  }
+end
+
+Given /^tastes exist$/ do
+  steps %Q{
+  Given the following "Tastes" exist:
+    | name       |
+    | agrumato   |
+    | secco      |
+ }
+end
+
+Given /^colors exist$/ do
+  steps %Q{
+  Given the following "Colors" exist:
+    | name      |
+    | chiaro    |
+    | scuro     |
+  }
+end
+
+Given /^foams exist$/ do
+  steps %Q{
+  Given the following "Foams" exist:
+    | name     |
+    | fitta    |
+    | compatta |
+  }
+end
+
 
 
 
