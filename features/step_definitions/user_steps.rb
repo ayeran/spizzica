@@ -185,6 +185,40 @@ Given /^foams exist$/ do
   }
 end
 
+Given /^I should see all beers$/ do
+   Beer.all.each do |beer|
+    steps %Q{
+      Then I should see "#{beer.name}"
+    }
+   end
+end
+
+Given /^the beers have been added$/ do
+  steps %Q{
+    Given I am logged in as an administrator
+    And beerstyles exist
+    And manufacturers exist
+    And containers exist
+    And lids exist
+    And aromas exist
+    And tastes exist
+    And colors exist
+    And foams exist
+    Given I am on the page "Beer"
+    And I follow "New Beer"
+    And I fill in "Name" with "Birralocale"
+    And I check "beerstyles" checkbox with value "pilsner"
+    And I select "bottiglia" from "beer_container_id"
+    And I select "tappo a corona" from "beer_lid_id"
+    And I check "aromas" checkbox with value "amarognolo"
+    And I check "tastes" checkbox with value "secco"
+    And I check "colors" checkbox with values "chiaro", "scuro"
+    And I check "foams" checkbox with values "fitta", "compatta"
+    And I press "Save"
+    Then I should see the following: "Birralocale", "bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta", "compatta", "scuro"
+    }
+end
+
 
 
 

@@ -7,14 +7,32 @@
           %li= msg
 
   .field
-    = f.label :user_id
+    = f.label "Nome"
     = f.text_field :user_id
   .field
-    = f.label :addr
+    = f.label "Indirizzo"
     = f.text_area :addr
+  .field
+    = f.label "Telefono"
+    = f.text_field :telephone
   .field
     = f.label :time
     = f.datetime_select :time
+  .field
+    = f.label :beer
+    - Beer.order("lower(name) ASC").all.each{|c|
+    = link_to c.name, c
+    - if FileTest.exist?(c.imagebeer.path(:small).to_s)
+      = image_tag c.imagebeer.url(:small)
+    = select_tag("beer[c.id][]", options_for_select((0..10)))
+    -}
+  .field
+    = f.label :sandwich
+    - Sandwich.order("lower(name) ASC").all.each{|c|
+    = link_to c.name, c
+    = select_tag("sandwich[c.id][]", options_for_select((0..10)))
+    -}
+
   .field
     = f.label :status
     = f.text_field :status

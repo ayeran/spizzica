@@ -17,7 +17,7 @@ Background: logged in as an admin
  Scenario: adding a beer
   Given I am on the page "Beer"
   And I follow "New Beer"
-  And I fill in "Name" with "Birra"
+  And I fill in "Name" with "Birralocale"
   And I check "beerstyles" checkbox with value "pilsner"
   And I select "bottiglia" from "beer_container_id"
   And I select "tappo a corona" from "beer_lid_id"
@@ -26,7 +26,7 @@ Background: logged in as an admin
   And I check "colors" checkbox with values "chiaro", "scuro"
   And I check "foams" checkbox with values "fitta", "compatta"
   And I press "Save"
-  Then I should see the following: "bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta", "compatta", "scuro"
+  Then I should see the following: "Birralocale","bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta", "compatta", "scuro"
   When I am on the page "Beer"
   And I follow "Edit"
   And I check "aromas" checkbox with value "dissettante"

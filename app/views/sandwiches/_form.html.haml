@@ -11,9 +11,12 @@
     = f.text_field :name
   .field
     = f.label :ingredients
-    - Ingredient.all.each{|c|
-    = check_box_tag("ingredient[]", c.name,@sandwich.ingredients.include?(c))
-    = c.name
+    - Ingredient.order("lower(name) ASC").all.each{|c|
+    = check_box_tag("ingredient[]", c.name, @sandwich.ingredients.include?(c))
+    - if FileTest.exist?(c.ingredientimage.path(:small).to_s)
+      = link_to image_tag(c.ingredientimage.url(:small), :alt=>c.name), c
+    - else
+      = link_to c.name, c
     -}
 
   .actions

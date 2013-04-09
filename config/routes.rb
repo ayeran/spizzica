@@ -1,6 +1,4 @@
 Spizzicaluna::Application.routes.draw do
-  resources :authentications
-
   resources :sandwiches
 
   resources :foams
@@ -28,7 +26,7 @@ Spizzicaluna::Application.routes.draw do
 	root :to => "home#index"
 #  get "home/index"
 
-	
+
 #	resources :users
 #  devise_for :admins
 #	devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "admin"
