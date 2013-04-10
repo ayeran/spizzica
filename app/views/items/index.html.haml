@@ -19,8 +19,8 @@
       %td= item.status
       %td= item.name.classify.constantize.find(item.iid).name
       %td= link_to 'Show', item
-      %td= link_to 'Edit', edit_item_path(item)
-      %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -# %td= link_to 'Edit', edit_item_path(item)
+      -# %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
