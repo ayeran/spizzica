@@ -35,8 +35,6 @@ class Beer < ActiveRecord::Base
     item=Item.find_by_name_and_iid("Beer",self.id)
     if item
       item.destroy
-    else
-      flash[:bowout] = "Beer #{self.id} was not found among Items!"
     end
   end
 

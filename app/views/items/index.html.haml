@@ -2,18 +2,22 @@
 
 %table
   %tr
+    %th Id
     %th Name
-    %th Description
+    %th iid
     %th Status
+    %th Info
     %th
     %th
     %th
 
   - @items.each do |item|
     %tr
+      %td= item.id
       %td= item.name
-      %td= item.description
+      %td= item.iid
       %td= item.status
+      %td= item.name.classify.constantize.find(item.iid).name
       %td= link_to 'Show', item
       %td= link_to 'Edit', edit_item_path(item)
       %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
