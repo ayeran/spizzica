@@ -13,11 +13,14 @@
     = f.label :ingredients
     - Ingredient.order("lower(name) ASC").all.each{|c|
     = check_box_tag("ingredient[]", c.name, @sandwich.ingredients.include?(c))
-    - if FileTest.exist?(c.ingredientimage.path(:small).to_s)
-      = link_to image_tag(c.ingredientimage.url(:small), :alt=>c.name), c
+    - if FileTest.exist?(c.ingredientimage.path(:thumb).to_s)
+      = link_to image_tag(c.ingredientimage.url(:thumb), :alt=>c.name), c
     - else
       = link_to c.name, c
     -}
+  .field
+    = f.label :price
+    = f.number_field :price, :size => 5
 
   .actions
     = f.submit 'Save'

@@ -3,7 +3,8 @@
 %table
   %tr
     %th Name
-    %th
+    %th Price
+    %th Ingredient
     %th
     %th
     %th
@@ -11,6 +12,7 @@
   - @sandwiches.each do |sandwich|
     %tr
       %td= link_to sandwich.name, sandwich
+      %td= sandwich.price
       %td
         - sandwich.ingredients.each do |ingr|
           - if FileTest.exist?(ingr.ingredientimage.path(:small).to_s)

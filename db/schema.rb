@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410104810) do
+ActiveRecord::Schema.define(:version => 20130411154704) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130410104810) do
     t.string   "imagebeer_content_type"
     t.integer  "imagebeer_file_size"
     t.datetime "imagebeer_updated_at"
+    t.decimal  "price"
   end
 
   create_table "beers_beerstyles", :id => false, :force => true do |t|
@@ -156,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20130410104810) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "price"
   end
 
   create_table "tastes", :force => true do |t|

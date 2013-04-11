@@ -46,8 +46,8 @@
     -}
 
   .field
-    = f.label :strength
-    = f.text_field :strength
+    = f.label "Strength (% vol)"
+    = f.text_field :strength, :size => 5
   .field
     = f.label :container_id
     = select_tag("beer[container_id]", options_from_collection_for_select(Container.order("lower(name) ASC").all,:id,:name))
@@ -56,8 +56,13 @@
     = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.order("lower(name) ASC").all,:id,:name))
 
   .field
-    = f.label :volume
-    = f.number_field :volume
+    = f.label "Volume (cl)"
+    = f.number_field :volume, :size => 5
+
+  .fields
+    = f.label "Price (€)"
+    = f.number_field :price, :size => 5
+
 
   .field
     = f.file_field :imagebeer

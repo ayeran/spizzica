@@ -7,12 +7,14 @@
     %th Manufacturer
     %th Strength
     %th Container
+    %th Volume
     %th Lid
     %th Aroma
     %th Taste
     %th Beer style
     %th Color
     %th Foam
+    %th Price
     %th
     %th
     %th
@@ -25,6 +27,7 @@
       %td= Manufacturer.find(beer.manufacturer_id).name
       %td= beer.strength
       %td= Container.find(beer.container_id).name
+      %td= beer.volume
       %td= Lid.find(beer.lid_id).name
       %td
         - beer.aromas.each do |aroma|
@@ -41,6 +44,8 @@
       %td
         - beer.foams.each do |foam|
           = foam.name
+      %td
+        = beer.price
 
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)

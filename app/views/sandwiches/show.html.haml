@@ -4,6 +4,9 @@
   %b Name:
   = link_to @sandwich.name, @sandwich
 %p
+  %b Price:
+  = @sandwich.price
+%p
   %b Ingredients:
   - @sandwich.ingredients.each do |ingr|
     - if FileTest.exist?(ingr.ingredientimage.path(:small).to_s)

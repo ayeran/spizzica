@@ -39,7 +39,9 @@
 %p
   %b Lid:
   = Lid.find(@beer.lid_id).name
-
+%p
+  %b Price:
+  = @beer.price
 = link_to 'Edit', edit_beer_path(@beer)
 \|
 = link_to 'Back', beers_path
