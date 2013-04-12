@@ -44,9 +44,16 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
-
+    @params_item=params[:item]
     respond_to do |format|
       if @order.save
+        params[:item].each{|itemid,quantity|
+          q=quantity.to_i
+          if (q!=0)
+            ord_cont=Ordercontent.new({:orderid => @order.id, :itemid => itemid, :quantity => q})
+            ord_cont.save
+          end
+        }
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
@@ -76,6 +83,9 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])
+    Ordercontent.where(:orderid => @order.id).each{|ordercontent|
+      ordercontent.destroy
+    }
     @order.destroy
 
     respond_to do |format|

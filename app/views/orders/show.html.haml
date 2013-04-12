@@ -15,6 +15,12 @@
 %p
   %b Info:
   = @order.info
+%p
+  %b Content:
+  - Ordercontent.where(:orderid => @order.id).all.each{|ordcont|
+  = Item.find(ordcont.itemid).name
+  -}
+
 
 = link_to 'Edit', edit_order_path(@order)
 \|
