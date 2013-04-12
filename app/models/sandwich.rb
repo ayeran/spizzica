@@ -22,5 +22,9 @@ class Sandwich < ActiveRecord::Base
     end
   end
 
+public
+  def item
+    return Item.find_by_name_and_iid("Sandwich",self.id)
+  end
 
 end

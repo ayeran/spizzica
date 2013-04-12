@@ -25,14 +25,15 @@
     = c.price
     - if FileTest.exist?(c.imagebeer.path(:small).to_s)
       = image_tag c.imagebeer.url(:small)
-    = select_tag("beer[c.id][]", options_for_select((0..10)))
+
+    = select_tag("item[#{c.item.id}]", options_for_select((0..10)))
     -}
   .field
     = f.label :sandwich
     - Sandwich.order("lower(name) ASC").all.each{|c|
     = link_to c.name, c
     = c.price
-    = select_tag("sandwich[c.id][]", options_for_select((0..10)))
+    = select_tag("item[#{c.item.id}]", options_for_select((0..10)))
     -}
 
   .field
