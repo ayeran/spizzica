@@ -27,4 +27,13 @@ public
     return Item.find_by_name_and_iid("Sandwich",self.id)
   end
 
+public
+  def image(arg)
+  #  self.sandwichimage.url(arg)
+  end
+
+public
+  def imagepath(arg)
+#    self.sandwichimage.path(arg)
+  end
 end

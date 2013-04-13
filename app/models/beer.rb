@@ -43,4 +43,13 @@ public
     return Item.find_by_name_and_iid("Beer",self.id)
   end
 
+public
+  def image(arg)
+    self.imagebeer.url(arg)
+  end
+
+public
+  def imagepath(arg)
+    self.imagebeer.path(arg)
+  end
 end

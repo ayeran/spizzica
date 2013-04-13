@@ -18,8 +18,10 @@
 %p
   %b Content:
   - @order.ordercontents.each{|ordcont|
-  = ordcont.item.name
-  = ordcont.item.id
+  -item=ordcont.item.specify
+  - if FileTest.exist?(item.imagepath(:small).to_s)
+    = link_to image_tag(item.image(:small)), item
+  = item.name
   -}
 
 

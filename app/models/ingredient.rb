@@ -29,5 +29,13 @@ class Ingredient < ActiveRecord::Base
   end
 
 
+public
+  def image(arg)
+    self.ingredientimage.url(arg)
+  end
 
+public
+  def imagepath(arg)
+    self.ingredientimage.path(arg)
+  end
 end
