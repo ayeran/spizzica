@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Order:
+  = @tracking.order
+%p
+  %b Status:
+  = @tracking.status
+%p
+  %b Info:
+  = @tracking.info
+
+= link_to 'Edit', edit_tracking_path(@tracking)
+\|
+= link_to 'Back', trackings_path

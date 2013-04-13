@@ -9,19 +9,19 @@
 
 Role.create([{id: 1, name: "root"},{id: 2, name: "admin"},{id: 3, name: "registered"},
   {id: 4,name: "guest"}]) unless Role.count > 0
-  
-User.create([{id: 1, 
-   email: "veontomo@gmail.com", 
-   encrypted_password: "$2a$10$DH.t4UDiQ/ciOjsWuiADLuSKx3ngAIIb/.zy3vh.b92t...", 
-   reset_password_token: nil, 
-   reset_password_sent_at: nil, 
-   remember_created_at: nil, 
-   sign_in_count: 1, 
-   current_sign_in_at: "2013-03-12 22:16:50", 
-   last_sign_in_at: "2013-03-12 22:16:50", 
-   current_sign_in_ip: "78.13.232.170", 
-   last_sign_in_ip: "78.13.232.170", 
-   created_at: "2013-03-12 22:16:50", 
+
+User.create([{id: 1,
+   email: "veontomo@gmail.com",
+   encrypted_password: "$2a$10$DH.t4UDiQ/ciOjsWuiADLuSKx3ngAIIb/.zy3vh.b92t...",
+   reset_password_token: nil,
+   reset_password_sent_at: nil,
+   remember_created_at: nil,
+   sign_in_count: 1,
+   current_sign_in_at: "2013-03-12 22:16:50",
+   last_sign_in_at: "2013-03-12 22:16:50",
+   current_sign_in_ip: "78.13.232.170",
+   last_sign_in_ip: "78.13.232.170",
+   created_at: "2013-03-12 22:16:50",
    updated_at: "2013-03-12 22:16:50"}]) unless User.find_by_email("veontomo@gmail.com")
 
 
@@ -64,22 +64,26 @@ end
 end
 
 
-["maionese", "tabasco", "salame piccante", "mozzarella", "prosciutto crudo", "funghi", "insalata", 
-  "salsa tonnata", "prosciutto cotto", "pomodori", "carciofini", "salsa piccante", "peperoni", "speck", 
-  "edamer", "parmigiano", "rucola", "wurstel", "verza", "senape dolce", "salsa ai funghi porcini", 
-  "melanzane", "tonno", "salsa messicana", "panatina di pollo", "limone", "crema di formaggio", 
-  "salsa rosa", "melanzane grigliate", "alici", "pachino", "origano", "bresaola", "funghetti", 
-  "carciofini", "salmone", "pepe", "hamburger", "spinaci", "salsiccia", "cipolla", "pancetta", 
-  "caciotta", "panatina di pollo farcita con edamer", "tartufo", "radicchio grigliato", "surimi", 
-  "gamberetti", "polpette di pollo e tacchino", "formaggio piccante", "verza", "formaggio alle erbe", 
-  "cetrioli", "ketchup", "salsa mac", "formaggio fuso", "asparagi", " arrosto di tacchino", 
-  "formaggio bianco", "salsa allo yogurt", "formaggio", "salsa barbeque", "gorgonzola", 
-  "pancetta croccante", "salsa kebab", "fesa di tacchino", "senape", "wurstel gigante", "basilico", 
-  "lardo di colonnata", "miele", "mix di spezie", "pinoli", "ruchetta", "funghi porcini", "radicchio", 
-  "profumo di tartufo", "capperi", "insalata verde", "mais", "fagioli", "scaglie di parmigiano", 
-  "noci", "olio di oliva", "feta", "olive", "polpa di granchio", "arancia", "aceto balsamico", 
-  "radicchio trevigiano", "pere", "cuori di palma", "germogli di soia", 
+["maionese", "tabasco", "salame piccante", "mozzarella", "prosciutto crudo", "funghi", "insalata",
+  "salsa tonnata", "prosciutto cotto", "pomodori", "carciofini", "salsa piccante", "peperoni", "speck",
+  "edamer", "parmigiano", "rucola", "wurstel", "verza", "senape dolce", "salsa ai funghi porcini",
+  "melanzane", "tonno", "salsa messicana", "panatina di pollo", "limone", "crema di formaggio",
+  "salsa rosa", "melanzane grigliate", "alici", "pachino", "origano", "bresaola", "funghetti",
+  "carciofini", "salmone", "pepe", "hamburger", "spinaci", "salsiccia", "cipolla", "pancetta",
+  "caciotta", "panatina di pollo farcita con edamer", "tartufo", "radicchio grigliato", "surimi",
+  "gamberetti", "polpette di pollo e tacchino", "formaggio piccante", "verza", "formaggio alle erbe",
+  "cetrioli", "ketchup", "salsa mac", "formaggio fuso", "asparagi", " arrosto di tacchino",
+  "formaggio bianco", "salsa allo yogurt", "formaggio", "salsa barbeque", "gorgonzola",
+  "pancetta croccante", "salsa kebab", "fesa di tacchino", "senape", "wurstel gigante", "basilico",
+  "lardo di colonnata", "miele", "mix di spezie", "pinoli", "ruchetta", "funghi porcini", "radicchio",
+  "profumo di tartufo", "capperi", "insalata verde", "mais", "fagioli", "scaglie di parmigiano",
+  "noci", "olio di oliva", "feta", "olive", "polpa di granchio", "arancia", "aceto balsamico",
+  "radicchio trevigiano", "pere", "cuori di palma", "germogli di soia",
   "menta", "sgombro", "carote"].each do |ingr|
     Ingredient.find_or_create_by_name(ingr.strip)
 end
 
+["ricevuto","accettato","non accettato","confermato","non confermato","in elaborazione","in consegna",
+  "consegnato","non consegnato","cancellato"].each do |status|
+    Status.find_or_create_by_name(status.strip)
+end

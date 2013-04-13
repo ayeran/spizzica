@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413055332) do
+ActiveRecord::Schema.define(:version => 20130413170212) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -171,11 +171,28 @@ ActiveRecord::Schema.define(:version => 20130413055332) do
     t.decimal  "price"
   end
 
+  create_table "statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tastes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "trackings", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "status_id"
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trackings", ["order_id"], :name => "index_trackings_on_order_id"
+  add_index "trackings", ["status_id"], :name => "index_trackings_on_status_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

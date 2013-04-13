@@ -1,4 +1,8 @@
 Spizzicaluna::Application.routes.draw do
+  resources :trackings
+
+  resources :statuses
+
   resources :sandwiches
 
   resources :foams
