@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
         params[:item].each{|itemid,quantity|
           q=quantity.to_i
           if (q!=0)
-            ord_cont=Ordercontent.new({:orderid => @order.id, :itemid => itemid, :quantity => q})
+            ord_cont=Ordercontent.new({:order_id => @order.id, :item_id => itemid, :quantity => q})
             ord_cont.save
           end
         }

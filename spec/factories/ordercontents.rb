@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :ordercontent do
-    orderid 1
-    itemid 1
+    order nil
+    item nil
     quantity 1
   end
 end

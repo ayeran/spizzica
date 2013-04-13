@@ -17,8 +17,9 @@
   = @order.info
 %p
   %b Content:
-  - Ordercontent.where(:orderid => @order.id).all.each{|ordcont|
-  = Item.find(ordcont.itemid).name
+  - @order.ordercontents.each{|ordcont|
+  = ordcont.item.name
+  = ordcont.item.id
   -}
 
 
