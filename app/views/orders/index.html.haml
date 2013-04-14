@@ -16,7 +16,9 @@
       %td= order.user_id
       %td= order.addr
       %td= order.time
-      %td= order.status
+      %td
+        - order.trackings.each do |track|
+          = track.status.name
       %td= order.info
       %td= link_to 'Show', order
       %td= link_to 'Edit', edit_order_path(order)
