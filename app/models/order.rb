@@ -10,4 +10,8 @@ class Order < ActiveRecord::Base
    t1.status=s1
    t1.save!
  end
+
+ def statuses
+   self.trackings
+ end
 end
