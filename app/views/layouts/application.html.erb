@@ -7,11 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if user_signed_in? %>
 <%= link_to 'Items', items_path, :class => 'menu_button' %>
 <%= link_to 'Orders', orders_path, :class => 'menu_button' %>
+<%end%>
 <%= link_to 'Ingredients', ingredients_path, :class => 'menu_button' %>
 <%= link_to 'Sandwiches', sandwiches_path, :class => 'menu_button' %>
 <%= link_to 'Birre', beers_path, :class => 'menu_button' %>
+<% if user_signed_in? %>
 <%= link_to 'Stile di Birra', beerstyles_path, :class => 'menu_button' %>
 <%= link_to 'Produttore', manufacturers_path, :class => 'menu_button' %>
 <%= link_to 'Contenitore', containers_path, :class => 'menu_button' %>
@@ -20,7 +23,7 @@
 <%= link_to 'Gusto', tastes_path, :class => 'menu_button' %>
 <%= link_to 'Colore', colors_path, :class => 'menu_button' %>
 <%= link_to 'Schiuma', foams_path, :class => 'menu_button' %>
-
+<%end%>
 <%= yield %>
 
 <br/>

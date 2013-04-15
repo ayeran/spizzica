@@ -11,7 +11,12 @@
   = @order.time
 %p
   %b Status:
-  = @order.status
+  %ol
+    - @order.trackings.each do |track|
+      %li
+        = track.status.name
+        = track.created_at
+
 %p
   %b Info:
   = @order.info

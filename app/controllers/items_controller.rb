@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_filter :verify_admin
   # GET /items
   # GET /items.json
 
