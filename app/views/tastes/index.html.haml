@@ -1,8 +1,8 @@
-%h1 Listing tastes
+%h1 Elenco dei gusti
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
     %th
     %th
@@ -10,10 +10,10 @@
   - @tastes.each do |taste|
     %tr
       %td= taste.name
-      %td= link_to 'Show', taste
-      %td= link_to 'Edit', edit_taste_path(taste)
-      %td= link_to 'Destroy', taste, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Mostra', taste
+      %td= link_to 'Modifica', edit_taste_path(taste)
+      %td= link_to 'Elimina', taste, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Taste', new_taste_path
+= link_to 'Nuovo gusto', new_taste_path
