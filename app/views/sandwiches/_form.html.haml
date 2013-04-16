@@ -7,10 +7,10 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label "Nome"
     = f.text_field :name
   .field
-    = f.label :ingredients
+    = f.label "Ingredienti"
     - Ingredient.order("lower(name) ASC").all.each{|c|
     = check_box_tag("ingredient[]", c.name, @sandwich.ingredients.include?(c))
     - if FileTest.exist?(c.ingredientimage.path(:thumb).to_s)
@@ -19,8 +19,8 @@
       = link_to c.name, c
     -}
   .field
-    = f.label :price
+    = f.label "Prezzo"
     = f.number_field :price, :size => 5
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Salva'
