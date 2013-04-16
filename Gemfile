@@ -6,7 +6,8 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
+#  gem 'sqlite3'
+  gem 'mysql2'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'ruby-debug-base19x', "~>0.11.30.pre4"
   gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
@@ -21,7 +22,8 @@ group :development, :test do
   gem "railroady", "~> 1.1.0"
 end
 group :production do
-  gem 'pg'
+#  gem 'pg'
+  gem 'mysql2'
 end
 
 # group :test, :development do
