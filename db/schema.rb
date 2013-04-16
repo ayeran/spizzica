@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(:version => 20130413173543) do
     t.integer "beer_id"
   end
 
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "beers", :force => true do |t|
     t.string   "name"
     t.integer  "manufacturer_id"
