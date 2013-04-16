@@ -1,8 +1,8 @@
-%h1 Listing colors
+%h1 Elenco dei colori
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
     %th
     %th
@@ -10,10 +10,10 @@
   - @colors.each do |color|
     %tr
       %td= color.name
-      %td= link_to 'Show', color
-      %td= link_to 'Edit', edit_color_path(color)
-      %td= link_to 'Destroy', color, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Mostra', color
+      %td= link_to 'Modifica', edit_color_path(color)
+      %td= link_to 'Elimina', color, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Color', new_color_path
+= link_to 'Nuovo colore', new_color_path
