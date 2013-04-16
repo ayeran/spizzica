@@ -10,19 +10,19 @@
 <% if user_signed_in? %>
 <%= link_to 'Items', items_path, :class => 'menu_button' %>
 <%= link_to 'Orders', orders_path, :class => 'menu_button' %>
+<%= link_to 'Ingredienti', ingredients_path, :class => 'menu_button' %>
 <%end%>
-<%= link_to 'Ingredients', ingredients_path, :class => 'menu_button' %>
-<%= link_to 'Sandwiches', sandwiches_path, :class => 'menu_button' %>
+<%= link_to 'Panini', sandwiches_path, :class => 'menu_button' %>
 <%= link_to 'Birre', beers_path, :class => 'menu_button' %>
 <% if user_signed_in? %>
-<%= link_to 'Stile di Birra', beerstyles_path, :class => 'menu_button' %>
-<%= link_to 'Produttore', manufacturers_path, :class => 'menu_button' %>
-<%= link_to 'Contenitore', containers_path, :class => 'menu_button' %>
-<%= link_to 'Tappo', lids_path, :class => 'menu_button' %>
-<%= link_to 'Aroma', aromas_path, :class => 'menu_button' %>
-<%= link_to 'Gusto', tastes_path, :class => 'menu_button' %>
-<%= link_to 'Colore', colors_path, :class => 'menu_button' %>
-<%= link_to 'Schiuma', foams_path, :class => 'menu_button' %>
+<%= link_to 'Stili di birra', beerstyles_path, :class => 'menu_button' %>
+<%= link_to 'Produttori', manufacturers_path, :class => 'menu_button' %>
+<%= link_to 'Contenitori', containers_path, :class => 'menu_button' %>
+<%= link_to 'Tappi', lids_path, :class => 'menu_button' %>
+<%= link_to 'Arome', aromas_path, :class => 'menu_button' %>
+<%= link_to 'Gusti', tastes_path, :class => 'menu_button' %>
+<%= link_to 'Colori', colors_path, :class => 'menu_button' %>
+<%= link_to 'Schiume', foams_path, :class => 'menu_button' %>
 <%end%>
 <%= yield %>
 
