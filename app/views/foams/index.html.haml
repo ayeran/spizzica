@@ -1,8 +1,8 @@
-%h1 Listing foams
+%h1 Elenco delle schiume
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
     %th
     %th
@@ -10,10 +10,10 @@
   - @foams.each do |foam|
     %tr
       %td= foam.name
-      %td= link_to 'Show', foam
-      %td= link_to 'Edit', edit_foam_path(foam)
+      %td= link_to 'Mostra', foam
+      %td= link_to 'Modifica', edit_foam_path(foam)
       %td= link_to 'Destroy', foam, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Foam', new_foam_path
+= link_to 'Nuova schiuma', new_foam_path
