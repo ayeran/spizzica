@@ -7,12 +7,12 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label "Nome"
     = f.text_field :name
   .field
-    = f.label :description
+    = f.label "Descrizione"
     = f.text_area :description
   .field
     = f.file_field :ingredientimage
   .actions
-    = f.submit 'Save'
+    = f.submit 'Salva'

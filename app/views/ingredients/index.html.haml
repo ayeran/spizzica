@@ -1,10 +1,10 @@
-%h1 Listing ingredients
+%h1 Elenco degli ingredienti
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
-    %th Description
+    %th Descrizione
     %th
     %th
     %th
@@ -14,10 +14,10 @@
       %td= ingredient.name
       %td= image_tag ingredient.ingredientimage.url(:thumb)
       %td= ingredient.description
-      %td= link_to 'Show', ingredient
-      %td= link_to 'Edit', edit_ingredient_path(ingredient)
-      %td= link_to 'Destroy', ingredient, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Mostra', ingredient
+      %td= link_to 'Modifica', edit_ingredient_path(ingredient)
+      %td= link_to 'Elimina', ingredient, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Ingredient', new_ingredient_path
+= link_to 'Nuovo ingrediente', new_ingredient_path
