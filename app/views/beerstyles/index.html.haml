@@ -1,8 +1,8 @@
-%h1 Listing beerstyles
+%h1 Elenco degli stili
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
     %th
     %th
@@ -10,10 +10,10 @@
   - @beerstyles.each do |beerstyle|
     %tr
       %td= beerstyle.name
-      %td= link_to 'Show', beerstyle
-      %td= link_to 'Edit', edit_beerstyle_path(beerstyle)
-      %td= link_to 'Destroy', beerstyle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Mostra', beerstyle
+      %td= link_to 'Modifica', edit_beerstyle_path(beerstyle)
+      %td= link_to 'Elimina', beerstyle, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Beerstyle', new_beerstyle_path
+= link_to 'Nuovo Stile', new_beerstyle_path
