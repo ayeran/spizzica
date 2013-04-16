@@ -1,8 +1,8 @@
-%h1 Listing lids
+%h1 Elenco dei tappi
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
     %th
     %th
@@ -10,9 +10,9 @@
   - @lids.each do |lid|
     %tr
       %td= lid.name
-      %td= link_to 'Show', lid
-      %td= link_to 'Edit', edit_lid_path(lid)
-      %td= link_to 'Destroy', lid, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Mostra', lid
+      %td= link_to 'Modifica', edit_lid_path(lid)
+      %td= link_to 'Elimina', lid, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
