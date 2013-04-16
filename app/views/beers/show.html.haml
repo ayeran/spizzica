@@ -1,12 +1,12 @@
 %p#notice= notice
 %p
-  %b Name:
+  %b Nome
   = @beer.name
 %p
-  %b Manufacturer:
+  %b Produttore:
   = Manufacturer.find(@beer.manufacturer_id).name
 %p
-  %b Photo:
+  %b Immagine:
   = image_tag @beer.imagebeer.url(:small)
 
 %p
@@ -14,34 +14,34 @@
   - @beer.aromas.each do |aroma|
     = aroma.name
 %p
-  %b Taste:
+  %b Gusto:
   - @beer.tastes.each do |taste|
     = taste.name
 %p
-  %b Beer style:
+  %b Stile:
   - @beer.beerstyles.each do |bs|
     = bs.name
 %p
-  %b Color:
+  %b Colore:
   - @beer.colors.each do |color|
     = color.name
 %p
-  %b Foam:
+  %b Schiuma:
   - @beer.foams.each do |foam|
     = foam.name
 
 %p
-  %b Strength:
+  %b Gradazione:
   = @beer.strength
 %p
-  %b Container:
+  %b Formato:
   = Container.find(@beer.container_id).name
 %p
-  %b Lid:
+  %b Tappo:
   = Lid.find(@beer.lid_id).name
 %p
-  %b Price:
+  %b Prezzo:
   = @beer.price
-= link_to 'Edit', edit_beer_path(@beer)
+= link_to 'Modificare', edit_beer_path(@beer)
 \|
-= link_to 'Back', beers_path
+= link_to 'Indietro', beers_path

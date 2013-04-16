@@ -7,52 +7,52 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label "Nome"
     = f.text_field :name
   .field
-    = f.label :manufacturer_id
+    = f.label "Produttore"
     = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.order("lower(name) ASC").all,:id,:name))
   .field
-    = f.label :beerstyle
+    = f.label "Stile"
     - Beerstyle.order("lower(name) ASC").all.each{|c|
     = check_box_tag("beerstyle[]", c.name, @beer.beerstyles.collect{|c| c.id}.include?(c.id), :id => "beerstyles[#{c.name}]")
     = c.name
     -}
   .field
-    = f.label :aroma
+    = f.label "Aroma"
     - Aroma.order("lower(name) ASC").all.each{|c|
     = check_box_tag("aroma[]", c.name, @beer.aromas.collect{|c| c.id}.include?(c.id), :id => "aromas[#{c.name}]")
     = c.name
     -}
   .field
-    = f.label :taste
+    = f.label "Gusto"
     - Taste.order("lower(name) ASC").all.each{|c|
     = check_box_tag("taste[]", c.name, @beer.tastes.collect{|c| c.id}.include?(c.id), :id => "tastes[#{c.name}]")
     = c.name
     -}
 
   .field
-    = f.label :color
+    = f.label "Colore"
     - Color.order("lower(name) ASC").all.each{|c|
     = check_box_tag("color[]", c.name ,@beer.colors.collect{|c| c.id}.include?(c.id), :id => "colors[#{c.name}]")
     = c.name
     -}
 
   .field
-    = f.label :foam
+    = f.label "Schiuma"
     - Foam.order("lower(name) ASC").all.each{|c|
     = check_box_tag("foam[]", c.name, @beer.foams.collect{|c| c.id}.include?(c.id), :id => "foams[#{c.name}]")
     = c.name
     -}
 
   .field
-    = f.label "Strength (% vol)"
+    = f.label "Gradazione (% vol)"
     = f.text_field :strength, :size => 5
   .field
-    = f.label :container_id
+    = f.label "Formato"
     = select_tag("beer[container_id]", options_from_collection_for_select(Container.order("lower(name) ASC").all,:id,:name))
   .field
-    = f.label :lid_id
+    = f.label "Tappo"
     = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.order("lower(name) ASC").all,:id,:name))
 
   .field
@@ -60,7 +60,7 @@
     = f.number_field :volume, :size => 5
 
   .fields
-    = f.label "Price (€)"
+    = f.label "Prezzo (€)"
     = f.number_field :price, :size => 5
 
 
@@ -68,4 +68,4 @@
     = f.file_field :imagebeer
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Salvare'
