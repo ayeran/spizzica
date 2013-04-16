@@ -1,8 +1,8 @@
-%h1 Listing manufacturers
+%h1 Elenco dei produttori
 
 %table
   %tr
-    %th Name
+    %th Nome
     %th
     %th
     %th
@@ -10,10 +10,10 @@
   - @manufacturers.each do |manufacturer|
     %tr
       %td= manufacturer.name
-      %td= link_to 'Show', manufacturer
-      %td= link_to 'Edit', edit_manufacturer_path(manufacturer)
-      %td= link_to 'Destroy', manufacturer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Mostra', manufacturer
+      %td= link_to 'Modifica', edit_manufacturer_path(manufacturer)
+      %td= link_to 'Elimina', manufacturer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Manufacturer', new_manufacturer_path
+= link_to 'Nuovo produttore', new_manufacturer_path
