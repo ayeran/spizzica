@@ -12,34 +12,37 @@
   .field
     = f.label "Produttore"
     = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.order("lower(name) ASC").all,:id,:name))
-  .field
-    = f.label "Stile"
+
+  = f.label "Stile"
+  .field_long
     - Beerstyle.order("lower(name) ASC").all.each{|c|
-    = check_box_tag("beerstyle[]", c.name, @beer.beerstyles.collect{|c| c.id}.include?(c.id), :id => "beerstyles[#{c.name}]")
+    = check_box_tag("beerstyle[]", c.name, @beer.beerstyles.collect{|c| c.id}.include?(c.id), :id => "beerstyles[#{c.name}]").to_s
     = c.name
     -}
-  .field
-    = f.label "Aroma"
+
+  = f.label "Aroma"
+  .field_long
     - Aroma.order("lower(name) ASC").all.each{|c|
     = check_box_tag("aroma[]", c.name, @beer.aromas.collect{|c| c.id}.include?(c.id), :id => "aromas[#{c.name}]")
     = c.name
     -}
-  .field
-    = f.label "Gusto"
+
+  = f.label "Gusto"
+  .field_long
     - Taste.order("lower(name) ASC").all.each{|c|
     = check_box_tag("taste[]", c.name, @beer.tastes.collect{|c| c.id}.include?(c.id), :id => "tastes[#{c.name}]")
     = c.name
     -}
 
-  .field
-    = f.label "Colore"
+  = f.label "Colore"
+  .field_long
     - Color.order("lower(name) ASC").all.each{|c|
     = check_box_tag("color[]", c.name ,@beer.colors.collect{|c| c.id}.include?(c.id), :id => "colors[#{c.name}]")
     = c.name
     -}
 
-  .field
-    = f.label "Schiuma"
+  = f.label "Schiuma"
+  .field_long
     - Foam.order("lower(name) ASC").all.each{|c|
     = check_box_tag("foam[]", c.name, @beer.foams.collect{|c| c.id}.include?(c.id), :id => "foams[#{c.name}]")
     = c.name

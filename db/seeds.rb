@@ -1,3 +1,4 @@
+# encoding: utf-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -5,7 +6,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 
 Role.create([{id: 1, name: "root"},{id: 2, name: "admin"},{id: 3, name: "registered"},
   {id: 4,name: "guest"}]) unless Role.count > 0
@@ -102,27 +102,26 @@ end
 end
 
 ["tonificante", "amabile", "secco", "agrumato", "morbido", "gradevolmente amaro",
-  # "sopraffino", "pieno", "dissetante", "moderatamente amaro", "morbido", "fresco",
-  # "raffinato", "gradevolmente delicato", "corposo", "speziato. Prevale il dolce",
-  # "biscottato del malto", "sfuggente", "equilibrato con intensa nota amara", "fresco",
-  # "dissitente", "richiama gli odori della pampa", "gradevolmente delicato",
-  # "marcatamente maltato", "moderatamente fruttato", "fresco",
-  # "dissetante, sentore di tequila, retrogusto dolce", "leggermente amaro",
-  # "delicato", "frizzante", "pieno", "raffinato", "ricchezza retrolfattiva articolata",
-  # "mieloso", "rotondo corposo di grande personalità", "gradevole", "corposo", "forte",
-  # "deciso", "leggermente amaro", "forte", "intenso, ma inaspettatamente vellutato",
-  # "equilibrato rapporto dolce amaro", "piacevole", "disincantato", "corposo",
-  # "inconfondibile", "ottimo equilibrio gustativo",
-  # "incredibile dato dall’aggiunta di fiori dopo il brassaggio",
-  # "possente", "intenso di caramello", "frizzante", "rinfrescante", "fresco",
-  # "acidulo di cereali", "richiama fiori di campo", "miele", "fresco", "frizzante",
-  # "note di limone", "banana", "note forti di caffè", "liquirizia", "equilibrato",
-  # "sapore di ciliegia", "sapore di pesca", "aromatico, erbaceo", "malto speziato",
-  # "mela acerba", "luppolo", "sentori di arancia amara", "morbido al palato",
-  # "carico di cereali", "avvolgente", "inebriante con note di vaniglia",
-  # "morbido", "dolce", "fruttato", "floreale", "caldo, morbido ed equilibrato",
-  # "rinfrescante", "rotondo aromatico", "asciutto", "veramente raffinato", "dolce",
-  # "corposo", "delicato, frizzante", "asciutto", "fresco", "rotondo molto beverina",
+  "sopraffino", "pieno", "dissetante", "moderatamente amaro", "morbido", "fresco",
+  "raffinato", "gradevolmente delicato", "corposo", "speziato. Prevale il dolce",
+  "biscottato del malto", "sfuggente", "equilibrato con intensa nota amara", "fresco",
+  "dissitente", "richiama gli odori della pampa", "gradevolmente delicato",
+  "marcatamente maltato", "moderatamente fruttato", "fresco",
+  "dissetante, sentore di tequila, retrogusto dolce", "leggermente amaro",
+  "delicato", "frizzante", "pieno", "raffinato", "ricchezza retrolfattiva articolata",
+  "mieloso", "rotondo corposo di grande personalità", "gradevole", "corposo", "forte",  # "deciso", "leggermente amaro", "forte", "intenso, ma inaspettatamente vellutato",
+  "equilibrato rapporto dolce amaro", "piacevole", "disincantato", "corposo",
+  "inconfondibile", "ottimo equilibrio gustativo",
+  "incredibile dato dall\'aggiunta di fiori dopo il brassaggio",
+  "possente", "intenso di caramello", "frizzante", "rinfrescante", "fresco",
+  "acidulo di cereali", "richiama fiori di campo", "miele", "fresco", "frizzante",
+  "note di limone", "banana", "note forti di caffè", "liquirizia", "equilibrato",
+  "sapore di ciliegia", "sapore di pesca", "aromatico" ,"erbaceo", "malto speziato",
+  "mela acerba", "luppolo", "sentori di arancia amara", "morbido al palato",
+  "carico di cereali", "avvolgente", "inebriante con note di vaniglia",
+  "morbido", "dolce", "fruttato", "floreale", "caldo, morbido ed equilibrato",
+  "rinfrescante", "rotondo aromatico", "asciutto", "veramente raffinato", "dolce",
+  "corposo", "delicato, frizzante", "asciutto", "fresco", "rotondo molto beverina",
   "di mela che si cristallizza in un tono dolce"].each do |taste|
     Taste.find_or_create_by_name(taste)
 end

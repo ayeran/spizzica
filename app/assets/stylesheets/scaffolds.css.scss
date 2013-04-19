@@ -3,6 +3,8 @@ $brand-color: blue;
 
 $brand-color-light: lighten( $brand-color, 10% );
 $brand-color-lighter: lighten( $brand-color, 20% );
+$brand-color-lighter2: lighten( $brand-color, 30% );
+
 $brand-color-dark: darken( $brand-color, 10% );
 $brand-color-darker: darken( $brand-color, 20% );
 
@@ -49,6 +51,12 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+  }
+}
+div {
+  &.field_long{
+    margin: 10px;
+    background-color: $brand-color-lighter2;
   }
 }
 
