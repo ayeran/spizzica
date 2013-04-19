@@ -6,6 +6,7 @@
     %th Addr
     %th Time
     %th Status
+    %th Secret phrase
     %th Info
     %th
     %th
@@ -18,7 +19,8 @@
       %td= order.time
       %td
         - order.trackings.each do |track|
-          = track.status.name
+          = #track.status.name
+      %td= order.secretPhrase
       %td= order.info
       %td= link_to 'Show', order
       %td= link_to 'Edit', edit_order_path(order)

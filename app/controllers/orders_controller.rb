@@ -44,6 +44,16 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+
+    secretPhrase=@order.generatePhrase
+    while Order.find_by_secretPhrase(secretPhrase) do
+      secretPhrase=@order.generatePhrase
+    end
+    @order.secretPhrase=secretPhrase
+
+    status_first = Status.find_by_name("recevuto")
+    @order.status = status_first
+
     @params_item=params[:item]
     respond_to do |format|
       if @order.save
