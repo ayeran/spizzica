@@ -42,6 +42,7 @@ class ManufacturersController < ApplicationController
   # POST /manufacturers.json
   def create
     @manufacturer = Manufacturer.new(params[:manufacturer])
+    @manufacturer.country = Country.find_by_id(params[:country])
 
     respond_to do |format|
       if @manufacturer.save

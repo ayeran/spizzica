@@ -3,6 +3,7 @@
 %table
   %tr
     %th Nome
+    %th Paese
     %th
     %th
     %th
@@ -10,6 +11,10 @@
   - @manufacturers.each do |manufacturer|
     %tr
       %td= manufacturer.name
+      %td
+        -if manufacturer.country
+          = manufacturer.country.name
+          = image_tag manufacturer.country.flagimage.url(:thumb)
       %td= link_to 'Mostra', manufacturer
       %td= link_to 'Modifica', edit_manufacturer_path(manufacturer)
       %td= link_to 'Elimina', manufacturer, :method => :delete, :data => { :confirm => 'Are you sure?' }

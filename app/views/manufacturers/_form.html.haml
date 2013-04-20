@@ -9,5 +9,8 @@
   .field
     = f.label "Nome"
     = f.text_field :name
+  .field
+    = f.label "Paese"
+    = select_tag("country", options_from_collection_for_select(Country.order("lower(name) ASC").all,:id,:name))
   .actions
     = f.submit 'Salva'

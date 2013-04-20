@@ -4,6 +4,11 @@
   %b Nome:
   = @manufacturer.name
 
+%p
+  - if @manufacturer.country
+    %b Paese:
+    = @manufacturer.country.name
+
 = link_to 'Modifica', edit_manufacturer_path(@manufacturer)
 \|
 = link_to 'Indietro', manufacturers_path

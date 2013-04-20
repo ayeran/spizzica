@@ -1,4 +1,6 @@
 Spizzicaluna::Application.routes.draw do
+  resources :countries
+
   resources :trackings
 
   resources :statuses
