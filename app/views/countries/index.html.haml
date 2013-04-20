@@ -1,0 +1,24 @@
+%h1 Elenco dei paesi
+
+%table
+  %tr
+    %th
+    %th Nome
+    %th Descrizione
+    %th
+    %th
+    %th
+
+  - @countries.each do |country|
+    %tr
+      %td
+        = image_tag country.flagimage.url(:thumb)
+      %td= country.name
+      %td= country.description
+      %td= link_to 'Mostra', country
+      %td= link_to 'Modifica', edit_country_path(country)
+      %td= link_to 'Elimina', country, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Aggiungere nuovo paese', new_country_path

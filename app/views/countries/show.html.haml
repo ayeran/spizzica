@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Nome:
+  = @country.name
+%p
+  %b Descrizione:
+  = @country.description
+%p
+  = image_tag @country.flagimage.url(:small)
+
+= link_to 'Modifica', edit_country_path(@country)
+\|
+= link_to 'Indietro', countries_path

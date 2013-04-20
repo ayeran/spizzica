@@ -1,0 +1,19 @@
+= form_for @country do |f|
+  - if @country.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@country.errors.count, "error")} prohibited this country from being saved:"
+      %ul
+        - @country.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "Paese"
+    = f.text_field :name
+  .field
+    = f.label "Descrizione"
+    = f.text_area :description
+
+  .field
+    = f.file_field :flagimage
+  .actions
+    = f.submit 'Salvare'
