@@ -1,10 +1,10 @@
 %p#notice= notice
 
 %p
-  %b User:
-  = @order.user_id
+  %b Nome:
+  = @order.name
 %p
-  %b Addr:
+  %b Indirizzo:
   = @order.addr
 %p
   %b Time:
@@ -14,7 +14,7 @@
   %ol
     - @order.trackings.each do |track|
       %li
-        =  track.status.methods#.name
+        =  track.status.name
         =  track.created_at
 %p
   %b Your tracking code:

@@ -51,8 +51,8 @@ class OrdersController < ApplicationController
     end
     @order.secretPhrase=secretPhrase
 
-    status_first = Status.find_by_name("recevuto")
-    @order.status = status_first
+    status_first = Status.find_by_name("ricevuto")
+    @order.statuses << status_first
 
     @params_item=params[:item]
     respond_to do |format|
@@ -93,9 +93,13 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])
-    Ordercontent.where(:orderid => @order.id).each{|ordercontent|
+    @order.ordercontents.each{|ordercontent|
       ordercontent.destroy
     }
+    @order.trackings.each{|track|
+      track.destroy
+    }
+
     @order.destroy
 
     respond_to do |format|
