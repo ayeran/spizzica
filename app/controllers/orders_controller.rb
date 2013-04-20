@@ -44,6 +44,16 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+
+    secretPhrase=@order.generatePhrase
+    while Order.find_by_secretPhrase(secretPhrase) do
+      secretPhrase=@order.generatePhrase
+    end
+    @order.secretPhrase=secretPhrase
+
+    status_first = Status.find_by_name("ricevuto")
+    @order.statuses << status_first
+
     @params_item=params[:item]
     respond_to do |format|
       if @order.save
@@ -83,9 +93,13 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])
-    Ordercontent.where(:orderid => @order.id).each{|ordercontent|
+    @order.ordercontents.each{|ordercontent|
       ordercontent.destroy
     }
+    @order.trackings.each{|track|
+      track.destroy
+    }
+
     @order.destroy
 
     respond_to do |format|

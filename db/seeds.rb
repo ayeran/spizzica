@@ -150,3 +150,5 @@ end
   "consegnato","non consegnato","cancellato"].each do |status|
     Status.find_or_create_by_name(status.strip)
 end
+
+
