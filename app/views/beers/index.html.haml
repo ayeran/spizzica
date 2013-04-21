@@ -24,11 +24,19 @@
       %td= beer.name
       %td= image_tag beer.imagebeer.url(:thumb)
 
-      %td= Manufacturer.find(beer.manufacturer_id).name
+      %td
+        - if beer.manufacturer
+          = beer.manufacturer.name
+          - if beer.manufacturer.country
+            = image_tag beer.manufacturer.country.flagimage.url(:thumb)
       %td= beer.strength
-      %td= Container.find(beer.container_id).name
+      %td
+        -if beer.container
+          =beer.container.name
       %td= beer.volume
-      %td= Lid.find(beer.lid_id).name
+      %td
+        -if beer.lid
+          = beer.lid.name
       %td
         - beer.aromas.each do |aroma|
           = aroma.name

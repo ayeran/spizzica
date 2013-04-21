@@ -59,6 +59,7 @@ class ManufacturersController < ApplicationController
   # PUT /manufacturers/1.json
   def update
     @manufacturer = Manufacturer.find(params[:id])
+    @manufacturer.country = Country.find_by_id(params[:country])
 
     respond_to do |format|
       if @manufacturer.update_attributes(params[:manufacturer])

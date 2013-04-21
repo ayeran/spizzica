@@ -10,7 +10,8 @@
     = f.label "Nome"
     = f.text_field :name
   .field
+    - @selected=@manufacturer.country ? @manufacturer.country.id.to_i : nil
     = f.label "Paese"
-    = select_tag("country", options_from_collection_for_select(Country.order("lower(name) ASC").all,:id,:name))
+    = select_tag("country", options_from_collection_for_select(Country.order("lower(name) ASC").all,:id,:name,@selected))
   .actions
     = f.submit 'Salva'
