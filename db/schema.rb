@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421074509) do
+ActiveRecord::Schema.define(:version => 20130422172601) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -27,20 +27,20 @@ ActiveRecord::Schema.define(:version => 20130421074509) do
   create_table "beers", :force => true do |t|
     t.string   "name"
     t.integer  "manufacturer_id"
-    t.decimal  "strength",               :precision => 10, :scale => 0
+    t.decimal  "strength",               :precision => 4, :scale => 2
     t.integer  "container_id"
     t.integer  "lid_id"
     t.integer  "added_by"
     t.integer  "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "volume",                 :precision => 5,  :scale => 2
+    t.decimal  "volume",                 :precision => 5, :scale => 2
     t.text     "description"
     t.string   "imagebeer_file_name"
     t.string   "imagebeer_content_type"
     t.integer  "imagebeer_file_size"
     t.datetime "imagebeer_updated_at"
-    t.decimal  "price",                  :precision => 5,  :scale => 2
+    t.decimal  "price",                  :precision => 5, :scale => 2
   end
 
   create_table "beers_beerstyles", :id => false, :force => true do |t|
