@@ -4,6 +4,6 @@ class ChangeColumnStrength < ActiveRecord::Migration
   end
 
   def down
-    change_column :beers, :strength, :precision =>4, :scale => 0
+    change_column :beers, :strength, :decimal, :precision =>4, :scale => 0
   end
 end

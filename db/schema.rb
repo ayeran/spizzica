@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422172601) do
+ActiveRecord::Schema.define(:version => 20130422184853) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130422172601) do
     t.integer  "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "volume",                 :precision => 5, :scale => 2
+    t.decimal  "volume",                 :precision => 6, :scale => 2
     t.text     "description"
     t.string   "imagebeer_file_name"
     t.string   "imagebeer_content_type"
