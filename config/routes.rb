@@ -1,4 +1,6 @@
 Spizzicaluna::Application.routes.draw do
+  match "/orders/:id/status" => "orders#status"
+
   resources :countries
 
   resources :trackings

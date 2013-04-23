@@ -89,6 +89,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def status
+    @order = Order.find(params[:id])
+  end
+
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
