@@ -16,16 +16,16 @@
     %tr
       %td= order.name
       %td= order.addr
-      %td= order.time
+      %td= order.time.strftime("%H:%M:%S %m-%d-%Y")
       %td
         - order.trackings.each do |track|
           = track.status.name
       %td= order.secretPhrase
       %td= order.info
-      %td= link_to 'Show', order
+      %td= link_to 'Mostra', order
       %td
-        = link_to 'Update', ""
-      %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to 'Update', edit_order_path(order)
+      %td= #link_to 'Elimina', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

@@ -1,7 +1,50 @@
-%h1 Editing order
+%h1 Aggiornamento dell'ordine
 
-= render 'form'
+%p
+  %b
+    Nome:
+  = @order.name
+%p
+  %b
+    Indirizzo:
+  = @order.addr
+%p
+  %b
+    Telefono:
+  = @order.telephone
+%p
+  %b
+    Ora di consegna:
+  = @order.time.strftime("%H:%M %m-%d-%Y")
+%p
+  %b
+  - @order.ordercontents.each{|ordcont|
+  - item=ordcont.item.specify
+  - if FileTest.exist?(item.imagepath(:small).to_s)
+    = link_to image_tag(item.image(:small)), item
+  = ordcont.quantity
+  = item.name
+  -}
+%p
+  %b
+    Info:
+  = @order.info
+%p
+  %b Stato dell'ordine
+  %ol
+    -@order.trackings.each{|t|
+    %li
+      = t.status.name
+      = t.created_at.in_time_zone.strftime("%H:%M:%S %m-%d-%Y")
+    -}
 
-= link_to 'Show', @order
+= form_for @order do |f|
+  .field
+    = f.label "Nuovo stato dell\'ordine"
+    = select_tag("status", options_from_collection_for_select(Status.all,:id,:name))
+  .actions
+    = f.submit 'Save'
+
+= link_to 'Mostra', @order
 \|
-= link_to 'Back', orders_path
+= link_to 'Indietro', orders_path

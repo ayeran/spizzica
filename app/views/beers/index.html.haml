@@ -53,7 +53,7 @@
         - beer.foams.each do |foam|
           = foam.name
       %td
-        = beer.price
+        = sprintf("%02.2f", beer.price)
 
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)

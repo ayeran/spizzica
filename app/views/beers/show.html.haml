@@ -41,7 +41,7 @@
   = Lid.find(@beer.lid_id).name
 %p
   %b Prezzo:
-  = @beer.price
+  = sprintf("%02.2f", @beer.price)
 = link_to 'Modificare', edit_beer_path(@beer)
 \|
 = link_to 'Indietro', beers_path

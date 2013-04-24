@@ -77,6 +77,9 @@ class OrdersController < ApplicationController
   # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
+    if params[:status]
+      @order.statuses << Status.find_by_id(params[:status])
+    end
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
@@ -89,26 +92,23 @@ class OrdersController < ApplicationController
     end
   end
 
-  def status
-    @order = Order.find(params[:id])
-  end
 
   # DELETE /orders/1
   # DELETE /orders/1.json
-  def destroy
-    @order = Order.find(params[:id])
-    @order.ordercontents.each{|ordercontent|
-      ordercontent.destroy
-    }
-    @order.trackings.each{|track|
-      track.destroy
-    }
-
-    @order.destroy
-
-    respond_to do |format|
-      format.html { redirect_to orders_url }
-      format.json { head :ok }
-    end
-  end
+  # def destroy
+    # @order = Order.find(params[:id])
+    # @order.ordercontents.each{|ordercontent|
+      # ordercontent.destroy
+    # }
+    # @order.trackings.each{|track|
+      # track.destroy
+    # }
+#
+    # @order.destroy
+#
+    # respond_to do |format|
+      # format.html { redirect_to orders_url }
+      # format.json { head :ok }
+    # end
+  # end
 end
