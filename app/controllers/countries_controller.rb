@@ -1,4 +1,5 @@
 class CountriesController < ApplicationController
+  before_filter :verify_admin, :except =>[:index,:show]
   # GET /countries
   # GET /countries.json
   def index
