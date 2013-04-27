@@ -33,8 +33,8 @@
   = item.name
   -}
 %p
-  %b Total price
-  = @order.price
+  %b Prezzo:
+  = sprintf("%02.2f €", @order.price)
 
 
 = link_to 'Edit', edit_order_path(@order)
