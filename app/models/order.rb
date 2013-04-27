@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   has_many :ordercontents
   has_many :trackings
   has_many :statuses, :through => :trackings
+  before_save :setPrice
 
   @@nouns_male=["animale", "aprile", "bicchiere", "caffelatte", "cameriere", "cane", "carabiniere", "carattere", "carnevale", "cognome", "colore", "dicembre", "dottore", "errore", "fiore", "fiume", "genitore", "giornale", "latte", "male", "mare", "mese", "minestrone", "Natale", "nome", "novembre", "ospedale", "ottobre", "paese", "pallone", "pane", "pantalone", "pepe", "pesce", "piede", "ponte", "presidente", "professore", "re", "ristorante", "salame", "sale", "settembre", "signore", "sole", "studente", "caffe", "amore"].uniq
   @@nouns_female=["arte", "attenzione", "canzone", "capitale", "carne", "chiave", "colazione", "estate", "fame", "gente", "immigrazione", "informazione", "mezzanotte", "moglie", "nave", "nazione", "neve", "notte", "religione", "sete", "stagione", "stazione", "televisione"].uniq
@@ -20,6 +21,16 @@ class Order < ActiveRecord::Base
     num2=rand(0..((@@adjectives.count)-1))
     @@nouns_female[num1].to_s+"-"+@@adjectives[num2].gsub(/o$/,"a") + "-" +mark.to_s
    end
+ end
+
+ def setPrice
+  price=0
+  self.ordercontents.each{ |foo|
+    price = price + foo.quantity*foo.item.specify.price
+
+  }
+  self.price = price
+
  end
 
 
