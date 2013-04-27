@@ -10,8 +10,9 @@
     = f.label "Nome"
     = f.text_field :name
   .field
+    - @selected=@beer.manufacturer ? @beer.manufacturer.id.to_i : nil
     = f.label "Produttore"
-    = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.order("lower(name) ASC").all,:id,:name))
+    = select_tag("beer[manufacturer_id]", options_from_collection_for_select(Manufacturer.order("lower(name) ASC").all,:id,:name,@selected))
 
   = f.label "Stile"
   .field_long

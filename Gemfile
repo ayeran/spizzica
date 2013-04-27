@@ -60,6 +60,7 @@ gem 'gherkin', '<= 2.11.6'
 
 group :development do
   gem 'cucumber-rails', :require => false
+  gem 'newrelic_rpm'
 end
 
 group :test do
