@@ -1,13 +1,12 @@
 %p#notice= notice
+= image_tag @beer.imagebeer.url(:small)
+
 %p
   %b Nome
   = @beer.name
 %p
   %b Produttore:
   = Manufacturer.find(@beer.manufacturer_id).name
-%p
-  %b Immagine:
-  = image_tag @beer.imagebeer.url(:small)
 
 %p
   %b Aroma:
@@ -32,7 +31,10 @@
 
 %p
   %b Gradazione:
-  = @beer.strength
+  = sprintf("%02.1f %", @beer.strength)
+%p
+  %b Volume:
+  = sprintf("%02.0f cl", @beer.volume)
 %p
   %b Formato:
   = Container.find(@beer.container_id).name
@@ -41,7 +43,7 @@
   = Lid.find(@beer.lid_id).name
 %p
   %b Prezzo:
-  = sprintf("%02.2f", @beer.price)
+  = sprintf("%02.2f €", @beer.price)
 = link_to 'Modificare', edit_beer_path(@beer)
 \|
 = link_to 'Indietro', beers_path

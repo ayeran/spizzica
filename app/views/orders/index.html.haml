@@ -8,6 +8,7 @@
     %th Status
     %th Secret phrase
     %th Info
+    %th Prezzo
     %th
     %th
     %th
@@ -22,6 +23,7 @@
           = track.status.name
       %td= order.secretPhrase
       %td= order.info
+      %td= sprintf("%02.2f €", order.price || 0)
       %td= link_to 'Mostra', order
       %td
         = link_to 'Update', edit_order_path(order)

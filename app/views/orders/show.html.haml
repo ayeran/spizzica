@@ -34,7 +34,7 @@
   -}
 %p
   %b Prezzo:
-  = sprintf("%02.2f €", @order.price)
+  = sprintf("%02.2f €", @order.price || 0)
 
 
 = link_to 'Edit', edit_order_path(@order)

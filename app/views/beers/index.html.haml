@@ -29,11 +29,11 @@
           = beer.manufacturer.name
           - if beer.manufacturer.country
             = image_tag beer.manufacturer.country.flagimage.url(:thumb)
-      %td= beer.strength
+      %td= sprintf("%02.1f %", beer.strength)
       %td
         -if beer.container
           =beer.container.name
-      %td= beer.volume
+      %td= sprintf("%02.0f cl",beer.volume)
       %td
         -if beer.lid
           = beer.lid.name
@@ -53,7 +53,7 @@
         - beer.foams.each do |foam|
           = foam.name
       %td
-        = sprintf("%02.2f", beer.price)
+        = sprintf("%02.2f €", beer.price)
 
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)
