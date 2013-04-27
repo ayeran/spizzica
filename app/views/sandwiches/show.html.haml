@@ -5,7 +5,7 @@
   = link_to @sandwich.name, @sandwich
 %p
   %b Prezzo:
-  = @sandwich.price
+  = sprintf("%02.2f €", @sandwich.price)
 %p
   %b Ingredienti:
   - @sandwich.ingredients.each do |ingr|

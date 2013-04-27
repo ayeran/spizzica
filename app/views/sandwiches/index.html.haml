@@ -12,7 +12,7 @@
   - @sandwiches.each do |sandwich|
     %tr
       %td= link_to sandwich.name, sandwich
-      %td= sandwich.price
+      %td= sprintf("%02.2f €", sandwich.price)
       %td
         - sandwich.ingredients.each do |ingr|
           - if FileTest.exist?(ingr.ingredientimage.path(:small).to_s)
