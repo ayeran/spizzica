@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_many :ordercontents
   has_many :trackings
   has_many :statuses, :through => :trackings
-#  after_save :sendOrderContent
+  after_save :sendOrderContent
 
   @@nouns_male=["animale", "aprile", "bicchiere", "caffelatte", "cameriere", "cane", "carabiniere", "carattere", "carnevale", "cognome", "colore", "dicembre", "dottore", "errore", "fiore", "fiume", "genitore", "giornale", "latte", "male", "mare", "mese", "minestrone", "Natale", "nome", "novembre", "ospedale", "ottobre", "paese", "pallone", "pane", "pantalone", "pepe", "pesce", "piede", "ponte", "presidente", "professore", "re", "ristorante", "salame", "sale", "settembre", "signore", "sole", "studente", "caffe", "amore"].uniq
   @@nouns_female=["arte", "attenzione", "canzone", "capitale", "carne", "chiave", "colazione", "estate", "fame", "gente", "immigrazione", "informazione", "mezzanotte", "moglie", "nave", "nazione", "neve", "notte", "religione", "sete", "stagione", "stazione", "televisione"].uniq
