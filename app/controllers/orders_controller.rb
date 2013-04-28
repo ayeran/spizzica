@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        UserMailer.welcome_email(self).deliver
+        UserMailer.welcome_email.deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
