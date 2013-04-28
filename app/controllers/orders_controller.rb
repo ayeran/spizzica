@@ -59,13 +59,14 @@ class OrdersController < ApplicationController
       q=quantity.to_i
       if (q!=0)
         price = price + q * Item.find(itemid).specify.price
-        @order.ordercontents << Ordercontent.new({:order_id => 2, :item_id => itemid, :quantity => q})
+        @order.ordercontents << Ordercontent.new({:item_id => itemid, :quantity => q})
        end
       }
       @order.price=price
 
     respond_to do |format|
       if @order.save
+        UserMailer.welcome_email(self).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
