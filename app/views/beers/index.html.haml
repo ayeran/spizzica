@@ -26,7 +26,7 @@
 
       %td
         - if beer.manufacturer
-          = beer.manufacturer.name
+          = # beer.manufacturer.name
           - if beer.manufacturer.country
             = image_tag beer.manufacturer.country.flagimage.url(:thumb)
       %td= sprintf("%02.1f %", beer.strength)
