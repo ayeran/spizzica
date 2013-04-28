@@ -54,20 +54,18 @@ class OrdersController < ApplicationController
     status_first = Status.find_by_name("ricevuto")
     @order.statuses << status_first
 
-    @params_item=params[:item]
+    price=0
+    params[:item].each{|itemid,quantity|
+      q=quantity.to_i
+      if (q!=0)
+        price = price + q * Item.find(itemid).specify.price
+        @order.ordercontents << Ordercontent.new({:order_id => 2, :item_id => itemid, :quantity => q})
+       end
+      }
+      @order.price=price
+
     respond_to do |format|
       if @order.save
-        price=0
-        params[:item].each{|itemid,quantity|
-          q=quantity.to_i
-          if (q!=0)
-            price = price + q * Item.find(itemid).specify.price
-            ord_cont=Ordercontent.new({:order_id => @order.id, :item_id => itemid, :quantity => q})
-            ord_cont.save
-          end
-        }
-        @order.price=price
-        @order.save!
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
