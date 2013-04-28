@@ -1,0 +1,14 @@
+development:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :user_name: veontomo@gmail.com
+  :password: gH2U_ln.
+  :enable_starttls_auto: true
+production:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :user_name: xxx
+  :password: yyy
+  :enable_starttls_auto: true
