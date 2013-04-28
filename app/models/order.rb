@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_many :ordercontents
   has_many :trackings
   has_many :statuses, :through => :trackings
-  before_save :setPrice
+  after_save :sendOrderContent
 
   @@nouns_male=["animale", "aprile", "bicchiere", "caffelatte", "cameriere", "cane", "carabiniere", "carattere", "carnevale", "cognome", "colore", "dicembre", "dottore", "errore", "fiore", "fiume", "genitore", "giornale", "latte", "male", "mare", "mese", "minestrone", "Natale", "nome", "novembre", "ospedale", "ottobre", "paese", "pallone", "pane", "pantalone", "pepe", "pesce", "piede", "ponte", "presidente", "professore", "re", "ristorante", "salame", "sale", "settembre", "signore", "sole", "studente", "caffe", "amore"].uniq
   @@nouns_female=["arte", "attenzione", "canzone", "capitale", "carne", "chiave", "colazione", "estate", "fame", "gente", "immigrazione", "informazione", "mezzanotte", "moglie", "nave", "nazione", "neve", "notte", "religione", "sete", "stagione", "stazione", "televisione"].uniq
@@ -23,27 +23,8 @@ class Order < ActiveRecord::Base
    end
  end
 
- def setPrice
-  price=0
-  self.ordercontents.each{ |foo|
-    price = price + foo.quantity*foo.item.specify.price
-
-  }
-  self.price = price
-
+ def sendOrderContent
+  UserMailer.welcome_email(self).deliver
  end
 
-
-#
-#
- # def status=(s1)
-   # t1 = Tracking.new
-   # t1.order=self
-   # t1.status=s1
-   # t1.save!
- # end
-#
- # def statuses
-   # self.trackings
- # end
 end
