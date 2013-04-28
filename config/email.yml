@@ -1,14 +1,29 @@
 development:
-  :address: smtp.gmail.com
-  :port: 587
+  :address: s3-amsterdam.accountservergroup.com
+  :port: 465
   :authentication: plain
-  :user_name: veontomo@gmail.com
-  :password: gH2U_ln.
+  :user_name: ordini@spizzicaluna.com
+  :password: .#N>su1h@N:]]@q~|
   :enable_starttls_auto: true
 production:
-  :address: smtp.gmail.com
-  :port: 587
+  :address: mail.spizzicaluna.com
+  :port: 2525
   :authentication: plain
-  :user_name: xxx
-  :password: yyy
+  :user_name: ordini@spizzicaluna.com
+  :password: .#N>su1h@N:]]@q~|
   :enable_starttls_auto: true
+
+# development:
+  # :address: smtp.gmail.com
+  # :port: 587
+  # :authentication: plain
+  # :user_name: veontomo@gmail.com
+  # :password: gH2U_ln.
+  # :enable_starttls_auto: true
+# production:
+  # :address: smtp.gmail.com
+  # :port: 587
+  # :authentication: plain
+  # :user_name: xxx
+  # :password: yyy
+  # :enable_starttls_auto: true
