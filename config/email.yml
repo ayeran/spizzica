@@ -1,17 +1,27 @@
-development:
-  :address: s3-amsterdam.accountservergroup.com
+ development:
+  :address: mail.spizzicaluna.com #s3-amsterdam.accountservergroup.com
   :port: 465
-  :authentication: plain
+  :domain: spizzicaluna.com
   :user_name: ordini@spizzicaluna.com
   :password: .#N>su1h@N:]]@q~|
-  :enable_starttls_auto: true
-production:
-  :address: mail.spizzicaluna.com
-  :port: 2525
   :authentication: plain
-  :user_name: ordini@spizzicaluna.com
-  :password: .#N>su1h@N:]]@q~|
   :enable_starttls_auto: true
+  :openssl_verify_mode: true
+
+# development:
+  # :address: s3-amsterdam.accountservergroup.com
+  # :port: 465
+  # :authentication: plain
+  # :user_name: ordini@spizzicaluna.com
+  # :password: .#N>su1h@N:]]@q~|
+  # :enable_starttls_auto: true
+# production:
+  # :address: mail.spizzicaluna.com
+  # :port: 2525
+  # :authentication: plain
+  # :user_name: ordini@spizzicaluna.com
+  # :password: .#N>su1h@N:]]@q~|
+  # :enable_starttls_auto: true
 
 # development:
   # :address: smtp.gmail.com
