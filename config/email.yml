@@ -1,6 +1,6 @@
  development:
-  :address: mail.spizzicaluna.com #s3-amsterdam.accountservergroup.com
-  :port: 465
+  :address: s3-amsterdam.accountservergroup.com
+  :port: 587
   :domain: spizzicaluna.com
   :user_name: ordini@spizzicaluna.com
   :password: .#N>su1h@N:]]@q~|
