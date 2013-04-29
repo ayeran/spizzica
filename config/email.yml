@@ -6,7 +6,7 @@
   :password: .#N>su1h@N:]]@q~|
   :authentication: plain
   :enable_starttls_auto: true
-  :openssl_verify_mode: true
+#  :openssl_verify_mode: true
 
 # development:
   # :address: s3-amsterdam.accountservergroup.com
@@ -30,6 +30,7 @@
   # :user_name: veontomo@gmail.com
   # :password: gH2U_ln.
   # :enable_starttls_auto: true
+#  :openssl_verify_mode: true # pay attention to this line!
 # production:
   # :address: smtp.gmail.com
   # :port: 587

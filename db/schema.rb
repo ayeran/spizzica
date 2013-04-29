@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422184853) do
+ActiveRecord::Schema.define(:version => 20130429205659) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20130422184853) do
     t.string   "secretPhrase"
     t.string   "name"
     t.decimal  "price",        :precision => 7, :scale => 2
+    t.string   "email"
   end
 
   create_table "roles", :force => true do |t|
