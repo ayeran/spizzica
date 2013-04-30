@@ -9,8 +9,14 @@
 	<h2>Riepilogo dell'ordine</h2>
 		<p>Prezzo: <%= sprintf("%02.2f €", @order.price)%></p>
 		<p>Data e ora di consegna: <%= @order.time.strftime("%H:%M %m-%d-%Y")%></p>
+		<p>La frase segreta: <%= @order.secretPhrase %></p>
 		<ol>
-			<% @content.each{|item|}%>
+			<% @content.each do |item| %>
+				<li><%= item.item.name%>:
+					<%= item.item.specify.name%>
+					(<%= item.quantity%> x <%= sprintf("%02.2f €", item.item.specify.price) %>)
+				</li>
+			<% end %>
 		</ol>
 
     <p>Grazie e a presto!</p>
