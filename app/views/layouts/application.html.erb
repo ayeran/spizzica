@@ -3,10 +3,10 @@
 <head>
   <title>Spizzicaluna</title>
   <%= favicon_link_tag '/spizzicaluna.ico'%>
-  <%= stylesheet_link_tag    "vendor", :media => "all", :debug => false  %>
+  <!-- <%= stylesheet_link_tag    "vendor", :media => "all", :debug => false  %> -->
   <%= stylesheet_link_tag    "application", :media => "all" %>
 
-  <%= javascript_include_tag "vendor", :debug => false %>
+  <!-- <%= javascript_include_tag "vendor", :debug => false %> -->
   <%= javascript_include_tag "application" %>
 
   <%= csrf_meta_tags %>
@@ -14,6 +14,7 @@
 <body>
 <%= link_to 'Panini', sandwiches_path, :class => 'menu_button' %>
 <%= link_to 'Birre', beers_path, :class => 'menu_button' %>
+<%= link_to 'Ordinare', new_order_path, :class => 'menu_button'%>
 <% if user_signed_in? %>
 <%= link_to 'Items', items_path, :class => 'menu_button' %>
 <%= link_to 'Orders', orders_path, :class => 'menu_button' %>
