@@ -123,8 +123,8 @@ class OrdersController < ApplicationController
       if @order
         render 'show'
       end
-    else
-      @order=nil
     end
+
   end
+
 end

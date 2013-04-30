@@ -1,0 +1,11 @@
+%p
+= form_for :order do |f|
+  .field
+    = f.label "Email:"
+    = f.text_field :email, :name => 'e'
+  .field
+    = f.label "La frase segreta:"
+    = f.text_field :secretPhrase, :name => 'f'
+
+  .actions
+    = f.submit 'Controlla', :action => "control"
