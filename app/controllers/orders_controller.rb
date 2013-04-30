@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-   before_filter :verify_admin, :except =>[:new,:show,:control]
+#   before_filter :verify_admin, :except =>[:new,:show,:control]
   # GET /orders
   # GET /orders.json
 
