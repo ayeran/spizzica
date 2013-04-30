@@ -3,6 +3,7 @@
 %table
   %tr
     %th User
+    %th Email
     %th Addr
     %th Time
     %th Status
@@ -16,6 +17,7 @@
   - @orders.each do |order|
     %tr
       %td= order.name
+      %td= order.email
       %td= order.addr
       %td= order.time.strftime("%H:%M:%S %m-%d-%Y")
       %td

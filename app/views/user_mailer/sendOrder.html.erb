@@ -4,7 +4,22 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Welcome</h1>
-    <p>Thanks for joining and have a great day!</p>
+    <h1>Caro <%= @order.name%></h1>
+		<p>Il tuo ordine e' stato ricevuto. Puoi controllare il proseguimento.</p>
+	<h2>Riepilogo dell'ordine</h2>
+		<p>Prezzo: <%= sprintf("%02.2f €", @order.price)%></p>
+		<p>Data e ora di consegna: <%= @order.time.strftime("%H:%M %m-%d-%Y")%></p>
+		<p>La frase segreta: <%= @order.secretPhrase %></p>
+		<ol>
+			<% @content.each do |item| %>
+				<li><%= item.item.name%>:
+					<%= item.item.specify.name%>
+					(<%= item.quantity%> x <%= sprintf("%02.2f €", item.item.specify.price) %>)
+				</li>
+			<% end %>
+		</ol>
+
+    <p>Grazie e a presto!</p>
+    <p>Personale di Spizzicaluna</p>
   </body>
 </html>

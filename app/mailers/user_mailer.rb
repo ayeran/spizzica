@@ -1,5 +1,9 @@
 class UserMailer < ActionMailer::Base
-  def sendOrder(arg)
-    mail(:to => 'veontomo@yahoo.it', :from => "test@test.com", :subject => "Welcome to My Awesome Site!!!")
+  default :from => "ordini@spizzicaluna.com"
+
+  def sendOrder(order)
+    @order = order
+    @content = order.ordercontents
+    mail(:to => order.email, :subject => "Il tuo ordine dalla Spizzicaluna!")
   end
 end
