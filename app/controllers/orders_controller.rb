@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-   before_filter :verify_admin, :except =>[:new,:show]
+   before_filter :verify_admin, :except =>[:new,:show,:control]
   # GET /orders
   # GET /orders.json
 
@@ -114,4 +114,17 @@ class OrdersController < ApplicationController
       # format.json { head :ok }
     # end
   # end
+
+  def control
+    @email = params[:e]
+    @phrase = params[:f]
+    if (@email && @phrase)
+      @order = Order.find_by_email_and_secretPhrase(@email,@phrase)
+      if @order
+        render 'show'
+      end
+    else
+      @order=nil
+    end
+  end
 end
