@@ -5,7 +5,10 @@
   </head>
   <body>
     <h1>Caro <%= @order.name%></h1>
-		<p>Il tuo ordine e' stato ricevuto. Puoi controllare il proseguimento.</p>
+		<p>Il tuo ordine e' stato ricevuto. Puoi controllare il proseguimento
+			a questo
+			<%= link_to 'link', url_for(:controller => 'orders', :action => 'control',
+			:e => @order.email, :f=>@order.secretPhrase, :only_path => false, :escape => false )%>.</p>
 	<h2>Riepilogo dell'ordine</h2>
 		<p>Prezzo: <%= sprintf("%02.2f €", @order.price)%></p>
 		<p>Data e ora di consegna: <%= @order.time.strftime("%H:%M %m-%d-%Y")%></p>
