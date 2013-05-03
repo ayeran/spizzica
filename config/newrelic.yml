@@ -107,7 +107,7 @@ common: &default_settings
   # exclude HTTP parameters from being captured.
   # Rails: the RoR filter_parameter_logging excludes parameters
   # Java: create a config setting called "ignored_params" and set it to
-  #     a comma separated list of HTTP parameter names.
+  #     a comdma separated list of HTTP parameter names.
   #     ex: ignored_params: credit_card, ssn, password
   capture_params: false
 
