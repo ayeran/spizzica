@@ -42,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: Spizzica_P
+#  app_name: Spizzica_P
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
@@ -187,6 +187,7 @@ common: &default_settings
 # provide newrelic configuration settings for these environments here.
 
 development:
+  app_name: Spizzica_D
   <<: *default_settings
   # Turn off communication to New Relic service in development mode (also
   # 'enabled').
@@ -205,6 +206,7 @@ development:
   # textmate: true
 
 test:
+  app_name: Spizzica_T
   <<: *default_settings
   # It almost never makes sense to turn on the agent when running
   # unit, functional or integration tests or the like.
@@ -215,6 +217,7 @@ test:
 # transaction, you can leave this on all the time without
 # incurring any user-visible performance degradation.
 production:
+  app_name: Spizzica_P
   <<: *default_settings
   monitor_mode: true
 
@@ -224,4 +227,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: true
-  # app_name: My Application (Staging)
+  app_name: Spizzica (Staging)
