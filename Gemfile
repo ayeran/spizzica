@@ -23,7 +23,7 @@ end
 group :production do
 #  gem 'pg'
   gem 'mysql2'
-  gem 'newrelic_rpm'
+  gem 'newrelic_rpm', '>= 3.6.1'
 end
 
 # group :test, :development do
@@ -61,7 +61,7 @@ gem 'gherkin', '<= 2.11.6'
 
 group :development do
   gem 'cucumber-rails', :require => false
-  gem 'newrelic_rpm'
+  gem 'newrelic_rpm',  '>= 3.6.1'
 end
 
 group :test do
