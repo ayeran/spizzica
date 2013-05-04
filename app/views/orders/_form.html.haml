@@ -20,7 +20,11 @@
     = f.text_field :telephone
   .field
     = f.label :time
-    = f.datetime_select :time
+    = select_tag :timeY, options_for_select((@order.starttime.year)..(@order.endtime.year))
+    = select_tag :timeM, options_for_select(@order.monthspan)
+    = select_tag :timeD, options_for_select(@order.dayspan)
+    = select_tag :timeH, options_for_select(@order.hourspan)
+    = select_tag :timeMim, options_for_select(@order.minspan)
   .field
     = f.label :beer
     - Beer.order("lower(name) ASC").all.each{|c|

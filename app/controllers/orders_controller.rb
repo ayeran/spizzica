@@ -44,6 +44,11 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    @order.time = DateTime.new(params[:timeY].to_i,
+      Order.months.index(params[:timeM]),
+      params[:timeD].to_i,
+      params[:timeH].to_i,
+      params[:timeMin].to_i)
 
     secretPhrase=@order.generatePhrase
     while Order.find_by_secretPhrase(secretPhrase) do

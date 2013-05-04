@@ -1,9 +1,48 @@
 class Order < ActiveRecord::Base
-#  belongs_to :user
+
   has_many :ordercontents
   has_many :trackings
   has_many :statuses, :through => :trackings
-#  after_save :sendOrderContent
+
+  cattr_reader :starttime, :duration, :months
+
+  @@starttime = 30*60 # nearest time to make the order (in seconds): one can ask the delivery for the time (current_time + @@starttime)
+  @@duration = 10*24*60*60 # latest time (in seconds) for which the order can be made: one can not ask for deliveries later than (current_time + @@starttime + @@duaration)
+
+  @@months=[nil,"gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
+    "settembre", "ottobre", "novembre", "dicembre"]
+
+  def starttime
+    @starttime = Time.now + @@starttime
+  end
+  def endtime
+    @endtime = Time.now + @@starttime + @@duration
+  end
+  def monthspan
+    startM = self.starttime.month
+    endM = self.endtime.month
+    if endM<startM
+      endM = endM + 12
+    end
+    (@@months + @@months[1..-1])[startM..endM]
+  end
+  def dayspan
+    startD = self.starttime.day
+    endD = self.endtime.day
+    if endD<startD
+      endD = endD + 31
+    end
+    ((0..31).to_a + (1..31).to_a)[startD..endD].uniq
+  end
+
+  def hourspan
+    (13..22)
+  end
+
+  def minspan
+    (0..59).step(5)
+  end
+
 
   @@nouns_male=["animale", "aprile", "bicchiere", "caffelatte", "cameriere", "cane", "carabiniere", "carattere", "carnevale", "cognome", "colore", "dicembre", "dottore", "errore", "fiore", "fiume", "genitore", "giornale", "latte", "male", "mare", "mese", "minestrone", "Natale", "nome", "novembre", "ospedale", "ottobre", "paese", "pallone", "pane", "pantalone", "pepe", "pesce", "piede", "ponte", "presidente", "professore", "re", "ristorante", "salame", "sale", "settembre", "signore", "sole", "studente", "caffe", "amore"].uniq
   @@nouns_female=["arte", "attenzione", "canzone", "capitale", "carne", "chiave", "colazione", "estate", "fame", "gente", "immigrazione", "informazione", "mezzanotte", "moglie", "nave", "nazione", "neve", "notte", "religione", "sete", "stagione", "stazione", "televisione"].uniq
