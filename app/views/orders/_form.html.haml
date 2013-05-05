@@ -35,8 +35,8 @@
     = select_tag :timeY, options_for_select((@order.starttime.year)..(@order.endtime.year))
     = select_tag :timeM, options_for_select(@order.monthspan)
     = select_tag :timeD, options_for_select(@order.dayspan)
-    = select_tag :timeH, options_for_select(@order.hourspan,Time.now.hour + 1)
-    = select_tag :timeMim, options_for_select(@order.minspan)
+    = select_tag :timeH, options_for_select(@order.hourspan,(Time.now+Order.starttime).hour )
+    = select_tag :timeMim, options_for_select(@order.minspan,5*((Time.now+Order.starttime+5.minutes).min/5))
   .field
     = f.label :beer
     - Beer.order("lower(name) ASC").all.each{|c|

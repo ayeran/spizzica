@@ -1,3 +1,21 @@
-Welcome
+Ciao <%= @order.name%>
 
-Thanks for joining and have a great day!
+Il tuo ordine e' stato ricevuto. Puoi controllare il proseguimento
+a questo <%= url_for(:controller => 'orders', :action => 'control',
+			:e => @order.email, :f=>@order.secretPhrase, :only_path => false, :escape => false )%>.
+
+Riepilogo dell'ordine
+
+Prezzo: <%= sprintf("%02.2f €", @order.price)%>
+Data e ora di consegna: <%= I18n.l (@order.time).in_time_zone, :format => "%d %B alle %H:%M "%>
+
+La frase segreta: <%= @order.secretPhrase %>
+
+<% @content.each do |item| %>
+<%= item.item.name%>:
+<%= item.item.specify.name%> (<%= item.quantity%> x <%= sprintf("%02.2f €", item.item.specify.price) %>)
+<% end %>
+
+Grazie e a presto!
+Personale di Spizzicaluna
+<%= root_url %>
