@@ -1,7 +1,12 @@
 = form_for @order do |f|
-  - if @order.errors.any?
+  -if @order.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      %h2
+        - if @order.errors.count == 1
+          = t 'activerecord.errors.template.header.one', :model => (t @order.class.name), :count => 1
+        - else
+          = t 'activerecord.errors.template.header.other', :model => @order.class.name, :count => @order.errors.count
+      %b= t 'activerecord.errors.template.body'
       %ul
         - @order.errors.full_messages.each do |msg|
           %li= msg
@@ -15,13 +20,18 @@
     %span.comment
       (qua sarà mandata la conferma)
   .field
-    = f.label "Indirizzo"
-    = f.text_area :addr
+    = select_tag "order[streetprefix]", options_for_select(["via","viale","piazza","piazzale","corso"])
+    = f.text_field :street
+    = f.text_field :building, :size => 5
+    = select_tag "order[city]", options_for_select(["Frascati","Roma","Marino","Grottaferrata","Monte Porzio Catone","Montecompatri","Rocca di Papa","Ciampino","Albano Laziale"])
   .field
     = f.label "Telefono"
-    = f.text_field :telephone
+    = f.text_field :telephone, :size => 10
+    %span.comment
+      (per eventuali comunicazioni)
+
   .field
-    = f.label :time
+    = f.label "Ora di consegna"
     = select_tag :timeY, options_for_select((@order.starttime.year)..(@order.endtime.year))
     = select_tag :timeM, options_for_select(@order.monthspan)
     = select_tag :timeD, options_for_select(@order.dayspan)

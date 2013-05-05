@@ -8,8 +8,11 @@
   = @order.email
 
 %p
-  %b Indirizzo:
-  = @order.addr
+  %b Indirizzo di consegna:
+  = @order.streetprefix
+  = @order.street
+  = @order.building
+  = @order.city
 %p
   %b Ora di consegna:
   = @order.time.strftime("%H:%M %m-%d-%Y")
@@ -22,13 +25,15 @@
         = track.status.name
         = track.created_at.in_time_zone.strftime("%H:%M:%S %m-%d-%Y")
 %p
-  %b Your tracking code:
+  %b Il codice segreto:
   = @order.secretPhrase
+
+- if !(@order.info.empty?)
+  %p
+    %b Informazione supplementare:
+    = @order.info
 %p
-  %b Info:
-  = @order.info
-%p
-  %b Content:
+  %b Contenuto dell'ordine:
   - @order.ordercontents.each{|ordcont|
   - item=ordcont.item.specify
   - if FileTest.exist?(item.imagepath(:small).to_s)

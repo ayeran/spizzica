@@ -1,6 +1,11 @@
 class Order < ActiveRecord::Base
-  validates :name, :presence => true
+#  validates :name, :presence => true
   validates :email, :presence => true
+  validates :telephone, :presence => true
+  validate :delivery_time_can_not_be_too_soon
+
+
+#  validates :telephone, :presense => true
 
   has_many :ordercontents
   has_many :trackings
@@ -66,6 +71,13 @@ class Order < ActiveRecord::Base
 
  def sendOrderContent
   UserMailer.welcome_email(self).deliver
+ end
+
+ def delivery_time_can_not_be_too_soon
+    if time < Time.now + @@starttime
+      errors.add("Ora di consegna:", "ci vogliono almeno #{@@starttime/60} minuti per l\'elaborazione.
+        Quindi ordinazioni prima di #{(Time.now + @@starttime).strftime("%H:%M")} non possono essere accettate.")
+    end
  end
 
 end

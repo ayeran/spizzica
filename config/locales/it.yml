@@ -158,7 +158,7 @@ it:
         confirmation: "non coincide con la conferma"
         accepted: "deve essere accettata"
         empty: "non può essere vuoto"
-        blank: "non può essere lasciato in bianco"
+        blank: "non può essere lasciato vuoto"
         too_long:
           one: "è troppo lungo (il massimo è 1 carattere)"
           other: "è troppo lungo (il massimo è %{count} caratteri)"
@@ -193,3 +193,5 @@ it:
 
       full_messages:
         format: "%{attribute} %{message}"
+
+  Order: Ordine
