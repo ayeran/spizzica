@@ -1,4 +1,6 @@
 class Order < ActiveRecord::Base
+  validates :name, :presence => true
+  validates :email, :presence => true
 
   has_many :ordercontents
   has_many :trackings

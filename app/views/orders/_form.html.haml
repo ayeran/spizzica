@@ -10,8 +10,10 @@
     = f.label "Nome"
     = f.text_field :name
   .field
-    = f.label "Email"
+    = f.label "Indirizzo e-mail"
     = f.text_field :email
+    %span.comment
+      (qua sarà mandata la conferma)
   .field
     = f.label "Indirizzo"
     = f.text_area :addr
