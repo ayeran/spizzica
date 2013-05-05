@@ -21,8 +21,8 @@
       (qua sarà mandata la conferma)
   .field
     = select_tag "order[streetprefix]", options_for_select(["via","viale","piazza","piazzale","corso"])
-    = f.text_field :street
-    = f.text_field :building, :size => 5
+    = f.text_field :street, :placeholder => "nome della via e numero civico"
+    = f.text_field :building, :placeholder => "interno, scala ecc.",:size => 5
     = select_tag "order[city]", options_for_select(["Frascati","Roma","Marino","Grottaferrata","Monte Porzio Catone","Montecompatri","Rocca di Papa","Ciampino","Albano Laziale"])
   .field
     = f.label "Telefono"
@@ -35,7 +35,7 @@
     = select_tag :timeY, options_for_select((@order.starttime.year)..(@order.endtime.year))
     = select_tag :timeM, options_for_select(@order.monthspan)
     = select_tag :timeD, options_for_select(@order.dayspan)
-    = select_tag :timeH, options_for_select(@order.hourspan)
+    = select_tag :timeH, options_for_select(@order.hourspan,Time.now.hour + 1)
     = select_tag :timeMim, options_for_select(@order.minspan)
   .field
     = f.label :beer
@@ -45,14 +45,14 @@
     - if FileTest.exist?(c.imagebeer.path(:small).to_s)
       = image_tag c.imagebeer.url(:small)
 
-    = select_tag("item[#{c.item.id}]", options_for_select((0..10)))
+    = number_field_tag "item[#{c.item.id}", nil, :size => 1
     -}
   .field
     = f.label :sandwich
     - Sandwich.order("lower(name) ASC").all.each{|c|
     = link_to c.name, c
     = sprintf("%02.2f €", c.price)
-    = select_tag("item[#{c.item.id}]", options_for_select((0..10)))
+    = number_field_tag "item[#{c.item.id}]", 0, :size => 1
     -}
 
   .field

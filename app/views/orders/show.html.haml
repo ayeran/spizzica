@@ -11,11 +11,12 @@
   %b Indirizzo di consegna:
   = @order.streetprefix
   = @order.street
+  = ','
   = @order.building
   = @order.city
 %p
   %b Ora di consegna:
-  = @order.time.strftime("%H:%M %m-%d-%Y")
+  = I18n.l (@order.time).in_time_zone, :format => "%d %B alle %H:%M "
 
 %p
   %b Stato dell'ordine:
@@ -23,7 +24,8 @@
     - @order.trackings.each do |track|
       %li
         = track.status.name
-        = track.created_at.in_time_zone.strftime("%H:%M:%S %m-%d-%Y")
+        = I18n.l track.created_at.in_time_zone, :format => "%H:%M:%S, %d %B %Y"
+
 %p
   %b Il codice segreto:
   = @order.secretPhrase

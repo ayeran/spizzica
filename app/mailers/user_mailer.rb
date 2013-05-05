@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
   def sendOrder(order)
     @order = order
     @content = order.ordercontents
-    mail(:to => order.email, :subject => "Il tuo ordine dalla Spizzicaluna!")
+    mail(:to => order.email, :subject => "Spizzicaluna: il tuo ordine")
   end
 end

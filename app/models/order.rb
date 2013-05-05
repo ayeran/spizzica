@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   validates :email, :presence => true
   validates :telephone, :presence => true
   validate :delivery_time_can_not_be_too_soon
-
+  validates :street, :presence => true
 
 #  validates :telephone, :presense => true
 
@@ -47,7 +47,8 @@ class Order < ActiveRecord::Base
   end
 
   def minspan
-    (0..59).step(5)
+#    (0..59).step(5)
+    ["00","05",10,15,20,25,30,35,40,45,50,55]
   end
 
 
@@ -76,7 +77,7 @@ class Order < ActiveRecord::Base
  def delivery_time_can_not_be_too_soon
     if time < Time.now + @@starttime
       errors.add("Ora di consegna:", "ci vogliono almeno #{@@starttime/60} minuti per l\'elaborazione.
-        Quindi ordinazioni prima di #{(Time.now + @@starttime).strftime("%H:%M")} non possono essere accettate.")
+        Quindi ordinazioni prima delle #{(Time.now + @@starttime).strftime("%H:%M")} non possono essere accettate.")
     end
  end
 
