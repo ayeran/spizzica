@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders.json
 
 
+
+
   def index
     @orders = Order.all
 
@@ -28,6 +30,9 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
+    @beers=Beer.all.to_a.each_slice(2)
+    @sandwiches=Sandwich.all.to_a.each_slice(2)
+
 
     respond_to do |format|
       format.html # new.html.erb

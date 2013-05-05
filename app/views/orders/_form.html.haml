@@ -10,50 +10,64 @@
       %ul
         - @order.errors.full_messages.each do |msg|
           %li= msg
-
+  %h1 Dettagli dell'intestatario
   .field
     = f.label "Nome"
-    = f.text_field :name
+  = f.text_field :name
   .field
     = f.label "Indirizzo e-mail"
-    = f.text_field :email
-    %span.comment
-      (qua sarà mandata la conferma)
+  = f.text_field :email
+  %span.comment
+    (qua sarà mandata la conferma)
   .field
-    = select_tag "order[streetprefix]", options_for_select(["via","viale","piazza","piazzale","corso"])
-    = f.text_field :street, :placeholder => "nome della via e numero civico"
-    = f.text_field :building, :placeholder => "interno, scala ecc.",:size => 5
-    = select_tag "order[city]", options_for_select(["Frascati","Roma","Marino","Grottaferrata","Monte Porzio Catone","Montecompatri","Rocca di Papa","Ciampino","Albano Laziale"])
+    = f.label "Indirizzo di consegna:"
+  = select_tag "order[streetprefix]", options_for_select(["via","viale","piazza","piazzale","corso"])
+  = f.text_field :street, :placeholder => "nome della via e numero civico"
+  = f.text_field :building, :placeholder => "interno, scala ecc.",:size => 5
+  = select_tag "order[city]", options_for_select(["Frascati","Roma","Marino","Grottaferrata","Monte Porzio Catone","Montecompatri","Rocca di Papa","Ciampino","Albano Laziale"])
   .field
     = f.label "Telefono"
-    = f.text_field :telephone, :size => 10
-    %span.comment
-      (per eventuali comunicazioni)
+  = f.text_field :telephone, :size => 10
+  %span.comment
+    (per eventuali comunicazioni)
 
   .field
-    = f.label "Ora di consegna"
-    = select_tag :timeY, options_for_select((@order.starttime.year)..(@order.endtime.year))
-    = select_tag :timeM, options_for_select(@order.monthspan)
-    = select_tag :timeD, options_for_select(@order.dayspan)
-    = select_tag :timeH, options_for_select(@order.hourspan,(Time.now+Order.starttime).hour )
-    = select_tag :timeMin, options_for_select(@order.minspan,5*((Time.now+Order.starttime+5.minutes).min/5))
-  .field
-    = f.label :beer
-    - Beer.order("lower(name) ASC").all.each{|c|
-    = link_to c.name, c
-    = sprintf("%02.2f €", c.price)
-    - if FileTest.exist?(c.imagebeer.path(:small).to_s)
-      = image_tag c.imagebeer.url(:small)
+    = f.label "Data e ora di consegna"
+  = select_tag :timeD, options_for_select(@order.dayspan)
+  = select_tag :timeM, options_for_select(@order.monthspan)
+  - if @order.yearspan.count==1
+    = number_field_tag :timeY, @order.yearspan.first, :hidden => true
+  - else
+    = select_tag :timeY, options_for_select(@order.yearspan)
+  alle
+  = select_tag :timeH, options_for_select(@order.hourspan,(Time.now+Order.starttime).hour )
+  = select_tag :timeMin, options_for_select(@order.minspan,5*((Time.now+Order.starttime+5.minutes).min/5))
 
-    = number_field_tag "item[#{c.item.id}", nil, :size => 1
-    -}
-  .field
-    = f.label :sandwich
-    - Sandwich.order("lower(name) ASC").all.each{|c|
-    = link_to c.name, c
-    = sprintf("%02.2f €", c.price)
-    = number_field_tag "item[#{c.item.id}]", 0, :size => 1
-    -}
+  %h1 Dettagli dell'ordine
+  %h2 Birre
+  %table
+    %tbody
+      - @beers.each do |row|
+        %tr
+          - row.each do |c|
+            %td
+              = link_to c.name, c
+              = sprintf("%02.2f €", c.price)
+              - if FileTest.exist?(c.imagebeer.path(:small).to_s)
+                = image_tag c.imagebeer.url(:small)
+              = number_field_tag "item[#{c.item.id}", nil, :size => 1, :placeholder => '0'
+
+  %h2 Panini
+  %table
+    %tbody
+      - @sandwiches.each do |row|
+        %tr
+          - row.each do |c|
+            %td
+              = link_to c.name, c
+              = sprintf("%02.2f €", c.price)
+              = number_field_tag "item[#{c.item.id}", nil, :size => 1, :placeholder => '0'
+
 
   .field
     = f.label :info

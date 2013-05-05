@@ -18,7 +18,13 @@
     %tr
       %td= order.name
       %td= order.email
-      %td= order.addr
+      %td
+        = order.streetprefix
+        = order.street
+        = ', '
+        = order.building
+        = ', '
+        = order.city
       %td= order.time.strftime("%H:%M:%S %m-%d-%Y")
       %td
         - order.trackings.each do |track|

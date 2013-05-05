@@ -10,9 +10,13 @@
   = @order.email
 %p
   %b
-    Indirizzo:
-  = @order.addr
-%p
+    Indirizzo di consegna:
+  = @order.streetprefix
+  = @order.street
+  = ', '
+  = @order.building
+  = ', '
+  = @order.city%p
   %b
     Telefono:
   = @order.telephone
