@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
 
 #  validates :telephone, :presense => true
 
-  has_many :ordercontents
+  has_many :ordercontents, :dependent => :destroy
   has_many :trackings
   has_many :statuses, :through => :trackings
 
