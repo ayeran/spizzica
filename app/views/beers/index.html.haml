@@ -1,4 +1,4 @@
-%h1 Listing beers
+%h1 Elenco di birre
 
 %table
   %tr
@@ -8,13 +8,13 @@
     %th Gradazione
     %th Formato
     %th Volume
-    %th Tappo
     %th Aroma
     %th Gusto
     %th Stile
     %th Colore
     %th Schiuma
     %th Prezzo
+    %th
     %th
     %th
     %th
@@ -26,7 +26,6 @@
 
       %td
         - if beer.manufacturer
-          = # beer.manufacturer.name
           - if beer.manufacturer.country
             = image_tag beer.manufacturer.country.flagimage.url(:thumb)
       %td= sprintf("%02.1f %", beer.strength)
@@ -34,9 +33,6 @@
         -if beer.container
           =beer.container.name
       %td= sprintf("%02.0f cl",beer.volume)
-      %td
-        -if beer.lid
-          = beer.lid.name
       %td
         - beer.aromas.each do |aroma|
           = aroma.name
@@ -52,9 +48,8 @@
       %td
         - beer.foams.each do |foam|
           = foam.name
-      %td
-        = sprintf("%02.2f €", beer.price)
-
+      %td= sprintf("%02.2f €", beer.price)
+      %td= button_to "in carrello", line_items_path(:item_id => beer.item.id)
       %td= link_to 'Show', beer
       %td= link_to 'Edit', edit_beer_path(beer)
       %td= link_to 'Destroy', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }

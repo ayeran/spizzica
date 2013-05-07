@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505123241) do
+ActiveRecord::Schema.define(:version => 20130507110356) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,11 @@ ActiveRecord::Schema.define(:version => 20130505123241) do
 
   create_table "beerstyles", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -128,6 +133,14 @@ ActiveRecord::Schema.define(:version => 20130505123241) do
     t.datetime "updated_at"
   end
 
+  create_table "line_items", :force => true do |t|
+    t.integer  "cart_id"
+    t.integer  "item_id"
+    t.integer  "quantity",   :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "manufacturers", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -141,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20130505123241) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cart_id"
   end
 
   add_index "ordercontents", ["item_id"], :name => "index_ordercontents_on_item_id"

@@ -1,5 +1,9 @@
 Spizzicaluna::Application.routes.draw do
 
+  resources :line_items
+
+  resources :carts
+
   resources :countries
 
   resources :trackings
