@@ -30,6 +30,16 @@ a.menu_button:hover
 
 .cell
 {
-  color: 120%;
+  font: 95%;
 }
 
+.cart
+{
+  position: absolute;
+  padding: 10px;
+  top: 5em;
+  right: 1em;
+  width: 10em;
+  border: 1px dashed yellow;
+  color: white;
+}
