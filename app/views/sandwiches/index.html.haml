@@ -8,6 +8,7 @@
     %th
     %th
     %th
+    %th
 
   - @sandwiches.each do |sandwich|
     %tr
@@ -21,6 +22,7 @@
             = link_to ingr.name, ingr
           -# = ingr.name
           -# = image_tag ingr.ingredientimage.url(:thumb)
+      %td= button_to "in carrello", line_items_path(:item_id => sandwich.item.id)
       %td= link_to 'Mostra', sandwich
       %td= link_to 'Modifica', edit_sandwich_path(sandwich)
       %td= link_to 'Elimina', sandwich, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -32,16 +32,8 @@
 
 <br/>
 
-<div class="cart">
-	Carrello
-	<ol>
-	<% cart_content.each do |li| %>
-		<li>
-			<%= li %>
-		</li>
-	 <% end %>
-	 </ol>
-</div>
+<%=render 'carts/small' %>
+
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 <% end %>

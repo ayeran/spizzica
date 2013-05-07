@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
  # before_filter :verify_admin, :except =>[:index,:show]
 
-  helper_method :cart_content
+  helper_method :cart_content, :current_cart
 
   def verify_admin
     :authenticate_user!
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
       line="#{item.name} (#{quantity} x #{sprintf("%02.2f €", price)} )"
       content << line
      end
-   content<<"Prezzo: #{sprintf("%02.2f€",priceTot)}"
+   content<<"Prezzo: #{sprintf("%02.2f €",priceTot)}"
    content
   end
 

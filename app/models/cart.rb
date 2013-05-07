@@ -10,4 +10,18 @@ class Cart < ActiveRecord::Base
     end
     current_item
   end
+
+  def delete_item(item_id)
+    current_line_item = self.line_items.find_by_item_id(item_id)
+    if current_line_item
+      quantity=current_line_item.quantity
+      if quantity > 1
+        current_line_item.update_attributes(:quantity => quantity-1)
+        current_line_item.save
+      end
+      if quantity==1
+        current_line_item.destroy
+      end
+    end
+  end
 end
