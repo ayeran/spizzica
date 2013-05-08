@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
+  before_filter :verify_admin
   # GET /carts
   # GET /carts.json
+
   def index
     @carts = Cart.all
 
