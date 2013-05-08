@@ -1,0 +1,31 @@
+%h1 Elenco di bruschette
+
+%table
+  %tr
+    %th Nome
+    %th
+    %th Prezzo
+    %th
+    %th
+    %th
+    %th
+
+  - @bruschetta.each do |bruschettum|
+    %tr
+      %td= bruschettum.name
+      %td
+        - bruschettum.ingredients.each do |ingr|
+          - if FileTest.exist?(ingr.ingredientimage.path(:thumb).to_s)
+            = link_to image_tag(ingr.ingredientimage.url(:thumb), :alt=>ingr.name), ingr
+          - else
+            = link_to ingr.name, ingr
+      %td= sprintf("%02.2f €", bruschettum.price)
+      %td= button_to "in carrello", line_items_path(:item_id => bruschettum.item.id)
+
+      %td= link_to 'Show', bruschettum
+      %td= link_to 'Edit', edit_bruschettum_path(bruschettum)
+      %td= link_to 'Destroy', bruschettum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bruschettum', new_bruschettum_path

@@ -1,0 +1,2 @@
+module BruschettaHelper
+end

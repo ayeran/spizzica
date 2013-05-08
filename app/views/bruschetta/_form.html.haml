@@ -1,0 +1,25 @@
+= form_for @bruschettum do |f|
+  - if @bruschettum.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bruschettum.errors.count, "error")} prohibited this bruschettum from being saved:"
+      %ul
+        - @bruschettum.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "Nome"
+    = f.text_field :name
+  .field
+    = f.label "Ingredienti"
+    - Ingredient.order("lower(name) ASC").all.each{|c|
+    = check_box_tag("ingredient[]", c.name, @bruschettum.ingredients.include?(c))
+    - if FileTest.exist?(c.ingredientimage.path(:thumb).to_s)
+      = link_to image_tag(c.ingredientimage.url(:thumb), :alt=>c.name), c
+    - else
+      = link_to c.name, c
+    -}
+  .field
+    = f.label "Prezzo"
+    = f.number_field :price, :size => 5
+  .actions
+    = f.submit 'Salva'
