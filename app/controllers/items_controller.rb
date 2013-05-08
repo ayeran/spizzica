@@ -2,8 +2,6 @@ class ItemsController < ApplicationController
   before_filter :verify_admin
   # GET /items
   # GET /items.json
-
-  before_filter :verify_admin, :except =>:index
   def index
     @items = Item.order("lower(name) ASC").all
 
