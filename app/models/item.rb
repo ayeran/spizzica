@@ -13,17 +13,19 @@ class Item < ActiveRecord::Base
     else
       errors.add(:base, "L'oggetto è presente in un contenuto di un ordine e quindì non può essere eliminato.")
       return false
+    end
   end
+
 
   def ensure_not_referenced_by_any_line_item
     if line_items.count.zero?
       return true
     else
       errors.add(:base, "L'oggetto è presente in un contenuto di un carrello e quindì non può essere eliminato.")
+      return false
     end
   end
 
-  end
 
   def specify
     self.name.classify.constantize.find(self.iid)

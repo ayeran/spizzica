@@ -1,5 +1,7 @@
 Spizzicaluna::Application.routes.draw do
 
+  resources :bruschetta
+
   resources :line_items
 
   resources :carts
