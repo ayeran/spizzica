@@ -47,6 +47,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        # to come back not to the beginning of the page, but to the place where
+        # the click was done
         env["HTTP_REFERER"] += '#' + item.id.to_s
         format.html { redirect_to :back, notice: 'Line item was successfully created.' }
         format.json { render json: @line_item, status: :created, location: @line_item }
