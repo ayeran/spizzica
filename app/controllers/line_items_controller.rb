@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
@@ -50,7 +53,7 @@ class LineItemsController < ApplicationController
         # to come back not to the beginning of the page, but to the place where
         # the click was done
         env["HTTP_REFERER"] += '#' + item.id.to_s
-        format.html { redirect_to :back, notice: 'Line item was successfully created.' }
+        format.html { redirect_to :back, notice: "L'oggetto è stato aggiunto con successo" }
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
@@ -66,7 +69,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        env["HTTP_REFERER"] += '#' + item.id.to_s
+        format.html { redirect_to :back, notice: "Aggiornato con successo." }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -85,7 +89,7 @@ class LineItemsController < ApplicationController
     @line_item = @cart.delete_item(params[:item_id])
 
     respond_to do |format|
-      format.html { redirect_to :back, notice: "#{params[:item_id]}" }
+      format.html { redirect_to :back, notice: "L'oggetto è stato rimosso dal carrello!" }
       format.json { head :ok }
     end
   end
