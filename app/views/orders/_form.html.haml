@@ -49,24 +49,35 @@
     %tbody
       - @beers.each do |row|
         %tr
-          - row.each do |c|
+          - row.each do |beer_line|
+            - c=beer_line[:beer]
             %td
               = link_to c.name, c
-              = sprintf("%02.2f €", c.price)
+              = '('+ beer_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", c.price)+ ")"
               - if FileTest.exist?(c.imagebeer.path(:small).to_s)
                 = image_tag c.imagebeer.url(:small)
-              = number_field_tag "item[#{c.item.id}", nil, :size => 1, :placeholder => '0'
 
   %h2 Panini
   %table
     %tbody
       - @sandwiches.each do |row|
         %tr
-          - row.each do |c|
+          - row.each do |sandwich_line|
+            - c = sandwich_line[:sandwich]
             %td
               = link_to c.name, c
-              = sprintf("%02.2f €", c.price)
-              = number_field_tag "item[#{c.item.id}", nil, :size => 1, :placeholder => '0'
+              = '('+ sandwich_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", c.price)+ ")"
+  %h2 Bruschette
+  %table
+    %tbody
+      - @bruschette.each do |row|
+        %tr
+          - row.each do |bruschetta_line|
+            - c = bruschetta_line[:bruschetta]
+            %td
+              = link_to c.name, c
+              = '('+ bruschetta_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", c.price)+ ")"
+
 
   %h1 Informazione supplementare
   = f.text_area :info, :size => "50 x 10"

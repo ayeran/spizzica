@@ -45,8 +45,10 @@
   <p>You are logged in as
   <%= current_user.roles.map{|r| r.name}%> </p>
 	<% else %>
+	<% if false%>
 	<p>Welcome, visitor!</p>
   <%= link_to('Login', user_session_path, :method=>'get') %>
+<%end%>
 <%end%>
 
 </body>

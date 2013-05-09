@@ -30,8 +30,19 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
-    @beers=Beer.all.to_a.each_slice(2)
-    @sandwiches=Sandwich.all.to_a.each_slice(2)
+    @cart_content=current_cart.line_items
+    @beers=@cart_content.select{|li|
+      li.item.name=="Beer"}.map{|li|
+        {:beer=>li.item.specify,:quantity => li.quantity}
+        }.to_a.each_slice(2)
+    @sandwiches=@cart_content.select{|li|
+      li.item.name=="Sandwich"}.map{|li|
+        {:sandwich=>li.item.specify,:quantity => li.quantity}
+        }.to_a.each_slice(2)
+    @bruschette=@cart_content.select{|li|
+      li.item.name=="Bruschetta"}.map{|li|
+        {:bruschetta => li.item.specify, :quantity => li.quantity}
+        }.to_a.each_slice(2)
 
 
     respond_to do |format|
