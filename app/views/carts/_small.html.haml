@@ -7,12 +7,7 @@
       - lineitems.each do |li|
         %li
           - item=Item.find_by_id(li.item_id).specify
-          = item.name
-          (
-          = li.quantity
-          x
-          = sprintf("%02.2f €", item.price)
-          )
+          = item.name + " (" + li.quantity.to_s + ' x ' + sprintf("%02.2f €", item.price) + ")"
           - price += li.quantity * item.price
           = link_to "Più", line_items_path(:item_id => li.item_id), :method => :post
           = link_to "Meno", "/line_items/delete/#{li.item_id}", :method => :post

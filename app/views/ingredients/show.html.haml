@@ -10,6 +10,7 @@
   %b Immagine:
   = image_tag @ingredient.ingredientimage.url(:small)
 
-= link_to 'Modifica', edit_ingredient_path(@ingredient)
-\|
-= link_to 'Indietro', ingredients_path
+= if user_signed_in?
+  = link_to 'Modifica', edit_ingredient_path(@ingredient)
+  \|
+  = link_to 'Indietro', ingredients_path
