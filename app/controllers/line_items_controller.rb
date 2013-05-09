@@ -47,6 +47,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        env["HTTP_REFERER"] += '#' + item.id.to_s
         format.html { redirect_to :back, notice: 'Line item was successfully created.' }
         format.json { render json: @line_item, status: :created, location: @line_item }
       else

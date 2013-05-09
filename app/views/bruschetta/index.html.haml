@@ -12,7 +12,7 @@
 
   - @bruschetta.each do |bruschettum|
     %tr
-      %td= bruschettum.name
+      %td= link_to bruschettum.name, bruschettum, :id => bruschettum.item.id
       %td
         - bruschettum.ingredients.each do |ingr|
           - if FileTest.exist?(ingr.ingredientimage.path(:thumb).to_s)

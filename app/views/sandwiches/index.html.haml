@@ -12,7 +12,7 @@
 
   - @sandwiches.each do |sandwich|
     %tr
-      %td= link_to sandwich.name, sandwich
+      %td= link_to sandwich.name, sandwich, :id => sandwich.name.gsub(" ","_")
       %td= sprintf("%02.2f €", sandwich.price)
       %td
         - sandwich.ingredients.each do |ingr|
