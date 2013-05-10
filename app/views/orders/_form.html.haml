@@ -51,12 +51,12 @@
         - @beers.each do |row|
           %tr
             - row.each do |beer_line|
-              - c=beer_line[:beer]
+              - beer=beer_line[:beer]
               %td
-                = link_to c.name, c
-                = '('+ beer_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", c.price)+ ")"
-                - if FileTest.exist?(c.imagebeer.path(:small).to_s)
-                  = image_tag c.imagebeer.url(:small)
+                = link_to beer.name, beer
+                = '('+ beer_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", beer.price)+ ")"
+                - if FileTest.exist?(beer.imagebeer.path(:small).to_s)
+                  = image_tag beer.imagebeer.url(:small)
 
   - if !@sandwiches.to_a.flatten.empty?
     %h2 Panini
