@@ -52,12 +52,12 @@ common: &default_settings
 
   # Developer mode should be off in every environment but
   # development as it has very high overhead in memory.
-  developer_mode: false
+  developer_mode: true
 
   # The newrelic agent generates its own log file to keep its logging
   # information separate from that of your application. Specify its
   # log level here.
-  log_level: info
+  log_level: debug
 
   # Optionally set the path to the log file This is expanded from the
   # root directory (may be relative or absolute, e.g. 'log/' or
@@ -187,8 +187,9 @@ common: &default_settings
 # provide newrelic configuration settings for these environments here.
 
 development:
-  app_name: Spizzica_D
   <<: *default_settings
+  app_name: Spizzica_D
+
   # Turn off communication to New Relic service in development mode (also
   # 'enabled').
   # NOTE: for initial evaluation purposes, you may want to temporarily
@@ -201,6 +202,7 @@ development:
   # NOTE: There is substantial overhead when running in developer mode.
   # Do not use for production or load testing.
   developer_mode: true
+  log_file_name: 'newrelic_agent_D.log'
 
   # Enable textmate links
   # textmate: true
@@ -220,6 +222,7 @@ production:
   app_name: Spizzica_P
   <<: *default_settings
   monitor_mode: true
+  log_file_name: 'newrelic_agent_P.log'
 
 # Many applications have a staging environment which behaves
 # identically to production. Support for that environment is provided
