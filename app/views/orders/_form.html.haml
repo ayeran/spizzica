@@ -44,7 +44,7 @@
   = select_tag :timeMin, options_for_select(@order.minspan,5*((Time.now+Order.starttime+5.minutes).min/5))
 
   %h1 Dettagli dell'ordine
-  = if !@beers.to_a.flatten.empty?
+  = if !(@beers.to_a.flatten.empty?)
     %h2 Birre
     %table
       %tbody
