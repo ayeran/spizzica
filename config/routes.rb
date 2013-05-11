@@ -50,6 +50,7 @@ Spizzicaluna::Application.routes.draw do
   resources :items
 
   match 'orders' => 'orders#new'
+  match 'spizzicalunaone' => 'home#spizzicalunaone'
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
   resources :users
