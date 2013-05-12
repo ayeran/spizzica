@@ -7,5 +7,5 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = link_to "Indietro", :back
+    = link_to(image_tag('back_arrow.png',:size => "50x50"), :back)
     = yield
