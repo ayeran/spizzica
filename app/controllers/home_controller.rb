@@ -3,8 +3,17 @@ class HomeController < ApplicationController
     render :layout => "landpage"
   end
 
-  def spizzicalunaone
-    render :layout => "spizzicaluna_one_layout"
+  def spizzicaluna_one
+    render :layout => "spizzicaluna_one"
   end
+
+  def spizzicaluna_brewing
+    render :layout => "spizzicaluna_brewing"
+  end
+
+  def spizzicaluna_open
+    render :layout => "spizzicaluna_open"
+  end
+
 
 end

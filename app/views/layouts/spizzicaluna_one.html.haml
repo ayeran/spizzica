@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Spizzicaluna One
+    = favicon_link_tag '/spizzicaluna.ico'
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    = link_to 'Panini', sandwiches_path, :class => 'menu_button'
+    = link_to 'Bruschette', bruschetta_path, :class => 'menu_button'
+    = link_to 'Birre', beers_path, :class => 'menu_button'
+    =link_to 'Ordinare', new_order_path, :class => 'menu_button'
+    - if user_signed_in?
+      = link_to 'Items', items_path, :class => 'menu_button'
+      = link_to 'Orders', orders_path, :class => 'menu_button'
+      = link_to 'Ingredienti', ingredients_path, :class => 'menu_button'
+      = link_to 'Produttori', manufacturers_path, :class => 'menu_button'
+      = link_to 'Paesi', countries_path, :class => 'menu_button'
+      = link_to 'Stili di birra', beerstyles_path, :class => 'menu_button'
+      = # link_to 'Contenitori', containers_path, :class => 'menu_button'
+      = # link_to 'Tappi', lids_path, :class => 'menu_button'
+      = link_to 'Arome', aromas_path, :class => 'menu_button'
+      = link_to 'Gusti', tastes_path, :class => 'menu_button'
+      = link_to 'Colori', colors_path, :class => 'menu_button'
+      = link_to 'Schiume', foams_path, :class => 'menu_button'
+    = yield
