@@ -13,6 +13,7 @@
       = link_to image_tag(ingr.ingredientimage.url(:small)), ingr
     = ingr.name
 
-= link_to 'Modifica', edit_bruschettum_path(@bruschettum)
-\|
+- if user_signed_in?
+  = link_to 'Modifica', edit_bruschettum_path(@bruschettum)
+  \|
 = link_to 'Indietro', bruschetta_path

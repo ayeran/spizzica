@@ -5,18 +5,20 @@
     %th Nome
     %th
     %th Descrizione
-    %th
-    %th
-    %th
+    - if user_signed_in?
+      %th
+      %th
+      %th
 
   - @ingredients.each do |ingredient|
     %tr
       %td= ingredient.name
       %td= image_tag ingredient.ingredientimage.url(:thumb)
       %td= ingredient.description
-      %td= link_to 'Mostra', ingredient
-      %td= link_to 'Modifica', edit_ingredient_path(ingredient)
-      %td= link_to 'Elimina', ingredient, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_signed_in?
+        %td= link_to 'Mostra', ingredient
+        %td= link_to 'Modifica', edit_ingredient_path(ingredient)
+        %td= link_to 'Elimina', ingredient, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
