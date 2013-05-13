@@ -1,6 +1,9 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class OrdersController < ApplicationController
   layout "spizzicaluna_one"
-#   before_filter :verify_admin, :except =>[:new,:show,:control]
+   before_filter :verify_admin, :except =>[:new,:show,:create,:control]
   # GET /orders
   # GET /orders.json
 
@@ -103,7 +106,13 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         UserMailer.sendOrder(@order).deliver
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html {
+          redirect_to url_for(:controller => 'orders',
+          :action => 'control',
+          :e => @order.email,
+          :f=>@order.secretPhrase,
+          :only_path => false,
+          :escape => false ), notice: 'L\'ordine è stato creato con successo.' }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render action: "new" }
