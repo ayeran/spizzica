@@ -49,3 +49,19 @@ a.menu_button:hover
 {
   padding: 30px
 }
+
+.current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.asc {
+  margin: 10px;
+  background-image: url('arrow_up.png');
+}
+
+.desc {
+  margin: 10px;
+  background-image: url('arrow_down.png');
+}

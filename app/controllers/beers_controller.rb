@@ -1,11 +1,12 @@
 class BeersController < ApplicationController
    layout "spizzicaluna_one"
    before_filter :verify_admin, :except =>[:index,:show]
+   helper_method :sort_column, :sort_direction
 
   # GET /beers
   # GET /beers.json
   def index
-    @beers = Beer.order("lower(name) ASC").all
+    @beers = Beer.order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @beers }
@@ -128,4 +129,16 @@ class BeersController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private
+  def sort_column
+    Beer.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  private
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+
 end
