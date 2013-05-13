@@ -6,9 +6,10 @@
     %th
     %th Prezzo
     %th
-    %th
-    %th
-    %th
+    - if user_signed_in?
+      %th
+      %th
+      %th
 
   - @bruschetta.each do |bruschettum|
     %tr
@@ -21,10 +22,10 @@
             = link_to ingr.name, ingr
       %td= sprintf("%02.2f €", bruschettum.price)
       %td= button_to "in carrello", line_items_path(:item_id => bruschettum.item.id)
-
-      %td= link_to 'Mostra', bruschettum
-      %td= link_to 'Modificare', edit_bruschettum_path(bruschettum)
-      %td= link_to 'Eliminare', bruschettum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_signed_in?
+        %td= link_to 'Mostra', bruschettum
+        %td= link_to 'Modificare', edit_bruschettum_path(bruschettum)
+        %td= link_to 'Eliminare', bruschettum, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
