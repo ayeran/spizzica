@@ -1,10 +1,14 @@
+#!/bin/env ruby
+# encoding: utf-8
+
+
 class CartsController < ApplicationController
-  before_filter :verify_admin
+  before_filter :verify_admin, :except => [:destroy]
   # GET /carts
   # GET /carts.json
 
   def index
-    @carts = Cart.all
+    @carts = [current_cart]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +19,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @cart = Cart.find(params[:id])
+    @cart = current_cart #Cart.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,28 +29,28 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   # GET /carts/new.json
-  def new
-    @cart = Cart.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @cart }
-    end
-  end
+  # def new
+    # @cart = Cart.new
+#
+    # respond_to do |format|
+      # format.html # new.html.erb
+      # format.json { render json: @cart }
+    # end
+  # end
 
   # GET /carts/1/edit
-  def edit
-    @cart = Cart.find(params[:id])
-  end
+  # def edit
+    # @cart = current_cart #Cart.find(params[:id])
+  # end
 
   # POST /carts
   # POST /carts.json
   def create
-    @cart = Cart.new(params[:cart])
+    @cart = current_cart #Cart.new(params[:cart])
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to @cart, notice: 'Il carrello ormai esiste.' }
         format.json { render json: @cart, status: :created, location: @cart }
       else
         format.html { render action: "new" }
@@ -58,11 +62,11 @@ class CartsController < ApplicationController
   # PUT /carts/1
   # PUT /carts/1.json
   def update
-    @cart = Cart.find(params[:id])
+    @cart = current_cart #Cart.find(params[:id])
 
     respond_to do |format|
       if @cart.update_attributes(params[:cart])
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to @cart, notice: 'Il carrello è stato aggiornato con successo!'}
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -79,7 +83,7 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to(:back, :notice => 'Il carrello e stato svuotato' ) }
+      format.html { redirect_to(:back, :notice => 'Il carrello è stato svuotato' ) }
       format.json { head :ok }
     end
   end

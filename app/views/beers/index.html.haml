@@ -15,9 +15,10 @@
     %th Schiuma
     %th Prezzo
     %th
-    %th
-    %th
-    %th
+    - if user_signed_in?
+      %th
+      %th
+      %th
 
   - @beers.each do |beer|
     %tr
@@ -50,9 +51,10 @@
           = foam.name
       %td= sprintf("%02.2f €", beer.price)
       %td= button_to "in carrello", line_items_path(:item_id => beer.item.id)
-      %td= link_to 'Show', beer
-      %td= link_to 'Edit', edit_beer_path(beer)
-      %td= link_to 'Destroy', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_signed_in?
+        %td= link_to 'Mostra', beer
+        %td= link_to 'Modifica', edit_beer_path(beer)
+        %td= link_to 'Eliminare', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

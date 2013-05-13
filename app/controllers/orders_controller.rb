@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  layout "spizzicaluna_one"
 #   before_filter :verify_admin, :except =>[:new,:show,:control]
   # GET /orders
   # GET /orders.json
@@ -76,13 +77,27 @@ class OrdersController < ApplicationController
     @order.statuses << status_first
 
     price=0
-    params[:item].each{|itemid,quantity|
-      q=quantity.to_i
+    current_cart.line_items.each{|li|
+      q=li.quantity.to_i
+      itemid=li.item.id
       if (q!=0)
         price = price + q * Item.find(itemid).specify.price
         @order.ordercontents << Ordercontent.new({:item_id => itemid, :quantity => q})
        end
+      # after enrolling the shopping cart line
+      # into the order contents, remove this shopping cart line
+      li.destroy
       }
+
+      current_cart.destroy
+
+    # params[:item].each{|itemid,quantity|
+      # q=quantity.to_i
+      # if (q!=0)
+        # price = price + q * Item.find(itemid).specify.price
+        # #@order.ordercontents << Ordercontent.new({:item_id => itemid, :quantity => q})
+       # end
+      # }
       @order.price=price
 
     respond_to do |format|

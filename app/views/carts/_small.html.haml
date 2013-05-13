@@ -15,3 +15,4 @@
     = sprintf("%02.2f €", price)
     %br
     = link_to 'Svuota', current_cart, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
+    = link_to_unless_current 'Alla cassa', new_order_path

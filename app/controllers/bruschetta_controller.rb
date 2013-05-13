@@ -1,6 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 class BruschettaController < ApplicationController
+  layout "spizzicaluna_one"
   before_filter :verify_admin, :except =>[:index,:show]
   # GET /bruschetta
   # GET /bruschetta.json

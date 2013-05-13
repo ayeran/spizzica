@@ -1,10 +1,11 @@
 class BeersController < ApplicationController
+   layout "spizzicaluna_one"
    before_filter :verify_admin, :except =>[:index,:show]
+
   # GET /beers
   # GET /beers.json
   def index
     @beers = Beer.order("lower(name) ASC").all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @beers }

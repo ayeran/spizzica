@@ -1,4 +1,5 @@
 class SandwichesController < ApplicationController
+  layout "spizzicaluna_one"
 
   before_filter :verify_admin, :except =>[:index,:show]
   # GET /sandwiches
