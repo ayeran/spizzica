@@ -10,6 +10,7 @@ $brand-color-darker: darken( $brand-color, 20% );
 
 body {
     background-color: $brand-color;
+    color: white;
     font-family: verdana,arial,helvetica,sans-serif;
     font-size: 13px;
     line-height: 18px;
