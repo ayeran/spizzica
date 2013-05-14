@@ -45,7 +45,7 @@ end
 
 gem 'jquery-rails'
 gem "paperclip", "~> 3.4.1"
-#gem 'will_paginate', '>3.0.pre'
+gem 'will_paginate', '> 3.0.pre'
 # Use unicorn as the web server
 # gem 'unicorn'
 
