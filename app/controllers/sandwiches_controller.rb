@@ -1,5 +1,6 @@
 class SandwichesController < ApplicationController
   layout "spizzicaluna_one"
+  helper_method :sort_column, :sort_direction
 
   before_filter :verify_admin, :except =>[:index,:show]
   # GET /sandwiches
@@ -90,5 +91,10 @@ class SandwichesController < ApplicationController
       format.html { redirect_to sandwiches_url }
       format.json { head :ok }
     end
+  end
+
+  private
+  def sort_column
+    Sandwich.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
 end
