@@ -3,10 +3,11 @@
 class BruschettaController < ApplicationController
   layout "spizzicaluna_one"
   before_filter :verify_admin, :except =>[:index,:show]
+  helper_method :sort_column, :sort_direction
   # GET /bruschetta
   # GET /bruschetta.json
   def index
-    @bruschetta = Bruschettum..order(sort_column + " " + sort_direction)
+    @bruschetta = Bruschettum.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,5 +92,10 @@ class BruschettaController < ApplicationController
       format.html { redirect_to bruschetta_url }
       format.json { head :ok }
     end
+  end
+
+ private
+  def sort_column
+    Bruschettum.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "lower(name)"
   end
 end

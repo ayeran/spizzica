@@ -2,9 +2,9 @@
 
 %table
   %tr
-    %th Nome
+    %th= sortable('name', 'Nome')
     %th
-    %th Prezzo
+    %th= sortable('price', 'Prezzo')
     %th
     - if user_signed_in?
       %th
