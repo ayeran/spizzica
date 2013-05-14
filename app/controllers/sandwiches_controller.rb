@@ -95,6 +95,6 @@ class SandwichesController < ApplicationController
 
   private
   def sort_column
-    Sandwich.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Sandwich.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "lower(name)"
   end
 end

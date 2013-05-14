@@ -6,7 +6,7 @@ class BruschettaController < ApplicationController
   # GET /bruschetta
   # GET /bruschetta.json
   def index
-    @bruschetta = Bruschettum.order("lower(name) ASC").all
+    @bruschetta = Bruschettum..order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb

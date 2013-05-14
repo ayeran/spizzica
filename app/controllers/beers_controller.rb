@@ -132,7 +132,7 @@ class BeersController < ApplicationController
 
   private
   def sort_column
-    Beer.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Beer.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "lower(name)"
   end
 
 
