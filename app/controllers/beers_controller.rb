@@ -6,8 +6,8 @@ class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
   def index
-    @beers = Beer.order(sort_column + " " + sort_direction).paginate(:per_page => 2,
-      :page=>params[:page])
+    @beers = Beer.search(params[:search]).order(sort_column + " " + sort_direction).
+      paginate(:per_page => 2, :page=>params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @beers }

@@ -52,4 +52,12 @@ public
   def imagepath(arg)
     self.imagebeer.path(arg)
   end
+
+  def self.search(text)
+    if text
+      where('name LIKE ?', "%#{text}")
+    else
+      scoped
+    end
+  end
 end
