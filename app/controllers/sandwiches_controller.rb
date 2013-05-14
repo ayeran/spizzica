@@ -6,7 +6,7 @@ class SandwichesController < ApplicationController
   # GET /sandwiches
   # GET /sandwiches.json
   def index
-    @sandwiches = Sandwich.order("lower(name) ASC").all
+    @sandwiches = Sandwich.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
