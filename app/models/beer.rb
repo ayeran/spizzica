@@ -1,4 +1,6 @@
 class Beer < ActiveRecord::Base
+
+  self.per_page = 10
   has_and_belongs_to_many :beerstyles
   has_and_belongs_to_many :aromas
   has_and_belongs_to_many :tastes

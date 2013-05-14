@@ -63,7 +63,7 @@
         %td= link_to 'Modifica', edit_beer_path(beer)
         %td= link_to 'Eliminare', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= will_paginate @beers
+= will_paginate @beers, :previous_label => "<<", :next_label => ">>"
 - if user_signed_in?
   %br
   = link_to 'Nuova birra', new_beer_path
