@@ -133,7 +133,14 @@ class BeersController < ApplicationController
 
   private
   def sort_column
-    Beer.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "lower(name)"
+    attr=params[:sort]
+## if the attribute is of text or string type, case should be ignored. Otherwise - not
+## previously it was a bug: when to a decimal there was applied "lower", the result was upredictable
+    if Beer.column_names.include?(attr)
+      [:string, :text].include?(Beer.columns_hash[attr].type) ? "lower(#{attr})" : "#{attr}"
+      else
+      "lower(name)"
+      end
   end
 
 
