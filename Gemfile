@@ -46,6 +46,7 @@ end
 gem 'jquery-rails'
 gem "paperclip", "~> 3.4.1"
 gem 'will_paginate', '> 3.0.pre'
+#gem 'meta-tags', :require => 'meta_tags'
 # Use unicorn as the web server
 # gem 'unicorn'
 
