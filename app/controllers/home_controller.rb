@@ -15,5 +15,14 @@ class HomeController < ApplicationController
     render :layout => "spizzicaluna_open"
   end
 
+  def contacts
+   ["one","brewing","open"].include?(params[:place]) ?
+    (render :layout => 'spizzicaluna_'+params[:place]) : (render :layout => 'spizzicaluna_one')
+  end
+
+  def delivery
+    render :layout => 'spizzicaluna_one'
+  end
+
 
 end
