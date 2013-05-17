@@ -11,17 +11,17 @@ $buttontextcolor: yellow;
 $commentcolor: lighten( red, 10% );
 ;
 
-.menu_button
-{
-	font-size: 110%;
-	padding: 5px;
-	background: lighten( $buttoncolor, 30% );
-	color: $buttontextcolor;
-}
-a.menu_button:hover
-{
-	background: $buttoncolor
-}
+// .menu_button
+// {
+	// font-size: 110%;
+	// padding: 5px;
+	// background: lighten( $buttoncolor, 30% );
+	// color: $buttontextcolor;
+// }
+// a.menu_button:hover
+// {
+	// background: $buttoncolor
+// }
 
 .comment
 {
@@ -91,3 +91,24 @@ a.menu_button:hover
   top: 0px;
   left: 100px;
 }
+// nav ul ul {
+  // display: none;
+// }
+//
+// nav ul li:hover > ul {
+    // display: block;
+    // padding-left: 40px;
+  // }
+
+.navigation_bar ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.navigation_bar a
+{
+display:block;
+width:60px;
+}
+
