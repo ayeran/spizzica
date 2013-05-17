@@ -10,7 +10,7 @@
     .logo
       = link_to(image_tag('spizzicaluna_one_icon.jpg', :alt => 'paninoteca e birreria'),root_path)
     .navigation_bar
-      = image_tag 'yellow_star.png', :alt => 'spizzicaluna one'
+      = image_tag 'yellow_star.png', :alt => 'spizzicaluna one', :class => 'mark'
       = link_to_unless_current 'Panini', sandwiches_path, :class => 'menu_button'
       = link_to_unless_current 'Bruschette', bruschetta_path, :class => 'menu_button'
       = link_to_unless_current 'Birre', beers_path, :class => 'menu_button'
