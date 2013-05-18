@@ -75,12 +75,6 @@ $commentcolor: lighten( red, 10% );
   left:0;
 }
 
-.navigation_bar
-{
-  padding-left: 35px;
-  padding-top: 15px;
-}
-
 .mark
 {
   // display: inline;
@@ -90,25 +84,5 @@ $commentcolor: lighten( red, 10% );
   position: absolute;
   top: 0px;
   left: 100px;
-}
-// nav ul ul {
-  // display: none;
-// }
-//
-// nav ul li:hover > ul {
-    // display: block;
-    // padding-left: 40px;
-  // }
-
-.navigation_bar ul
-{
-list-style-type:none;
-margin:0;
-padding:0;
-}
-.navigation_bar a
-{
-display:block;
-width:60px;
 }
 
