@@ -10,29 +10,31 @@
     = image_tag 'yellow_star.png', :alt => 'spizzicaluna one', :class => 'mark'
     .logo
       = link_to(image_tag('spizzicaluna_one_icon.jpg', :alt => 'paninoteca e birreria'),root_path)
-    %ul{:id=>'nav'}
-      %li= link_to_unless_current 'Birre', beers_path#, :class => 'nav_button'
-      %li
-        = link_to_unless_current 'Food', sandwiches_path#, :class => 'nav_button'
+    %ul{:class=>"nav"}
+      %li= link_to 'Birre', beers_path
+      %li{:class=>"dropdown"}
+        = link_to 'Food', sandwiches_path
         %ul
-          %li= link_to_unless_current 'Panini', sandwiches_path#, :class => 'nav_button'
-          %li= link_to_unless_current 'Bruschette', bruschetta_path#, :class => 'nav_button'
-      %li= link_to_unless_current 'Consegna', 'delivery'#, :class => 'nav_button'
-      %li= link_to_unless_current 'Contatti', 'contacts'#, :class => 'nav_button'
+          %li= link_to 'Panini', sandwiches_path
+          %li= link_to 'Bruschette', bruschetta_path
+      %li= link_to 'Consegna', 'delivery'
+      %li= link_to 'Contatti', 'contacts'
       - if user_signed_in?
-        = link_to 'Items', items_path, :class => 'nav_button'
-        = link_to 'Orders', orders_path, :class => 'nav_button'
-        = link_to 'Ingredienti', ingredients_path, :class => 'nav_button'
-        = link_to 'Produttori', manufacturers_path, :class => 'nav_button'
-        = link_to 'Paesi', countries_path, :class => 'nav_button'
-        = link_to 'Stili di birra', beerstyles_path, :class => 'nav_button'
-        = # link_to 'Contenitori', containers_path, :class => 'nav_button'
-        = # link_to 'Tappi', lids_path, :class => 'nav_button'
-        = # link_to 'Arome', aromas_path, :class => 'nav_button'
-        = # link_to 'Gusti', tastes_path, :class => 'nav_button'
-        = # link_to 'Colori', colors_path, :class => 'nav_button'
-        = # link_to 'Schiume', foams_path, :class => 'nav_button'
+        %li= link_to 'Items', items_path#, :class => 'nav_button'
+        %li= link_to 'Orders', orders_path#, :class => 'nav_button'
+        %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
+        %li= link_to 'Produttori', manufacturers_path#, :class => 'nav_button'
+        %li= link_to 'Paesi', countries_path#, :class => 'nav_button'
+        %li= link_to 'Stili di birra', beerstyles_path#, :class => 'nav_button'
+        %li= # link_to 'Contenitori', containers_path, :class => 'nav_button'
+        %li= # link_to 'Tappi', lids_path, :class => 'nav_button'
+        %li= # link_to 'Arome', aromas_path, :class => 'nav_button'
+        %li= # link_to 'Gusti', tastes_path, :class => 'nav_button'
+        %li= # link_to 'Colori', colors_path, :class => 'nav_button'
+        %li= # link_to 'Schiume', foams_path, :class => 'nav_button'
     = render 'carts/small'
     %br
     %br
     = yield
+
+
