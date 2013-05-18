@@ -14,19 +14,6 @@ $button_text_color_on_hover: lighten($buttontextcolor, 20%);
 $bordercolor: #f1da31;
 
 $commentcolor: lighten( red, 10% );
-;
-
-// .menu_button
-// {
-	// font-size: 110%;
-	// padding: 5px;
-	// background: lighten( $buttoncolor, 30% );
-	// color: $buttontextcolor;
-// }
-// a.menu_button:hover
-// {
-	// background: $buttoncolor
-// }
 
 .comment
 {
@@ -40,7 +27,6 @@ $commentcolor: lighten( red, 10% );
 
 .cart
 {
-  // background-image: url('piatto.jpg');
   position: absolute;
   padding: 2px;
   top: 5em;
@@ -80,15 +66,13 @@ $commentcolor: lighten( red, 10% );
   left:0;
 }
 
-.mark
+.star
 {
-  // display: inline;
   padding-left: 0px;
   padding-top: 10px;
-  // float: left;
   position: absolute;
   top: 0px;
-  left: 100px;
+  left: 200px;
 }
 
 
@@ -97,7 +81,6 @@ $commentcolor: lighten( red, 10% );
   position: relative;
   margin: 0;
   padding: 0;
-  margin-left: 2em;
   line-height: 22px;
 }
 

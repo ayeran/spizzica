@@ -7,9 +7,9 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = image_tag 'yellow_star.png', :alt => 'spizzicaluna one', :class => 'mark'
+    = image_tag 'yellow_star.gif', :alt => 'spizzicaluna one', :class => 'star', :size => "50x50"
     .logo
-      = link_to(image_tag('spizzicaluna_one_icon.jpg', :alt => 'paninoteca e birreria'),root_path)
+      = link_to(image_tag('luna.gif', :alt => 'paninoteca e birreria'),root_path)
     %ul{:class=>"nav"}
       %li= link_to 'Birre', beers_path
       %li{:class=>"dropdown"}
