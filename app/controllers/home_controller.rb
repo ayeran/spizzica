@@ -15,13 +15,25 @@ class HomeController < ApplicationController
     render :layout => "spizzicaluna_open"
   end
 
-  def contacts
-   ["one","brewing","open"].include?(params[:place]) ?
-    (render :layout => 'spizzicaluna_'+params[:place]) : (render :layout => 'spizzicaluna_one')
+  def contacts_one
+    render :layout => 'spizzicaluna_one'
   end
 
-  def delivery
+  def delivery_one
     render :layout => 'spizzicaluna_one'
+  end
+
+  def bar_one
+    render :layout => 'spizzicaluna_one'
+  end
+
+  def contacts_brewing
+    render :layout => 'spizzicaluna_brewing'
+  end
+
+
+  def bar_brewing
+    render :layout => 'spizzicaluna_brewing'
   end
 
 

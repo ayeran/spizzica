@@ -1,5 +1,7 @@
 $brand-color: #293c98;
-
+$sp-open-color: #13a64a;
+$sp-one-color: #f99d29;
+$sp-brewing-color: #d84229;
 
 $brand-color-light: lighten( $brand-color, 10% );
 $brand-color-lighter: lighten( $brand-color, 20% );
@@ -14,10 +16,10 @@ body {
     font-family: verdana,arial,helvetica,sans-serif;
     font-size: 13px;
     line-height: 18px;
-    margin-left: 180px;
+    // margin-left: 180px;
     margin-right: 20%;
     font-family: verdana, arial, helvetica, sans-serif;
-    padding-left: 100px;
+    padding-left: 220px;
 }
 
 p, ol, ul, td {
@@ -86,4 +88,64 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+.sidebar
+{
+  // padding: 0px 5px 5px 5px;
+  -moz-transform: rotate(-90deg);
+  -moz-transform-origin: 0 0;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: 0 0;
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  // font-size: 15px;
+}
+// .sidebar a
+// {
+  // color: white;
+  // text-decoration:  none;
+// }
+
+.sidebar_open, .sidebar_brewing, .sidebar_open, .sidebar_one
+{
+  padding: 0px 5px 5px 5px;
+  border-radius: 2px 2px 20px 20px;
+}
+.sidebar_open
+{
+  border: 2px $sp-open-color solid;
+  border-top: none;
+}
+a.sidebar_open, a.sidebar_brewing, a.sidebar_one
+{
+  text-decoration:  none;
+  font-size: 25px;
+}
+a.sidebar_open
+{
+  color: $sp-open-color;
+}
+.sidebar_brewing{
+  border: 2px $sp-brewing-color solid;
+  border-top: none;
+}
+.sidebar_one{
+  border: 2px $sp-one-color solid;
+  border-top: none;
+}
+
+a.sidebar_brewing
+{
+  color: $sp-brewing-color;
+}
+a.sidebar_one
+{
+  color: $sp-one-color;
+}
+.tab_star
+{
+  width: 20px;
+  padding-right: 5px;
+  // margin: 5px;
 }

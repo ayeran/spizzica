@@ -7,5 +7,30 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = link_to(image_tag('back_arrow.png',:size => "50x50"), :back)
+    = image_tag 'red_star.gif', :alt => 'spizzicaluna brewing', :class => 'star'
+    = link_to(image_tag('luna.gif', :alt => 'brewing e accessori', :class => 'logo'), root_path)
+    .sidebar
+      = link_to image_tag('yellow_star.gif', :class => "tab_star")+"Paninoteca e birreria", 'bar_one', :class => "sidebar_one"
+      = link_to image_tag('green_star.gif', :class => "tab_star")+"Spazio aperto", 'open', :class => 'sidebar_open'
+
+    = link_to(image_tag('luna.gif', :alt => 'brewing e accessori', :class => 'logo'),root_path)
+    %ul{:class=>"nav"}
+      %li= link_to 'Locale', 'bar_brewing'
+      %li= link_to 'Contatti', 'contacts_brewing'
+      - if user_signed_in?
+        %li= link_to 'Items', items_path#, :class => 'nav_button'
+        %li= link_to 'Orders', orders_path#, :class => 'nav_button'
+        %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
+        %li= link_to 'Produttori', manufacturers_path#, :class => 'nav_button'
+        %li= link_to 'Paesi', countries_path#, :class => 'nav_button'
+        %li= link_to 'Stili di birra', beerstyles_path#, :class => 'nav_button'
+        %li= # link_to 'Contenitori', containers_path, :class => 'nav_button'
+        %li= # link_to 'Tappi', lids_path, :class => 'nav_button'
+        %li= # link_to 'Arome', aromas_path, :class => 'nav_button'
+        %li= # link_to 'Gusti', tastes_path, :class => 'nav_button'
+        %li= # link_to 'Colori', colors_path, :class => 'nav_button'
+        %li= # link_to 'Schiume', foams_path, :class => 'nav_button'
+    = render 'carts/small'
+    %br
+    %br
     = yield

@@ -15,6 +15,30 @@ $bordercolor: #f1da31;
 
 $commentcolor: lighten( red, 10% );
 
+// .sidebar
+// {
+//
+  // border-radius: 2px 2px 20px 20px;
+  // border-right: 2px red solid;
+  // border-bottom: 2px red solid;
+  // border-left: 2px red solid;
+  // padding: 0px 5px 5px 5px;
+  // // -moz-transform: rotate(-90deg);
+  // // -moz-transform-origin: 0 0;
+  // // -webkit-transform: rotate(-90deg);
+  // // -webkit-transform-origin: 0 0;
+  // // position: absolute;
+  // top: 450px;
+  // left: 0px;
+  // font-size: 20px;
+// }
+// .sidebar a
+// {
+  // color: #00ff00;
+  // text-decoration:  none;
+// }
+
+
 .comment
 {
   color: $commentcolor;
@@ -64,7 +88,10 @@ $commentcolor: lighten( red, 10% );
   position: absolute;
   top: 0;
   left:0;
+  padding: 10px;
+  text-decoration: none;
 }
+
 
 .star
 {
@@ -72,7 +99,9 @@ $commentcolor: lighten( red, 10% );
   padding-top: 10px;
   position: absolute;
   top: 0px;
-  left: 200px;
+  left: 190px;
+  z-index: 1;
+  width: 55px;
 }
 
 

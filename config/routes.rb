@@ -53,8 +53,11 @@ Spizzicaluna::Application.routes.draw do
   match 'one' => 'home#spizzicaluna_one'
   match 'open' => 'home#spizzicaluna_open'
   match 'brewing' => 'home#spizzicaluna_brewing'
-  match 'contacts' => "home#contacts"
-  match 'delivery' => "home#delivery"
+  match 'contacts_one' => "home#contacts_one"
+  match 'delivery_one' => "home#delivery_one"
+  match 'bar_one' => "home#bar_one"
+  match 'contacts_brewing' => "home#contacts_brewing"
+  match 'bar_brewing' => "home#bar_brewing"
 
 
 

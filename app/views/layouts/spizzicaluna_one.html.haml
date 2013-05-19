@@ -7,9 +7,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = image_tag 'yellow_star.gif', :alt => 'spizzicaluna one', :class => 'star', :size => "50x50"
-    .logo
-      = link_to(image_tag('luna.gif', :alt => 'paninoteca e birreria'),root_path)
+    = image_tag 'yellow_star.gif', :alt => 'spizzicaluna one', :class => 'star'
+    = link_to(image_tag('luna.gif', :alt => 'paninoteca e birreria', :class => 'logo'), root_path)
+    .sidebar
+      = link_to image_tag('red_star.gif', :class => "tab_star")+"Brewing e Accessori", 'bar_brewing', :class => "sidebar_brewing"
+      = link_to image_tag('green_star.gif', :class => "tab_star")+"Spazio aperto", 'open', :class => 'sidebar_open'
     %ul{:class=>"nav"}
       %li= link_to 'Birre', beers_path
       %li{:class=>"dropdown"}
@@ -17,8 +19,9 @@
         %ul
           %li= link_to 'Panini', sandwiches_path
           %li= link_to 'Bruschette', bruschetta_path
-      %li= link_to 'Consegna', 'delivery'
-      %li= link_to 'Contatti', 'contacts'
+      %li= link_to 'Consegna', 'delivery_one'
+      %li= link_to 'Locale', 'bar_one'
+      %li= link_to 'Contatti', 'contacts_one'
       - if user_signed_in?
         %li= link_to 'Items', items_path#, :class => 'nav_button'
         %li= link_to 'Orders', orders_path#, :class => 'nav_button'
