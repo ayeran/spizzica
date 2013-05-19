@@ -90,6 +90,7 @@ $commentcolor: lighten( red, 10% );
   left:0;
   padding: 10px;
   text-decoration: none;
+  width: 190px;
 }
 
 
@@ -119,6 +120,7 @@ $commentcolor: lighten( red, 10% );
     float: left; /* Displaying them on the same line */
     margin: 0;
     padding: 0;
+    border: 2px #f99d29 solid;
   }
 
     /* The main navigation links */
