@@ -31,9 +31,12 @@ class HomeController < ApplicationController
     render :layout => 'spizzicaluna_brewing'
   end
 
-
   def bar_brewing
     render :layout => 'spizzicaluna_brewing'
+  end
+
+  def gallery_one
+    render :layout => 'spizzicaluna_one'
   end
 
 

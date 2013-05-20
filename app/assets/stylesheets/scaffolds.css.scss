@@ -1,4 +1,4 @@
-$brand-color: #293c98;
+$brand-color: #294294;
 $sp-open-color: #13a64a;
 $sp-one-color: #f99d29;
 $sp-brewing-color: #d84229;
@@ -110,7 +110,7 @@ div {
 .sidebar_open, .sidebar_brewing, .sidebar_open, .sidebar_one
 {
   padding: 0px 5px 5px 5px;
-  border-radius: 2px 2px 20px 20px;
+  border-radius: 2px 2px 2px 2px;
 }
 .sidebar_open
 {
@@ -120,7 +120,8 @@ div {
 a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 {
   text-decoration:  none;
-  font-size: 25px;
+  font-size: 16px;
+  margin-right: 20px;
 }
 a.sidebar_open
 {

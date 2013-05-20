@@ -58,6 +58,7 @@ Spizzicaluna::Application.routes.draw do
   match 'bar_one' => "home#bar_one"
   match 'contacts_brewing' => "home#contacts_brewing"
   match 'bar_brewing' => "home#bar_brewing"
+  match 'gallery_one' => 'home#gallery_one'
 
 
 
