@@ -20,6 +20,7 @@
     %th Stile
     %th Colore
     %th Schiuma
+    %th Descrizione
     %th= sortable 'price', 'Prezzo'
     %th
     - if user_signed_in?
@@ -56,6 +57,7 @@
       %td
         - beer.foams.each do |foam|
           = foam.name
+      %td= beer.description
       %td= sprintf("%02.2f €", beer.price)
       %td= button_to "in carrello", line_items_path(:item_id => beer.item.id)
       - if user_signed_in?

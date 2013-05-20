@@ -13,6 +13,10 @@
   - @beer.aromas.each do |aroma|
     = aroma.name
 %p
+  %b Descrizione:
+  = @beer.description
+
+%p
   %b Gusto:
   - @beer.tastes.each do |taste|
     = taste.name
