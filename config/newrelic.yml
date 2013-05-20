@@ -219,11 +219,12 @@ test:
 # transaction, you can leave this on all the time without
 # incurring any user-visible performance degradation.
 production:
-  app_name: Spizzica_P
   <<: *default_settings
+  app_name: Spizzica_P
   monitor_mode: true
+  log_file_path:'/home/spizzica/spizzica/log'
   log_file_name: 'newrelic_agent_P.log'
-
+  log_level: debug
 # Many applications have a staging environment which behaves
 # identically to production. Support for that environment is provided
 # here.  By default, the staging environment has the agent turned on.
