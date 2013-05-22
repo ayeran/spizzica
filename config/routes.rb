@@ -61,7 +61,6 @@ Spizzicaluna::Application.routes.draw do
   match 'gallery_one' => 'home#gallery_one'
 
   match 'show_by_style' => "beers#show_by_style"
-  match 'beer_doppio_malto' => "beers#doppio_malto"
   match 'beer_big_format' => 'beers#big_format'
 
 
