@@ -1,7 +1,20 @@
 class BeersController < ApplicationController
    layout "spizzicaluna_one"
-   before_filter :verify_admin, :except =>[:index,:show]
+   before_filter :verify_admin, :except =>[:index,:show,:lager,:doppio_malto]
    helper_method :sort_column, :sort_direction
+
+  def lager
+    bs = Beerstyle.where(:name => "lager").first
+    @beers = bs.beers.paginate(:page=>params[:page])
+    render "index"
+  end
+
+  def doppio_malto
+    bs = Beerstyle.where(:name => "doppio malto").first
+    @beers = bs.beers.paginate(:page=>params[:page])
+    render "index"
+  end
+
 
   # GET /beers
   # GET /beers.json

@@ -60,6 +60,9 @@ Spizzicaluna::Application.routes.draw do
   match 'bar_brewing' => "home#bar_brewing"
   match 'gallery_one' => 'home#gallery_one'
 
+  match 'beer_lager' => "beers#lager"
+  match 'beer_doppio_malto' => "beers#doppio_malto"
+
 
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
