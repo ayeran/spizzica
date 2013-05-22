@@ -1,24 +1,28 @@
 class BeersController < ApplicationController
    layout "spizzicaluna_one"
-   before_filter :verify_admin, :except =>[:index,:show,:lager,:doppio_malto,:big_format]
+   before_filter :verify_admin, :except =>[:index,:show,:show_by_style,:big_format]
    helper_method :sort_column, :sort_direction
 
-  def lager
-    bs = Beerstyle.where(:name => "lager").first
-    @beers = bs.beers.paginate(:page=>params[:page])
-    render "index"
-  end
-
-  def doppio_malto
-    bs = Beerstyle.where(:name => "doppio malto").first
-    @beers = bs.beers.paginate(:page=>params[:page])
+  def show_by_style
+    stylenames = params[:styles_to_display]
+    range = []
+    if stylenames
+     stylenames.each{|name|
+      style=Beerstyle.find_by_name(name)
+       if style
+          range << style.id
+         end
+    }
+    end
+    @beers=Beer.includes(:beerstyles).where(beerstyles: {id: range}).paginate(:page=>params[:page])
     render "index"
   end
 
   def big_format
-    @beers = Beer.where("volume > ?", 50).paginate(:page=>params[:page])
+    @beers = Beer.where("volume >= ?", 75).paginate(:page=>params[:page])
     render "index"
   end
+
 
 
   # GET /beers
