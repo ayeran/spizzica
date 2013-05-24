@@ -6,63 +6,62 @@
     = hidden_field_tag :sort, params[:sort]
     = submit_tag "Trova", :name => nil
 
-%table
-  %tr
-    %th= sortable 'name', "Nome"
-    %th
-    %th Produttore
-    %th= sortable 'strength', 'Gradazione'
-    %th Formato
-    %th= sortable 'volume'
-    %th Aroma
-    %th Gusto
-    %th Stile
-    %th Colore
-    %th Schiuma
-    %th Descrizione
-    %th= sortable 'price', 'Prezzo'
-    %th
-    - if user_signed_in?
-      %th
-      %th
-      %th
+= sortable 'name', "Nome"
+= sortable 'strength', 'Gradazione'
+= sortable 'volume'
+= sortable 'price', 'Prezzo'
 
-  - @beers.each do |beer|
-    %tr
-      %td= link_to beer.name, beer, :id => beer.item.id
-      %td= image_tag beer.imagebeer.url(:thumb)
-
-      %td
-        - if beer.manufacturer
-          - if beer.manufacturer.country
-            = image_tag beer.manufacturer.country.flagimage.url(:thumb)
-      %td= sprintf("%02.1f %", beer.strength)
-      %td
-        -if beer.container
-          =beer.container.name
-      %td= sprintf("%02.0f cl",beer.volume)
-      %td
-        - beer.aromas.each do |aroma|
-          = aroma.name
-      %td
-        - beer.tastes.each do |taste|
-          = taste.name
-      %td
-        - beer.beerstyles.each do |bs|
-          = bs.name
-      %td
-        - beer.colors.each do |color|
-          = color.name
-      %td
-        - beer.foams.each do |foam|
-          = foam.name
-      %td= beer.description
-      %td= sprintf("%02.2f €", beer.price)
-      %td= button_to "in carrello", line_items_path(:item_id => beer.item.id)
+%br
+- @beers.each do |beer|
+  .beercell
+    .beercellimage
+      = image_tag beer.imagebeer.url(:medium)
+      - if beer.manufacturer
+        - if beer.manufacturer.country
+          = image_tag beer.manufacturer.country.flagimage.url(:thumb)
+    .beercellinfo
+      %p
+        Nome:
+        = beer.name
+      %p
+        Gradazione:
+        = sprintf("%02.1f %", beer.strength)
+      %p
+        Stile:
+        = beer.beerstyles.map{|a| a.name}.join(" ")
+      %p
+        Colore:
+        = beer.colors.map{|c| c.name}.join(" ")
+      - if beer.container
+        %p
+          Contenitore:
+          = beer.container.name
+      %p
+        Volume:
+        = sprintf("%02.0f cl", beer.volume)
+      %p
+        Aroma:
+        = beer.aromas.map{|a| a.name}.join(" ")
+      %p
+        Gusto:
+        = beer.tastes.map{|t| t.name}.join(" ")
+      %p
+        Schiuma:
+        = beer.foams.map{|foam| foam.name}.join(" ")
+      - if !beer.description.empty?
+        %p
+          Descrizione:
+          = beer.description
+      %p
+        Prezzo:
+        = sprintf("%02.2f €", beer.price)
+      = button_to "in carrello", line_items_path(:item_id => beer.item.id), :id=>"to_basket"
       - if user_signed_in?
-        %td= link_to 'Mostra', beer
-        %td= link_to 'Modifica', edit_beer_path(beer)
-        %td= link_to 'Eliminare', beer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to 'Mostra', beer
+        = link_to 'Modifica', edit_beer_path(beer)
+        = link_to 'Eliminare', beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare birra ' + beer.name + '?' }
+
+
 
 = will_paginate @beers, :previous_label => "<<", :next_label => ">>"
 - if user_signed_in?

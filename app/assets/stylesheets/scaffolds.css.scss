@@ -150,3 +150,39 @@ a.sidebar_one
   padding-right: 5px;
   // margin: 5px;
 }
+.beercell
+{
+  width: 290px;
+  height: 290px;
+  float: left;
+  border: solid 1px $sp-one-color;
+  border-radius: 5px 5px 5px 5px;
+  padding: 5px;
+  margin: 2px;
+}
+.beercelinfo
+{
+  width: 200px;
+}
+.beercellimage
+{
+  width: 80px;
+  float: left;
+}
+
+.beercellinfo p
+{
+  line-height: 1.0;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.beercellinfo p:before
+{
+  content: "*";
+}
+#to_basket
+{
+  margin: 10px auto 5px 5px;
+}
+
