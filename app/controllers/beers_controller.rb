@@ -14,7 +14,9 @@ class BeersController < ApplicationController
          end
     }
     end
-    @beers=Beer.includes(:beerstyles).where(beerstyles: {id: range}).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page=>params[:page])
+    @beers = Beer.includes(:beerstyles).where(beerstyles: {id: range}).
+      search(params[:search]).order(sort_column + " " + sort_direction).
+      paginate(:page=>params[:page])
     render "index"
   end
 
@@ -159,9 +161,9 @@ class BeersController < ApplicationController
 ## if the attribute is of text or string type, case should be ignored. Otherwise - not
 ## previously it was a bug: when to a decimal there was applied "lower", the result was upredictable
     if Beer.column_names.include?(attr)
-      [:string, :text].include?(Beer.columns_hash[attr].type) ? "lower(#{attr})" : "#{attr}"
+      [:string, :text].include?(Beer.columns_hash[attr].type) ? "lower(beers.#{attr})" : "beers.#{attr}"
       else
-      "lower(name)"
+      "lower(beers.name)"
       end
   end
 
