@@ -26,7 +26,8 @@
     .beercellinfo
       %p
         Nome:
-        = beer.name
+        %span{:class=>'beernameview'}
+          = link_to beer.name, beer
       %p
         Gradazione:
         = sprintf("%02.1f %", beer.strength)

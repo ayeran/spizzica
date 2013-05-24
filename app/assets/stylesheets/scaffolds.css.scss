@@ -3,6 +3,8 @@ $sp-open-color: #13a64a;
 $sp-one-color: #f99d29;
 $sp-brewing-color: #d84229;
 
+$color-text: yellow;
+
 $brand-color-light: lighten( $brand-color, 10% );
 $brand-color-lighter: lighten( $brand-color, 20% );
 $brand-color-lighter2: lighten( $brand-color, 30% );
@@ -185,4 +187,18 @@ a.sidebar_one
 {
   margin: 10px auto 5px 5px;
 }
-
+.beernameview
+{
+  font-variant: small-caps;
+}
+.beernameview a
+{
+  color: $color-text;
+  &:visited{
+    color: $color-text;
+  }
+  &:hover{
+    color: $color-text;
+    background: none;
+  }
+}
