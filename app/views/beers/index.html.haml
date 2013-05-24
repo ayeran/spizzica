@@ -48,7 +48,7 @@
       %p
         Schiuma:
         = beer.foams.map{|foam| foam.name}.join(" ")
-      - if !beer.description.empty?
+      - if beer.description
         %p
           Descrizione:
           = beer.description
