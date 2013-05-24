@@ -14,7 +14,7 @@ class BeersController < ApplicationController
          end
     }
     end
-    @beers=Beer.includes(:beerstyles).where(beerstyles: {id: range}).paginate(:page=>params[:page])
+    @beers=Beer.includes(:beerstyles).where(beerstyles: {id: range}).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page=>params[:page])
     render "index"
   end
 
