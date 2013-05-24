@@ -15,7 +15,11 @@
 - @beers.each do |beer|
   .beercell
     .beercellimage
-      = image_tag beer.imagebeer.url(:small)
+      -if File.exists?(beer.imagebeer.path(:medium))
+        = image_tag beer.imagebeer.url(:medium), :alt => beer.name
+      -else
+        -if File.exists?(beer.imagebeer.path(:small))
+          = image_tag beer.imagebeer.url(:small), :alt => beer.name
       - if beer.manufacturer
         - if beer.manufacturer.country
           = image_tag beer.manufacturer.country.flagimage.url(:thumb)
