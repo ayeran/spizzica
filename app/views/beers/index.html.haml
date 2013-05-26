@@ -14,18 +14,17 @@
 %br
 - @beers.each do |beer|
   .beercell
-    .beercellimage
+    .left_column
       -if File.exists?(beer.imagebeer.path(:medium).to_s)
-        = image_tag beer.imagebeer.url(:medium), :alt => beer.name
+        = link_to(image_tag(beer.imagebeer.url(:medium), :alt => beer.name, :class => 'beerimage'),beer)
       -else
         -if File.exists?(beer.imagebeer.path(:small).to_s)
-          = image_tag beer.imagebeer.url(:small), :alt => beer.name
+          = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name, :class => 'beerimage'), beer)
       - if beer.manufacturer
         - if beer.manufacturer.country
-          = image_tag beer.manufacturer.country.flagimage.url(:thumb)
-    .beercellinfo
+          = image_tag beer.manufacturer.country.flagimage.url(:thumb), :class => 'flagimage'
+    .right_column
       %p
-        Nome:
         %span{:class=>'beernameview'}
           = link_to beer.name, beer
       %p
@@ -35,14 +34,6 @@
         Stile:
         = beer.beerstyles.map{|a| a.name}.join(" ")
       %p
-        Colore:
-        = beer.colors.map{|c| c.name}.join(" ")
-      - if beer.container
-        %p
-          Contenitore:
-          = beer.container.name
-      %p
-        Volume:
         = sprintf("%02.0f cl", beer.volume)
       %p
         Aroma:
@@ -53,12 +44,11 @@
       %p
         Schiuma:
         = beer.foams.map{|foam| foam.name}.join(" ")
-      - if beer.description
+      - if !beer.description.to_s.strip.blank?
         %p
           Descrizione:
           = beer.description
-      %p
-        Prezzo:
+      %span{:class=>'price'}
         = sprintf("%02.2f €", beer.price)
       = button_to "in carrello", line_items_path(:item_id => beer.item.id), :id=>"to_basket"
       - if user_signed_in?

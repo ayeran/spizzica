@@ -1,6 +1,6 @@
 $brand-color: #294294;
 $sp-open-color: #13a64a;
-$sp-one-color: #f99d29;
+$sp-one-color: rgb(249,157,41);//#f99d29;
 $sp-brewing-color: #d84229;
 
 $color-text: yellow;
@@ -12,22 +12,37 @@ $brand-color-lighter2: lighten( $brand-color, 30% );
 $brand-color-dark: darken( $brand-color, 10% );
 $brand-color-darker: darken( $brand-color, 20% );
 
+$colorblue: rgba(41,60,152,0.5);
+
+$buttoncolor: darken($colorblue,10%);
+$buttoncolor_legacy_browser: rgb(41,60,152);
+
+
+$buttontextcolor: #f9ed37;
+$button_text_color_on_hover: lighten($buttontextcolor, 20%);
+$bordercolor: #f1da31;
+
+$commentcolor: lighten( red, 10% );
+
+$sp-one-color-opaque: rgba(249,157,41,0.7);
+
+
 body {
     background-color: $brand-color;
     color: white;
-    font-family: verdana,arial,helvetica,sans-serif;
+    font-family: Groening,verdana,arial,helvetica,sans-serif;
     font-size: 13px;
     line-height: 18px;
     // margin-left: 180px;
-    margin-right: 20%;
-    font-family: verdana, arial, helvetica, sans-serif;
-    padding-left: 220px;
+    // margin-right: 20%;
+    padding-left: 120px;
+    text-shadow: 1px 1px 1px $brand-color-dark;
+    width: 100%;
+    padding-top: 0px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
 }
 
 pre {
@@ -154,46 +169,98 @@ a.sidebar_one
 }
 .beercell
 {
-  width: 290px;
+  width: 300px;
   height: 290px;
   float: left;
   border: solid 1px $sp-one-color;
   border-radius: 5px 5px 5px 5px;
-  padding: 5px;
+  padding: 10px;
   margin: 2px;
 }
-.beercelinfo
+.flagimage
 {
-  width: 200px;
+  padding: 0 auto;
 }
-.beercellimage
+.right_column
+{
+  width: 215px;
+  float: left;
+}
+.price
+{
+  font-size: 120%;
+  transition: font-size 0.1s ease;
+   display: block;
+   float: right;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: $sp-one-color-opaque;
+    text-align: center;
+    box-shadow: 1px 1px 2px $brand-color-dark;
+}
+.price:hover
+{
+  font-size: 150%;
+  transition: font-size 0.2s ease;
+}
+
+.left_column
 {
   width: 80px;
   float: left;
 }
-
-.beercellinfo p
+.beerimage:hover
 {
-  line-height: 1.0;
-  padding: 0px;
-  margin-top: 5px;
-  margin-bottom: 0px;
+  transform: scale(1.01);
+  transition: scale 0.5s ease-in-out;
+  border: none;
 }
-.beercellinfo p:before
+
+
+a.left_column img
+{
+  outline: none;
+  text-decoration: none;
+}
+.right_column>p
+{
+  line-height: 1.2;
+  padding: 0px 0px 5px 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px dotted $sp-one-color-opaque;
+}
+
+
+
+.right_column>p:before
 {
   content: "*";
 }
-#to_basket
+.right_column p:first-child
 {
-  margin: 10px auto 5px 5px;
+  border: none;
+}
+
+.right_column p:first-child:before
+{
+  content: " ";
 }
 .beernameview
 {
   font-variant: small-caps;
+  text-transform: uppercase;
+  font-size: 200%;
 }
+
+
 .beernameview a
 {
   color: $color-text;
+  text-decoration: none;
   &:visited{
     color: $color-text;
   }
@@ -201,4 +268,188 @@ a.sidebar_one
     color: $color-text;
     background: none;
   }
+}
+
+#to_basket
+{
+  margin: 10px auto 5px 5px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+}
+#to_basket:hover
+{
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+
+
+/* General menu styling */
+.nav {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  margin: 0;
+  font-size: 25px;
+}
+
+  /* The main navigation link containers */
+  .nav>li {
+    display: block;
+    float: left; /* Displaying them on the same line */
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+    border: 2px $sp-one-color solid;
+    width: auto;
+  }
+
+    /* The main navigation links */
+    .nav>li>a {
+      /* Layout */
+      display: block;
+      position: relative;
+      padding: 10px 5px;
+
+      /* Text */
+      color: $buttontextcolor;
+      text-decoration: none;
+
+      /* Background */
+       background: $buttoncolor_legacy_browser; /* For older browsers */
+       background: $buttoncolor; /* Transparent background for modern browsers */
+
+      /* Making the color to change on hover with a transition */
+      -webkit-transition: color .3s ease-in;
+      -moz-transition: color .3s ease-in;
+      -o-transition: color .3s ease-in;
+      -ms-transition: color .3s ease-in;
+    }
+
+    /* Changing the color on hover */
+    .nav>li>a:hover, .nav>li:hover>a {
+      color: $button_text_color_on_hover;
+    }
+
+    /* The links which contain dropdowns menu are wider, because they have a little arrow */
+    .nav>.dropdown>a {
+      padding: 10px 30px 10px 20px;
+    }
+
+    /* The arrow indicating the dropdown */
+    .dropdown>a::after {
+       content: "";
+       position: absolute;
+       top: 12px;
+       right: 10px;
+       width: 7px;
+       height: 7px;
+       -webkit-transform: rotate(45deg);
+       -ms-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+       border-bottom: 1px solid #fff;
+       border-right: 1px solid #fff;
+      }
+
+    /* Changing the color of the arrow on hover */
+    .dropdown>a:hover::after, .dropdown:hover>a::after {
+      border-color: $bordercolor;
+    }
+
+    /* The submenus */
+    .nav ul {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: block;
+      background: $buttoncolor_legacy_browser; /* For older browsers */
+      background: $buttoncolor; /* Transparent background for modern browsers */
+
+    }
+
+    /* General layout settings for the link containers of the submenus */
+    .nav ul li {
+      position: absolute;
+      top: -9999px; /* Hiding them */
+      height: 0px;
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      /* Making them to expand their height with a transition, for a slide effect */
+      -webkit-transition: height .2s ease-in;
+      -moz-transition: height .2s ease-in;
+      -o-transition: height .2s ease-in;
+      -ms-transition: height .2s ease-in;
+      background: $buttoncolor_legacy_browser; /* For older browsers */
+      background: $buttoncolor; /* Transparent background for modern browsers */
+
+    }
+
+    /* Displays the submenu links, by expading their containers (with a transition, previously defined) and by repositioning them */
+    .dropdown:hover>ul>li {
+      height: 30px;
+      position: relative;
+      top: auto;
+    }
+
+      /* The submenu links */
+      .nav ul li a {
+        /* Layout */
+        padding: 4px 20px;
+        width: auto;
+        display: block;
+        position: relative;
+
+        /* Text */
+        // color: #bbb;
+        text-decoration: none;
+        // font-size: 16px;
+
+        /* Background & effects */
+        // background: $buttoncolor_legacy_browser; /* For older browsers */
+        // background: $buttoncolor; /* Transparent background for modern browsers */
+        -webkit-transition: color .3s ease-in, background .3s ease-in;
+        -moz-transition: color .3s ease-in, background .3s ease-in;
+        -o-transition: color .3s ease-in, background .3s ease-in;
+        -ms-transition: color .3s ease-in, background .3s ease-in;
+      }
+
+      /* Changing the link's color and background on hover */
+      .nav ul li:hover>a, .nav ul li a:hover {
+        color: #f3da05;
+        background: $buttoncolor_legacy_browser; /* For older browsers */
+        background: $buttoncolor; /* Transparent background for modern browsers */
+
+      }
+
+      /* Making the level 2 (or higher) submenus to appear at the right of their parent */
+      .nav ul .dropdown:hover ul {
+        // left: 160px;
+        top: 0px;
+      }
+
+      /* The submenu links have a different arrow which indicates another dropdown submenu */
+      .nav ul .dropdown a::after{
+        width: 6px;
+        height: 6px;
+        border-bottom: 0;
+        border-right: 1px solid #fff;
+        border-top: 1px solid #fff;
+        top: 12px;
+      }
+
+      /* Changing the color of the arrow on hover */
+      .nav ul .dropdown:hover>a::after, .nav ul .dropdown>a:hover::after {
+        border-right: 1px solid #f3da05;
+        border-top: 1px solid #f3da05;
+      }
+//////////////////////////////
+h1
+{
+  font-size: 25px;
+  padding-top: 50px;
+  clear: both;
 }
