@@ -22,7 +22,7 @@ $buttontextcolor: #f9ed37;
 $button_text_color_on_hover: lighten($buttontextcolor, 20%);
 $bordercolor: #f1da31;
 
-$commentcolor: lighten( red, 10% );
+$commentcolor: lighten(red, 10%);
 
 $sp-one-color-opaque: rgba(249,157,41,0.7);
 
@@ -30,15 +30,13 @@ $sp-one-color-opaque: rgba(249,157,41,0.7);
 body {
     background-color: $brand-color;
     color: white;
-    font-family: Groening,verdana,arial,helvetica,sans-serif;
+    font-family: verdana,arial,helvetica,sans-serif;
     font-size: 13px;
     line-height: 18px;
-    // margin-left: 180px;
-    // margin-right: 20%;
-    padding-left: 120px;
+    padding-left: 130px;
     text-shadow: 1px 1px 1px $brand-color-dark;
     width: 100%;
-    padding-top: 0px;
+    padding-top: 70px;
 }
 
 p, ol, ul, td {
@@ -116,13 +114,7 @@ div {
   position: absolute;
   bottom: 30px;
   left: 0px;
-  // font-size: 15px;
 }
-// .sidebar a
-// {
-  // color: white;
-  // text-decoration:  none;
-// }
 
 .sidebar_open, .sidebar_brewing, .sidebar_open, .sidebar_one
 {
@@ -176,10 +168,11 @@ a.sidebar_one
   border-radius: 5px 5px 5px 5px;
   padding: 10px;
   margin: 2px;
+  overflow: hidden;
 }
 .flagimage
 {
-  padding: 0 auto;
+  padding-right: 0px;
 }
 .right_column
 {
@@ -188,29 +181,34 @@ a.sidebar_one
 }
 .price
 {
-  font-size: 120%;
-  transition: font-size 0.1s ease;
+   font-size: 110%;
+   transition: font-size 0.1s ease;
    display: block;
    float: right;
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    background-color: $sp-one-color-opaque;
-    text-align: center;
-    box-shadow: 1px 1px 2px $brand-color-dark;
+   height: 60px;
+   width: 60px;
+   line-height: 60px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   background-color: $sp-one-color-opaque;
+   text-align: center;
+   box-shadow: 1px 1px 2px $brand-color-dark;
 }
 .price:hover
 {
-  font-size: 150%;
-  transition: font-size 0.2s ease;
+  font-size: 125%;
+  transition: font-size 0.1s ease;
 }
 
 .left_column
 {
   width: 80px;
   float: left;
+}
+.beersframe
+{
+  padding: 10px auto;
+  clear: both;
 }
 .beerimage:hover
 {
@@ -286,6 +284,7 @@ a.left_column img
 
 /* General menu styling */
 .nav {
+  font-family: Groening,verdana,arial,helvetica,sans-serif;
   position: absolute;
   top: 0;
   left: 150px;
@@ -446,10 +445,3 @@ a.left_column img
         border-right: 1px solid #f3da05;
         border-top: 1px solid #f3da05;
       }
-//////////////////////////////
-h1
-{
-  font-size: 25px;
-  padding-top: 50px;
-  clear: both;
-}
