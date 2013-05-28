@@ -1,4 +1,7 @@
 class FoodcategoriesController < ApplicationController
+
+  before_filter :verify_admin, :except =>[:index,:show]
+  layout "spizzicaluna_one"
   # GET /foodcategories
   # GET /foodcategories.json
   def index
