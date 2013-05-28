@@ -50,13 +50,12 @@ pre {
 }
 
 a {
-  color: #000;
+  color: $sp-one-color;
   &:visited {
-    color: #666;
+    color: $color-text;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    font-size: 105%;
   }
 }
 
@@ -65,12 +64,11 @@ div {
     margin: 10px;
   }
 }
-div {
-  &.field_long{
+.field_long{
     margin: 10px;
-    background-color: $brand-color-lighter2;
+    width: 80%;
+    padding: 20px;
   }
-}
 
 #notice {
   color: green;
@@ -445,3 +443,16 @@ a.left_column img
         border-right: 1px solid #f3da05;
         border-top: 1px solid #f3da05;
       }
+
+
+.ingredient
+{
+  float: left;
+  padding: 0 5px 0 0;
+
+}
+
+.imagefood
+{
+  clear: both;
+}

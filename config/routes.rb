@@ -1,5 +1,9 @@
 Spizzicaluna::Application.routes.draw do
 
+  resources :foodcategories
+
+  resources :foods
+
   resources :bruschetta
 
   resources :line_items
