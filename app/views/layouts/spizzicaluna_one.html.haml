@@ -31,18 +31,20 @@
       %li= link_to 'Consegna', 'delivery_one'
       %li= link_to 'Contatti', 'contacts_one'
       - if user_signed_in?
-        %li= link_to 'Items', items_path#, :class => 'nav_button'
-        %li= link_to 'Orders', orders_path#, :class => 'nav_button'
         %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
-        %li= link_to 'Produttori', manufacturers_path#, :class => 'nav_button'
-        %li= link_to 'Paesi', countries_path#, :class => 'nav_button'
-        %li= link_to 'Stili di birra', beerstyles_path#, :class => 'nav_button'
-        %li= # link_to 'Contenitori', containers_path, :class => 'nav_button'
-        %li= # link_to 'Tappi', lids_path, :class => 'nav_button'
-        %li= # link_to 'Arome', aromas_path, :class => 'nav_button'
-        %li= # link_to 'Gusti', tastes_path, :class => 'nav_button'
-        %li= # link_to 'Colori', colors_path, :class => 'nav_button'
-        %li= # link_to 'Schiume', foams_path, :class => 'nav_button'
+        %li= link_to "Nuovo food", foods_path
+        - if false
+          %li= link_to 'Items', items_path#, :class => 'nav_button'
+          %li= link_to 'Orders', orders_path#, :class => 'nav_button'
+          %li= link_to 'Produttori', manufacturers_path#, :class => 'nav_button'
+          %li= link_to 'Paesi', countries_path#, :class => 'nav_button'
+          %li= link_to 'Stili di birra', beerstyles_path#, :class => 'nav_button'
+          %li= link_to 'Contenitori', containers_path, :class => 'nav_button'
+          %li= link_to 'Tappi', lids_path, :class => 'nav_button'
+          %li= link_to 'Arome', aromas_path, :class => 'nav_button'
+          %li= link_to 'Gusti', tastes_path, :class => 'nav_button'
+          %li= link_to 'Colori', colors_path, :class => 'nav_button'
+          %li= link_to 'Schiume', foams_path, :class => 'nav_button'
     = render 'carts/small'
     = yield
     .login_logout

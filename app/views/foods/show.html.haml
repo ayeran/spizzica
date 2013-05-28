@@ -1,0 +1,23 @@
+%p#notice= notice
+= image_tag @food.imagefood.url(:large)
+%p
+  %b Nome:
+  = @food.name
+%p
+  %b Categoria:
+  = @food.foodcategory.name
+%p
+  %b Prezzo:
+  = sprintf("%02.2f €", @food.price)
+%p
+  %b Ingredienti:
+  - @food.ingredients.each do |ingr|
+    - if FileTest.exist?(ingr.ingredientimage.path(:small).to_s)
+      = link_to image_tag(ingr.ingredientimage.url(:small)), ingr
+    = ingr.name
+- if user_signed_in?
+  = link_to 'Modificare', edit_food_path(@food)
+  \|
+  = link_to 'Eliminare', @food, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare Food ' + @food.name + '?' }
+  \|
+= link_to 'Indietro', :back

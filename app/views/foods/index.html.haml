@@ -1,0 +1,21 @@
+%h1 Titti i food
+
+%table
+  %tr
+    %th Nome
+    %th Prezzo
+    %th
+    %th
+    %th
+
+  - @foods.each do |food|
+    %tr
+      %td= food.name
+      %td= food.price
+      %td= link_to 'Mostra', food
+      %td= link_to 'Modifica', edit_food_path(food)
+      %td= link_to 'Elimina', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Aggiungi Food', new_food_path
