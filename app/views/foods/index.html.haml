@@ -4,18 +4,21 @@
   %tr
     %th Nome
     %th Prezzo
-    %th
-    %th
-    %th
+    - if user_signed_in?
+      %th
 
   - @foods.each do |food|
     %tr
       %td= food.name
       %td= food.price
-      %td= link_to 'Mostra', food
-      %td= link_to 'Modifica', edit_food_path(food)
-      %td= link_to 'Elimina', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_signed_in?
+        %td
+          = link_to 'Mostra', food
+          \|
+          = link_to 'Modifica', edit_food_path(food)
+          \
+          = link_to 'Elimina', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'Aggiungi Food', new_food_path
+- if user_signed_in?
+  = link_to 'Aggiungi Food', new_food_path

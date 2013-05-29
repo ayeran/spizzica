@@ -26,7 +26,7 @@
           %li= link_to "frumento/weiss", {:controller => "beers", :action => "show_by_style", :styles_to_display => ["di frumento","weiss"]}
           %li= link_to "Grandi formati", 'beer_big_format'
       %li{:class=>"dropdown"}
-        = link_to 'Food', sandwiches_path
+        = link_to 'Food', foods_path
         %ul
           %li= link_to 'Panini', sandwiches_path
           %li= link_to 'Bruschette', bruschetta_path

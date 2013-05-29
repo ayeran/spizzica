@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 class LineItemsController < ApplicationController
+  before_filter :verify_admin, :except =>[:index,:show]
   # GET /line_items
   # GET /line_items.json
   def index
