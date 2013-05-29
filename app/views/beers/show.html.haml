@@ -48,6 +48,9 @@
 %p
   %b Prezzo:
   = sprintf("%02.2f €", @beer.price)
-= link_to 'Modificare', edit_beer_path(@beer)
-\|
+- if user_signed_in?
+  %br
+    = link_to 'Modificare', edit_beer_path(@beer)
+    \|
+    = link_to 'Eliminare', @beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare birra ' + @beer.name + '?' }
 = link_to 'Indietro', beers_path
