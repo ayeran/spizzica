@@ -157,7 +157,7 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 
 
-.beercell
+.itemcell
 {
   width: 300px;
   height: 290px;
@@ -203,13 +203,13 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   width: 80px;
   float: left;
 }
-.beersframe
+.container_frame
 {
   padding: 10px auto;
   width: 900px;
   clear: both;
 }
-.beerimage:hover
+.item_image:hover
 {
   transform: scale(1.01);
   transition: scale 0.5s ease-in-out;

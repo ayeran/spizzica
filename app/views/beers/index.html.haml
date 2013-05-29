@@ -11,15 +11,15 @@
 = sortable 'volume'
 = sortable 'price', 'Prezzo'
 
-.beersframe
+.container_frame
   - @beers.each do |beer|
-    .beercell
+    .itemcell
       .left_column
         -if File.exists?(beer.imagebeer.path(:medium).to_s)
-          = link_to(image_tag(beer.imagebeer.url(:medium), :alt => beer.name, :class => 'beerimage'),beer)
+          = link_to(image_tag(beer.imagebeer.url(:medium), :alt => beer.name, :class => 'item_image'),beer)
         -else
           -if File.exists?(beer.imagebeer.path(:small).to_s)
-            = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name, :class => 'beerimage'), beer)
+            = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name, :class => 'item_image'), beer)
         - if beer.manufacturer
           - if beer.manufacturer.country
             = image_tag beer.manufacturer.country.flagimage.url(:thumb), :class => 'flagimage'

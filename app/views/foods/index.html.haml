@@ -1,23 +1,27 @@
 %h1 Titti i food
 
-%table
-  %tr
-    %th Nome
-    %th Prezzo
-    - if user_signed_in?
-      %th
-
-  - @foods.each do |food|
-    %tr
-      %td= food.name
-      %td= food.price
-      - if user_signed_in?
-        %td
-          = link_to 'Mostra', food
-          \|
-          = link_to 'Modifica', edit_food_path(food)
-          \
-          = link_to 'Elimina', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.container_frame
+  - @foods.each do |item|
+    .itemcell
+      .left_column
+        -if File.exists?(item.imagefood.path(:medium).to_s)
+          = link_to(image_tag(item.imagefood.url(:medium), :alt => item.name, :class => 'item_image'),item)
+        -else
+          -if File.exists?(item.imagefood.path(:small).to_s)
+            = link_to(image_tag(item.imagefood.url(:small), :alt => item.name, :class => 'item_image'), item)
+      .right_column
+        %p
+          %span{:class=>'beernameview'}
+            = link_to item.name, item
+        %p
+          = item.ingredients.map{|a| a.name}.join(" ")
+        %span{:class=>'price'}
+          = sprintf("%02.2f €", item.price)
+        = button_to "in carrello", line_items_path(:item_id => item.item.id), :id=>"to_basket"
+        - if user_signed_in?
+          = link_to 'Mostra', item
+          = link_to 'Modifica', edit_beer_path(item)
+          = link_to 'Eliminare', item, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare Food ' + item.name + '?' }
 
 %br
 - if user_signed_in?
