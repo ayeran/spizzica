@@ -1,4 +1,5 @@
 class TrackingsController < ApplicationController
+  before_filter :verify_admin, :except =>[:index,:show]
   # GET /trackings
   # GET /trackings.json
   def index

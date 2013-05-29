@@ -1,4 +1,5 @@
 class StatusesController < ApplicationController
+  before_filter :verify_admin
   # GET /statuses
   # GET /statuses.json
   def index
