@@ -17,7 +17,7 @@
         = image_tag('green_star.gif',:class => "sidebar_image")
       = link_to "Spazio aperto", 'open', :class => 'sidebar_open'
     %ul{:class=>"nav"}
-      %li= link_to 'Locale', 'bar_one'
+      %li= link_to 'Locale',  {:controller => "home", :action =>'bar_one'}
       %li{:class=>'dropdown'}
         = link_to 'Birre', beers_path
         %ul
@@ -30,9 +30,9 @@
         %ul
           %li= link_to 'Panini', sandwiches_path
           %li= link_to 'Bruschette', bruschetta_path
-      %li= link_to 'Galleria', 'gallery_one'
-      %li= link_to 'Consegna', 'delivery_one'
-      %li= link_to 'Contatti', 'contacts_one'
+      %li= link_to 'Galleria',  {:controller => "home", :action =>'gallery_one'}
+      %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
+      %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'
       - if user_signed_in?
         %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
         %li= link_to "Nuovo food", foods_path
