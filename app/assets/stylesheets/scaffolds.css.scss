@@ -157,7 +157,7 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 
 
-.itemcell
+.itemcell, .itemcell_show
 {
   width: 300px;
   height: 290px;
@@ -167,6 +167,12 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   padding: 10px;
   margin: 2px;
   overflow: hidden;
+}
+
+.itemcell_show
+{
+  height: auto;
+  width: auto;
 }
 .flagimage
 {
@@ -203,12 +209,16 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   width: 80px;
   float: left;
 }
-.container_frame
+.container_frame, .container_show
 {
   padding: 10px auto;
   width: 900px;
   clear: both;
 }
+
+
+
+
 .item_image:hover
 {
   transform: scale(1.01);
