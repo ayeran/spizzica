@@ -34,7 +34,9 @@
           = sprintf("%02.0f cl", beer.volume)
         %span{:class=>'price'}
           = sprintf("%02.2f €", beer.price)
-        = button_to "in carrello", line_items_path(:item_id => beer.item.id), :id=>"to_basket"
+        = #button_to "in carrello", line_items_path(:item_id => beer.item.id), :id=>"to_basket"
+        .to_basket_button
+          = link_to "in carrello", line_items_path(:item_id => beer.item.id), :method=>:post
         - if user_signed_in?
           = link_to 'Mostra', beer
           = link_to 'Modifica', edit_beer_path(beer)
