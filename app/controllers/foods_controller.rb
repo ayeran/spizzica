@@ -1,11 +1,28 @@
 #!/bin/env ruby
 # encoding: utf-8
 class FoodsController < ApplicationController
-  before_filter :verify_admin, :except =>[:index,:show]
+  before_filter :verify_admin, :except =>[:index,:show,:show_by_foodcategories]
 
   layout "spizzicaluna_one"
   # GET /foods
   # GET /foods.json
+
+  def show_by_foodcategories
+    foodcategorynames = params[:foodcategories_to_display]
+    range = []
+    if foodcategorynames
+     foodcategorynames.each{|name|
+      foodcategory=Foodcategory.find_by_name(name)
+       if foodcategory
+          range << foodcategory.id
+         end
+    }
+    end
+    @foods = Food.includes(:foodcategory).where(foodcategories: {id: range})
+    render "index"
+  end
+
+
   def index
     @foods = Food.includes(:foodcategory).all
 
