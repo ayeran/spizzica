@@ -12,10 +12,10 @@
     .sidebar
       .sidebar_first_element
         = image_tag('yellow_star.gif',:class => "sidebar_image")
-      = link_to "paninoteca e birreria", 'bar_brewing', :class => "sidebar_brewing"
+      = link_to "paninoteca e birreria", {:controller => "home", :action =>'bar_one'}, :class => 'sidebar_one'
       .sidebar_first_element
         = image_tag('green_star.gif',:class => "sidebar_image")
-      = link_to "Spazio aperto", 'open', :class => 'sidebar_open'
+      = link_to "Spazio aperto", {:controller => "home", :action =>'spizzicaluna_open'}, :class => 'sidebar_open'
 
 
 
