@@ -1,12 +1,9 @@
 class Food < ActiveRecord::Base
   belongs_to :foodcategory
-
-  validates :name, :uniqueness => {:case_sensitive => false}
-  validates :price, :numericality => true
-
-
   has_and_belongs_to_many :ingredients
-  validates :name, :uniqueness => {:case_sensitive => false}
+
+  validates :price, :numericality => true
+  validates :name, :uniqueness => {:case_sensitive => false, :scope => :foodcategory_id}
 
   after_save :enroll
   before_destroy :bowout
