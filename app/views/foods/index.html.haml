@@ -10,6 +10,7 @@
           -if File.exists?(item.imagefood.path(:small).to_s)
             = link_to(image_tag(item.imagefood.url(:small), :alt => item.name, :class => 'item_image'), item)
       .right_column
+        = item.foodcategory.name
         %p
           %span{:class=>'beernameview'}
             = link_to item.name, item

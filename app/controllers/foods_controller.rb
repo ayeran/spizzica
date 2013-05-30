@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
+    @foods = Food.includes(:foodcategory).all
 
     respond_to do |format|
       format.html # index.html.erb
