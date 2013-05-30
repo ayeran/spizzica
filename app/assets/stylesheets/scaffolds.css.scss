@@ -160,7 +160,7 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 .itemcell, .itemcell_show
 {
   width: 300px;
-  height: 290px;
+  height: 190px;
   float: left;
   border: solid 1px $sp-one-color;
   border-radius: 5px 5px 5px 5px;
@@ -217,13 +217,13 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   clear: both;
 }
 
-.item_image
+.item_image, .item_image_small
 {
   height: auto;
 }
 
 
-.item_image:hover
+.item_image:hover, .item_image_small:hover
 {
   transform: scale(1.01);
   transition: scale 0.5s ease-in-out;
