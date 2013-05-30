@@ -2,7 +2,14 @@
 .container_show
   .itemcell_show
     .left_column
-      = image_tag @beer.imagebeer.url(:medium)
+      - if File.exists?(@beer.imagebeer.path(:large).to_s)
+        = image_tag @beer.imagebeer.url(:large), :class => 'item_image'
+      - else
+        - if File.exists?(@beer.imagebeer.path(:medium).to_s)
+          = image_tag @beer.imagebeer.url(:medium), :class => 'item_image'
+        - else
+          - if File.exists?(@beer.imagebeer.path(:small).to_s)
+            = image_tag @beer.imagebeer.url(:small), :class => 'item_image'
     .right_column
 
       %p

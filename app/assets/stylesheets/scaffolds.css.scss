@@ -204,10 +204,11 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   transition: font-size 0.1s ease;
 }
 
-.left_column
+.left_column, .item_image
 {
   width: 80px;
   float: left;
+  padding-right: 5px;
 }
 .container_frame, .container_show
 {
@@ -216,7 +217,10 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   clear: both;
 }
 
-
+.item_image
+{
+  height: auto;
+}
 
 
 .item_image:hover
