@@ -1,27 +1,46 @@
-%h1 Listing beverages
-
-%table
-  %tr
-    %th Name
-    %th Strength
-    %th Volume
-    %th Container
-    %th Description
-    %th
-    %th
-    %th
-
+.container_frame
   - @beverages.each do |beverage|
-    %tr
-      %td= beverage.name
-      %td= beverage.strength
-      %td= beverage.volume
-      %td= beverage.container_id
-      %td= beverage.description
-      %td= link_to 'Show', beverage
-      %td= link_to 'Edit', edit_beverage_path(beverage)
-      %td= link_to 'Destroy', beverage, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .itemcell
+      .left_column
+        -if File.exists?(beverage.imagebeverage.path(:small).to_s)
+          = link_to(image_tag(beverage.imagebeverage.url(:small), :alt => beverage.name, :class => 'item_image_small'), beverage)
+      .right_column
+        %p
+          %b Nome:
+          = beverage.name
+        - if beverage.strength
+          %p
+            %b Gradazione:
+            = sprintf("%02.1f %", beverage.strength)
+        - if beverage.volume
+          %p
+            %b Volume:
+            = sprintf("%02.1f %", beverage.volume)
+        - if beverage.container
+          %p
+            %b Contenitore:
+            = beverage.container.name
+        - unless beverage.ingredients.blank?
+          %p
+            %b Ingredienti:
+            = beverage.ingredients.map{|a| a.name}.join(" ")
+        - unless beverage.description.blank?
+          %p
+            %b Descrizione:
+            = beverage.description
+
+        - if beverage.price
+          %p
+            %b Prezzo:
+            = sprintf("%02.2f €", beverage.price)
+        - if user_signed_in?
+          %br
+          = link_to 'Modificare', edit_beverage_path(beverage)
+          \|
+          = link_to 'Eliminare', beverage, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare bibita ' + beverage.name + '?' }
+
+
 
 %br
-
-= link_to 'New Beverage', new_beverage_path
+- if user_signed_in?
+  = link_to 'Aggiungi bevanda', new_beverage_path

@@ -1,21 +1,47 @@
 %p#notice= notice
+.container_show
+  .itemcell_show
+    .left_column
+      - if File.exists?(@beverage.imagebeverage.path(:large).to_s)
+        = image_tag beverage.imagebeverage.url(:large), :class => 'item_image'
+      - else
+        - if File.exists?(@beverage.imagebeverage.path(:medium).to_s)
+          = image_tag @beer.imagebeer.url(:medium), :class => 'item_image'
+        - else
+          - if File.exists?(@beverage.imagebeverage.path(:small).to_s)
+            = image_tag @beverage.imagebeverage.url(:small), :class => 'item_image'
+    .right_column
+      %p
+        %b Nome:
+        = @beverage.name
+      - if @beverage.strength
+        %p
+          %b Gradazione:
+          = sprintf("%02.1f %", @beverage.strength)
+      - if @beverage.volume
+        %p
+          %b Volume:
+          = sprintf("%02.1f %", @beverage.volume)
+      - if @beverage.container
+        %p
+          %b Contenitore:
+          = @beverage.container.name
+      - unless @beverage.ingredients.blank?
+        %p
+          %b Ingredienti:
+          = @beverage.ingredients.map{|a| a.name}.join(" ")
+      - unless @beverage.description.blank?
+        %p
+          %b Descrizione:
+          = @beverage.description
 
-%p
-  %b Name:
-  = @beverage.name
-%p
-  %b Strength:
-  = @beverage.strength
-%p
-  %b Volume:
-  = @beverage.volume
-%p
-  %b Container:
-  = @beverage.container_id
-%p
-  %b Description:
-  = @beverage.description
-
-= link_to 'Edit', edit_beverage_path(@beverage)
-\|
-= link_to 'Back', beverages_path
+      - if @beverage.price
+        %p
+          %b Prezzo:
+          = sprintf("%02.2f €", @beverage.price)
+      - if user_signed_in?
+        %br
+        = link_to 'Modificare', edit_beer_path(@beer)
+        \|
+        = link_to 'Eliminare', @beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare bibita ' + @beverage.name + '?' }
+= link_to 'Indietro', beverages_path
