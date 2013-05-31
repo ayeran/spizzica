@@ -34,13 +34,12 @@
         %ul
           - ["panini", "fritti", 'cheese burger', "hot dog", "bruschettoni", "gran piatti", "insalate", "sfizi", "piatti caldi", "bruschette", "piadine", "toast", "panini vegetariani", "scamorze filanti", "panini dolci caldi", "dolci"].each do |food|
             %li= link_to food, {:controller => "foods", :action => "show_by_foodcategories", :foodcategories_to_display => [food]}
-
+      %li= link_to 'Bevande',  beverages_path
       %li= link_to 'Galleria',  {:controller => "home", :action =>'gallery_one'}
       %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
       %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'
       - if user_signed_in?
         %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
-        %li= link_to "Nuovo food", foods_path
         - if false
           %li= link_to 'Items', items_path#, :class => 'nav_button'
           %li= link_to 'Orders', orders_path#, :class => 'nav_button'
