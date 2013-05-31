@@ -1,0 +1,42 @@
+= form_for @beverage do |f|
+  - if @beverage.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@beverage.errors.count, "error")} prohibited this beverage from being saved:"
+      %ul
+        - @beverage.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "Nome"
+    = f.text_field :name
+  .field
+    = f.label "Gradazione"
+    = f.number_field :strength, :size => 5
+  .field
+    = f.label :volume
+    = f.number_field :volume, :size => 5
+  .field
+    = f.label "Prezzo (€)"
+    = f.number_field :price, :size => 5
+  .field
+    - @selected=@beverage.beveragecategory ? @beverage.beveragecategory.id.to_i : nil
+    = f.label "Categoria"
+    = select_tag("beverage[beveragecategory_id]", options_from_collection_for_select(Beveragecategory.order("lower(name) ASC").all,:id,:name,@selected))
+
+  .field
+    - @selected=@beverage.container ? @beverage.container.id.to_i : nil
+    = f.label "Contenitore"
+    = select_tag("beverage[container_id]", options_from_collection_for_select(Container.order("lower(name) ASC").all,:id,:name,@selected))
+  = f.label "Ingredienti"
+  .field_long
+    - Ingredient.order("lower(name) ASC").all.each{|c|
+    .ingredient
+      = check_box_tag("ingredient[]", c.name, @beverage.ingredients.include?(c))
+      = link_to c.name, c
+    -}
+
+  .field
+    = f.label "Descrizione"
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

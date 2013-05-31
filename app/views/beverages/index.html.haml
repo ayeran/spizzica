@@ -1,0 +1,27 @@
+%h1 Listing beverages
+
+%table
+  %tr
+    %th Name
+    %th Strength
+    %th Volume
+    %th Container
+    %th Description
+    %th
+    %th
+    %th
+
+  - @beverages.each do |beverage|
+    %tr
+      %td= beverage.name
+      %td= beverage.strength
+      %td= beverage.volume
+      %td= beverage.container_id
+      %td= beverage.description
+      %td= link_to 'Show', beverage
+      %td= link_to 'Edit', edit_beverage_path(beverage)
+      %td= link_to 'Destroy', beverage, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Beverage', new_beverage_path

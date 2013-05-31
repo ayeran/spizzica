@@ -1,0 +1,2 @@
+module BeveragecategoriesHelper
+end

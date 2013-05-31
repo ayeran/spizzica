@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @beverage.name
+%p
+  %b Strength:
+  = @beverage.strength
+%p
+  %b Volume:
+  = @beverage.volume
+%p
+  %b Container:
+  = @beverage.container_id
+%p
+  %b Description:
+  = @beverage.description
+
+= link_to 'Edit', edit_beverage_path(@beverage)
+\|
+= link_to 'Back', beverages_path

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @beveragecategory.name
+%p
+  %b Description:
+  = @beveragecategory.description
+
+= link_to 'Edit', edit_beveragecategory_path(@beveragecategory)
+\|
+= link_to 'Back', beveragecategories_path

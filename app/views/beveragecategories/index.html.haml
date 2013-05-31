@@ -1,0 +1,21 @@
+%h1 Listing beveragecategories
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @beveragecategories.each do |beveragecategory|
+    %tr
+      %td= beveragecategory.name
+      %td= beveragecategory.description
+      %td= link_to 'Show', beveragecategory
+      %td= link_to 'Edit', edit_beveragecategory_path(beveragecategory)
+      %td= link_to 'Destroy', beveragecategory, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Beveragecategory', new_beveragecategory_path
