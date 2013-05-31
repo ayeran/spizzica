@@ -1,5 +1,5 @@
 class BeveragesController < ApplicationController
-#  before_filter :verify_admin, :except =>[:index,:show]
+  before_filter :verify_admin, :except =>[:index,:show]
 
   layout "spizzicaluna_one"
 
