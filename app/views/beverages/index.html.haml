@@ -7,7 +7,11 @@
       .right_column
         %p
           %b Nome:
-          = beverage.name
+          = link_to beverage.name, beverage
+        - if beverage.beveragecategory
+          %p
+            %b Categoria:
+            = beverage.beveragecategory.name
         - if beverage.strength
           %p
             %b Gradazione:
@@ -23,7 +27,7 @@
         - unless beverage.ingredients.blank?
           %p
             %b Ingredienti:
-            = beverage.ingredients.map{|a| a.name}.join(" ")
+            = beverage.ingredients.map{|a| a.name}.join(", ")
         - unless beverage.description.blank?
           %p
             %b Descrizione:
