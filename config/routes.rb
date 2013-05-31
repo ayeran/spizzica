@@ -1,5 +1,9 @@
 Spizzicaluna::Application.routes.draw do
 
+  resources :beveragecategories
+
+  resources :beverages
+
   resources :foodcategories
 
   resources :foods

@@ -2,6 +2,7 @@ class Ingredient < ActiveRecord::Base
 #     has_and_belongs_to_many :items
      has_and_belongs_to_many :sandwiches
      has_and_belongs_to_many :foods
+     has_and_belongs_to_many :beverages
      validates :name, :uniqueness => {:case_sensitive => false}
      has_attached_file :ingredientimage, :styles => {:thumb => "50x50>",
                                                      :small => "150x150>",
