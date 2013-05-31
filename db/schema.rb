@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531073747) do
+ActiveRecord::Schema.define(:version => 20130531121729) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(:version => 20130531073747) do
 
   create_table "beverages", :force => true do |t|
     t.string   "name"
-    t.decimal  "strength",            :precision => 10, :scale => 0
-    t.decimal  "volume",              :precision => 10, :scale => 0
+    t.decimal  "strength",            :precision => 5, :scale => 2
+    t.decimal  "volume",              :precision => 5, :scale => 2
     t.text     "description"
     t.integer  "container_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "price",               :precision => 5,  :scale => 2
+    t.decimal  "price",               :precision => 5, :scale => 2
     t.integer  "beveragecategory_id"
   end
 
