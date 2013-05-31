@@ -6,11 +6,10 @@
           = link_to(image_tag(beverage.imagebeverage.url(:small), :alt => beverage.name, :class => 'item_image_small'), beverage)
       .right_column
         %p
-          %b Nome:
-          = link_to beverage.name, beverage
+          %span{:class=>'itemnameview'}
+            = link_to beverage.name, beverage
         - if beverage.beveragecategory
           %p
-            %b Categoria:
             = beverage.beveragecategory.name
         - if beverage.strength
           %p
@@ -34,9 +33,9 @@
             = beverage.description
 
         - if beverage.price
-          %p
-            %b Prezzo:
+          %span{:class=>'price'}
             = sprintf("%02.2f €", beverage.price)
+
         - if user_signed_in?
           %br
           = link_to 'Modificare', edit_beverage_path(beverage)
