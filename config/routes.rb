@@ -82,6 +82,7 @@ Spizzicaluna::Application.routes.draw do
 	resources :users
  end
 
+  match "*a" => "home#error"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

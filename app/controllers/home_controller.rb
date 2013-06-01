@@ -39,5 +39,9 @@ class HomeController < ApplicationController
     render :layout => 'spizzicaluna_one'
   end
 
+  def error
+    @url_requested = root_url.to_s + params[:a].to_s
+    render "error", :layout => 'spizzicaluna_one'
+  end
 
 end

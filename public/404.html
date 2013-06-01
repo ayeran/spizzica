@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Spizzicaluna - File not found (404) </title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    .haiku, .message {
+      padding: 0 0;
+      margin-left: 1em;
+      display: inline-block;
+      font-family: sans-serif,helvetica;
+      }
+    .message{
+    	margin: 0 auto;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    .message:before, .message:after
+    {
+    	content: open-quote;
+    	font-size: 500%;
+    	color: red;
+    }
+    .message:after
+    {
+    	content: close-quote;
+    	    	float: right;
+    }
+
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
+  <div class="message">
+  <span class="haiku">
+	Invece di un beep	<br/>
+	O di uno sgradevole messaggio di errore<br/>
+	Queste parole "File not found".
+	</span>
+	</div>
 </body>
 </html>

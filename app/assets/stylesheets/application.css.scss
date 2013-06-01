@@ -570,4 +570,37 @@ a.left_column img
 {
   clear: both;
 }
+.filename
+{
+  color: $commentcolor;
+}
+
+.haiku, .message, .warning {
+      padding: 0 0;
+      margin-left: 1em;
+      font-family: "Times New Roman", Times, serif;
+      }
+.haiku,.warning
+{
+  font-size: 150%;
+  display: inline-block;
+}
+.message{
+  margin: 5% auto;
+}
+.message:before, .message:after
+{
+  content: open-quote;
+  font-size: 500%;
+  color: red;
+}
+.message:after
+{
+  content: close-quote;
+}
+.warning
+{
+  color: $commentcolor;
+}
+
 

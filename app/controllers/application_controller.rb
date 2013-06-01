@@ -3,6 +3,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
  # before_filter :verify_admin, :except =>[:index,:show]
+ rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
+  private
+  def record_not_found
+    render :file => "public/404.html", :status => 404, :layout => nil
+  end
 
   helper_method :cart_content, :current_cart
 
@@ -48,6 +54,5 @@ class ApplicationController < ActionController::Base
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
-
 
 end
