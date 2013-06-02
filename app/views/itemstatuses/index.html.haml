@@ -1,0 +1,21 @@
+%h1 Listing itemstatuses
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @itemstatuses.each do |itemstatus|
+    %tr
+      %td= itemstatus.name
+      %td= itemstatus.description
+      %td= link_to 'Show', itemstatus
+      %td= link_to 'Edit', edit_itemstatus_path(itemstatus)
+      %td= link_to 'Destroy', itemstatus, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Itemstatus', new_itemstatus_path

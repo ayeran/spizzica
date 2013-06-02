@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @itemstatus.name
+%p
+  %b Description:
+  = @itemstatus.description
+
+= link_to 'Edit', edit_itemstatus_path(@itemstatus)
+\|
+= link_to 'Back', itemstatuses_path
