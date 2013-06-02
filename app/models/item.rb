@@ -31,4 +31,9 @@ class Item < ActiveRecord::Base
   def specify
     self.name.classify.constantize.find(self.iid)
   end
+
+  def available?
+    disponibile=Itemstatus.find_by_name("disponibile")
+    self.itemstatus==disponibile
+  end
 end
