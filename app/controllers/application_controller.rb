@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   private
   def record_not_found
-    render :file => "public/404.html", :status => 404, :layout => nil
+    render :file => "404.html", :status => 404, :layout => nil
   end
 
   helper_method :cart_content, :current_cart
