@@ -1,14 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Name:
-  = @item.name
+  %b Item name:
+  = @item.name.classify.constantize.find(@item.iid).name
+%p
+  %b Category/id:
+  = @item.name.to_s+"/" + @item.iid.to_s
 -# %p
   -# %b Description:
   -# = @item.description
 %p
   %b Status:
-  = @item.status
+  = @item.itemstatus.name
 
 - if user_signed_in?
   = link_to 'Modifica', edit_item_path(@item)

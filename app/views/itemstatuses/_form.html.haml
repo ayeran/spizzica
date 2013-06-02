@@ -1,0 +1,16 @@
+= form_for @itemstatus do |f|
+  - if @itemstatus.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@itemstatus.errors.count, "error")} prohibited this itemstatus from being saved:"
+      %ul
+        - @itemstatus.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .actions
+    = f.submit 'Save'

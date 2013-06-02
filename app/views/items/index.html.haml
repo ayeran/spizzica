@@ -3,10 +3,10 @@
 %table
   %tr
     %th Id
-    %th Nome
+    %th Categoria
     %th id dalla classe di provenienza
     %th Status
-    %th Info
+    %th Nome
     %th
 
   - @items.each do |item|
@@ -14,7 +14,7 @@
       %td= item.id
       %td= item.name
       %td= item.iid
-      %td= item.status
+      %td= item.itemstatus.name
       %td= item.name.classify.constantize.find(item.iid).name
       %td= link_to 'Show', item
       -# %td= link_to 'Edit', edit_item_path(item)
