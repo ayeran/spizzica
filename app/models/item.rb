@@ -3,6 +3,7 @@
 class Item < ActiveRecord::Base
   has_many :ordercontents
   has_many :line_items
+  belongs_to :itemstatus
 
   before_destroy :ensure_not_referenced_by_any_ordercontent
   before_destroy :ensure_not_referenced_by_any_line_item

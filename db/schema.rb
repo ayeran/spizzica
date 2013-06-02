@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531121729) do
+ActiveRecord::Schema.define(:version => 20130602104513) do
 
   create_table "aromas", :force => true do |t|
     t.string   "name"
@@ -181,10 +181,17 @@ ActiveRecord::Schema.define(:version => 20130531121729) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
-    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "iid"
+    t.integer  "itemstatus_id", :default => 1
+  end
+
+  create_table "itemstatuses", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lids", :force => true do |t|
