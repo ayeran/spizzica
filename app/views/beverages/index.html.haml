@@ -36,6 +36,10 @@
           %span{:class=>'price'}
             = sprintf("%02.2f €", beverage.price)
 
+        - if beverage.item.available?
+          .to_basket_button
+            = link_to "in carrello", line_items_path(:item_id => beverage.item.id), :method=>:post
+
         - if user_signed_in?
           %br
           = link_to 'Modificare', edit_beverage_path(beverage)
