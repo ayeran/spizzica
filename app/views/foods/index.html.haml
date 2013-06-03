@@ -18,7 +18,9 @@
           = item.ingredients.map{|a| a.name}.join(" ")
         %span{:class=>'price'}
           = sprintf("%02.2f €", item.price)
-        = button_to "in carrello", line_items_path(:item_id => item.item.id), :id=>"to_basket"
+        - if item.item.available?
+          .to_basket_button
+            = link_to "in carrello", line_items_path(:item_id => item.item.id), :method=>:post
         - if user_signed_in?
           = link_to 'Mostra', item
           = link_to 'Modifica', edit_food_path(item)

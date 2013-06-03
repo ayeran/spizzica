@@ -1,7 +1,23 @@
 class BeveragesController < ApplicationController
-  before_filter :verify_admin, :except =>[:index,:show]
+  before_filter :verify_admin, :except =>[:index,:show, :show_by_beveragecategories]
 
   layout "spizzicaluna_one"
+
+  def show_by_beveragecategories
+    categorynames = params[:categories_to_display]
+    range = []
+    if categorynames
+     categorynames.each{|name|
+      category=Beveragecategory.find_by_name(name)
+       if category
+          range << category.id
+         end
+    }
+    end
+    @beverages = Beverage.includes(:beveragecategory).where(beveragecategories: {id: range})
+    render "index"
+  end
+
 
   # GET /beverages
   # GET /beverages.json

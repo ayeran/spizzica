@@ -74,6 +74,7 @@ Spizzicaluna::Application.routes.draw do
   match 'beer_big_format' => 'beers#big_format'
 
   match 'show_by_foodcategories' => "foods#show_by_foodcategories"
+  match 'show_by_beveragecategories' => "beverages#show_by_beveragecategories"
 
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"

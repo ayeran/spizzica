@@ -34,7 +34,11 @@
         %ul
           - ["panini", "fritti", 'cheese burger', "hot dog", "bruschettoni", "gran piatti", "insalate", "sfizi", "piatti caldi", "bruschette", "piadine", "toast", "panini vegetariani", "scamorze filanti", "panini dolci caldi", "dolci"].each do |food|
             %li= link_to food, {:controller => "foods", :action => "show_by_foodcategories", :foodcategories_to_display => [food]}
-      %li= link_to 'Bevande',  beverages_path
+      %li{:class=>"dropdown"}
+        = link_to 'Bevande', beverages_path
+        %ul
+          - ["succo di frutta", "vino", "liquore", "aperitivo"].each do |cat|
+            %li= link_to cat, {:controller => "beverages", :action => "show_by_beveragecategories", :categories_to_display => [cat]}
       %li= link_to 'Galleria',  {:controller => "home", :action =>'gallery_one'}
       %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
       %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'
