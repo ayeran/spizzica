@@ -2,15 +2,20 @@
 # encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
- # before_filter :verify_admin, :except =>[:index,:show]
+  helper_method :cart_content, :current_cart
+
  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+ rescue_from ActionController::ActionControllerError, :with => :identificate_to_see
 
   private
   def record_not_found
-    render :file => "404.html", :status => 404, :layout => nil
+    render :file => "public/404.html", :status => 404, :layout => "spizzicaluna_one"
   end
 
-  helper_method :cart_content, :current_cart
+  private
+  def identificate_to_see
+    render :file => 'public/404.html', :status => 404, :layout => "spizzicaluna_one"
+  end
 
   def verify_admin
     :authenticate_user!
