@@ -6,7 +6,7 @@ class Cart < ActiveRecord::Base
     if current_item
       current_item.quantity += how_many_to_add
     else
-      current_item = self.line_items.build(:item_id => item_id)
+      current_item = self.line_items.build(:item_id => item_id, :quantity => how_many_to_add)
     end
     current_item
   end

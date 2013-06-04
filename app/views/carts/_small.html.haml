@@ -10,6 +10,7 @@
           = item.name + " (" + li.quantity.to_s + ' x ' + sprintf("%02.2f €", item.price) + ")"
           - price += li.quantity * item.price
           = link_to "+1", line_items_path(:item_id => li.item_id), :method => :post
+          = link_to "+3", line_items_path(:item_id => li.item_id, :quantity => 3), :method => :post
           = link_to "-1", "/line_items/delete/#{li.item_id}/1", :method => :post
           = link_to "-3", "/line_items/delete/#{li.item_id}/3", :method => :post
 
