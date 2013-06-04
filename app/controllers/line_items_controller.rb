@@ -87,7 +87,9 @@ class LineItemsController < ApplicationController
     # @line_item.destroy
     @cart = current_cart
 #    item = Item.find(params[:item_id])
-    @line_item = @cart.delete_item(params[:item_id])
+    quantity = params[:quantity] || 1
+    item_id=params[:item_id]
+    @line_item = @cart.delete_item(item_id,quantity.to_i)
 
     respond_to do |format|
       format.html { redirect_to :back, notice: "L'oggetto è stato rimosso dal carrello!" }

@@ -54,7 +54,7 @@ Spizzicaluna::Application.routes.draw do
 #  devise_for :admins
 #	devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "admin"
   match '/orders/control', :to => 'orders#control'
-  match '/line_items/delete/:item_id', :to => "line_items#destroy"
+  match '/line_items/delete/:item_id/:quantity', :to => "line_items#destroy"
 
   resources :orders
   resources :items
