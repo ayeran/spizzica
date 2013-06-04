@@ -45,7 +45,8 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     item = Item.find(params[:item_id])
-    @line_item = @cart.add_item(item.id)
+    quantity = params[:quantity] || 1
+    @line_item = @cart.add_item(item.id,quantity.to_i)
 
 
     respond_to do |format|

@@ -38,6 +38,9 @@
         - if beer.item.available?
           .to_basket_button
             = link_to "in carrello", line_items_path(:item_id => beer.item.id), :method=>:post
+            = link_to "+1", line_items_path(:item_id => beer.item.id), :method=>:post
+            = link_to "+3", line_items_path(:item_id => beer.item.id, :quantity=>3), :method=>:post
+
         - if user_signed_in?
           = link_to 'Mostra', beer
           = link_to 'Modifica', edit_beer_path(beer)
