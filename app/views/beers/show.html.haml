@@ -1,7 +1,7 @@
 %p#notice= notice
 .container_show
   .itemcell_show
-    .left_column
+    .left_column_show
       - if File.exists?(@beer.imagebeer.path(:large).to_s)
         = image_tag @beer.imagebeer.url(:large), :class => 'item_image'
       - else
@@ -10,10 +10,9 @@
         - else
           - if File.exists?(@beer.imagebeer.path(:small).to_s)
             = image_tag @beer.imagebeer.url(:small), :class => 'item_image'
-    .right_column
 
-      %p
-        %b Nome
+    .right_column_show
+      .itemnameview
         = @beer.name
       %p
         %b Produttore:
@@ -43,22 +42,20 @@
         %b Schiuma:
         - @beer.foams.each do |foam|
           = foam.name
-
       %p
         %b Gradazione:
         = sprintf("%02.1f %", @beer.strength)
       %p
         %b Volume:
         = sprintf("%02.0f cl", @beer.volume)
-      %p
-        %b Formato:
-        = Container.find(@beer.container_id).name
-      %p
-        %b Tappo:
-        = Lid.find(@beer.lid_id).name
-      %p
-        %b Prezzo:
+      %span{:class=>'price'}
         = sprintf("%02.2f €", @beer.price)
+      - if @beer.item.available?
+        .to_basket_button
+          = link_to "in carrello", line_items_path(:item_id => @beer.item.id), :method=>:post
+          = link_to "+1", line_items_path(:item_id => @beer.item.id), :method=>:post
+          = link_to "+3", line_items_path(:item_id => @beer.item.id, :quantity=>3), :method=>:post
+
       - if user_signed_in?
         %br
           = link_to 'Modificare', edit_beer_path(@beer)

@@ -21,9 +21,8 @@
           - if beer.manufacturer.country
             = image_tag beer.manufacturer.country.flagimage.url(:thumb), :class => 'flagimage'
       .right_column
-        %p
-          %span{:class=>'itemnameview'}
-            = link_to beer.name, beer
+        .itemnameview
+          = link_to beer.name, beer
         %p
           Gradazione:
           = sprintf("%02.1f %", beer.strength)

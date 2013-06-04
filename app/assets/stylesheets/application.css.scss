@@ -240,10 +240,10 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 
 
-.itemcell, .itemcell_show
+.itemcell
 {
   width: 220px;
-  height: 190px;
+  height: 200px;
   float: left;
   border: solid 1px $sp-one-color;
   border-radius: 5px 5px 5px 5px;
@@ -254,8 +254,14 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 
 .itemcell_show
 {
-  height: auto;
   width: auto;
+  height: auto;
+  float: left;
+  border: solid 1px $sp-one-color-opaque;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+  margin: 2px;
+  overflow: hidden;
 }
 .flagimage
 {
@@ -264,6 +270,11 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 .right_column
 {
   width: 140px;
+  float: left;
+}
+.right_column_show
+{
+  width: auto;
   float: left;
 }
 .price
@@ -295,12 +306,25 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 {
   width: 50px;
   float: left;
-  padding-right: 5px;
+  padding-right: 15px;
+}
+.left_column_show
+{
+  width: 90px;
+  float: left;
+  padding-right: 15px;
 }
 .container_frame, .container_show
 {
   padding: 10px auto;
   width: 800px;
+  display: table;
+}
+
+.container_show
+{
+  margin: 10px auto 0px 50px;
+  width: 600px;
   display: table;
 }
 
@@ -323,7 +347,7 @@ a.left_column img
   outline: none;
   text-decoration: none;
 }
-.right_column>p
+.right_column>p, .right_column_show>p
 {
   line-height: 1.2;
   padding: 0px 0px 5px 0px;
@@ -351,7 +375,8 @@ a.left_column img
 {
   font-variant: small-caps;
   text-transform: uppercase;
-  font-size: 150%;
+  font-weight: bold;
+
 }
 
 
