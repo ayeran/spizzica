@@ -53,28 +53,28 @@ Spizzicaluna::Application.routes.draw do
 #	resources :users
 #  devise_for :admins
 #	devise_for :admins, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "admin"
-  match '/orders/control', :to => 'orders#control'
-  match '/line_items/delete/:item_id/:quantity', :to => "line_items#destroy"
+  get '/orders/control', :to => 'orders#control'
+  get '/line_items/delete/:item_id/:quantity', :to => "line_items#destroy"
 
   resources :orders
   resources :items
 
-  match 'orders' => 'orders#new'
-  match 'one' => 'home#spizzicaluna_one'
-  match 'open' => 'home#spizzicaluna_open'
-  match 'brewing' => 'home#spizzicaluna_brewing'
-  match 'contacts_one' => "home#contacts_one"
-  match 'delivery_one' => "home#delivery_one"
-  match 'bar_one' => "home#bar_one"
-  match 'contacts_brewing' => "home#contacts_brewing"
-  match 'bar_brewing' => "home#bar_brewing"
-  match 'gallery_one' => 'home#gallery_one'
+  get 'orders' => 'orders#new'
+  get 'one' => 'home#spizzicaluna_one'
+  get 'open' => 'home#spizzicaluna_open'
+  get 'brewing' => 'home#spizzicaluna_brewing'
+  get 'contacts_one' => "home#contacts_one"
+  get 'delivery_one' => "home#delivery_one"
+  get 'bar_one' => "home#bar_one"
+  get 'contacts_brewing' => "home#contacts_brewing"
+  get 'bar_brewing' => "home#bar_brewing"
+  get 'gallery_one' => 'home#gallery_one'
 
-  match 'show_by_style' => "beers#show_by_style"
-  match 'beer_big_format' => 'beers#big_format'
+  get 'show_by_style' => "beers#show_by_style"
+  get 'beer_big_format' => 'beers#big_format'
 
-  match 'show_by_foodcategories' => "foods#show_by_foodcategories"
-  match 'show_by_beveragecategories' => "beverages#show_by_beveragecategories"
+  get 'show_by_foodcategories' => "foods#show_by_foodcategories"
+  get 'show_by_beveragecategories' => "beverages#show_by_beveragecategories"
 
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
