@@ -362,8 +362,14 @@ a.left_column img
   margin-top: 5px;
   margin-bottom: 5px;
   border-bottom: 1px dotted $sp-one-color-opaque;
+  font-size: 120%;
 }
-
+.right_column_show > .itemnameview
+{
+  font-size: 120%;
+  text-align: center;
+  padding: 15px 0 5px 0;
+}
 
 
 .right_column>p:before

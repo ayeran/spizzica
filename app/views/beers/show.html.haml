@@ -19,23 +19,26 @@
 
       %p
         %b Gusto:
-        - @beer.tastes.each do |taste|
-          = taste.name
+        = @beer.tastes.map{|taste| taste.name}.join(", ")
       %p
         %b Stile:
-        - @beer.beerstyles.each do |bs|
-          = bs.name
+        = @beer.beerstyles.map{|bs| bs.name}.join(", ")
       %p
         %b Colore:
-        - @beer.colors.each do |color|
-          = color.name
+        = @beer.colors.map{|color| color.name}.join(", ")
       %p
         %b Schiuma:
-        - @beer.foams.each do |foam|
-          = foam.name
+        = @beer.foams.map{|foam| foam.name}.join(", ")
       %p
         %b Gradazione:
         = sprintf("%02.1f %", @beer.strength)
+      %p
+        %b Formato:
+        =  @beer.container.name
+      %p
+        %b Tappo:
+        =  @beer.lid.name
+
       %p
         %b Volume:
         = sprintf("%02.0f cl", @beer.volume)
