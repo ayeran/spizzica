@@ -6,9 +6,18 @@
         - @beer.errors.full_messages.each do |msg|
           %li= msg
 
+  .item_image_form
+    - unless @beer.new_record?
+      - @beer.imagebeer.styles.each do |n,m|
+        = image_tag @beer.image(n)
   .field
     = f.label "Nome"
     = f.text_field :name
+
+  .field
+    = f.label "Immagine"
+    = f.file_field :imagebeer
+
   .field
     - @selected=@beer.manufacturer ? @beer.manufacturer.id.to_i : nil
     = f.label "Produttore"
@@ -53,11 +62,13 @@
     = f.label "Gradazione (% vol)"
     = f.text_field :strength, :size => 5
   .field
+    - @selected = @beer.container ? @beer.container.id.to_i : nil
     = f.label "Formato"
-    = select_tag("beer[container_id]", options_from_collection_for_select(Container.order("lower(name) ASC").all,:id,:name))
+    = select_tag("beer[container_id]", options_from_collection_for_select(Container.order("lower(name) ASC").all,:id,:name,@selected))
   .field
+    - @selected = @beer.lid ? @beer.lid.id.to_i : nil
     = f.label "Tappo"
-    = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.order("lower(name) ASC").all,:id,:name))
+    = select_tag("beer[lid_id]", options_from_collection_for_select(Lid.order("lower(name) ASC").all,:id,:name,@selected))
 
   .field
     = f.label "Volume (cl)"
@@ -71,8 +82,6 @@
     = f.label "Descrizione"
     = f.text_field :description
 
-  .field
-    = f.file_field :imagebeer
 
   .actions
     = f.submit 'Salvare'
