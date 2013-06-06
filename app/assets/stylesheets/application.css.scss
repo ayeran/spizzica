@@ -6,7 +6,7 @@
  *= require_tree .
 */
 $colorblue: rgba(41,60,152,0.5);
-$buttoncolor: darken($colorblue,10%);
+$buttoncolor: darken($colorblue,5%);
 $buttoncolor_legacy_browser: rgb(41,60,152);
 $buttontextcolor: #f9ed37;
 $button_text_color_on_hover: lighten($buttontextcolor, 20%);
@@ -257,11 +257,17 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   width: auto;
   height: auto;
   float: left;
-  border: solid 1px $sp-one-color-opaque;
-  border-radius: 5px 5px 5px 5px;
+  // border: solid 1px $sp-one-color-opaque;
+  // border-radius: 5px 5px 5px 5px;
   padding: 10px;
   margin: 2px;
   overflow: hidden;
+  box-shadow: 3px 3px $buttoncolor;
+  background: $buttoncolor;
+}
+.itemcell_show:hover
+{
+  background: darken($buttoncolor,5%);
 }
 .flagimage
 {
@@ -286,8 +292,8 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
    height: 60px;
    width: 60px;
    line-height: 60px;
-   -moz-border-radius: 30px;
-   border-radius: 30px;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
    background-color: $sp-one-color-opaque;
    text-align: center;
    box-shadow: 1px 1px 2px $brand-color-dark;
@@ -308,7 +314,9 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   float: left;
   padding-right: 15px;
 }
-.left_column_show
+
+// .left_column_show,
+.item_image_show
 {
   width: 90px;
   float: left;
@@ -406,16 +414,18 @@ a.left_column img
    border-radius: 5px;
    text-decoration: none;
    white-space: nowrap;
-   opacity: 0.6;
+   opacity: 0.8;
    transition: opacity 0.5s ease;
    color: $buttoncolor_legacy_browser;
    font-size: 15px;
    text-shadow: none;
+   border: 1px solid gray;
    }
 .to_basket_button a:hover {
   opacity: 1.0;
   transition: opacity 0.5s ease;
-   }
+  border: 1px solid $buttoncolor;
+}
 
 
 
@@ -626,6 +636,10 @@ a.left_column img
 .warning
 {
   color: $commentcolor;
+}
+.item_image_show
+{
+  float: left;
 }
 
 

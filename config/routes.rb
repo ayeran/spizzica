@@ -81,11 +81,11 @@ Spizzicaluna::Application.routes.draw do
   resources :users
 
  namespace :admin do
-	match '/' => 'users#index'
+	get '/' => 'users#index'
 	resources :users
  end
 
-  match "*a" => "home#error"
+  get "*a" => "home#error"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

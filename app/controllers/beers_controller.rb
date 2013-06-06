@@ -42,7 +42,9 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
-
+    image_style = @beer.biggest_image_style
+    @image_path = @beer.biggest_image_path
+    @image_css_class = 'item_image_show'
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @beer }

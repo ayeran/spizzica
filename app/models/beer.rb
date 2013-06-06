@@ -65,7 +65,20 @@ public
     end
   end
 
-  def to_param
-    "#{id}-#{name.parameterize}"
+  # def to_param
+    # "#{id}-#{name.parameterize}"
+  # end
+
+  def biggest_image_style
+    # self.imagebeer.styles.map{|name,st| name} ==> [:thumb, :small, :medium, :large]
+    [:large,:medium,:small,:thumb].detect{|style| File.exists?(self.imagepath(style).to_s)}
   end
+
+  def biggest_image_path
+    style=self.biggest_image_style
+     if style
+      self.image(style)
+     end
+  end
+
 end

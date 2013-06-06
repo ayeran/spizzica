@@ -1,16 +1,7 @@
 %p#notice= notice
 .container_show
   .itemcell_show
-    .left_column_show
-      - if File.exists?(@beer.imagebeer.path(:large).to_s)
-        = image_tag @beer.imagebeer.url(:large), :class => 'item_image'
-      - else
-        - if File.exists?(@beer.imagebeer.path(:medium).to_s)
-          = image_tag @beer.imagebeer.url(:medium), :class => 'item_image'
-        - else
-          - if File.exists?(@beer.imagebeer.path(:small).to_s)
-            = image_tag @beer.imagebeer.url(:small), :class => 'item_image'
-
+    = image_tag @image_path, :class => @image_css_class
     .right_column_show
       .itemnameview
         = @beer.name
