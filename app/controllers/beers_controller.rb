@@ -45,10 +45,11 @@ class BeersController < ApplicationController
     image_style = @beer.biggest_image_style
     @image_path = @beer.biggest_image_path
     @image_css_class = 'item_image_show'
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @beer }
-    end
+    # respond_to do |format|
+      # format.html # show.html.erb
+      # format.json { render json: @beer }
+    # end
+    render 'show', :layout => nil, :object => @beer and return if request.xhr?
   end
 
   # GET /beers/new

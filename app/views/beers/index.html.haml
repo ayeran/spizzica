@@ -47,7 +47,7 @@
 
 
 
-= will_paginate @beers, :previous_label => "<<", :next_label => ">>"
+= #will_paginate @beers, :previous_label => "<<", :next_label => ">>"
 - if user_signed_in?
   %br
   = link_to 'Nuova birra', new_beer_path

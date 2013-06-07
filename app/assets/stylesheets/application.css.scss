@@ -654,4 +654,9 @@ a.left_column img
   float: left;
 }
 
-
+#beerInfo {
+  padding: .5em;
+  position: absolute;
+  border: solid 1px $sp-one-color-opaque;
+  background: $buttoncolor_legacy_browser;
+}
