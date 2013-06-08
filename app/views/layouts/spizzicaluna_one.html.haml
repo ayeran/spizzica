@@ -13,9 +13,10 @@
   %body
     .logo
       = link_to(image_tag('luna.gif', :alt => 'paninoteca e birreria'), root_path)
-    = image_tag 'yellow_star.gif', :alt => 'spizzicaluna one', :class => 'star'
-    .navigation
-      %ul{:class=>"nav"}
+    .star
+      = image_tag 'yellow_star.gif', :alt => 'spizzicaluna one'
+    %nav
+      %ul
         %li= link_to 'Locale',  {:controller => "home", :action =>'bar_one'}
         %li{:class=>'dropdown'}
           = link_to 'Birre', beers_path
@@ -58,7 +59,6 @@
       .sidebar_first_element
         = image_tag('green_star.gif',:class => "sidebar_image")
       = link_to "Spazio aperto", {:controller => "home", :action =>'spizzicaluna_open'}, :class => 'sidebar_open'
-
     = render 'carts/small'
     .mainframe
       = yield

@@ -6,10 +6,10 @@
     = hidden_field_tag :sort, params[:sort]
     = submit_tag "Trova", :name => nil
 
-= sortable 'name', "Nome"
-= sortable 'strength', 'Gradazione'
-= sortable 'volume'
-= sortable 'price', 'Prezzo'
+= #sortable 'name', "Nome"
+= #sortable 'strength', 'Gradazione'
+= #sortable 'volume'
+= #sortable 'price', 'Prezzo'
 
 
 - @beers.each do |beer|

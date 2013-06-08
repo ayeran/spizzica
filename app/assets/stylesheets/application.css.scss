@@ -42,12 +42,6 @@ body {
   text-align: center;
 }
 
-.navigation
-{
-  display: table;
-  padding: 0;
-  marging: 0;
-}
 .comment
 {
   color: $commentcolor;
@@ -60,10 +54,8 @@ body {
 
 .cart
 {
-  position: absolute;
+  float: right;
   padding: 2px;
-  top: 5em;
-  right: 0px;
   width: 20%;
   border: 1px dashed yellow;
   color: white;
@@ -92,7 +84,7 @@ body {
   // position: absolute;
   // top: 0;
   // left:0;
-  padding: 0px;
+  padding: 2px;
   margin: 0;
   text-decoration: none;
   width: 120px;
@@ -109,8 +101,14 @@ body {
   // z-index: 1;
    width: 55px;
    float: left;
+   z-index:10;
 }
-
+.star img
+{
+  width: 60px;
+  overflow: visible;
+  z-index: 100;
+}
 
 .login_logout
 {
@@ -339,7 +337,8 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 .mainframe, .container_show
 {
-  padding: 10px auto;
+  padding: 20px auto;
+  margin-top: 5%;
   display: table;
 }
 
@@ -449,169 +448,6 @@ a.left_column img
 
 
 
-/* General menu styling */
-.nav {
-  font-family: Groening,verdana,arial,helvetica,sans-serif;
-  // position: absolute;
-  // top: 0;
-  // left: 150px;
-  // margin: 0;
-  font-size: 25px;
-}
-
-  /* The main navigation link containers */
-  .nav>li {
-    display: block;
-    float: left; /* Displaying them on the same line */
-    margin: 0;
-    padding: 0;
-    margin-left: 0;
-    border: 2px $sp-one-color solid;
-    width: auto;
-  }
-
-    /* The main navigation links */
-    .nav>li>a {
-      /* Layout */
-      display: block;
-      position: relative;
-      padding: 10px 5px;
-
-      /* Text */
-      color: $buttontextcolor;
-      text-decoration: none;
-
-      /* Background */
-       background: $buttoncolor_legacy_browser; /* For older browsers */
-       background: $buttoncolor; /* Transparent background for modern browsers */
-
-      /* Making the color to change on hover with a transition */
-      -webkit-transition: color .3s ease-in;
-      -moz-transition: color .3s ease-in;
-      -o-transition: color .3s ease-in;
-      -ms-transition: color .3s ease-in;
-    }
-
-    /* Changing the color on hover */
-    .nav>li>a:hover, .nav>li:hover>a {
-      color: $button_text_color_on_hover;
-    }
-
-    /* The links which contain dropdowns menu are wider, because they have a little arrow */
-    .nav>.dropdown>a {
-      padding: 10px 30px 10px 20px;
-    }
-
-    /* The arrow indicating the dropdown */
-    .dropdown>a::after {
-       content: "";
-       position: absolute;
-       top: 12px;
-       right: 10px;
-       width: 7px;
-       height: 7px;
-       -webkit-transform: rotate(45deg);
-       -ms-transform: rotate(45deg);
-       -moz-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-       border-bottom: 1px solid #fff;
-       border-right: 1px solid #fff;
-      }
-
-    /* Changing the color of the arrow on hover */
-    .dropdown>a:hover::after, .dropdown:hover>a::after {
-      border-color: $bordercolor;
-    }
-
-    /* The submenus */
-    .nav ul {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: block;
-      background: $buttoncolor_legacy_browser; /* For older browsers */
-      background: $buttoncolor; /* Transparent background for modern browsers */
-
-    }
-
-    /* General layout settings for the link containers of the submenus */
-    .nav ul li {
-      position: absolute;
-      top: -9999px; /* Hiding them */
-      height: 0px;
-      display: block;
-      margin: 0;
-      padding: 0;
-
-      /* Making them to expand their height with a transition, for a slide effect */
-      -webkit-transition: height .2s ease-in;
-      -moz-transition: height .2s ease-in;
-      -o-transition: height .2s ease-in;
-      -ms-transition: height .2s ease-in;
-      background: $buttoncolor_legacy_browser; /* For older browsers */
-      background: $buttoncolor; /* Transparent background for modern browsers */
-
-    }
-
-    /* Displays the submenu links, by expading their containers (with a transition, previously defined) and by repositioning them */
-    .dropdown:hover>ul>li {
-      height: 30px;
-      position: relative;
-      top: auto;
-    }
-
-      /* The submenu links */
-      .nav ul li a {
-        /* Layout */
-        padding: 4px 20px;
-        width: auto;
-        display: block;
-        position: relative;
-
-        /* Text */
-        // color: #bbb;
-        text-decoration: none;
-        // font-size: 16px;
-
-        /* Background & effects */
-        // background: $buttoncolor_legacy_browser; /* For older browsers */
-        // background: $buttoncolor; /* Transparent background for modern browsers */
-        -webkit-transition: color .3s ease-in, background .3s ease-in;
-        -moz-transition: color .3s ease-in, background .3s ease-in;
-        -o-transition: color .3s ease-in, background .3s ease-in;
-        -ms-transition: color .3s ease-in, background .3s ease-in;
-      }
-
-      /* Changing the link's color and background on hover */
-      .nav ul li:hover>a, .nav ul li a:hover {
-        color: #f3da05;
-        background: $buttoncolor_legacy_browser; /* For older browsers */
-        background: $buttoncolor; /* Transparent background for modern browsers */
-
-      }
-
-      /* Making the level 2 (or higher) submenus to appear at the right of their parent */
-      .nav ul .dropdown:hover ul {
-        // left: 160px;
-        top: 0px;
-      }
-
-      /* The submenu links have a different arrow which indicates another dropdown submenu */
-      .nav ul .dropdown a::after{
-        width: 6px;
-        height: 6px;
-        border-bottom: 0;
-        border-right: 1px solid #fff;
-        border-top: 1px solid #fff;
-        top: 12px;
-      }
-
-      /* Changing the color of the arrow on hover */
-      .nav ul .dropdown:hover>a::after, .nav ul .dropdown>a:hover::after {
-        border-right: 1px solid #f3da05;
-        border-top: 1px solid #f3da05;
-      }
 
 
 .ingredient
