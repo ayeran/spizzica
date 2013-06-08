@@ -55,15 +55,18 @@ body {
   font: 95%;
 }
 
-.cart
+.cartframe
 {
   float: right;
   padding: 2px;
-  width: 20%;
-  border: 1px dashed yellow;
+  width: 15%;
+  margin: 0;
   color: white;
 }
-
+.cart
+{
+    border: 1px dashed yellow;
+}
 
 
 .current {
@@ -261,9 +264,9 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 .itemcell
 {
-  width: 220px;
+  width: 29%;
   height: 200px;
-  padding: 10px;
+  margin: 1%;
 
 }
 .itemcell_show
@@ -358,6 +361,7 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 .mainframe
 {
   position: relative;
+  width: 70%;
 }
 
 .container_show
@@ -519,11 +523,12 @@ a.left_column img
 #beerInfo {
   padding: .5em;
   position: absolute;
-  border: solid 1px $sp-one-color-opaque;
-  background: $buttoncolor_legacy_browser;
+  top: 5%;
 }
 
 .panelindex
 {
+  margin-left: 1%;
+  margin-right: 1%;
   display: table;
 }

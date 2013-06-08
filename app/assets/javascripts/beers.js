@@ -8,7 +8,7 @@
             // add invisible 'div' to end of page:
             $('<div id="beerInfo"></div>').
                 hide().
-                appendTo($('body'));
+                appendTo($('.mainframe'));
             $('img.item_image_small').click(spizzica.getbeerInfo);
         },
         getbeerInfo: function() {

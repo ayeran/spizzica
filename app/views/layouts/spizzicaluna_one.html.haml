@@ -59,7 +59,9 @@
       .sidebar_first_element
         = image_tag('green_star.gif',:class => "sidebar_image")
       = link_to "Spazio aperto", {:controller => "home", :action =>'spizzicaluna_open'}, :class => 'sidebar_open'
-    = render 'carts/small'
+
+    .cartframe
+      = render 'carts/small'
     .mainframe
       = image_tag('sp.jpg', :id => 'sp_bg_image' )
       = yield
