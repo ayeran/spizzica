@@ -334,7 +334,6 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   padding-right: 15px;
 }
 
-// .left_column_show,
 .item_image_show
 {
   // width: 90px;
@@ -344,8 +343,6 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 #sp_bg_image
 {
   position: absolute;
-  top:-10;
-  left: -10;
   width: 100%;
   min-height: auto;
   z-index: -1;
@@ -360,7 +357,8 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 .mainframe
 {
-  position: fixed;
+  background: url('sp.jpg') fixed;
+  position: relative;
   width: 70%;
   margin-left: 120px;
 }
