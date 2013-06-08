@@ -30,7 +30,6 @@ $brand-color-darker: darken( $brand-color, 20% );
 
 body {
     background-color: $brand-color;
-    color: white;
     font-family: verdana,arial,helvetica,sans-serif;
     font-size: 13px;
     line-height: 18px;
@@ -362,6 +361,20 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   width: 70%;
   margin-left: 120px;
 }
+.mainframe p
+{
+  color: $sp-one-color;
+  font: 120%/140% Groening;
+  text-align: justify;
+  font-stretch: extra-expanded;
+
+}
+
+.mainframe p:first-letter
+{
+  font-size: 150%;
+}
+
 
 .container_show
 {
@@ -525,9 +538,17 @@ a.left_column img
   top: 5%;
 }
 
-.panelindex
+.panelindex, .panelcontact
 {
   margin-left: 1%;
   margin-right: 1%;
   display: table;
 }
+.panelcontact
+{
+  background: $itemcell_bg;
+  margin: 2%;
+  padding: 1%;
+}
+
+
