@@ -61,6 +61,7 @@
       = link_to "Spazio aperto", {:controller => "home", :action =>'spizzicaluna_open'}, :class => 'sidebar_open'
     = render 'carts/small'
     .mainframe
+      = image_tag('sp.jpg', :id => 'sp_bg_image' )
       = yield
     -if user_signed_in?
       .login_logout

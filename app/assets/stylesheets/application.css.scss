@@ -7,6 +7,9 @@
 */
 $colorblue: rgba(41,60,152,0.5);
 $buttoncolor: darken($colorblue,5%);
+$itemcell_bg: rgba(41,60,152,0.9);
+$itemcell_bg_hover: rgba(41,60,152,0.95);
+
 $buttoncolor_darker: darken($colorblue,10%);
 $buttoncolor_legacy_browser: rgb(41,60,152);
 $buttontextcolor: #f9ed37;
@@ -271,13 +274,13 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 
 .itemcell, .itemcell_show
 {
-  background: $buttoncolor;
+  background: $itemcell_bg;
   transition: background 0.5s ease;
   border: solid 1px $sp-one-color-opaque;
 }
 .itemcell_show:hover, .itemcell:hover
 {
-  background: darken($buttoncolor,5%);
+  background: darken($itemcell_bg,5%);
   transition: background 0.5s ease;
   box-shadow: 3px 1px 5px $sp-one-color-opaque;
 }
@@ -335,11 +338,26 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   float: left;
   padding-right: 15px;
 }
+#sp_bg_image
+{
+  position: absolute;
+  top:-10;
+  left: -10;
+  width: 100%;
+  min-height: auto;
+  z-index: -1;
+  opacity: 0.8;
+}
+
 .mainframe, .container_show
 {
   padding: 20px auto;
   margin-top: 5%;
   display: table;
+}
+.mainframe
+{
+  position: relative;
 }
 
 .container_show
