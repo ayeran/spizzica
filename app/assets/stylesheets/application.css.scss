@@ -25,8 +25,29 @@ $brand-color-lighter2: lighten( $brand-color, 30% );
 $brand-color-dark: darken( $brand-color, 10% );
 $brand-color-darker: darken( $brand-color, 20% );
 
+body {
+    background-color: $brand-color;
+    color: white;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    text-shadow: 1px 1px 1px $brand-color-dark;
+    padding: 0;
+    margin: 0;
+    border: 0px solid red;
+}
+.landpage
+{
+  margin: 0 auto;
+  text-align: center;
+}
 
-
+.navigation
+{
+  display: table;
+  padding: 0;
+  marging: 0;
+}
 .comment
 {
   color: $commentcolor;
@@ -48,10 +69,7 @@ $brand-color-darker: darken( $brand-color, 20% );
   color: white;
 }
 
-.landpage
-{
-  margin: 0 auto;
-}
+
 
 .current {
   padding-right: 12px;
@@ -69,26 +87,28 @@ $brand-color-darker: darken( $brand-color, 20% );
   background-image: url('arrow_down.png');
 }
 
-.logo
+.logo,.logo a img
 {
-  position: absolute;
-  top: 0;
-  left:0;
-  padding: 10px;
+  // position: absolute;
+  // top: 0;
+  // left:0;
+  padding: 0px;
+  margin: 0;
   text-decoration: none;
   width: 120px;
+  float: left;
 }
-
 
 .star
 {
-  padding-left: 0px;
-  padding-top: 10px;
-  position: absolute;
-  top: 0px;
-  left: 140px;
-  z-index: 1;
-  width: 55px;
+  // padding-left: 0px;
+  // padding-top: 10px;
+  // position: absolute;
+  // top: 0px;
+  // left: 140px;
+  // z-index: 1;
+   width: 55px;
+   float: left;
 }
 
 
@@ -110,17 +130,6 @@ $brand-color-darker: darken( $brand-color, 20% );
 
 
 
-body {
-    background-color: $brand-color;
-    color: white;
-    font-family: verdana,arial,helvetica,sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-    padding-left: 130px;
-    text-shadow: 1px 1px 1px $brand-color-dark;
-    width: 100%;
-    padding-top: 70px;
-}
 
 p, ol, ul, td {
   font-size: 13px;
@@ -328,10 +337,9 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   float: left;
   padding-right: 15px;
 }
-.container_frame, .container_show
+.mainframe, .container_show
 {
   padding: 10px auto;
-  width: 800px;
   display: table;
 }
 
@@ -444,10 +452,10 @@ a.left_column img
 /* General menu styling */
 .nav {
   font-family: Groening,verdana,arial,helvetica,sans-serif;
-  position: absolute;
-  top: 0;
-  left: 150px;
-  margin: 0;
+  // position: absolute;
+  // top: 0;
+  // left: 150px;
+  // margin: 0;
   font-size: 25px;
 }
 

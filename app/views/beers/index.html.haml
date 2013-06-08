@@ -11,39 +11,39 @@
 = sortable 'volume'
 = sortable 'price', 'Prezzo'
 
-.container_frame
-  - @beers.each do |beer|
-    .itemcell
-      .left_column
-        -if File.exists?(beer.imagebeer.path(:small).to_s)
-          = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name, :class => 'item_image_small'), beer)
-        - if beer.manufacturer
-          - if beer.manufacturer.country
-            = image_tag beer.manufacturer.country.flagimage.url(:thumb), :class => 'flagimage'
-      .right_column
-        .itemnameview
-          = link_to beer.name, beer
-        %p
-          Gradazione:
-          = sprintf("%02.1f %", beer.strength)
-        %p
-          Stile:
-          = beer.beerstyles.map{|a| a.name}.join(", ")
-        %p
-          = sprintf("%02.0f cl", beer.volume)
-        %span{:class=>'price'}
-          = sprintf("%02.2f €", beer.price)
-        = #button_to "in carrello", line_items_path(:item_id => beer.item.id), :id=>"to_basket"
-      - if beer.item.available?
-        .to_basket_button
-          = link_to "in carrello", line_items_path(:item_id => beer.item.id), :method=>:post
-          = #link_to "+1", line_items_path(:item_id => beer.item.id), :method=>:post
-          = #link_to "+3", line_items_path(:item_id => beer.item.id, :quantity=>3), :method=>:post
 
-        - if user_signed_in?
-          = link_to 'Mostra', beer
-          = link_to 'Modifica', edit_beer_path(beer)
-          = link_to 'Eliminare', beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare birra ' + beer.name + '?' }
+- @beers.each do |beer|
+  .itemcell
+    .left_column
+      -if File.exists?(beer.imagebeer.path(:small).to_s)
+        = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name, :class => 'item_image_small'), beer)
+      - if beer.manufacturer
+        - if beer.manufacturer.country
+          = image_tag beer.manufacturer.country.flagimage.url(:thumb), :class => 'flagimage'
+    .right_column
+      .itemnameview
+        = link_to beer.name, beer
+      %p
+        Gradazione:
+        = sprintf("%02.1f %", beer.strength)
+      %p
+        Stile:
+        = beer.beerstyles.map{|a| a.name}.join(", ")
+      %p
+        = sprintf("%02.0f cl", beer.volume)
+      %span{:class=>'price'}
+        = sprintf("%02.2f €", beer.price)
+      = #button_to "in carrello", line_items_path(:item_id => beer.item.id), :id=>"to_basket"
+    - if beer.item.available?
+      .to_basket_button
+        = link_to "in carrello", line_items_path(:item_id => beer.item.id), :method=>:post
+        = #link_to "+1", line_items_path(:item_id => beer.item.id), :method=>:post
+        = #link_to "+3", line_items_path(:item_id => beer.item.id, :quantity=>3), :method=>:post
+
+      - if user_signed_in?
+        = link_to 'Mostra', beer
+        = link_to 'Modifica', edit_beer_path(beer)
+        = link_to 'Eliminare', beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare birra ' + beer.name + '?' }
 
 
 
