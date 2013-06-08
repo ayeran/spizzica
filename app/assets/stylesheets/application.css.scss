@@ -360,8 +360,9 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 }
 .mainframe
 {
-  position: relative;
+  position: fixed;
   width: 70%;
+  margin-left: 120px;
 }
 
 .container_show
