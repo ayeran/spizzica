@@ -44,9 +44,10 @@ nav>ul {
     margin: 0;
     padding: 0;
     margin-left: 0;
-    border: 1px $sp-one-color solid;
+    border: 2px $sp-one-color solid;
+    border-top: none;
     border-collapse: collapse;
-    border-radius: 10%;
+    border-radius: 5%;
     width: auto;
     z-index: 2;
 

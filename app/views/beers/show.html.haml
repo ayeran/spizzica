@@ -11,11 +11,11 @@
 
       %p
         %b Aroma:
-        - @beer.aromas.each do |aroma|
-          = aroma.name
-      %p
-        %b Descrizione:
-        = @beer.description
+        = @beer.aromas.map{|aroma| aroma.name}.join(", ")
+      - unless @beer.description.blank?
+        %p
+          %b Descrizione:
+          = @beer.description
 
       %p
         %b Gusto:
@@ -47,8 +47,8 @@
       - if @beer.item.available?
         .to_basket_button
           = link_to "in carrello", line_items_path(:item_id => @beer.item.id), :method=>:post
-          = link_to "+1", line_items_path(:item_id => @beer.item.id), :method=>:post
-          = link_to "+3", line_items_path(:item_id => @beer.item.id, :quantity=>3), :method=>:post
+          = #link_to "+1", line_items_path(:item_id => @beer.item.id), :method=>:post
+          = #link_to "+3", line_items_path(:item_id => @beer.item.id, :quantity=>3), :method=>:post
       - if user_signed_in?
         %br
           = link_to 'Modificare', edit_beer_path(@beer)
