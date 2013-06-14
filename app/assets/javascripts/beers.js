@@ -25,8 +25,9 @@
             var oneFourth = Math.ceil($(window).width() / 4);
             $('#beerInfo').
                 html(data).
-                css({'left': oneFourth,  'width': 2*oneFourth, 'top': 50,'z-index': 1}).show();
-            $('Indietro').click(spizzica.hidebeerInfo);
+                css({'left': oneFourth, 'width': 2*oneFourth, 'top': 50,'z-index': 1}).show();
+            $('#beer_back').hide();
+            $('<div id="close_button">&nbsp;<div>').prependTo($('.itemcell_show')).click(spizzica.hidebeerInfo);
             return(false);  // prevent default link action
         },
         hidebeerInfo: function() {
