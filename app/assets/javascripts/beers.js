@@ -21,8 +21,6 @@
             return(false);
         },
         showbeerInfo: function(data) {
-            // center a floater 1/2 as wide and 1/4 as tall as screen
-            var oneFourth = Math.ceil($(window).width() / 4);
             $('#beerInfo').
                 html(data).
                 css({'z-index': 1}).show();
