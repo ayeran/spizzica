@@ -39,6 +39,12 @@ body {
     border: 0px solid red;
 }
 
+@font-face{
+  font-family: "curly letters";
+  src: url("Groening.ttf");
+
+}
+
 p
 {
   color: $sp-one-color;
@@ -244,7 +250,7 @@ div {
 a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 {
   color: $color-text;
-  font-family: Groening,verdana,arial,helvetica,sans-serif;
+  font-family: "curly letters",verdana,arial,helvetica,sans-serif;
   text-decoration:  none;
   font-size: 18px;
 }
@@ -328,11 +334,12 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
    bottom: -10px;
    z-index: 1;
    white-space: nowrap;
+   transition: font-size 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
 }
 .price:hover
 {
   font-size: 125%;
-  transition: font-size 0.1s ease;
+  transition: font-size 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
 }
 
 .left_column, .item_image
@@ -436,22 +443,25 @@ a.left_column img
 
 .itemnameview
 {
-
-
+  font-family: "curly letters";
+  font-size: 120%;
 }
 .itemnameview a
 {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 150%;
   color: $color-text;
   text-decoration: none;
+  transition: font-size 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
   &:visited{
     color: $color-text;
+    transition: font-size 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
   }
   &:hover{
     color: $color-text;
     background: none;
+    font-size: 130%;
+    transition: font-size 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
   }
 }
 
