@@ -69,6 +69,7 @@ Spizzicaluna::Application.routes.draw do
   get 'contacts_brewing' => "home#contacts_brewing"
   get 'bar_brewing' => "home#bar_brewing"
   get 'gallery_one' => 'home#gallery_one'
+  get 'bar_one_prenotazione' => 'home#bar_one_prenotazione'
 
   get 'show_by_style' => "beers#show_by_style"
   get 'beer_big_format' => 'beers#big_format'

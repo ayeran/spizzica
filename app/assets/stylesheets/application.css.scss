@@ -591,3 +591,18 @@ a.left_column img
     transition: width 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
   }
 }
+
+.contacts
+{
+  font-family: "curly letters",verdana,arial,helvetica,sans-serif;
+  padding: 0;
+  z-index: 2;
+  margin: 0;
+  font-size: 120%;
+  color: $color-text;
+}
+.contacts > a
+{
+  text-decoration: none;
+
+}

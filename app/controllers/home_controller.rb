@@ -44,4 +44,8 @@ class HomeController < ApplicationController
     render "error", :layout => 'spizzicaluna_one'
   end
 
+  def bar_one_prenotazione
+    render :layout => 'spizzicaluna_one'
+  end
+
 end
