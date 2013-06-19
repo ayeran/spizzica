@@ -58,6 +58,17 @@ p
   text-align: center;
 }
 
+article{
+  background: none repeat scroll 0% 0% rgba(36, 52, 132, 0.9);
+  font-family: serif;
+  font-size: 150%;
+  line-height: 2em;
+  text-align: justify;
+  padding: 1em;
+  color: $sp-one-color;
+
+}
+
 .comment
 {
   color: $commentcolor;
@@ -555,12 +566,28 @@ a.left_column img
   margin-left: 1%;
   margin-right: 1%;
   display: table;
+
 }
 .panelcontact
 {
   background: $itemcell_bg;
   margin: 2%;
   padding: 1%;
+  font-size: 1.2em;
 }
 
+.visit_card
+{
+  float: left;
+  width: 20%;
+  padding: 0.5em;
+}
 
+.visit_card img{
+  width: 60%;
+  &:hover
+  {
+    width: 65%;
+    transition: width 0.1s cubic-bezier(0, 0.7, 0.5, 1.5);
+  }
+}
