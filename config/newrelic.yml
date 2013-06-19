@@ -42,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: Spizzicaluna
+  # app_name: Spizzicaluna
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
@@ -188,6 +188,7 @@ common: &default_settings
 
 development:
   <<: *default_settings
+  app_name: Spizzicaluna_D
   # Turn off communication to New Relic service in development mode (also
   # 'enabled').
   # NOTE: for initial evaluation purposes, you may want to temporarily
@@ -217,6 +218,7 @@ test:
 production:
   <<: *default_settings
   monitor_mode: true
+  app_name: Spizzicaluna_P
 
 # Many applications have a staging environment which behaves
 # identically to production. Support for that environment is provided
