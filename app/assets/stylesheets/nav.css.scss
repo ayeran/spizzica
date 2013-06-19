@@ -20,7 +20,11 @@ $brand-color-darker: darken( $brand-color, 20% );
 
 
 /* General menu styling */
+@font-face{
+  font-family: "curly letters";
+  src: url("Groening.ttf");
 
+}
 nav
 {
   display: table;
