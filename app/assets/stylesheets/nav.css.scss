@@ -31,10 +31,11 @@ nav
   padding: 0;
   margin: 0;
   z-index: 2;
+  text-transform: uppercase;
 }
 
 nav>ul {
-  text-transform: uppercase;
+
   font-family: "curly letters",verdana,arial,helvetica,sans-serif;
   padding: 0;
   z-index: 2;
