@@ -6,42 +6,71 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    %meta{ :name => "keywords", :content => "spizzicaluna, paninoteca, birreria, panini, birra, spazio aperto, Frascati, reggiseni, locale, consegna a domicilio" }
+    %meta{ :name => "keywords", :content => "paninoteca a Frascati, birreria a Frascati, due fratelli simpatici, spizzicaluna, paninoteca, birreria, panini, birra, spazio aperto, Frascati, reggiseni, locale, consegna a domicilio" }
     %meta{ :name => "keywords", :description => "venite da con amici, al resto ci pensiamo noi"}
-    %meta{ :name => "author", :description => "A.Shcherbakov"}
+    %meta{ :name => "developer", :description => "A.Shcherbakov"}
     %meta{ :name => "owner", :description => "G. Ponzi"}
-
   %body
-    = image_tag 'red_star.gif', :alt => 'spizzicaluna brewing', :class => 'star'
-    = link_to(image_tag('luna.gif', :alt => 'brewing e accessori', :class => 'logo'), root_path)
+    .logo
+      = link_to(image_tag('luna.gif', :alt => 'paninoteca e birreria'), root_path)
+    .star
+      = image_tag 'red_star.gif', :alt => 'spizzicaluna one'
+    %nav
+      %ul
+        %li= link_to 'LOCALE',  {:controller => "home", :action =>'bar_one'}
+        %li{:class=>'dropdown'}
+          = link_to 'Birre', beers_path
+          %ul
+            %li= link_to "Lager e ipa", {:controller => "beers", :action => "show_by_style", :styles_to_display => ["lager","ipa"]}
+            %li= link_to "Doppio malto", {:controller => "beers", :action => "show_by_style", :styles_to_display => ["doppio malto"]}
+            %li= link_to "frumento/weiss", {:controller => "beers", :action => "show_by_style", :styles_to_display => ["di frumento","weiss"]}
+            %li= link_to "Grandi formati", 'beer_big_format'
+        %li{:class=>"dropdown"}
+          = link_to 'Food', foods_path
+          %ul
+            - [["panini","panini vegetariani"],  ['cheese burger', "hot dog"], ["bruschette", "bruschettoni"], ["gran piatti", "insalate"], ["sfizi","fritti"],  ["piadine", "toast"], ["piatti caldi",  "scamorze filanti"], ["dolci", "panini dolci caldi"]].each do |food|
+              %li= link_to food.join(" & "), {:controller => "foods", :action => "show_by_foodcategories", :foodcategories_to_display => food}
+        %li{:class=>"dropdown"}
+          = link_to 'Bevande', beverages_path
+          %ul
+            - [["succo di frutta"],["vino"], ["liquore"],["aperitivo"]].each do |cat|
+              %li= link_to cat.join(" & "), {:controller => "beverages", :action => "show_by_beveragecategories", :categories_to_display => cat}
+        - if false
+          %li= link_to 'Galleria',  {:controller => "home", :action =>'gallery_one'}
+        %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
+        %li= link_to 'Prenotazioni',  {:controller => "home", :action =>'bar_one_prenotazione'}
+        %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'
+        - if user_signed_in?
+          %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
+          - if false
+            %li= link_to 'Items', items_path#, :class => 'nav_button'
+            %li= link_to 'Orders', orders_path#, :class => 'nav_button'
+            %li= link_to 'Produttori', manufacturers_path#, :class => 'nav_button'
+            %li= link_to 'Paesi', countries_path#, :class => 'nav_button'
+            %li= link_to 'Stili di birra', beerstyles_path#, :class => 'nav_button'
+            %li= link_to 'Contenitori', containers_path, :class => 'nav_button'
+            %li= link_to 'Tappi', lids_path, :class => 'nav_button'
+            %li= link_to 'Arome', aromas_path, :class => 'nav_button'
+            %li= link_to 'Gusti', tastes_path, :class => 'nav_button'
+            %li= link_to 'Colori', colors_path, :class => 'nav_button'
+            %li= link_to 'Schiume', foams_path, :class => 'nav_button'
     .sidebar
       .sidebar_first_element
         = image_tag('yellow_star.gif',:class => "sidebar_image")
-      = link_to "paninoteca e birreria", {:controller => "home", :action =>'bar_one'}, :class => 'sidebar_one'
+      = link_to "Paninoteca e birreria", {:controller => "home", :action =>'bar_one'}, :class => "sidebar_one"
       .sidebar_first_element
         = image_tag('green_star.gif',:class => "sidebar_image")
       = link_to "Spazio aperto", {:controller => "home", :action =>'spizzicaluna_open'}, :class => 'sidebar_open'
 
-
-
-
-    %ul{:class=>"nav"}
-      %li= link_to 'Locale', 'bar_brewing'
-      %li= link_to 'Contatti', 'contacts_brewing'
-      - if user_signed_in?
-        %li= link_to 'Items', items_path#, :class => 'nav_button'
-        %li= link_to 'Orders', orders_path#, :class => 'nav_button'
-        %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
-        %li= link_to 'Produttori', manufacturers_path#, :class => 'nav_button'
-        %li= link_to 'Paesi', countries_path#, :class => 'nav_button'
-        %li= link_to 'Stili di birra', beerstyles_path#, :class => 'nav_button'
-        %li= # link_to 'Contenitori', containers_path, :class => 'nav_button'
-        %li= # link_to 'Tappi', lids_path, :class => 'nav_button'
-        %li= # link_to 'Arome', aromas_path, :class => 'nav_button'
-        %li= # link_to 'Gusti', tastes_path, :class => 'nav_button'
-        %li= # link_to 'Colori', colors_path, :class => 'nav_button'
-        %li= # link_to 'Schiume', foams_path, :class => 'nav_button'
-    = render 'carts/small'
-    %br
-    %br
-    = yield
+    .cartframe
+      = render 'carts/small'
+    .mainframe
+      = #image_tag('sp.jpg', :id => 'sp_bg_image' )
+      = yield
+    -if user_signed_in?
+      .login_logout
+        %p
+          = link_to('Logout', destroy_user_session_path, :method=>'delete')
+        %p
+          You are logged in as
+          = current_user.roles.map{|r| r.name}.join(" & ")
