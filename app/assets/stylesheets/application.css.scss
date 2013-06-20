@@ -71,12 +71,17 @@ article{
 article .content
 {
  margin-left: 40%;
- background: none repeat scroll 0% 0% rgba(36, 52, 132, 0.9);
+ border-radius: 0.2em;
+ background: none repeat scroll 0% 0% rgba(20, 20, 20, 0.7);
  & p
  {
  color: $color-text;
  font-size: 1em;
  margin: 0.5em;
+ &:first-letter{
+  //font-family: "curly letters", verdana, arial, helvetica, sans-serif;
+  font-size: 2em;
+ }
  }
 }
 
