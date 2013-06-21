@@ -128,13 +128,10 @@ article .content
 
 .logo,.logo a img
 {
-  // position: absolute;
-  // top: 0;
-  // left:0;
   padding: 2px;
   margin: 0;
   text-decoration: none;
-  width: 120px;
+  width: 9.23em; // 120 px if 1em=13px
   float: left;
 }
 
@@ -192,7 +189,7 @@ a {
     color: $color-text;
   }
   &:hover {
-    font-size: 105%;
+ //   font-size: 105%;
   }
 }
 
@@ -404,7 +401,7 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   background: url('sp.jpg') fixed;
   position: relative;
   width: 70%;
-  margin-left: 120px;
+  margin-left: 9.23em;
 }
 
 .mainframe p:first-letter
