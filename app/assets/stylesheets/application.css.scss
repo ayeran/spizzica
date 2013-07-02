@@ -301,10 +301,11 @@ a.sidebar_open, a.sidebar_brewing, a.sidebar_one
   position: relative;
   margin: 1%;
   padding: 1%;
+
 }
 .itemcell
 {
-  width: 29%;
+  width: 28%;
   height: 200px;
   font-family: "Times New Roman", Times, serif;
 }
@@ -582,6 +583,7 @@ a.left_column img
   margin-left: 1%;
   margin-right: 1%;
   display: table;
+  width: 100%;
 
 }
 .panelcontact
