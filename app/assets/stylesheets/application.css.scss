@@ -40,8 +40,9 @@ body {
 }
 
 @font-face{
-  font-family: "curly letters";
+  font-family: "curly-letters";
   src: url("Groening.ttf");
+  src: local(curly-letters), url("Groening.ttf") format("opentype");
 
 }
 
@@ -79,7 +80,7 @@ article .content
  font-size: 1em;
  margin: 0.5em;
  &:first-letter{
-  //font-family: "curly letters", verdana, arial, helvetica, sans-serif;
+  //font-family: "curly-letters", verdana, arial, helvetica, sans-serif;
   font-size: 2em;
  }
  }
@@ -276,7 +277,7 @@ div {
 a.sidebar_open, a.sidebar_brewing, a.sidebar_one
 {
   color: $color-text;
-  font-family: "curly letters",verdana,arial,helvetica,sans-serif;
+  font-family: "curly-letters",verdana,arial,helvetica,sans-serif;
   text-decoration:  none;
   font-size: 18px;
 }
@@ -469,7 +470,7 @@ a.left_column img
 
 .itemnameview
 {
-  font-family: "curly letters";
+  font-family: "curly-letters";
   font-size: 120%;
 }
 .itemnameview a
@@ -609,7 +610,7 @@ a.left_column img
 
 .contacts
 {
-  font-family: "curly letters",verdana,arial,helvetica,sans-serif;
+  font-family: "curly-letters",verdana,arial,helvetica,sans-serif;
   padding: 0;
   z-index: 2;
   margin: 0;
