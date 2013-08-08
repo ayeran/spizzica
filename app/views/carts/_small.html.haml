@@ -1,8 +1,9 @@
 - lineitems=current_cart.line_items
 - if lineitems.count>0
   .cart
-    Carrello
-    - price=0
+    %h1
+      Carrello
+      - price=0
     %ol
       - lineitems.each do |li|
         %li

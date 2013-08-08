@@ -11,16 +11,16 @@
 = #sortable 'volume'
 = #sortable 'price', 'Prezzo'
 
-.panelindex
+.beerboard
   - @beers.each do |beer|
     .itemcell
-      .left_column
+      .leftcol
         -if File.exists?(beer.imagebeer.path(:small).to_s)
-          = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name, :class => 'item_image_small'), beer)
+          = link_to(image_tag(beer.imagebeer.url(:small), :alt => beer.name), beer)
         - if beer.manufacturer
           - if beer.manufacturer.country
             = image_tag beer.manufacturer.country.flagimage.url(:thumb), :class => 'flagimage'
-      .right_column
+      .rightcol
         .itemnameview
           = link_to beer.name, beer
         %p
