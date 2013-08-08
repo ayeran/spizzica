@@ -32,7 +32,6 @@ $canvas-opaque90: rgba($canvascolor, 0.9);
 
 body {
   background-color: $background;
-  @include radial-gradient(circle at 75% 0%, $background 10%, $background-dark5 30%, $background-dark10);
   font-family: verdana,arial,helvetica,sans-serif;
   font-size: 13px;
   line-height: 18px;
