@@ -64,8 +64,8 @@
           = image_tag('green_star.gif')
           = link_to "Spazio aperto", {:controller => "home", :action =>'spizzicaluna_open'}
 
-      #cartframe
-        = render 'carts/small'
+      = render 'carts/small'
+
       #mainframe
         = yield
       -if user_signed_in?

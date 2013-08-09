@@ -60,7 +60,7 @@ Spizzicaluna::Application.routes.draw do
   resources :items
 
   get 'orders' => 'orders#new'
-  get 'one' => 'home#spizzicaluna_one'
+  get 'one' => 'home#bar_one'
   get 'open' => 'home#spizzicaluna_open'
   get 'brewing' => 'home#spizzicaluna_brewing'
   get 'contacts_one' => "home#contacts_one"

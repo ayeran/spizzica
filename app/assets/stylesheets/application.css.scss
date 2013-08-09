@@ -11,7 +11,9 @@ $fontcolor: #E8C50C;
 $background-dark5: darken($background, 5%);
 $background-dark10: darken($background, 10%);
 $background-dark20: darken($background, 20%);
-$background-opaque: rgba($background, 0.95);
+
+$background-opaque95: rgba($background, 0.95);
+$background-opaque70: rgba($background, 0.70);
 $background-opaque50: rgba($background, 0.5);
 
 $fontcolor-light5: lighten($fontcolor, 5%);
@@ -46,8 +48,12 @@ body {
   src: url('Groening.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('Groening.woff') format('woff'), /* Modern Browsers */
   url('Groening.ttf');  /* Safari, Android, iOS */
-
 }
+
+.landpage{
+  margin: 1em 10%;
+}
+
 #main{
   padding: 0;
   margin: 0;
@@ -120,7 +126,7 @@ nav ul li:hover > ul {
   position: absolute;
   // top: 1px;
   z-index: 9999;
-  background: $background-opaque;
+  background: $background-opaque95;
   border-radius: 0 0 0.5em 0.5em;
 }
 nav ul li:hover > ul li {
@@ -263,7 +269,7 @@ nav ul ul ul {
           box-shadow: 1px 1px 1px 1px $background-dark20;
 
   & .content{
-      background: $canvas-opaque50;
+      background: $background-opaque70;
       border-radius: 0.5em;
       border: 1px solid $canvas-opaque50;
       padding: 1em;
@@ -287,7 +293,9 @@ nav ul ul ul {
 }
 
 .itemcell{
-  background: $canvas-opaque90;
+  background: $background-opaque70;
+  -webkit-box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
+        box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
   border-radius: 0.5em;
   width: 30%;
   margin: 0.2em;
@@ -322,11 +330,47 @@ nav ul ul ul {
     text-transform: uppercase;
     font-family: curly-letters;
     text-align: center;
-
   }
   & a{
     text-decoration: none;
     color: $fontcolor-dark10;
   }
 
+}
+
+
+#contactboard{
+  background: $background-opaque70;
+  border-radius: 0.5em;
+  border: 1px solid $canvas-opaque50;
+  padding: 1em;
+  margin: 1em 1em 1em 10%;
+  color: $fontcolor;
+  & p{
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px $fontcolor-dark20;
+  }
+  & :not(.phone):first-letter{
+    text-transform: uppercase;
+    font-family: curly-letters;
+    font-size: 1.2em;
+  }
+  & .visitcard{
+    display: inline-block;
+    margin: 1em;
+    & img{
+      -webkit-box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
+              box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
+    }
+    & p:not(.phone){
+      text-transform: uppercase;
+      font-family: curly-letters;
+      margin: 0.2em;
+    }
+
+    & p.phone{
+      margin: 0.2em;
+      letter-spacing: 0.1em;
+    }
+  }
 }

@@ -1,22 +1,23 @@
 - lineitems=current_cart.line_items
 - if lineitems.count>0
-  .cart
-    %h1
-      Carrello
-      - price=0
-    %ol
-      - lineitems.each do |li|
-        %li
-          - item=Item.find_by_id(li.item_id).specify
-          = item.name + " (" + li.quantity.to_s + ' x ' + sprintf("%02.2f €", item.price) + ")"
-          - price += li.quantity * item.price
-          = link_to "più", line_items_path(:item_id => li.item_id), :method => :post
-          = #link_to "+3", line_items_path(:item_id => li.item_id, :quantity => 3), :method => :post
-          = link_to "meno", "/line_items/delete/#{li.item_id}/1", :method => :post
-          = #link_to "-3", "/line_items/delete/#{li.item_id}/3", :method => :post
+  #cartframe
+    .cart
+      %h1
+        Carrello
+        - price=0
+      %ol
+        - lineitems.each do |li|
+          %li
+            - item=Item.find_by_id(li.item_id).specify
+            = item.name + " (" + li.quantity.to_s + ' x ' + sprintf("%02.2f €", item.price) + ")"
+            - price += li.quantity * item.price
+            = link_to "più", line_items_path(:item_id => li.item_id), :method => :post
+            = #link_to "+3", line_items_path(:item_id => li.item_id, :quantity => 3), :method => :post
+            = link_to "meno", "/line_items/delete/#{li.item_id}/1", :method => :post
+            = #link_to "-3", "/line_items/delete/#{li.item_id}/3", :method => :post
 
-    Prezzo totale:
-    = sprintf("%02.2f €", price)
-    %br
-    = link_to 'Svuota', current_cart, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
-    = link_to_unless_current 'Alla cassa', new_order_path
+      Prezzo totale:
+      = sprintf("%02.2f €", price)
+      %br
+      = link_to 'Svuota', current_cart, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
+      = link_to_unless_current 'Alla cassa', new_order_path
