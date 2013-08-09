@@ -374,3 +374,41 @@ nav ul ul ul {
     }
   }
 }
+
+#itemcellbig{
+  background: $background-opaque70;
+  border-radius: 0.5em;
+  border: 1px solid $canvas-opaque50;
+  padding: 1em;
+  margin: 1em 1em 1em 10%;
+  color: $fontcolor;
+  & p{
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px $fontcolor-dark20;
+  }
+  & .itemphoto, .iteminfo{
+    display: inline-block;
+  }
+  & .iteminfo{
+    margin-left: 1em;
+    & p{
+      margin: 0.2em;
+    }
+    & .itemnameview{
+      text-transform: uppercase;
+      font-family: curly-letters;
+      text-align: center;
+      letter-spacing: 0.5em;
+      font-size: 120%;
+    }
+    & .head{
+      display: inline-block;
+      text-transform: capitalize;
+      padding-right: 0;
+      margin-right: 0;
+    }
+    & .head:after{
+      content: ":";
+    }
+  }
+}

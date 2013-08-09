@@ -1,57 +1,55 @@
 %p#notice= notice
-.container_show
-  .itemcell_show
-    = image_tag @image_path, :class => @image_css_class
-    .right_column_show
-      .itemnameview
-        = @beer.name
-      %p
-        %b Produttore:
-        = Manufacturer.find(@beer.manufacturer_id).name
+#itemcellbig
+  .itemphoto
+    = image_tag @image_path
+  .iteminfo
+    .itemnameview
+      = @beer.name
+    %p
+      .head Produttore
+      = Manufacturer.find(@beer.manufacturer_id).name
 
+    %p
+      .head Aroma
+      = @beer.aromas.map{|aroma| aroma.name}.join(", ")
+    - unless @beer.description.blank?
       %p
-        %b Aroma:
-        = @beer.aromas.map{|aroma| aroma.name}.join(", ")
-      - unless @beer.description.blank?
-        %p
-          %b Descrizione:
-          = @beer.description
-
-      %p
-        %b Gusto:
-        = @beer.tastes.map{|taste| taste.name}.join(", ")
-      %p
-        %b Stile:
-        = @beer.beerstyles.map{|bs| bs.name}.join(", ")
-      %p
-        %b Colore:
-        = @beer.colors.map{|color| color.name}.join(", ")
-      %p
-        %b Schiuma:
-        = @beer.foams.map{|foam| foam.name}.join(", ")
-      %p
-        %b Gradazione:
-        = sprintf("%02.1f %", @beer.strength)
-      %p
-        %b Formato:
-        =  @beer.container.name
-      %p
-        %b Tappo:
-        =  @beer.lid.name
-
-      %p
-        %b Volume:
-        = sprintf("%02.0f cl", @beer.volume)
-      %span{:class=>'price'}
-        = sprintf("%02.2f €", @beer.price)
-      - if @beer.item.available?
-        .to_basket_button
-          = link_to "in carrello", line_items_path(:item_id => @beer.item.id), :method=>:post
-          = #link_to "+1", line_items_path(:item_id => @beer.item.id), :method=>:post
-          = #link_to "+3", line_items_path(:item_id => @beer.item.id, :quantity=>3), :method=>:post
-      - if user_signed_in?
-        %br
-          = link_to 'Modificare', edit_beer_path(@beer)
-          \|
-          = link_to 'Eliminare', @beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare birra ' + @beer.name + '?' }
+        .head Descrizione
+        = @beer.description
+    %p
+      .head Gusto
+      = @beer.tastes.map{|taste| taste.name}.join(", ")
+    %p
+      .head Stile
+      = @beer.beerstyles.map{|bs| bs.name}.join(", ")
+    %p
+      .head Colore
+      = @beer.colors.map{|color| color.name}.join(", ")
+    %p
+      .head Schiuma
+      = @beer.foams.map{|foam| foam.name}.join(", ")
+    %p
+      .head Gradazione
+      = sprintf("%02.1f %", @beer.strength)
+    %p
+      .head Formato
+      =  @beer.container.name
+    %p
+      .head Tappo
+      =  @beer.lid.name
+    %p
+      .head Volume
+      = sprintf("%02.0f cl", @beer.volume)
+    %span{:class=>'price'}
+      = sprintf("%02.2f €", @beer.price)
+    - if @beer.item.available?
+      .to_basket_button
+        = link_to "in carrello", line_items_path(:item_id => @beer.item.id), :method=>:post
+        = #link_to "+1", line_items_path(:item_id => @beer.item.id), :method=>:post
+        = #link_to "+3", line_items_path(:item_id => @beer.item.id, :quantity=>3), :method=>:post
+    - if user_signed_in?
+      %br
+        = link_to 'Modificare', edit_beer_path(@beer)
+        \|
+        = link_to 'Eliminare', @beer, :method => :delete, :data => { :confirm => 'Sei sicuro di eliminare birra ' + @beer.name + '?' }
 = link_to 'Indietro', beers_path, :id => "beer_back"
