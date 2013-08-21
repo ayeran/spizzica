@@ -1,54 +1,54 @@
 %p#notice= notice
-
-%p
-  %b Nome:
-  = @order.name
-%p
-  %b Email:
-  = @order.email
-
-%p
-  %b Indirizzo di consegna:
-  = @order.streetprefix
-  = @order.street
-  = ', '
-  = @order.building
-  = ', '
-  = @order.city
-%p
-  %b Ora di consegna:
-  = I18n.l (@order.time).in_time_zone, :format => "%d %B alle %H:%M "
-
-%p
-  %b Stato dell'ordine:
-  %ol
-    - @order.trackings.each do |track|
-      %li
-        = track.status.name
-        = I18n.l track.created_at.in_time_zone, :format => "%H:%M:%S, %d %B %Y"
-
-%p
-  %b Il codice segreto:
-  = @order.secretPhrase
-
-- if !(@order.info.empty?)
+.dashboard
   %p
-    %b Informazione supplementare:
-    = @order.info
-%p
-  %b Contenuto dell'ordine:
-  - @order.ordercontents.each{|ordcont|
-  - item=ordcont.item.specify
-  - if FileTest.exist?(item.imagepath(:small).to_s)
-    = link_to image_tag(item.image(:small)), item
-  = ordcont.quantity
-  = item.name
-  -}
-%p
-  %b Prezzo:
-  = sprintf("%02.2f €", @order.price || 0)
+    %b Nome:
+    = @order.name
+  %p
+    %b Email:
+    = @order.email
 
+  %p
+    %b Indirizzo di consegna:
+    = @order.streetprefix
+    = @order.street
+    = ', '
+    = @order.building
+    = ', '
+    = @order.city
+  %p
+    %b Ora di consegna:
+    = I18n.l (@order.time).in_time_zone, :format => "%d %B alle %H:%M "
 
-= link_to 'Edit', edit_order_path(@order)
-\|
-= link_to 'Back', orders_path
+  %p
+    %b Stato dell'ordine:
+    %ol
+      - @order.trackings.each do |track|
+        %li
+          = track.status.name
+          = I18n.l track.created_at.in_time_zone, :format => "%H:%M:%S, %d %B %Y"
+
+  %p
+    %b Il codice segreto:
+    = @order.secretPhrase
+
+  - if !(@order.info.empty?)
+    %p
+      %b Informazione supplementare:
+      = @order.info
+  %p
+    %b Contenuto dell'ordine:
+    - @order.ordercontents.each{|ordcont|
+    - item=ordcont.item.specify
+    - if FileTest.exist?(item.imagepath(:small).to_s)
+      = link_to image_tag(item.image(:small)), item
+    = ordcont.quantity
+    = item.name
+    -}
+  %p
+    %b Prezzo:
+    = sprintf("%02.2f €", @order.price || 0)
+
+- if current_user.isAdmin?
+  = link_to 'Edit', edit_order_path(@order)
+  \|
+  = link_to 'Back', orders_path

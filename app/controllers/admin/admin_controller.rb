@@ -1,7 +1,8 @@
 class Admin::AdminController < ApplicationController
-  layout "admin"
+  # layout "admin"
+  layout "spizzicaluna_one"
   before_filter :verify_admin
-  
+
   def verify_admin
     :authenticate_user!
      redirect_to root_url unless has_role?(current_user, "admin")

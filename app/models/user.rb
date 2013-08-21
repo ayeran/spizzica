@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
       return !!self.roles.find_by_name(role.to_s.camelize)
   end
 
+  def isAdmin?
+    return self.roles.map{|t| t.name}.include?("admin")
+  end
+
   # Default role is "registered"
   def setup_role
     if self.role_ids.empty?
