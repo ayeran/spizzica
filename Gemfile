@@ -66,6 +66,7 @@ gem 'bourbon'
 group :development do
   gem 'cucumber-rails', :require => false
   gem 'newrelic_rpm',  '>= 3.6.1'
+  gem "reek", "~> 1.3.2"
 end
 
 group :test do
