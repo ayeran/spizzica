@@ -7,8 +7,8 @@ class UserMailer < ActionMailer::Base
     mail(:to => order.email, :subject => "Spizzicaluna: il tuo ordine")
   end
 
-    def notificationEmail(order)
+  def sendOrderNotification(order)
     @order = order
-    mail(:to => :from, :subject => "Nuovo ordine da " + order.name)
+    mail(:to => "ordini@spizzicaluna.com", :subject => "Nuovo ordine da " + order.name)
   end
 end

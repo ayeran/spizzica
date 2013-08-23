@@ -106,6 +106,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         UserMailer.sendOrder(@order).deliver
+        UserMailer.sendOrderNotification(@order).deliver
         format.html {
           redirect_to url_for(:controller => 'orders',
           :action => 'control',

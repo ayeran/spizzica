@@ -79,10 +79,10 @@ class Order < ActiveRecord::Base
    end
  end
 
- def sendOrderContent
-  UserMailer.welcome_email(self).deliver
-  UserMailer.notificationEmail(self).deliver
- end
+ # def sendOrderContent
+  # UserMailer.welcome_email(self).deliver
+  # UserMailer.notificationEmail(self).deliver
+ # end
 
  def delivery_time_can_not_be_too_soon
     if time < Time.now + @@starttime
