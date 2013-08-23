@@ -36,8 +36,8 @@ module NavigationHelpers
 #    when /^the item page$/
 #      items_path
 
-#    when /^the order page$/
-#      orders_path
+    when /^the order page$/
+      orders_path
 
 #    when /^the user page$/
 #      users_path

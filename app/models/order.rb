@@ -20,6 +20,7 @@ class Order < ActiveRecord::Base
   @@months=[nil,"gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
     "settembre", "ottobre", "novembre", "dicembre"]
 
+
   def starttime
     @starttime = Time.now + @@starttime
   end

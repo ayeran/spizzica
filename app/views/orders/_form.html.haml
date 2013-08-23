@@ -3,9 +3,9 @@
     #error_explanation
       %h2
         - if @order.errors.count == 1
-          = t 'activerecord.errors.template.header.one', :model => (t @order.class.name), :count => 1
+          = t 'activerecord.errors.template.header.one', :model => (t @order.class.model_name.human), :count => 1
         - else
-          = t 'activerecord.errors.template.header.other', :model => @order.class.name, :count => @order.errors.count
+          = t 'activerecord.errors.template.header.other', :model => @order.class.model_name.human, :count => @order.errors.count
       %b= t 'activerecord.errors.template.body'
       %ul
         - @order.errors.full_messages.each do |msg|

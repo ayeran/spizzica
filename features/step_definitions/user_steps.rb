@@ -47,7 +47,11 @@ end
 
 ### GIVEN ###
 
-
+Given /^the following beers are in the menu$/ do |fields|
+  fields.row_hash.each do |name, price|
+    Beer.create!({:name => name, :price => price})
+  end
+end
 
 
 

@@ -179,11 +179,18 @@ it:
         even: "deve essere pari"
 
   activerecord:
+    models:
+      order: "Ordine"
+    attributes:
+      order:
+        email: "l'indirizzo e-mail"
+        telephone: "telefono"
+        street: "via"
     errors:
       template:
         header:
           one: "Non posso salvare questo %{model}: 1 errore"
-          other: "Non posso salvare questo %{model}: %{count} errori."
+          other: "Non si può salvare questo %{model}: %{count} errori."
         body: "Per favore ricontrolla i seguenti campi:"
 
       messages:
