@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+		<p>
+			E' stato ricevuto un ordine da <%= @order.name %>. Puoi vedere i dettagli
+			a questo
+			<%= link_to 'link', order_url(@order) %>.</p>
+  </body>
+</html>
