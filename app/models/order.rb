@@ -80,6 +80,7 @@ class Order < ActiveRecord::Base
 
  def sendOrderContent
   UserMailer.welcome_email(self).deliver
+  UserMailer.notificationEmail(self).deliver
  end
 
  def delivery_time_can_not_be_too_soon

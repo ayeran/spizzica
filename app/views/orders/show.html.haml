@@ -48,7 +48,7 @@
     %b Prezzo:
     = sprintf("%02.2f €", @order.price || 0)
 
-- if current_user.isAdmin?
+- if current_user && current_user.isAdmin?
   = link_to 'Edit', edit_order_path(@order)
   \|
   = link_to 'Back', orders_path

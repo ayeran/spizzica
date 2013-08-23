@@ -6,4 +6,9 @@ class UserMailer < ActionMailer::Base
     @content = order.ordercontents
     mail(:to => order.email, :subject => "Spizzicaluna: il tuo ordine")
   end
+
+    def notificationEmail(order)
+    @order = order
+    mail(:to => :from, :subject => "Nuovo ordine da " + order.name)
+  end
 end

@@ -1,57 +1,58 @@
-%h1 Aggiornamento dell'ordine
+.dashboard
+  %h1 Aggiornamento dell'ordine
 
-%p
-  %b
-    Nome:
-  = @order.name
-%p
-  %b
-    Email:
-  = @order.email
-%p
-  %b
-    Indirizzo di consegna:
-  = @order.streetprefix
-  = @order.street
-  = ', '
-  = @order.building
-  = ', '
-  = @order.city%p
-  %b
-    Telefono:
-  = @order.telephone
-%p
-  %b
-    Ora di consegna:
-  = @order.time.strftime("%H:%M %m-%d-%Y")
-%p
-  %b
-  - @order.ordercontents.each{|ordcont|
-  - item=ordcont.item.specify
-  - if FileTest.exist?(item.imagepath(:small).to_s)
-    = link_to image_tag(item.image(:small)), item
-  = ordcont.quantity
-  = item.name
-  -}
-%p
-  %b
-    Info:
-  = @order.info
-%p
-  %b Stato dell'ordine
-  %ol
-    -@order.trackings.each{|t|
-    %li
-      = t.status.name
-      = t.created_at.in_time_zone.strftime("%H:%M:%S %m-%d-%Y")
+  %p
+    %b
+      Nome:
+    = @order.name
+  %p
+    %b
+      Email:
+    = @order.email
+  %p
+    %b
+      Indirizzo di consegna:
+    = @order.streetprefix
+    = @order.street
+    = ', '
+    = @order.building
+    = ', '
+    = @order.city%p
+    %b
+      Telefono:
+    = @order.telephone
+  %p
+    %b
+      Ora di consegna:
+    = @order.time.strftime("%H:%M %m-%d-%Y")
+  %p
+    %b
+    - @order.ordercontents.each{|ordcont|
+    - item=ordcont.item.specify
+    - if FileTest.exist?(item.imagepath(:small).to_s)
+      = link_to image_tag(item.image(:small)), item
+    = ordcont.quantity
+    = item.name
     -}
+  %p
+    %b
+      Info:
+    = @order.info
+  %p
+    %b Stato dell'ordine
+    %ol
+      -@order.trackings.each{|t|
+      %li
+        = t.status.name
+        = t.created_at.in_time_zone.strftime("%H:%M:%S %m-%d-%Y")
+      -}
 
-= form_for @order do |f|
-  .field
-    = f.label "Nuovo stato dell\'ordine"
-    = select_tag("status", options_from_collection_for_select(Status.all,:id,:name))
-  .actions
-    = f.submit 'Save'
+  = form_for @order do |f|
+    .field
+      = f.label "Nuovo stato dell\'ordine"
+      = select_tag("status", options_from_collection_for_select(Status.all,:id,:name))
+    .actions
+      = f.submit 'Save'
 
 = link_to 'Mostra', @order
 \|
