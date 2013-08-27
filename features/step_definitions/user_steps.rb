@@ -95,11 +95,11 @@ Then /^I should see the following: (.+)$/ do |arr|
    end
 end
 
-Then /^I check (.+) checkbox with values (.+)$/ do |box,values|
- values.split(",").each do |value|
-   step "I check #{box} checkbox with value #{value.strip}"
- end
-end
+# Then /^I check (.+) checkbox with values (.+)$/ do |box,values|
+ # values.split(",").each do |value|
+   # step %{I check #{box} checkbox with value #{value.strip}"}
+ # end
+# end
 
 Given /^I am logged in as an administrator$/ do
  steps %Q{
@@ -107,12 +107,11 @@ Given /^I am logged in as an administrator$/ do
     | email               | password         | role       |
     | admin@test.com      | admin_password   | admin      |
     | visitor@visitor.com | visitor_password | registered |
-   And I am on the "home page"
-   And I follow "Login"
+   Given I am on the page "userlogin"
    And I fill in "Email" with "admin@test.com"
    And I fill in "Password" with "admin_password"
    And I press "Sign in"
-   Then I should see "admin"
+
 }
 end
 
@@ -208,9 +207,8 @@ Given /^the beers have been added$/ do
     And tastes exist
     And colors exist
     And foams exist
-    Given I am on the page "Beer"
-    And I follow "New Beer"
-    And I fill in "Name" with "Birralocale"
+    Given I am on the page "New Beer"
+    And I fill in "beer_name" with "Birralocale"
     And I check "beerstyles" checkbox with value "pilsner"
     And I select "bottiglia" from "beer_container_id"
     And I select "tappo a corona" from "beer_lid_id"
@@ -218,10 +216,44 @@ Given /^the beers have been added$/ do
     And I check "tastes" checkbox with value "secco"
     And I check "colors" checkbox with values "chiaro", "scuro"
     And I check "foams" checkbox with values "fitta", "compatta"
-    And I press "Save"
+    And I fill in "beer_strength" with "8.2"
+    And I fill in "beer_volume" with "33"
+    And I fill in "beer_price" with "12"
+    And I press "Salvare"
     Then I should see the following: "Birralocale", "bottiglia", "tappo a corona", "amarognolo", "secco", "chiaro", "fitta", "compatta", "scuro"
     }
 end
+
+Given /^the following beers have been added$/ do |beer_data|
+  steps %Q{
+    Given I am logged in as an administrator
+    And beerstyles exist
+    And manufacturers exist
+    And containers exist
+    And lids exist
+    And aromas exist
+    And tastes exist
+    And colors exist
+    And foams exist}
+    beer_data.hashes.each do |beer|
+      step %{I am on the page "New Beer"}
+      step %{I fill in "beer_name" with "#{beer[:nome]}"}
+      step %{I check "beerstyles" checkbox with value "#{beer[:stile]}"}
+      step %{I select "#{beer[:contenitore]}" from "beer_container_id"}
+      step %{I select "#{beer[:lid]}" from "beer_lid_id"}
+      step %{I check "aromas" checkbox with values "#{beer[:aroma]}"}
+      step %{I check "tastes" checkbox with values "#{beer[:gusto]}"}
+      step %{I check "colors" checkbox with values "#{beer[:colore]}"}
+      step %{I check "foams" checkbox with values "#{beer[:schiuma]}"}
+      step %{I fill in "beer_strength" with "#{beer[:gradazione]}"}
+      step %{I fill in "beer_volume" with "#{beer[:volume]}"}
+      step %{I fill in "beer_price" with "#{beer[:prezzo]}"}
+      step %{I press "Salvare"}
+      # step %{I should see the following: "Birralocale"}
+    end
+end
+
+
 
 
 
