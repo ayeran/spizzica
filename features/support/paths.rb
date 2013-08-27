@@ -22,6 +22,9 @@ module NavigationHelpers
      when /^the page "Beer Styles"$/
        beerstyles_path
 
+     when /^the page "Spizzicaluna One"$/
+       one_path
+
     when /^the page "Beer"$/
        beers_path
 
