@@ -1,6 +1,6 @@
 Spizzicaluna::Application.routes.draw do
 
-  resources :galleries
+  resources :one_photos
 
   resources :itemstatuses
 

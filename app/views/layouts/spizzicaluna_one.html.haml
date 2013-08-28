@@ -38,8 +38,7 @@
               %ul
                 - [["succo di frutta"],["vino"], ["liquore"],["aperitivo"]].each do |cat|
                   %li= link_to cat.join(" & "), {:controller => "beverages", :action => "show_by_beveragecategories", :categories_to_display => cat}
-            - if true
-              %li= link_to 'Galleria',  {:controller => "home", :action =>'gallery_one'}
+            %li= link_to 'Galleria', one_photos_path
             %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
             %li= link_to 'Prenotazioni',  {:controller => "home", :action =>'bar_one_prenotazione'}
             %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'
