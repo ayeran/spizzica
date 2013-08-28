@@ -1,4 +1,5 @@
+- javascript_include_tag 'jquery.tn3lite.min.js'
 .gallery
-  - images = Dir.glob('app/assets/images/locale/*.JPG')
+  - images = Dir.glob('app/assets/images/locale/thumbs/*.jpg')
   - images.each do |image|
-    =image_tag "locale/" + File.basename(image), :class => "gallery_preview_photo"
+    =image_tag "locale/thumbs/" + File.basename(image), :class => "gallery_preview_photo"
