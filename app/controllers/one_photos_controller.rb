@@ -3,7 +3,8 @@ class OnePhotosController < ApplicationController
   # GET /one_photos
   # GET /one_photos.json
   def index
-    @one_photos = Dir['app/assets/images/locale/thumbs/*.jpg']
+    # @one_photos = Dir['app/assets/images/locale/thumbs/*.jpg']
+    @one_photos = ["app/assets/images/locale/thumbs/spizzicaluna014.jpg", "app/assets/images/locale/thumbs/spizzicaluna008.jpg", "app/assets/images/locale/thumbs/spizzicaluna011.jpg", "app/assets/images/locale/thumbs/spizzicaluna004.jpg", "app/assets/images/locale/thumbs/spizzicaluna018.jpg", "app/assets/images/locale/thumbs/spizzicaluna017.jpg", "app/assets/images/locale/thumbs/spizzicaluna007.jpg", "app/assets/images/locale/thumbs/spizzicaluna006.jpg", "app/assets/images/locale/thumbs/spizzicaluna013.jpg", "app/assets/images/locale/thumbs/spizzicaluna019.jpg", "app/assets/images/locale/thumbs/spizzicaluna012.jpg", "app/assets/images/locale/thumbs/spizzicaluna016.jpg", "app/assets/images/locale/thumbs/spizzicaluna010.jpg", "app/assets/images/locale/thumbs/spizzicaluna001.jpg", "app/assets/images/locale/thumbs/spizzicaluna015.jpg", "app/assets/images/locale/thumbs/spizzicaluna003.jpg", "app/assets/images/locale/thumbs/spizzicaluna005.jpg", "app/assets/images/locale/thumbs/spizzicaluna002.jpg", "app/assets/images/locale/thumbs/spizzicaluna009.jpg"]
 
     respond_to do |format|
       format.html # index.html.erb
