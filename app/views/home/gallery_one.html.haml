@@ -1,9 +1,8 @@
 - javascript_include_tag 'jquery.tn3lite.min.js'
 - javascript_include_tag 'tn3_initialize.js'
 .gallery
-  %h1
-    Galleria
-  Siamo sempre lieti di vedervi e il nostro locale è sempre accogliente come pote
+  %p
+    Siamo sempre lieti di vedervi e il nostro locale è sempre accogliente come potete vedere dalle foto.
   -images = Dir.glob('app/assets/images/locale/thumbs/*.jpg')
   .mygallery
     .tn3.album
@@ -21,6 +20,10 @@
             .tn3.description
               Spizzicaluna, Frascati
             - filename = File.basename(image)
+<<<<<<< HEAD
             = link_to (image_tag "locale/thumbs/" + filename), "images/big/" + filename
+=======
+            = link_to (image_tag "locale/thumbs/" + filename), image_path("locale/big/" + filename)
+>>>>>>> Gallery
 
 
