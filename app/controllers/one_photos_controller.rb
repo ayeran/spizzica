@@ -3,7 +3,7 @@ class OnePhotosController < ApplicationController
   # GET /one_photos
   # GET /one_photos.json
   def index
-    @one_photos = Dir.glob('app/assets/images/locale/thumbs/*.jpg')
+    @one_photos = Dir['app/assets/images/locale/thumbs/*.jpg']
 
     respond_to do |format|
       format.html # index.html.erb
