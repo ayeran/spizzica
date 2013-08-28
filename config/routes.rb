@@ -1,5 +1,7 @@
 Spizzicaluna::Application.routes.draw do
 
+  resources :galleries
+
   resources :itemstatuses
 
   resources :beveragecategories
