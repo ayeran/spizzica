@@ -275,6 +275,7 @@ nav ul ul ul {
       padding: 1em;
       margin: 1em 1em 1em 20%;
       color: $fontcolor;
+      width: 100%;
       & p{
         font-size: 1.2em;
         text-shadow: 1px 1px 3px $fontcolor-dark20;
@@ -425,7 +426,6 @@ nav ul ul ul {
         box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
   border-radius: 0.5em;
   margin: 0.5em;
-
   display: inline-block;
   padding: 1em;
 
