@@ -1,0 +1,4 @@
+.gallery
+  - images = Dir.glob('app/assets/images/locale/*.JPG')
+  - images.each do |image|
+    =image_tag "locale/" + File.basename(image), :class => "gallery_preview_photo"
