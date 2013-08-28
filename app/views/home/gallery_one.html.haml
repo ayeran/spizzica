@@ -1,4 +1,26 @@
+- javascript_include_tag 'jquery.tn3lite.min.js'
+- javascript_include_tag 'tn3_initialize.js'
 .gallery
-  - images = Dir.glob('app/assets/images/locale/*.JPG')
-  - images.each do |image|
-    =image_tag "locale/" + File.basename(image), :class => "gallery_preview_photo"
+  %h1
+    Galleria
+  Siamo sempre lieti di vedervi e il nostro locale è sempre accogliente come pote
+  -images = Dir.glob('app/assets/images/locale/thumbs/*.jpg')
+  .mygallery
+    .tn3.album
+      %h4
+        Spizzicaluna One
+      .tn3.description
+        Alcune nostre foto
+      .tn3.thumb
+        Piccole foto
+      %ol
+        - images.each do |image|
+          %li
+            %h4
+              = File.basename(image)
+            .tn3.description
+              Spizzicaluna, Frascati
+            - filename = File.basename(image)
+            = link_to (image_tag "locale/thumbs/" + filename), "images/big/" + filename
+
+
