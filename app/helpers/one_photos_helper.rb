@@ -1,0 +1,2 @@
+module OnePhotosHelper
+end
