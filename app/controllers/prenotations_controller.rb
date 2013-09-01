@@ -42,17 +42,27 @@ class PrenotationsController < ApplicationController
   # POST /prenotations
   # POST /prenotations.json
   def create
-    @prenotation = Prenotation.new(params[:prenotation])
 
-    respond_to do |format|
-      if @prenotation.save
-        format.html { redirect_to @prenotation, notice: 'Prenotation was successfully created.' }
-        format.json { render json: @prenotation, status: :created, location: @prenotation }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @prenotation.errors, status: :unprocessable_entity }
-      end
-    end
+    @prenotation = Prenotation.new(params[:prenotation].except("date(1i)", "date(2i)", "date(3i)"))
+    @prenotation.date = DateTime.new(params[:prenotation]["date(1i)"].to_i,
+      params[:prenotation]["date(2i)"].to_i,
+      params[:prenotation]["date(3i)"].to_i)
+  if @prenotation.valid?
+    # TODO send message here
+    flash[:notice] = "La prenotazione &egrave; andata a buon fine!"
+    redirect_to new_prenotation_path
+  else
+    render :action => 'new'
+  end
+    # respond_to do |format|
+      # if @prenotation.save
+        # format.html { redirect_to @prenotation, notice: 'Prenotation was successfully created.' }
+        # format.json { render json: @prenotation, status: :created, location: @prenotation }
+      # else
+        # format.html { render action: "new" }
+        # format.json { render json: @prenotation.errors, status: :unprocessable_entity }
+      # end
+    # end
   end
 
   # PUT /prenotations/1
