@@ -1,4 +1,6 @@
 class PrenotationsController < ApplicationController
+  layout "spizzicaluna_one"
+
   # GET /prenotations
   # GET /prenotations.json
   def index

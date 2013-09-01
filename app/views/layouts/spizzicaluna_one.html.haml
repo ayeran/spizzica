@@ -40,7 +40,7 @@
                   %li= link_to cat.join(" & "), {:controller => "beverages", :action => "show_by_beveragecategories", :categories_to_display => cat}
             %li= link_to 'Galleria', one_photos_path
             %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
-            %li= link_to 'Prenotazioni',  {:controller => "home", :action =>'bar_one_prenotazione'}
+            %li= link_to 'Prenotazioni',  new_prenotation_path
             %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'
             - if user_signed_in?
               %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
