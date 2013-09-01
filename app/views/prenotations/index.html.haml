@@ -1,0 +1,29 @@
+%h1 Listing prenotations
+
+%table
+  %tr
+    %th Name
+    %th Email
+    %th Date
+    %th Phone
+    %th Comment
+    %th Quantity
+    %th
+    %th
+    %th
+
+  - @prenotations.each do |prenotation|
+    %tr
+      %td= prenotation.name
+      %td= prenotation.email
+      %td= prenotation.date
+      %td= prenotation.phone
+      %td= prenotation.comment
+      %td= prenotation.quantity
+      %td= link_to 'Show', prenotation
+      %td= link_to 'Edit', edit_prenotation_path(prenotation)
+      %td= link_to 'Destroy', prenotation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Prenotation', new_prenotation_path

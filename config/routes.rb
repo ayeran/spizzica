@@ -1,5 +1,7 @@
 Spizzicaluna::Application.routes.draw do
 
+  resources :prenotations
+
   resources :one_photos
 
   resources :itemstatuses
