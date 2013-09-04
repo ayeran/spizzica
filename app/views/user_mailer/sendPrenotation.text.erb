@@ -3,7 +3,8 @@ Ciao <%= @prenotation.name%>
 La tua prenotazione e' stata ricevuta.
 
 Dettagli della prenotazione:
-Data e ora: <%= I18n.l (@prenotation.time), :format => "%d %B alle %H:%M " %>
+Numero di telefono: <%= @prenotation.phone %>
+Data e ora: <%= I18n.l (@prenotation.date), :format => "%d %B alle %H:%M " %>
 Numero di persone: <%= @prenotation.quantity %>
 Informazione complementare: <%= @prenotation.comment %>
 
