@@ -24,4 +24,4 @@ Scenario: inserting valid data
   And I select "3" from "prenotation_quantity"
   And I press "Prenota ora"
   Then I should not see "errors"
-  And I should see "La prenotazione è andata a buon fine!"
+  And I should see "prenotazione è andata a buon fine"

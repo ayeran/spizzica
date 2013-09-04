@@ -5,14 +5,14 @@ class PrenotationsController < ApplicationController
 
   # GET /prenotations
   # GET /prenotations.json
-  # def index
+  def index
     # @prenotations = Prenotation.all
-#
-    # respond_to do |format|
-      # format.html # index.html.erb
-      # format.json { render json: @prenotations }
-    # end
-  # end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @prenotations }
+    end
+  end
 
   # GET /prenotations/1
   # GET /prenotations/1.json
@@ -56,7 +56,7 @@ class PrenotationsController < ApplicationController
     UserMailer.sendPrenotation(@prenotation).deliver
     UserMailer.sendPrenotationNotification(@prenotation).deliver
     flash[:notice] = "La prenotazione è andata a buon fine!"
-    redirect_to new_prenotation_path
+    redirect_to prenotations_path
   else
     render :action => 'new'
   end
