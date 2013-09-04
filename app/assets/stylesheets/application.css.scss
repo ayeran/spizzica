@@ -435,8 +435,16 @@ nav ul ul ul {
    font-size: 80%;
    display: inline-block;
    width: 20%;
+   vertical-align: top;
  }
- & input{
+ & input, textarea{
+  width: 40%;
+ }
+ & textarea{
+   height: 10em;
+ }
+ & input[type="submit"]{
+   width: 7em;
+ }
 
- }
 }

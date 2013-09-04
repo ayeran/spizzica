@@ -16,11 +16,11 @@
     = f.text_field :email
   .field
     = f.label :quantity
-    = f.select :quantity, (Prenotation.person_min_num..Prenotation.person_max_num)
+    = f.select :quantity, (Prenotation.person_min_num..Prenotation.person_max_num), :selected => Prenotation.default_quantity
 
   .field
     = f.label :date
-    = f.date_select :date
+    = f.date_select :date, @prenotation.time_span_hash
     = f.time_select :date
 
   .field
