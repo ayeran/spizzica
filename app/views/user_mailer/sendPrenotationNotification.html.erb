@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Nuova prenotazione</h1>
+	<p>Nome: <%= @prenotation.name %></p>
+	<p>Numero di telefono: <%= @prenotation.phone %></p>
+	<p>Data e ora: <%= I18n.l (@prenotation.date), :format => "%d %B alle %H:%M " %></p>
+	<p>Numero di persone: <%= @prenotation.quantity %></p>
+	<p>Informazione complementare: <%= @prenotation.comment %></p>
+
+    <p>Grazie e a presto!</p>
+    <p>Personale di <%= link_to 'Spizzicaluna', root_url %></p>
+  </body>
+</html>

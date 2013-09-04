@@ -1,0 +1,10 @@
+Nuova prenotazione
+Nome: <%= @prenotation.name %>
+Numero di telefono: <%= @prenotation.phone %>
+Data e ora: <%= I18n.l (@prenotation.date), :format => "%d %B alle %H:%M " %>
+Numero di persone: <%= @prenotation.quantity %>
+Informazione complementare: <%= @prenotation.comment %>
+
+Grazie e a presto!</p>
+
+Personale di <%= link_to 'Spizzicaluna', root_url %>

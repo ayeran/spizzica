@@ -429,3 +429,14 @@ nav ul ul ul {
   display: inline-block;
   padding: 1em;
 }
+
+.prenotation{
+ & label{
+   font-size: 80%;
+   display: inline-block;
+   width: 20%;
+ }
+ & input{
+
+ }
+}
