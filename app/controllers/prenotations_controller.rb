@@ -53,6 +53,8 @@ class PrenotationsController < ApplicationController
       params[:prenotation]["date(5i)"].to_i)
   if @prenotation.valid?
     # TODO send message here
+    UserMailer.sendPrenotation(@prenotation).deliver
+    UserMailer.sendPrenotationNotification(@prenotation).deliver
     flash[:notice] = "La prenotazione è andata a buon fine!"
     redirect_to new_prenotation_path
   else
