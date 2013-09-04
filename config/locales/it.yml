@@ -145,6 +145,11 @@ it:
     label:
       prenotation:
         name: "Nome"
+        email: "e-mail"
+        date: "Data"
+        phone: "Numero di telefono"
+        comment: "Informazione supplementare"
+        quantity: "Numero di persone"
     submit:
       create: 'Crea %{model}'
       update: 'Aggiorna %{model}'

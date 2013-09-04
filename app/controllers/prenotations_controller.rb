@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 class PrenotationsController < ApplicationController
   layout "spizzicaluna_one"
 
@@ -49,7 +51,7 @@ class PrenotationsController < ApplicationController
       params[:prenotation]["date(3i)"].to_i)
   if @prenotation.valid?
     # TODO send message here
-    flash[:notice] = "La prenotazione &egrave; andata a buon fine!"
+    flash[:notice] = "La prenotazione è andata a buon fine!"
     redirect_to new_prenotation_path
   else
     render :action => 'new'

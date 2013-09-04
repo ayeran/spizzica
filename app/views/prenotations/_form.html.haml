@@ -5,9 +5,11 @@
       %ul
         - @prenotation.errors.full_messages.each do |msg|
           %li= msg
-
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
   .field
-    = f.label :name
+    = f.label :name #vedi config/locales/it.yml, section "labels" for text that will be substituted in italian
     = f.text_field :name
   .field
     = f.label :email
