@@ -142,7 +142,9 @@ it:
   helpers:
     select:
       prompt: "Per favore, seleziona"
-
+    label:
+      prenotation:
+        name: "Nome"
     submit:
       create: 'Crea %{model}'
       update: 'Aggiorna %{model}'
@@ -181,11 +183,15 @@ it:
   activerecord:
     models:
       order: "Ordine"
+      prenotation: "Prenotazione"
     attributes:
       order:
         email: "l'indirizzo e-mail"
         telephone: "telefono"
         street: "via"
+      prenotazione:
+        name: "Nome"
+
     errors:
       template:
         header:
