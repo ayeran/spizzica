@@ -25,6 +25,6 @@
     = f.text_area :comment
   .field
     = f.label :quantity
-    = f.number_field :quantity
+    = f.select :quantity, (Prenotation.person_min_num..Prenotation.person_max_num)
   .actions
     = f.submit 'Prenota ora'
