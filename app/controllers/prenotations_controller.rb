@@ -45,10 +45,12 @@ class PrenotationsController < ApplicationController
   # POST /prenotations.json
   def create
 
-    @prenotation = Prenotation.new(params[:prenotation].except("date(1i)", "date(2i)", "date(3i)"))
+    @prenotation = Prenotation.new(params[:prenotation].except("date(1i)", "date(2i)", "date(3i)","date(4i)", "date(5i)"))
     @prenotation.date = DateTime.new(params[:prenotation]["date(1i)"].to_i,
       params[:prenotation]["date(2i)"].to_i,
-      params[:prenotation]["date(3i)"].to_i)
+      params[:prenotation]["date(3i)"].to_i,
+      params[:prenotation]["date(4i)"].to_i,
+      params[:prenotation]["date(5i)"].to_i)
   if @prenotation.valid?
     # TODO send message here
     flash[:notice] = "La prenotazione è andata a buon fine!"

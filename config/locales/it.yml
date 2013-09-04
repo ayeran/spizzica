@@ -146,7 +146,7 @@ it:
       prenotation:
         name: "Nome"
         email: "e-mail"
-        date: "Data"
+        date: "Data e ora"
         phone: "Numero di telefono"
         comment: "Informazione supplementare"
         quantity: "Numero di persone"
