@@ -13,7 +13,7 @@
     = f.text_field :name
   .field
     = f.label :email
-    = f.text_field :email, :placeholder => "qua sarà mandato il reipilogo della prenotazione"
+    = f.text_field :email, :placeholder => 'qua sarà mandato il reipilogo della prenotazione'
   .field
     = f.label :quantity
     = f.select :quantity, (Prenotation.person_min_num..Prenotation.person_max_num), :selected => Prenotation.default_quantity
@@ -29,7 +29,7 @@
 
   .field
     = f.label :comment
-    = f.text_area :comment, :placeholder => "Inserisci qua le tue preferenze: un tavolo dentro o fuori, zona fumatori o no, ecc."
+    = f.text_area :comment, :placeholder => "inserisci qua le tue preferenze: un tavolo dentro o fuori, zona fumatori o no, ecc."
 
   .actions
     = f.submit 'Prenota ora'
