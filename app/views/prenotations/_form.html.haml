@@ -1,7 +1,7 @@
 = form_for @prenotation do |f|
   - if @prenotation.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@prenotation.errors.count, "error")} prohibited this prenotation from being saved:"
+      %h2= "Assicurati che non ci siamo i seguenti errori prima di proseguire:"
       %ul
         - @prenotation.errors.full_messages.each do |msg|
           %li= msg

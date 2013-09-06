@@ -185,19 +185,36 @@ it:
         odd: "deve essere dispari"
         even: "deve essere pari"
 
+  activemodel:
+    models:
+      prenotation: "Prenotazione"
+    attributes:
+      prenotation:
+        name: "nome"
+        email: "e-mail"
+        phone: "numero di telefono"
+    errors:
+      models:
+        prenotation:
+          attributes:
+            name:
+              blank: "non può essere lasciato vuoto"
+            email:
+              blank: "non può essere lasciato vuoto"
+              invalid: "sembra non valido"
+            phone:
+              blank: "non può essere lasciato vuoto"
+
+
+
   activerecord:
     models:
       order: "Ordine"
-      prenotation: "Prenotazione"
     attributes:
       order:
         email: "l'indirizzo e-mail"
         telephone: "telefono"
         street: "via"
-      prenotazione:
-        name: "Nome"
-
-    errors:
       template:
         header:
           one: "Non posso salvare questo %{model}: 1 errore"
@@ -268,5 +285,5 @@ it:
       not_found: "not found"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
+        one: "Un errore 1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
