@@ -434,14 +434,15 @@ nav ul ul ul {
  & label{
    font-size: 80%;
    display: inline-block;
-   width: 20%;
+   width: 10em;
    vertical-align: top;
  }
- & input, textarea{
-  width: 40%;
+ & input{
+  width: 30em;
  }
  & textarea{
    height: 10em;
+   width: 37em;
  }
  & input[type="submit"]{
    width: 7em;

@@ -13,7 +13,8 @@ Scenario: presence of the prenotation item in the menu
 Scenario: inserting non complete data
   When I fill in "prenotation_name" with "Mario"
   And I press "Prenota ora"
-  Then I should see "errors"
+  Then I should see "e-mail non può essere lasciato vuoto"
+  And I should see "numero di telefono non può essere lasciato vuoto"
 
 
 Scenario: inserting valid data
