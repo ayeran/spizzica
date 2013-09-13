@@ -8,7 +8,8 @@ class HomeController < ApplicationController
   end
 
   def spizzicaluna_brewing
-    render :layout => "spizzicaluna_brewing"
+    # when the corresponding template is ready, to change the template
+    render :layout => "spizzicaluna_one"
   end
 
   def spizzicaluna_open
