@@ -54,7 +54,8 @@
               %td
                 = link_to item.name, item
                 = '(' + item_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", item.price)+ ')'
-
+                - if FileTest.exist?(item.imagepath(:small).to_s)
+                  = image_tag item.imagebeer.url(:small)
 
 
 
@@ -65,5 +66,4 @@
     = f.submit 'Procedi', :data => { :confirm => 'Allora, procediamo?' }
 
 
-- # if FileTest.exist?(beer.imagebeer.path(:small).to_s)
-= # image_tag beer.imagebeer.url(:small)
+
