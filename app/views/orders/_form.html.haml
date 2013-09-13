@@ -44,43 +44,18 @@
   = select_tag :timeMin, options_for_select(@order.minspan,5*((Time.now+Order.starttime+5.minutes).min/5))
 
   %h1 Dettagli dell'ordine
-  - if !(@beers.to_a.flatten.empty?)
-    %h2 Birre
-    %table1
-      %tbody
-        - @beers.each do |row|
-          %tr
-            - row.each do |beer_line|
-              - beer=beer_line[:beer]
-              %td
-                = link_to beer.name, beer
-                = '('+ beer_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", beer.price)+ ")"
-                - if FileTest.exist?(beer.imagebeer.path(:small).to_s)
-                  = image_tag beer.imagebeer.url(:small)
-
-  - if !@sandwiches.to_a.flatten.empty?
-    %h2 Panini
+  - if !(@items.to_a.flatten.empty?)
     %table
       %tbody
-        - @sandwiches.each do |row|
+        - @items.each do |row|
           %tr
-            - row.each do |sandwich_line|
-              - c = sandwich_line[:sandwich]
+            - row.each do |item_line|
+              - item = item_line[:name]
               %td
-                = link_to c.name, c
-                = '('+ sandwich_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", c.price)+ ")"
+                = link_to item.name, item
+                = '(' + item_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", item.price)+ ')'
 
-  - if !@bruschette.to_a.flatten.empty?
-    %h2 Bruschette
-    %table
-      %tbody
-        - @bruschette.each do |row|
-          %tr
-            - row.each do |bruschetta_line|
-              - c = bruschetta_line[:bruschetta]
-              %td
-                = link_to c.name, c
-                = '('+ bruschetta_line[:quantity].to_s + ' x ' + sprintf("%02.2f €", c.price)+ ")"
+
 
 
 
@@ -89,3 +64,6 @@
   .actions
     = f.submit 'Procedi', :data => { :confirm => 'Allora, procediamo?' }
 
+
+- # if FileTest.exist?(beer.imagebeer.path(:small).to_s)
+= # image_tag beer.imagebeer.url(:small)

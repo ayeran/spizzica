@@ -38,6 +38,8 @@ module NavigationHelpers
      when /^the page "Order"$/
        orders_path
 
+     when /^the page "Sandwich"$/
+       sandwiches_path
 
      when /^the page "Containers"$/
        containers_path

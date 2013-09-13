@@ -11,6 +11,10 @@ Background: some beers exist
 
 Scenario: presence of items to order
   Given I am on the page "Beer"
-  # And I should see all beers
-  Then show me the page
-
+  And I click to add beer "Birralocale" to the cart
+  Then I should see "Carrello"
+  And I should see "1 x 12.20"
+  And I click to add beer "Birralocale" to the cart
+  And I should see "2 x 12.20"
+  Given I am on the page "Sandwich"
+  And I click to add beer "Birralocale" to the cart

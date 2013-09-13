@@ -35,17 +35,24 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @cart_content=current_cart.line_items
-    @beers=@cart_content.select{|li|
-      li.item.name=="Beer"}.map{|li|
-        {:beer=>li.item.specify,:quantity => li.quantity}
-        }.to_a.each_slice(2)
-    @sandwiches=@cart_content.select{|li|
-      li.item.name=="Sandwich"}.map{|li|
-        {:sandwich=>li.item.specify,:quantity => li.quantity}
-        }.to_a.each_slice(2)
-    @bruschette=@cart_content.select{|li|
-      li.item.name=="Bruschetta"}.map{|li|
-        {:bruschetta => li.item.specify, :quantity => li.quantity}
+    # @beers=@cart_content.select{|li|
+      # li.item.name=="Beer"}.map{|li|
+        # {:beer=>li.item.specify,:quantity => li.quantity}
+        # }.to_a.each_slice(2)
+    # @sandwiches=@cart_content.select{|li|
+      # li.item.name=="Sandwich"}.map{|li|
+        # {:sandwich=>li.item.specify,:quantity => li.quantity}
+        # }.to_a.each_slice(2)
+    # @bruschette=@cart_content.select{|li|
+      # li.item.name=="Bruschetta"}.map{|li|
+        # {:bruschetta => li.item.specify, :quantity => li.quantity}
+        # }.to_a.each_slice(2)
+    # @panini=@cart_content.select{|li|
+      # li.item.name=="Panino"}.map{|li|
+        # {:bruschetta => li.item.specify, :quantity => li.quantity}
+        # }.to_a.each_slice(2)
+    @items=@cart_content.map{|li|
+        {:type => li.item.name, :name=>li.item.specify,:quantity => li.quantity}
         }.to_a.each_slice(2)
 
 

@@ -54,7 +54,6 @@ Given /^the following beers are in the menu$/ do |fields|
 end
 
 
-
 Given /^the following users exist:/ do |users_table|
   users_table.hashes.each do |user_data|
     role = Role.find_by_name(user_data["role"]) || Role.create!(:name => user_data["role"])
@@ -420,4 +419,12 @@ end
 Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
+end
+
+
+Given /^I click to add beer "(.*?)" to the cart$/ do |arg1|
+  beer = Beer.find_by_name(arg1)
+  all('a').select{|link| link[:href] == '/line_items?item_id='+beer.id.to_s}.first.click
+  # browser.link(:href => 'line_items?item_id='+beer.id ).first.click
+
 end
