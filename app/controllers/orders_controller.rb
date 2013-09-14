@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
         # {:bruschetta => li.item.specify, :quantity => li.quantity}
         # }.to_a.each_slice(2)
     @items=@cart_content.map{|li|
-        {:type => li.item.name, :name=>li.item.specify,:quantity => li.quantity}
+        {:type => li.item.name, :name => li.item.specify, :quantity => li.quantity}
         }.to_a.each_slice(2)
 
 

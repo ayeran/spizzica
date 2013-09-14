@@ -37,16 +37,20 @@
       = @order.info
   %p
     %b Contenuto dell'ordine:
-    - @order.ordercontents.each{|ordcont|
-    - item=ordcont.item.specify
-    - if FileTest.exist?(item.imagepath(:small).to_s)
-      = link_to image_tag(item.image(:small)), item
-    = ordcont.quantity
-    = item.name
-    -}
-  %p
-    %b Prezzo:
-    = sprintf("%02.2f €", @order.price || 0)
+    .orderboard
+      - @order.ordercontents.each{|ordcont|
+      - item=ordcont.item.specify
+      .itemcellsmall
+        .leftcol
+          - if FileTest.exist?(item.imagepath(:small).to_s)
+            = link_to image_tag(item.image(:small)), item
+        .rightcol
+          .itemnameview
+            = item.name + ' x ' + ordcont.quantity.to_s
+      -}
+    %p
+      %b Prezzo totale:
+      = sprintf("%02.2f €", @order.price || 0)
 
 - if current_user && current_user.isAdmin?
   = link_to 'Edit', edit_order_path(@order)
