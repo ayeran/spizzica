@@ -33,7 +33,9 @@ class HomeController < ApplicationController
   end
 
   def bar_brewing
-    render :layout => 'spizzicaluna_brewing'
+# when the corresponding template is ready, to change the template
+    render :layout => "spizzicaluna_one"
+    # render :layout => 'spizzicaluna_brewing'
   end
 
   def gallery_one
