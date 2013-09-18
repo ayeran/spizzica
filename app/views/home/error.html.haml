@@ -1,12 +1,13 @@
-.message
-  %span{:class=>"haiku"}
-    La pagina web che tu cerchi
-    %br
-    Non è stato possibile localizzare
-    %br
-    Ma tante altre ne esistono.
+.errorpage
+  .message
+    %span{:class=>"haiku"}
+      La pagina web che tu cerchi
+      %br
+      Non e' stato possibile localizzare
+      %br
+      Ma tante altre ne esistono.
 
-.warning
-  Ahime, la pagina
-  = @url_requested
-  non esiste!
+  .warning
+    Ahime, la pagina
+    = @url_requested
+    non esiste!

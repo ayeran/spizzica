@@ -477,3 +477,22 @@ nav ul ul ul {
   background: $fontcolor-dark10;
 
 }
+.errorpage{
+  margin: 1em;
+  background: $background-opaque70;
+  border-radius: 0.5em;
+  padding: 1em;
+
+}
+.message{
+  margin-bottom: 1em;
+  & a{
+    color: $fontcolor;
+  }
+}
+
+
+.haiku{
+  text-transform: uppercase;
+  font-family: curly-letters;
+}
