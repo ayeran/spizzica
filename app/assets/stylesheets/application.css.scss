@@ -380,6 +380,7 @@ nav ul ul ul {
   & .visitcard{
     display: inline-block;
     margin: 1em;
+    vertical-align: top;
     & img{
       -webkit-box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
               box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
@@ -392,6 +393,7 @@ nav ul ul ul {
 
     & p.phone{
       margin: 0.2em;
+      font-size: 0.9em;
       letter-spacing: 0.1em;
     }
   }
