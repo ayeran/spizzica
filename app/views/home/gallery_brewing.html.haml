@@ -3,7 +3,8 @@
 .gallery
   %p
     Eccoci delle foto del nostro locale:
-  -images = Dir.glob('app/assets/images/locale/brewing/thumbs/*.jpg')
+  - # images = Dir.glob('app/assets/images/locale/brewing/thumbs/*.jpg')
+  - images = ["app/assets/images/locale/brewing/thumbs/brewing_007.jpg", "app/assets/images/locale/brewing/thumbs/brewing_005.jpg", "app/assets/images/locale/brewing/thumbs/brewing_002.jpg", "app/assets/images/locale/brewing/thumbs/brewing_003.jpg", "app/assets/images/locale/brewing/thumbs/brewing_006.jpg", "app/assets/images/locale/brewing/thumbs/brewing_001.jpg", "app/assets/images/locale/brewing/thumbs/brewing_004.jpg"]
   .mygallery
     .tn3.album
       %h4
