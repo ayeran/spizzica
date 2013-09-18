@@ -2,12 +2,12 @@
 - javascript_include_tag 'tn3_initialize.js'
 .gallery
   %p
-    Siamo sempre lieti di vedervi e il nostro locale è sempre accogliente come potete vedere dalle foto.
-  -images = Dir.glob('app/assets/images/locale/one/thumbs/*.jpg')
+    Eccoci delle foto del nostro locale:
+  -images = Dir.glob('app/assets/images/locale/brewing/thumbs/*.jpg')
   .mygallery
     .tn3.album
       %h4
-        Spizzicaluna One
+        Spizzicaluna Birreria
       .tn3.description
         Alcune nostre foto
       .tn3.thumb
@@ -18,8 +18,8 @@
             %h4
               = File.basename(image)
             .tn3.description
-              Spizzicaluna, Frascati
+              Brewing, Frascati
             - filename = File.basename(image)
-            = link_to (image_tag "locale/thumbs/" + filename), image_path("locale/one/big/" + filename)
+            = link_to (image_tag "locale/brewing/thumbs/" + filename), image_path("locale/brewing/big/" + filename)
 
 
