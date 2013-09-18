@@ -21,7 +21,7 @@
         %nav
           %ul
             %li= link_to 'LOCALE',  {:controller => "home", :action =>'bar_brewing'}
-            %li= link_to 'Galleria', {:controller => 'home', :action => 'brewery_photo'}
+            %li= link_to 'Galleria', {:controller => 'home', :action => 'gallery_brewing'}
             %li= link_to 'Contatti', {:controller => "home", :action => "contacts_brewing"} #'contacts_one'
             - if user_signed_in?
               %li= link_to 'Ingredienti', ingredients_path#, :class => 'nav_button'
