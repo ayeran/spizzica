@@ -1,18 +1,18 @@
 Spizzicaluna::Application.routes.draw do
 
-  resources :prenotations
+  resources :prenotations, :path => "prenotazione"
 
-  resources :one_photos
+  resources :one_photos, :path => "galleria-spizzicaluna"
 
   resources :itemstatuses
 
   resources :beveragecategories
 
-  resources :beverages
+  resources :beverages, :path => "bevande"
 
   resources :foodcategories
 
-  resources :foods
+  resources :foods, :path => "food"
 
   resources :bruschetta
 
@@ -42,7 +42,7 @@ Spizzicaluna::Application.routes.draw do
 
   resources :beerstyles
 
-  resources :beers
+  resources :beers, :path => "birre"
 
   resources :containers
 
@@ -64,15 +64,17 @@ Spizzicaluna::Application.routes.draw do
   resources :items
 
   get 'orders' => 'orders#new'
-  get 'one' => 'home#bar_one'
+
+  # get 'spizzicaluna-one' => 'home#bar_one'
+  get 'bar-spizzicaluna' => "home#bar_one"
+
   get 'open' => 'home#spizzicaluna_open'
   get 'brewing' => 'home#spizzicaluna_brewing'
-  get 'contacts_one' => "home#contacts_one"
-  get 'delivery_one' => "home#delivery_one"
-  get 'bar_one' => "home#bar_one"
-  get 'contacts_brewing' => "home#contacts_brewing"
-  get 'bar_brewing' => "home#bar_brewing"
-  get 'gallery_brewing' => 'home#gallery_brewing'
+  get 'spizzicaluna-contatti' => "home#contacts_one"
+  get 'spizzicaluna-consegna' => "home#delivery_one"
+  get 'contatti-brewing' => "home#contacts_brewing"
+  get 'bar-brewing' => "home#bar_brewing"
+  get 'galleria-brewing' => 'home#gallery_brewing'
 
   get 'bar_one_prenotazione' => 'home#bar_one_prenotazione'
 
