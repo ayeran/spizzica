@@ -60,7 +60,7 @@ class HomeController < ApplicationController
 
   def gallery_spizzicaluna
     @images = Dir.glob('app/assets/images/locale/one/thumbs/*.jpg')
-    render :layout => 'spizzicaluna_one'
+    render :gallery_spizzicaluna2, :layout => 'spizzicaluna_one'
   end
 
 end
