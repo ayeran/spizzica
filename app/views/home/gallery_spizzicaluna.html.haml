@@ -1,0 +1,15 @@
+= stylesheet_link_tag    "heapshot.css", :media => "all"
+= javascript_include_tag "photo_gallery/jquery.js"
+= javascript_include_tag "photo_gallery/jquery.imagesloaded.min.js"
+= javascript_include_tag "photo_gallery/jQueryRotate.min.js"
+= javascript_include_tag "photo_gallery/jquery.heapshot.js"
+.gallery
+  %p
+    Siamo sempre lieti di vedervi e il nostro locale è sempre accogliente come potete vedere dalle foto.
+  %ul.heapshot
+    - @images.each do |image|
+      - filename = File.basename(image)
+      %li
+        = image_tag "locale/one/thumbs/" + filename
+
+= javascript_include_tag "photo_gallery/init.js"

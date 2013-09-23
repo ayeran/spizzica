@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @prenotation.name
+%p
+  %b Email:
+  = @prenotation.email
+%p
+  %b Date:
+  = @prenotation.date
+%p
+  %b Phone:
+  = @prenotation.phone
+%p
+  %b Comment:
+  = @prenotation.comment
+%p
+  %b Quantity:
+  = @prenotation.quantity
+
+= link_to 'Edit', edit_prenotation_path(@prenotation)
+\|
+= link_to 'Back', prenotations_path

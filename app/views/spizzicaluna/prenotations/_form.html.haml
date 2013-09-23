@@ -1,0 +1,35 @@
+= form_for @prenotation do |f|
+  - if @prenotation.errors.any?
+    #error_explanation
+      %h2= "Assicurati che non ci siamo i seguenti errori prima di proseguire:"
+      %ul
+        - @prenotation.errors.full_messages.each do |msg|
+          %li= msg
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
+  .field
+    = f.label :name #vedi config/locales/it.yml, section "labels" for text that will be substituted in italian
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.text_field :email, :placeholder => 'qua sarà mandato il riepilogo della prenotazione'
+  .field
+    = f.label :quantity
+    = f.select :quantity, (Prenotation.person_min_num..Prenotation.person_max_num), :selected => Prenotation.default_quantity
+
+  .field
+    = f.label :date
+    = f.date_select :date, @prenotation.time_span_hash
+    = f.time_select :date
+
+  .field
+    = f.label :phone
+    = f.text_field :phone, :placeholder => "ti chiameremo a questo numero per la conferma"
+
+  .field
+    = f.label :comment
+    = f.text_area :comment, :placeholder => "inserisci qua le tue preferenze: un tavolo dentro o fuori, zona fumatori o no, ecc."
+
+  .actions
+    = f.submit 'Prenota ora'
