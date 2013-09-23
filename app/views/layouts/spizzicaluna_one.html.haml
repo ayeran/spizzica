@@ -4,7 +4,7 @@
     %title Spizzicaluna One - Paninoteca e birreria
     = favicon_link_tag '/spizzicaluna.ico'
     = stylesheet_link_tag    "application", :media => "all"
-    = stylesheet_link_tag    "skins/tn3/tn3", :media => "all"
+
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{ :name => "keywords", :content => "paninoteca a Frascati, birreria a Frascati, due fratelli simpatici, spizzicaluna, paninoteca, birreria, panini, birra, spazio aperto, Frascati, reggiseni, locale, consegna a domicilio" }
@@ -39,6 +39,7 @@
                 - [["succo di frutta"],["vino"], ["liquore"],["aperitivo"]].each do |cat|
                   %li= link_to cat.join(" & "), {:controller => "beverages", :action => "show_by_beveragecategories", :categories_to_display => cat}
             %li= link_to 'Galleria', one_photos_path
+            %li= link_to 'Galleria 2', {:controller => 'home', :action => 'gallery_spizzicaluna'}
             %li= link_to 'Consegna',  {:controller => "home", :action =>'delivery_one'}
             %li= link_to 'Prenotazioni',  new_prenotation_path
             %li= link_to 'Contatti', {:controller => "home", :action => "contacts_one"} #'contacts_one'

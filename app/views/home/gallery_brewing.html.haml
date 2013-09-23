@@ -3,8 +3,6 @@
 .gallery
   %p
     Eccoci delle foto del nostro locale:
-  - # images = Dir.glob('app/assets/images/locale/brewing/thumbs/*.jpg')
-  - images = ["app/assets/images/locale/brewing/thumbs/brewing_007.jpg", "app/assets/images/locale/brewing/thumbs/brewing_005.jpg", "app/assets/images/locale/brewing/thumbs/brewing_002.jpg", "app/assets/images/locale/brewing/thumbs/brewing_003.jpg", "app/assets/images/locale/brewing/thumbs/brewing_006.jpg", "app/assets/images/locale/brewing/thumbs/brewing_001.jpg", "app/assets/images/locale/brewing/thumbs/brewing_004.jpg"]
   .mygallery
     .tn3.album
       %h4
@@ -14,7 +12,7 @@
       .tn3.thumb
         Piccole foto
       %ol
-        - images.each do |image|
+        - @images.each do |image|
           %li
             %h4
               = File.basename(image)

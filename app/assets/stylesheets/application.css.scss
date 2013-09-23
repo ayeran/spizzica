@@ -377,10 +377,20 @@ nav ul ul ul {
     font-family: curly-letters;
     font-size: 1.2em;
   }
+  & .secondblock{
+    display: inline-block;
+    width: 40%;
+  }
+    & .firstblock{
+    display: inline-block;
+    width: 50%;
+    padding-right: 1em;
+  }
+
   & .visitcard{
     display: inline-block;
-    margin: 1em;
-    vertical-align: top;
+    margin: 0.5em;
+
     & img{
       -webkit-box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;
               box-shadow: 0.2em 0.2em 0.1em 0.1em $canvas-opaque70;

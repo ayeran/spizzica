@@ -84,6 +84,7 @@ Spizzicaluna::Application.routes.draw do
   get 'show_by_foodcategories' => "foods#show_by_foodcategories"
   get 'show_by_beveragecategories' => "beverages#show_by_beveragecategories"
 
+  get 'spizzicaluna-foto' => 'home#gallery_spizzicaluna'
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
   resources :users
