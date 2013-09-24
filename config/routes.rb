@@ -2,7 +2,7 @@ Spizzicaluna::Application.routes.draw do
 
   resources :prenotations, :path => "prenotazione"
 
-  resources :one_photos, :path => "galleria-spizzicaluna"
+  # resources :one_photos, :path => "galleria-spizzicaluna"
 
   resources :itemstatuses
 
@@ -84,7 +84,7 @@ Spizzicaluna::Application.routes.draw do
   get 'show_by_foodcategories' => "foods#show_by_foodcategories"
   get 'show_by_beveragecategories' => "beverages#show_by_beveragecategories"
 
-  get 'spizzicaluna-foto' => 'home#gallery_spizzicaluna'
+  get 'galleria-spizzicaluna' => 'home#gallery_spizzicaluna'
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
   resources :users
