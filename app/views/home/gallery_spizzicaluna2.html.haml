@@ -1,10 +1,12 @@
 .gallery
   %p
-    Siamo sempre lieti di vedervi e il nostro locale è sempre accogliente come potete vedere dalle foto.
-
+    Siamo sempre lieti di vedervi al nostro locale!
   %div
     = link_to "", "#", :id => "pd_loading", :class=> "pd_loading"
-
+  #pd_options_bar.pd_options_bar
+    = link_to "Shuffle", "#", :class => "shuffle"
+    = link_to "Back to Desk", "#", :class => "backdesk", :style => "display:none;"
+    = link_to "View all", "#", :class => "viewall"
   #pd_container.pd_container
     - @images.each do |image|
       - filename = File.basename(image)
@@ -12,10 +14,6 @@
         .pd_hold
           = image_tag "locale/one/big/" + filename
         %span.delete
-  #pd_options_bar.pd_options_bar
-    = link_to "Shuffle", "#", :class => "shuffle"
-    = link_to "Back to Desk", "#", :class => "backdesk", :style => "display:none;"
-    = link_to "View all", "#", :class => "viewall"
 
 = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
 = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"

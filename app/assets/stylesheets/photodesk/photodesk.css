@@ -25,6 +25,11 @@ a.pd_next_photo:hover,
 a.pd_loading:hover{
 	opacity:1.0;
 }
+.pd_options_bar{
+	text-transform: uppercase;
+	font-family: curly-letters;
+	float: right;
+}
 .pd_options_bar a.viewall,
 .pd_options_bar a.shuffle,
 .pd_options_bar a.backdesk
@@ -71,8 +76,8 @@ a.pd_loading:hover{
 	bottom:1em;
 	right:1em;
 	left:1em;
-	min-height: 20em;
-	width: 95%;
+	min-height: 30em;
+	width: 80%;
 
 
 }
@@ -94,8 +99,8 @@ a.pd_loading:hover{
 	border-radius:0.2em;
 }
 .pd_photo img{
-	width: 15em;
-	height:15em;
+	width: 12em;
+	/*height:15em;*/
 }
 .pd_photo span.delete{
 	position:absolute;
