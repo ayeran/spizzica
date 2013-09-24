@@ -61,7 +61,7 @@ class HomeController < ApplicationController
   def gallery_spizzicaluna
     # @images = Dir.glob('app/assets/images/locale/one/thumbs/*.jpg')
     @images = ["app/assets/images/locale/one/thumbs/spizzicaluna008.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna017.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna019.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna009.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna018.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna010.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna005.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna014.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna016.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna007.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna001.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna006.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna011.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna003.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna013.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna012.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna015.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna004.jpg", "app/assets/images/locale/one/thumbs/spizzicaluna002.jpg"] ;
-    render :gallery_spizzicaluna2, :layout => 'spizzicaluna_one'
+    render :gallery_spizzicaluna, :layout => 'spizzicaluna_one'
   end
 
 end
