@@ -10,7 +10,6 @@ $(function() {
 	 */
 	var idx,idxLarge	= -1;
 	var mouseup 		= false;
-
 	/**
 	 * for now we hardcode the values of our thumb containers
 	 */
@@ -49,7 +48,6 @@ $(function() {
 
 		var horizontalMax	= tableW - photoW;
 		var verticalMax		= tableH - photoH;
-
 		$('<img />').attr('src','images/paperball.png');
 		/**
 		* display all the photos on the desk, with a random rotation,
@@ -88,25 +86,26 @@ $(function() {
 	 * grab a photo
 	 */
 	function mouseDown($photo){
+		var enlargeSize = "10em";
 		mouseup 	= true;
 		idx			= $photo.index() + 1;
 		var maxzidx = parseInt(findHighestZIndex()) + 1;
 		$photo.css('z-index',maxzidx);
 		if(ie)
 		var param = {
-			'width'		: '+=40px',
-			'height'	: '+=40px'
+			'width'		: '+=' + enlargeSize,
+			'height'	: '+=' + enlargeSize
 		};
 		else
 		var param = {
-			'width'		: '+=40px',
-			'height'	: '+=40px',
+			'width'		: '+=' + enlargeSize,
+			'height'	: '+=' + enlargeSize,
 			'rotate'	: '0deg',
 			'shadow'	: '5px 5px 15px #222'
 		};
 		$photo.stop(true,true).animate(param,100).find('img').stop(true,true).animate({
-			'width'		: '+=40px',
-			'height'	: '+=40px'
+			'width'		: '+=' + enlargeSize,
+			'height'	: '+=' + enlargeSize
 		},100);
 	}
 
@@ -117,6 +116,7 @@ $(function() {
 	 * rotate some random degrees, and also move it some pixels
 	 */
 	$(document).bind('mouseup',function(e){
+		var enlargeSize = "10em";
 		if(mouseup){
 			mouseup 	= false;
 			var $photo 	= $container.find('.pd_photo:nth-child('+idx+')');
@@ -127,23 +127,23 @@ $(function() {
 			var newLeft	= $photoL + r;
 			if(ie)
 			var param = {
-				'width'		: '-=40px',
-				'height'	: '-=40px',
+				'width'		: '-=' + enlargeSize,
+				'height'	: '-='  + enlargeSize,
 				'top'		: newTop + 'px',
 				'left'		: newLeft + 'px'
 			};
 			else
 			var param = {
-				'width'		: '-=40px',
-				'height'	: '-=40px',
+				'width'		: '-='  + enlargeSize,
+				'height'	: '-='  + enlargeSize,
 				'top'		: newTop + 'px',
 				'left'		: newLeft + 'px',
 				'rotate'	: r+'deg',
 				'shadow'	: '0 0 5px #000'
 			};
 			$photo.stop(true,true).animate(param,200).find('img').stop(true,true).animate({
-				'width'	: '-=40px',
-				'height': '-=40px'
+				'width'	: '-='  + enlargeSize,
+				'height': '-='  + enlargeSize
 			}, 200);
 		}
 		e.preventDefault();
@@ -188,15 +188,17 @@ $(function() {
 	function stack(){
 		navPage 		= 0;
 		var cnt_photos 	= 0;
-		var windowsW 		= $(window).width();
-		var windowsH 		= $(window).height();
+		var photoContainer = $('.gallery');
+		var windowsW 		= photoContainer.width();
+		var windowsH 		= photoContainer.height();
+		console.log("windowsH = " + windowsH + "\nwindowsW = " + windowsW);
 		$container.find('.pd_photo').each(function(i){
 			var $photo 	= $(this);
 			$photo.css('z-index',parseInt(findHighestZIndex()) + 1000 + i)
 			.stop(true)
 			.animate({
-				'top'	: parseInt((windowsH-100)/2 - photoH/2) + 'px',
-				'left'	: parseInt((windowsW-100)/2 - photoW/2) + 'px'
+				'top'	: parseInt((windowsH - photoH)/3) + 'px',
+				'left'	: parseInt((windowsW - photoW)/3) + 'px'
 			},800,function(){
 				$options.find('.backdesk').show();
 				var $photo = $(this);
@@ -229,10 +231,13 @@ $(function() {
 			});
 		});
 	}
-
+// show the image when in 'one by one' mode (viewall)
 	function enlarge($photo){
-		var windowsW 		= $(window).width();
-		var windowsH 		= $(window).height();
+		// var windowsW 		= $(window).width();
+		// var windowsH 		= $(window).height();
+		var photoContainer = $('.gallery');
+		var windowsW 		= photoContainer.width();
+		var windowsH 		= photoContainer.height();
 		if(ie)
 		var param = {
 			'width'	: '+=200px',
@@ -263,8 +268,9 @@ $(function() {
 	function disperse(){
 		var windowsW 		= $(window).width();
 		var windowsH 		= $(window).height();
-
+		console.log("inside disperse() function")
 		$container.find('.pd_photo').each(function(i){
+
 			var $photo 		= $(this);
 			//if it is the current large photo:
 			if($photo.index() == idxLarge){
@@ -341,6 +347,7 @@ $(function() {
 
 		var $photo 			= $container.find('.pd_photo:nth-child('+parseInt(idxLarge+1)+')');
 		var r				= Math.floor(Math.random()*201)-100;//*41
+		console.log("r=" + r);
 		if(ie)
 		var param = {
 			'top' 		: Math.floor(Math.random()*verticalMax) +'px',
@@ -354,9 +361,10 @@ $(function() {
 			'left'		: Math.floor(Math.random()*horizontalMax) +'px',
 			'width'		: '170px',
 			'height'	: '170px',
-			'rotate'	: r+'deg',
+			'rotate'	: r + 'deg',
 			'shadow'	: '1px 1px 5px #555'
 		};
+		console.log(param);
 		$photo.stop(true).animate(param,500,function(){
 			++navPage;
 			var $photo = $(this);
