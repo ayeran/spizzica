@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     # @images = Dir.glob('app/assets/images/locale/brewing/thumbs/*.jpg')
     @images = ["app/assets/images/locale/brewing/thumbs/brewing_007.jpg", "app/assets/images/locale/brewing/thumbs/brewing_005.jpg", "app/assets/images/locale/brewing/thumbs/brewing_002.jpg", "app/assets/images/locale/brewing/thumbs/brewing_003.jpg", "app/assets/images/locale/brewing/thumbs/brewing_006.jpg", "app/assets/images/locale/brewing/thumbs/brewing_001.jpg", "app/assets/images/locale/brewing/thumbs/brewing_004.jpg"]
 
-    render :layout => 'spizzicaluna_brewing'
+    render 'gallery_brewing', :layout => 'spizzicaluna_brewing'
   end
 
 

@@ -1,24 +1,22 @@
-- javascript_include_tag 'jquery.tn3lite.min.js'
-- javascript_include_tag 'tn3_initialize.js'
 .gallery
   %p
-    Eccoci delle foto del nostro locale:
-  .mygallery
-    .tn3.album
-      %h4
-        Spizzicaluna Birreria
-      .tn3.description
-        Alcune nostre foto
-      .tn3.thumb
-        Piccole foto
-      %ol
-        - @images.each do |image|
-          %li
-            %h4
-              = File.basename(image)
-            .tn3.description
-              Brewing, Frascati
-            - filename = File.basename(image)
-            = link_to (image_tag "locale/brewing/thumbs/" + filename), image_path("locale/brewing/big/" + filename)
+    Venite a trovarci!
+  %div
+    = link_to "", "#", :id => "pd_loading", :class=> "pd_loading"
+  #pd_options_bar.pd_options_bar
+    = link_to "Mischiare", "#", :class => "shuffle"
+    = link_to "Indietro", "#", :class => "backdesk", :style => "display:none;"
+    = link_to "Una per una", "#", :class => "viewall"
+  #pd_container.pd_container
+    - @images.each do |image|
+      - filename = File.basename(image)
+      .pd_photo
+        .pd_hold
+          = image_tag "locale/brewing/big/" + filename
+        %span.delete
 
-
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+= javascript_include_tag "photodesk/jquery.transform-0.6.2.min.js"
+= javascript_include_tag "photodesk/jquery.animate-shadow-min.js"
+= javascript_include_tag "photodesk/photodesk.js"
