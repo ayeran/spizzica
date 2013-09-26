@@ -303,12 +303,14 @@ $(function() {
 			e.preventDefault();
 		}).andSelf().find('.viewall').unbind('click').bind('click',function(e){
 			var $this = $(this);
+			$('.shuffle').hide();
 			if(photosSize == 0) return;
 			stack();
 			$this.hide();
 			e.preventDefault();
 		}).andSelf().find('.backdesk').unbind('click').bind('click',function(e){
 			var $this = $(this);
+			$('.shuffle').show();
 			if(photosSize == 0) return;
 			disperse();
 			$this.hide();
