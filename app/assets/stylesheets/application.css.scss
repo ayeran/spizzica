@@ -513,3 +513,24 @@ nav ul ul ul {
   text-transform: uppercase;
   font-family: curly-letters;
 }
+
+.news{
+  font-size: 1.2em;
+  width: 90%;
+  margin: 0.5em;
+  & img{
+    max-width: 125px;
+    width: 3em;
+    float: left;
+    margin-right: 1em;
+    -webkit-transform: rotate(-20deg);
+       -moz-transform: rotate(-20deg);
+        -ms-transform: rotate(-20deg);
+         -o-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+  & .text{
+
+    margin-left: 0.5em;
+  }
+}
